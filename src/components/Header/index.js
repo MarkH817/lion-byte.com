@@ -23,7 +23,7 @@ const Header = () => (
             textDecoration: 'none'
           }}
         >
-          Gatsby
+          Mark Hernandez
         </Link>
       </h1>
     </div>
