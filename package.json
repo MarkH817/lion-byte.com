@@ -1,8 +1,8 @@
 {
-  "name": "gatsby-starter-default",
-  "description": "Gatsby default starter",
+  "name": "portfolio-mark-hernandez",
+  "description": "Mark Hernandez's portfolio site",
   "version": "1.0.0",
-  "author": "Kyle Mathews <mathews.kyle@gmail.com>",
+  "author": "Mark Hernandez <markedcode@gmail.com>",
   "dependencies": {
     "gatsby": "^1.9.158",
     "gatsby-link": "^1.6.34",
@@ -17,10 +17,12 @@
   "scripts": {
     "build": "gatsby build",
     "develop": "gatsby develop",
+    "deploy": "npm run build && gh-pages -b master -d ./public",
     "format": "prettier --no-semi --single-quote --write \"src/**/*.js\" && standard --fix",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "devDependencies": {
+    "gh-pages": "^1.1.0",
     "prettier": "^1.10.2",
     "standard": "^10.0.3"
   }
