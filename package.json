@@ -8,6 +8,7 @@
     "gatsby-link": "^1.6.34",
     "gatsby-plugin-less": "^1.0.9",
     "gatsby-plugin-react-helmet": "^2.0.3",
+    "normalize.css": "^7.0.0",
     "react-helmet": "^5.2.0"
   },
   "keywords": [
@@ -17,7 +18,7 @@
   "main": "n/a",
   "scripts": {
     "build": "gatsby build",
-    "develop": "gatsby develop",
+    "dev": "gatsby develop",
     "deploy": "npm run build && gh-pages -b master -d ./public",
     "format": "prettier --no-semi --single-quote --write \"src/**/*.js\" && standard --fix",
     "test": "echo \"Error: no test specified\" && exit 1"
