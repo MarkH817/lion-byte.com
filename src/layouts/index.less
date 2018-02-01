@@ -1,7 +1,68 @@
 @import "~normalize.css";
 
+@color-1: #3f033d;
+@color-2: #f46e00;
+@color-3: #992d18;
+@color-4: #e1eaf2;
+@color-5: #d3061e;
+
+@button-border: rgba(51, 51, 51, 0.37);
+@button-primary: lighten(@color-1, 15%);
+
+@focus-color: rgb(211, 5, 91);
+
+@link-color: darken(@color-2, 10%);
+@active-link-color: @color-2;
+
+@text-color: darken(@color-5, 25%);
+
+@font-face {
+  font-family: 'Cabin';
+  src: url('./cabin-600.ttf')
+}
+
+:root {
+  font-family: 'Cabin', Verdana, Geneva, Tahoma, sans-serif;
+  color: @text-color;
+}
+
+a {
+  color: @link-color;
+
+  &:active,
+  &:focus,
+  &:hover {
+    color: @active-link-color;
+  }
+}
+
+button,
+.button {
+  border: .125em solid @button-border;
+  border-radius: .5em;
+  letter-spacing: .1em;
+  padding: .35em 1em;
+  text-decoration: none;
+
+  &:active,
+  &:focus, 
+  &:hover {
+    text-decoration: underline;
+  }
+
+  &:focus {
+    outline: .1rem solid @focus-color;
+  }
+  
+
+  &.primary {
+    color: white;
+    background-color: @button-primary;
+  }
+}
+
 header {
-  background-color: #2145fa;
+  background-color: @color-1;
   margin-bottom: 1.45rem;
 
   & > div {
@@ -14,7 +75,7 @@ header {
     }
 
     a {
-      color: white;
+      color: white !important;
       text-decoration: none;
     }
   }

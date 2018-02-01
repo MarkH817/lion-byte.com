@@ -8,7 +8,7 @@ import './index.less'
 const TemplateWrapper = ({ children }) => (
   <div>
     <Helmet
-      title='Gatsby Default Starter'
+      title='Mark Hernandez'
       meta={[
         { name: 'description', content: `Mark Hernandez's Portfolio` },
         {
@@ -18,9 +18,7 @@ const TemplateWrapper = ({ children }) => (
       ]}
     />
     <Header />
-    <div className='page-wrapper'>
-      {children()}
-    </div>
+    <div className='page-wrapper'>{children()}</div>
   </div>
 )
 
