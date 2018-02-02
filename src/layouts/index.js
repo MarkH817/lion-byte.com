@@ -20,7 +20,7 @@ const TemplateWrapper = ({ children }) => (
     />
     <Header />
     <Navigation />
-    <div className='page-wrapper'>{children()}</div>
+    <main className='page-wrapper'>{children()}</main>
   </div>
 )
 

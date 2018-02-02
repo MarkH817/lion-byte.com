@@ -5,6 +5,7 @@
 @color-3: #992d18;
 @color-4: #e1eaf2;
 @color-5: #d3061e;
+@color-6: #209bb0;
 
 @button-border: rgba(51, 51, 51, 0.37);
 @button-default: #232323;
@@ -71,6 +72,23 @@ button,
   &.primary {
     color: white;
     background-color: @button-primary;
+  }
+}
+
+.label {
+  border-radius: 0.5em;
+  display: inline-block;
+  font-size: 75%;
+  padding: 0.25em 0.75em;
+
+  &.default {
+    background-color: @text-color;
+    color: white;
+  }
+
+  &.info {
+    background-color: @color-6;
+    color: white;
   }
 }
 
