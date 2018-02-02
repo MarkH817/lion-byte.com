@@ -7,14 +7,15 @@
 @color-5: #d3061e;
 
 @button-border: rgba(51, 51, 51, 0.37);
+@button-default: #232323;
 @button-primary: lighten(@color-1, 15%);
 
 @focus-color: rgb(211, 5, 91);
 
-@link-color: darken(@color-2, 10%);
-@active-link-color: @color-2;
+@link-color: rgb(211, 5, 91);
+@active-link-color: lighten(@link-color, 15%);
 
-@text-color: darken(@color-5, 25%);
+@text-color: darken(@color-5, 30%);
 
 @font-face {
   font-family: 'Cabin';
@@ -24,6 +25,14 @@
 :root {
   font-family: 'Cabin', Verdana, Geneva, Tahoma, sans-serif;
   color: @text-color;
+}
+
+* {
+  box-sizing: border-box;
+
+  &:focus {
+    outline: .1rem solid @focus-color;    
+  }
 }
 
 a {
@@ -40,7 +49,7 @@ button,
 .button {
   border: .125em solid @button-border;
   border-radius: .5em;
-  letter-spacing: .1em;
+  display: inline-block;
   padding: .35em 1em;
   text-decoration: none;
 
@@ -53,7 +62,11 @@ button,
   &:focus {
     outline: .1rem solid @focus-color;
   }
-  
+
+  &.default {
+    color: @button-default;
+    background-color: #fefefe;
+  }
 
   &.primary {
     color: white;
@@ -62,9 +75,8 @@ button,
 }
 
 header {
-  background-color: @color-1;
-  margin-bottom: 1.45rem;
-
+  background-color: lighten(@color-1, 10%);
+  
   & > div {
     margin: 0 auto;
     max-width: 960px;
@@ -77,6 +89,34 @@ header {
     a {
       color: white !important;
       text-decoration: none;
+    }
+  }
+}
+
+nav {
+  background-color: @color-1;
+
+  & > div {
+    padding: .15rem 1.0875rem;
+    max-width: 960px;
+    margin: 0 auto 1.45rem auto;
+  }
+
+  a {
+    .button();
+    background-color: inherit;
+    border-color: transparent;
+    color: white !important;
+    padding: .65em 1em;
+    text-decoration: none;
+
+    &:active {
+      border-color: white;
+      text-decoration: underline;
+    }
+
+    &:focus {
+      outline: none;
     }
   }
 }

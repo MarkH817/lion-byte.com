@@ -3,6 +3,7 @@ import PropTypes from 'prop-types'
 import Helmet from 'react-helmet'
 
 import Header from '../components/Header'
+import Navigation from '../components/Navigation/index'
 import './index.less'
 
 const TemplateWrapper = ({ children }) => (
@@ -18,6 +19,7 @@ const TemplateWrapper = ({ children }) => (
       ]}
     />
     <Header />
+    <Navigation />
     <div className='page-wrapper'>{children()}</div>
   </div>
 )
