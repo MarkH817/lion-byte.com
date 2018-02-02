@@ -1,4 +1,4 @@
-@import "~normalize.css";
+@import '~normalize.css';
 
 @color-1: #3f033d;
 @color-2: #f46e00;
@@ -19,7 +19,7 @@
 
 @font-face {
   font-family: 'Cabin';
-  src: url('./cabin-600.ttf')
+  src: url('./cabin-600.ttf');
 }
 
 :root {
@@ -31,7 +31,7 @@
   box-sizing: border-box;
 
   &:focus {
-    outline: .1rem solid @focus-color;    
+    outline: 0.1rem solid @focus-color;
   }
 }
 
@@ -47,20 +47,20 @@ a {
 
 button,
 .button {
-  border: .125em solid @button-border;
-  border-radius: .5em;
+  border: 0.125em solid @button-border;
+  border-radius: 0.5em;
   display: inline-block;
-  padding: .35em 1em;
+  padding: 0.35em 1em;
   text-decoration: none;
 
   &:active,
-  &:focus, 
+  &:focus,
   &:hover {
     text-decoration: underline;
   }
 
   &:focus {
-    outline: .1rem solid @focus-color;
+    outline: 0.1rem solid @focus-color;
   }
 
   &.default {
@@ -76,7 +76,7 @@ button,
 
 header {
   background-color: lighten(@color-1, 10%);
-  
+
   & > div {
     margin: 0 auto;
     max-width: 960px;
@@ -97,7 +97,7 @@ nav {
   background-color: @color-1;
 
   & > div {
-    padding: .15rem 1.0875rem;
+    padding: 0.15rem 1.0875rem;
     max-width: 960px;
     margin: 0 auto 1.45rem auto;
   }
@@ -107,7 +107,7 @@ nav {
     background-color: inherit;
     border-color: transparent;
     color: white !important;
-    padding: .65em 1em;
+    padding: 0.65em 1em;
     text-decoration: none;
 
     &:active {

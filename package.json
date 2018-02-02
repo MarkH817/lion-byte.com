@@ -21,6 +21,7 @@
     "dev": "gatsby develop",
     "deploy": "npm run build && gh-pages -b master -d ./public",
     "format": "prettier --no-semi --single-quote --write \"src/**/*.js\" && standard --fix",
+    "format:less": "prettier --single-quote --write \"src/**/*.less\"",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "devDependencies": {
