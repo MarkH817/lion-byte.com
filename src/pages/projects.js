@@ -3,11 +3,9 @@ import Helmet from 'react-helmet'
 
 import './projects.less'
 
-const Project = ({title, description, githubUrl, demoUrl, languages}) => (
+const Project = ({ title, description, githubUrl, demoUrl, languages }) => (
   <article className='project'>
-    <h3>
-      {title}
-    </h3>
+    <h3>{title}</h3>
 
     <p>
       {githubUrl && (
@@ -28,9 +26,12 @@ const Project = ({title, description, githubUrl, demoUrl, languages}) => (
     <p>{description}</p>
 
     <p>
-      {languages && languages.map((lang, idx) => (
-        <span className='label info' key={idx}>{lang}</span>
-      ))}
+      {languages &&
+        languages.map((lang, idx) => (
+          <span className='label info' key={idx}>
+            {lang}
+          </span>
+        ))}
     </p>
   </article>
 )
