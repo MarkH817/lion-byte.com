@@ -6,10 +6,13 @@
   "dependencies": {
     "gatsby": "^1.9.158",
     "gatsby-link": "^1.6.34",
+    "gatsby-plugin-catch-links": "^1.0.15",
     "gatsby-plugin-less": "^1.0.9",
     "gatsby-plugin-netlify": "^1.0.17",
     "gatsby-plugin-offline": "^1.0.13",
     "gatsby-plugin-react-helmet": "^2.0.3",
+    "gatsby-source-filesystem": "^1.5.18",
+    "gatsby-transformer-remark": "^1.7.30",
     "normalize.css": "^7.0.0",
     "react-helmet": "^5.2.0"
   },
@@ -25,6 +28,11 @@
     "format": "prettier --no-semi --single-quote --write \"src/**/*.js\" && standard --fix",
     "format:less": "prettier --single-quote --write \"src/**/*.less\"",
     "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "standard": {
+    "globals": [
+      "graphql"
+    ]
   },
   "devDependencies": {
     "gh-pages": "^1.1.0",
