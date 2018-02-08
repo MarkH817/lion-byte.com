@@ -1,7 +1,7 @@
 import React from 'react'
 import Helmet from 'react-helmet'
 
-const About = () => {
+const AboutPage = () => {
   return (
     <section>
       <Helmet title='About | Mark Hernandez' />
@@ -19,4 +19,4 @@ const About = () => {
   )
 }
 
-export default About
+export default AboutPage
