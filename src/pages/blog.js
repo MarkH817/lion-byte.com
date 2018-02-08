@@ -2,6 +2,8 @@ import React from 'react'
 import Helmet from 'react-helmet'
 import Link from 'gatsby-link'
 
+import './blog.less'
+
 const BlogPage = ({ data }) => {
   const { edges: posts } = data.allMarkdownRemark
 
@@ -12,7 +14,7 @@ const BlogPage = ({ data }) => {
       {posts
         .filter(post => post.node.frontmatter.title.length > 0)
         .map(({ node: post }) => (
-          <article key={post.id}>
+          <article className='blog-post-preview' key={post.id}>
             <h1>
               <Link to={post.frontmatter.path}>{post.frontmatter.title}</Link>
             </h1>
@@ -21,7 +23,7 @@ const BlogPage = ({ data }) => {
               <time>{post.frontmatter.date}</time>
             </h2>
 
-            <p>{post.excerpt}</p>
+            <p className='excerpt'>{post.excerpt}</p>
           </article>
         ))}
     </section>

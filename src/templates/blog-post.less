@@ -1,0 +1,24 @@
+article.blog-post {
+  & > h1,
+  & > h2 {
+  }
+
+  & > h1 {
+    font-size: 2.5em;
+    margin-bottom: 0;
+  }
+
+  & > h2 {
+    font-size: 1.15em;
+  }
+
+  .content {
+    border-top: 0.1em solid palevioletred;
+    border-bottom: 0.1em solid palevioletred;
+    line-height: 1.5;
+
+    p {
+      max-width: calc(0.65 * 960px);
+    }
+  }
+}

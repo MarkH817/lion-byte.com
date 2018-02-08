@@ -17,7 +17,9 @@ const TemplateWrapper = ({ children }) => (
           content: 'portfolio, web development, javascript, nodejs'
         }
       ]}
-    />
+    >
+      <html lang='en' />
+    </Helmet>
     <Header />
     <Navigation />
     <main className='page-wrapper'>{children()}</main>
