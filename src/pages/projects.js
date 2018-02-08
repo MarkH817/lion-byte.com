@@ -1,8 +1,6 @@
 import React from 'react'
 import Helmet from 'react-helmet'
 
-import './projects.less'
-
 const Project = ({
   title,
   description,
@@ -11,7 +9,15 @@ const Project = ({
   languages,
   libraries
 }) => (
-  <article className='project'>
+  <article
+    className='project'
+    style={{
+      border: '0.15em solid #c911b0',
+      borderRadius: '0.5em',
+      margin: '1em auto 1.5em auto',
+      padding: '0 1em'
+    }}
+  >
     <h3>{title}</h3>
 
     <p>
