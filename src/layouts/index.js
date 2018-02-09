@@ -1,6 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import Helmet from 'react-helmet'
+import 'prismjs/themes/prism-okaidia.css'
 
 import Header from '../components/Header'
 import Navigation from '../components/Navigation/index'
@@ -11,7 +12,7 @@ const TemplateWrapper = ({ children }) => (
     <Helmet
       title='Mark Hernandez'
       meta={[
-        { name: 'description', content: `Mark Hernandez's Portfolio` },
+        { name: 'description', content: `A blog for NodeJS, web development, and stuff` },
         {
           name: 'keywords',
           content: 'portfolio, web development, javascript, nodejs'

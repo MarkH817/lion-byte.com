@@ -1,7 +1,7 @@
 ---
 date: 2018-02-08
-title: Second Post
 path: /blog/second-post
+title: Second Post
 ---
 
 # Hello, again!
