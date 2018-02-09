@@ -15,13 +15,13 @@ const BlogPage = ({ data }) => {
         .filter(post => post.node.frontmatter.title.length > 0)
         .map(({ node: post }) => (
           <article className='blog-post-preview' key={post.id}>
-            <h1>
-              <Link to={post.frontmatter.path}>{post.frontmatter.title}</Link>
-            </h1>
-
             <h2>
-              <time>{post.frontmatter.date}</time>
+              <Link to={post.frontmatter.path}>{post.frontmatter.title}</Link>
             </h2>
+
+            <h3>
+              <time>{post.frontmatter.date}</time>
+            </h3>
 
             <p className='excerpt'>{post.excerpt}</p>
           </article>
