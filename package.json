@@ -2,7 +2,11 @@
   "name": "portfolio-mark-hernandez",
   "description": "Mark Hernandez's portfolio site",
   "version": "1.0.0",
-  "author": "Mark Hernandez <markedcode@gmail.com>",
+  "author": {
+    "name": "Mark Hernandez",
+    "email": "markedcode@gmail.com",
+    "url": "https://www.lion-byte.com"
+  },
   "dependencies": {
     "gatsby": "^1.9.158",
     "gatsby-link": "^1.6.34",
