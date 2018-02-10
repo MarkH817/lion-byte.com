@@ -18,7 +18,17 @@ module.exports = {
       resolve: 'gatsby-plugin-favicon',
       options: {
         injectHTML: true,
-        icons: {},
+        icons: {
+          android: false,
+          appleIcon: false,
+          appleStartup: true,
+          coast: true,
+          favicons: true,
+          firefox: true,
+          twitter: true,
+          yandex: false,
+          windows: false
+        },
         logo: path.resolve(__dirname, './src/icons/favicon.png')
       }
     },
