@@ -13,7 +13,9 @@ module.exports = {
     'gatsby-plugin-offline',
     'gatsby-plugin-react-helmet',
     'gatsby-plugin-react-next',
+    'gatsby-plugin-sharp',
     'gatsby-plugin-sitemap',
+    'gatsby-transformer-sharp',
     {
       resolve: 'gatsby-plugin-favicon',
       options: {
@@ -83,7 +85,15 @@ module.exports = {
       resolve: 'gatsby-transformer-remark',
       options: {
         plugins: [
-          'gatsby-remark-prismjs'
+          'gatsby-remark-prismjs',
+          'gatsby-remark-responsive-iframe',
+          {
+            resolve: 'gatsby-remark-images',
+            options: {
+              maxWidth: 624
+            }
+          },
+          'gatsby-remark-copy-linked-files'
         ]
       }
     },
