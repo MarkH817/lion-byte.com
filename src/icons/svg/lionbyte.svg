@@ -17,9 +17,10 @@
    id="svg8"
    inkscape:version="0.92.1 r15371"
    sodipodi:docname="lionbyte.svg"
-   inkscape:export-filename="C:\Users\mh817\Desktop\lionbyte.png"
+   inkscape:export-filename="C:\Users\mh817\Desktop\lionbyte-abstract-5.png"
    inkscape:export-xdpi="96"
-   inkscape:export-ydpi="96">
+   inkscape:export-ydpi="96"
+   enable-background="new">
   <defs
      id="defs2">
     <inkscape:perspective
@@ -37,6 +38,33 @@
          offset="0"
          id="stop4487" />
     </linearGradient>
+    <filter
+       inkscape:collect="always"
+       style="color-interpolation-filters:sRGB"
+       id="filter4544">
+      <feBlend
+         inkscape:collect="always"
+         mode="multiply"
+         in2="BackgroundImage"
+         id="feBlend4546" />
+    </filter>
+    <clipPath
+       clipPathUnits="userSpaceOnUse"
+       id="clipPath4611">
+      <g
+         style="display:inline"
+         id="g4615"
+         transform="matrix(1.1481503,0,0,1.1481503,-47.083726,216.53083)"
+         inkscape:export-xdpi="96"
+         inkscape:export-ydpi="96">
+        <path
+           style="opacity:1;fill:#ffd700;fill-opacity:1;stroke:#ff6347;stroke-width:5.74075127;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+           d="M 450.92773,2.8789062 C 377.03097,3.8600595 247.99266,83.169992 231.73047,143.86133 c -17.21662,64.2533 64.59608,209.75637 130.4082,237.30469 -22.0237,85.52123 -33.10354,195.76573 -33.24023,306.16992 -57.60906,12.15357 -103.95128,28.51079 -131.17774,49.08398 -56.02878,42.33718 -88.46289,145.79347 -97.30468,258.89453 a 241.23983,147.81575 0 0 0 -26.064458,66.80275 241.23983,147.81575 0 0 0 26.496098,67.0176 c 9.43111,111.0186 41.72228,211.9102 96.87304,253.584 9.17578,6.9335 20.72575,13.2075 34.28907,18.8671 9.42527,26.2449 22.45682,46.9932 39.10546,58.0059 76.74461,50.7649 465.92143,50.7649 542.66602,0 9.72891,-6.4355 18.22213,-16.1977 25.48437,-28.4336 102.89403,-11.2791 184.81678,-28.5743 213.76368,-48.4394 101.8293,-69.8816 331.0745,-232.1998 304.7969,-342.875 C 1287.2624,843.65721 1346.545,582.34266 1288.375,382.93945 1354.906,360.59337 1441.0752,209.6419 1423.4492,143.86133 1407.1871,83.169992 1278.1507,3.8600595 1204.2539,2.8789062 1196.6094,2.7773628 1189.5558,3.516938 1183.2773,5.1992188 1135.7894,17.923574 1076.9143,99.685952 1053.0703,170.06055 983.74723,154.1433 902.50872,146.18164 821.26562,146.18164 c -76.69215,0 -153.3817,7.09341 -220.04687,21.27734 C 576.82332,97.685413 518.80785,17.767006 471.9043,5.1992188 465.62587,3.516938 458.57222,2.7774061 450.92773,2.8789062 Z"
+           transform="matrix(0.23044312,0,0,0.23044312,41.008331,-188.59101)"
+           id="path4613"
+           inkscape:connector-curvature="0" />
+      </g>
+    </clipPath>
   </defs>
   <sodipodi:namedview
      id="base"
@@ -45,17 +73,17 @@
      borderopacity="1.0"
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
-     inkscape:zoom="0.35355339"
-     inkscape:cx="459.22837"
-     inkscape:cy="681.25532"
-     inkscape:document-units="mm"
+     inkscape:zoom="0.64"
+     inkscape:cx="-39.149147"
+     inkscape:cy="404.89586"
+     inkscape:document-units="px"
      inkscape:current-layer="layer1"
      showgrid="false"
-     inkscape:window-width="1449"
-     inkscape:window-height="874"
-     inkscape:window-x="182"
-     inkscape:window-y="81"
-     inkscape:window-maximized="0"
+     inkscape:window-width="1920"
+     inkscape:window-height="1027"
+     inkscape:window-x="-8"
+     inkscape:window-y="-8"
+     inkscape:window-maximized="1"
      units="px"
      fit-margin-top="0"
      fit-margin-left="0"
@@ -73,7 +101,7 @@
         <dc:format>image/svg+xml</dc:format>
         <dc:type
            rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-        <dc:title />
+        <dc:title></dc:title>
       </cc:Work>
     </rdf:RDF>
   </metadata>
@@ -81,10 +109,13 @@
      inkscape:label="Layer 1"
      inkscape:groupmode="layer"
      id="layer1"
-     transform="translate(-29.482143,211.75595)">
+     transform="translate(-29.482143,211.75595)"
+     style="display:inline">
     <g
        id="g6323"
-       transform="matrix(1.1481503,0,0,1.1481503,-17.601584,4.774875)">
+       transform="matrix(1.1481503,0,0,1.1481503,-17.601584,4.774875)"
+       inkscape:export-xdpi="96"
+       inkscape:export-ydpi="96">
       <path
          id="path4630-3"
          d="m 144.92161,-187.92743 c -17.029,0.2261 -46.76517,18.50255 -50.512681,32.48845 -3.967451,14.80673 14.885961,48.33672 30.051911,54.68504 -5.07521,19.70778 -7.6285,45.112981 -7.66,70.554865 -13.27561,2.800707 -23.955011,6.569987 -30.22916,11.310937 -30.661534,23.1688558 -30.661535,125.766238 0,148.935088 30.66154,23.16888 175.84442,14.58696 197.10011,0 23.46587,-16.1037 76.29359,-53.508908 70.23809,-79.01326 -16.26094,-45.209827 -2.59932,-105.427776 -16.00419,-151.37887 15.33162,-5.1495 35.18855,-39.93512 31.12677,-55.0938 -3.7475,-13.9859 -33.48315,-32.26235 -50.51216,-32.48845 -1.76162,-0.0234 -3.38698,0.14666 -4.8338,0.53433 -10.94328,2.93224 -24.51072,21.77414 -30.00541,37.99148 -15.97503,-3.66802 -34.69601,-5.50302 -53.41792,-5.50302 -17.67318,0 -35.34549,1.63499 -50.70802,4.90358 -5.62176,-16.07884 -18.99113,-34.49588 -29.79973,-37.39204 -1.44682,-0.38767 -3.07219,-0.55772 -4.83381,-0.53433 z"
@@ -166,5 +197,22 @@
          d="m 257.50121,-121.62791 c -8.6145,-2.66649 -18.5362,-2.88267 -24.85018,0.87305 -2.63921,1.56987 -5.56191,4.38021 -8.51462,7.94966 15.78966,-5.73396 40.91692,-5.74175 48.6893,0.99731 -2.84046,-4.2625 -8.69355,-7.76755 -15.32449,-9.82004 z"
          style="opacity:1;fill:#ff0000;fill-opacity:1;stroke:#b22222;stroke-width:0.62283158;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;paint-order:normal" />
     </g>
+  </g>
+  <g
+     inkscape:groupmode="layer"
+     id="layer2"
+     inkscape:label="Layer 2"
+     style="display:inline;opacity:0.46200005;filter:url(#filter4544)"
+     sodipodi:insensitive="true">
+    <rect
+       style="opacity:1;fill:#fecd6c;fill-opacity:1;stroke:none;stroke-width:0.66145867;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;paint-order:normal"
+       id="rect4498"
+       width="396.875"
+       height="396.875"
+       x="0"
+       y="-5.6843419e-014"
+       clip-path="url(#clipPath4611)"
+       inkscape:export-xdpi="96"
+       inkscape:export-ydpi="96" />
   </g>
 </svg>
