@@ -15,6 +15,10 @@ const TemplateWrapper = ({ children }) => (
         {
           name: 'keywords',
           content: 'portfolio, web development, javascript, nodejs'
+        },
+        {
+          name: 'google-site-verification',
+          content: 'T2CmkDTMt0s2SVUBOfhDO7yuBOD-lJ2ZnJOO1YO5_LY'
         }
       ]}
     >
