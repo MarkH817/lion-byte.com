@@ -4,10 +4,10 @@ import Helmet from 'react-helmet'
 
 import Header from '../components/Header'
 import Navigation from '../components/Navigation/index'
-import './index.less'
+import '../styles/index.less'
 
 const TemplateWrapper = ({ children }) => (
-  <div>
+  <div className='page-wrapper'>
     <Helmet
       title='Mark Hernandez'
       meta={[
@@ -25,8 +25,7 @@ const TemplateWrapper = ({ children }) => (
       <html lang='en' />
     </Helmet>
     <Header />
-    <Navigation />
-    <main className='page-wrapper'>{children()}</main>
+    <main className='main-wrapper'>{children()}</main>
   </div>
 )
 

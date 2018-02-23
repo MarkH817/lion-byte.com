@@ -1,0 +1,91 @@
+@import './colors';
+
+header {
+  background-color: lighten(@color-1, 10%);
+
+  & > div {
+    margin: 0 auto;
+    max-width: 960px;
+    padding: 1.45rem 1.0875rem;
+
+    h1 {
+      margin: 0;
+    }
+
+    a {
+      color: white !important;
+      text-decoration: none;
+    }
+  }
+}
+
+nav {
+  background-color: @color-1;
+
+  & > div {
+    padding: 0.15rem 1.0875rem;
+    max-width: 960px;
+    margin: 0 auto 1.45rem auto;
+  }
+
+  a {
+    .button();
+    background-color: inherit;
+    border-color: transparent;
+    color: white !important;
+    padding: 0.65em 1em;
+    text-decoration: none;
+
+    &:active {
+      border-color: white;
+      text-decoration: underline;
+    }
+
+    &:focus {
+      outline: none;
+    }
+  }
+}
+
+.main-wrapper {
+  margin: 0 auto;
+  max-width: 960px;
+  padding: 0 1.0875rem 1.45rem 1.0875rem;
+}
+
+
+@supports (display: grid) {
+  .page-wrapper {
+    display: grid;
+    grid-gap: 1em;
+    grid-template-columns: repeat(16, 1fr);
+
+    & > * {
+      height: auto;
+      margin: 0;
+      max-width: initial;
+      width: auto;
+    }
+
+    header {
+      grid-column: ~'1 / 6';
+
+      & > div {
+        margin: 0;
+        max-width: initial;
+      }
+    }
+
+    nav {
+      & > div {
+        margin: 0;
+        max-width: initial;
+      }
+    }
+
+    .main-wrapper {
+      grid-column: ~'7 / -2';
+      min-height: 100vh;
+    }
+  }
+}

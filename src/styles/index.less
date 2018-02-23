@@ -1,0 +1,88 @@
+@import '~normalize.css';
+@import '~prismjs/themes/prism-okaidia.css';
+
+@import './colors';
+@import './structure';
+
+@font-face {
+  font-family: 'Cabin';
+  src: url('../fonts/cabin-600.ttf');
+}
+
+:root {
+  font-family: 'Cabin', Verdana, Geneva, Tahoma, sans-serif;
+  color: @text-color;
+}
+
+* {
+  box-sizing: border-box;
+
+  &:focus {
+    outline: 0.1rem solid @focus-color;
+  }
+}
+
+a {
+  color: @link-color;
+
+  &:active,
+  &:focus,
+  &:hover {
+    color: @active-link-color;
+  }
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-weight: 700;
+}
+
+button,
+.button {
+  border: 0.125em solid @button-border;
+  border-radius: 0.5em;
+  display: inline-block;
+  padding: 0.35em 1em;
+  text-decoration: none;
+
+  &:active,
+  &:focus,
+  &:hover {
+    text-decoration: underline;
+  }
+
+  &:focus {
+    outline: 0.1rem solid @focus-color;
+  }
+
+  &.default {
+    color: @button-default;
+    background-color: #fefefe;
+  }
+
+  &.primary {
+    color: white;
+    background-color: @button-primary;
+  }
+}
+
+.label {
+  border-radius: 0.5em;
+  display: inline-block;
+  font-size: 75%;
+  padding: 0.25em 0.75em;
+
+  &.default {
+    background-color: @text-color;
+    color: white;
+  }
+
+  &.info {
+    background-color: @color-6;
+    color: white;
+  }
+}
