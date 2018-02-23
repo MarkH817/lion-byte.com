@@ -19,9 +19,9 @@ const BlogPage = ({ data }) => {
               <Link to={post.frontmatter.path}>{post.frontmatter.title}</Link>
             </h2>
 
-            <h3>
+            <p>
               <time>{post.frontmatter.date}</time>
-            </h3>
+            </p>
 
             <p className='excerpt'>{post.excerpt}</p>
           </article>

@@ -1,3 +1,5 @@
+@import '../styles/colors';
+
 article {
   &.blog-post-preview {
     max-width: calc(0.7 * 960px);
@@ -13,9 +15,18 @@ article {
     }
 
     .excerpt {
+      color: @light-text-color;
       font-size: 0.9em;
       line-height: 1.5;
       margin-bottom: 2.5em;
+    }
+  }
+}
+
+@supports (display: grid) {
+  article {
+    &.blog-post-preview {
+      max-width: initial;
     }
   }
 }

@@ -13,9 +13,9 @@ const Template = ({ data }) => {
       <article className='blog-post'>
         <h1>{post.frontmatter.title}</h1>
 
-        <h2>
+        <p>
           <time>{post.frontmatter.date}</time>
-        </h2>
+        </p>
 
         <section
           className='content'
@@ -33,7 +33,7 @@ export const query = graphql`
     markdownRemark(frontmatter: { path: { eq: $path } }) {
       html
       frontmatter {
-        date(formatString: "MMM DD, YYYY")
+        date(formatString: "MMMM DD, YYYY")
         path
         title
       }

@@ -1,6 +1,8 @@
 import React from 'react'
 import Link from 'gatsby-link'
 
+import Navigation from '../Navigation'
+
 const Header = () => (
   <header>
     <div>
@@ -8,6 +10,8 @@ const Header = () => (
         <Link to='/'>Mark Hernandez</Link>
       </h1>
     </div>
+
+    <Navigation />
   </header>
 )
 
