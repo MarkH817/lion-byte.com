@@ -2,6 +2,7 @@
 
 header {
   background-color: lighten(@color-1, 10%);
+  box-shadow: 0 0 0.5em 0.25em gray;
 
   & > div {
     margin: 0 auto;
@@ -17,33 +18,37 @@ header {
       text-decoration: none;
     }
   }
-}
 
-nav {
-  background-color: @color-1;
+  nav {
+    background-color: @color-1;
 
-  & > div {
-    padding: 0.15rem 1.0875rem;
-    max-width: 960px;
-    margin: 0 auto 1.45rem auto;
+    & > div {
+      padding: 0.15rem 1.0875rem;
+      max-width: 960px;
+      margin: 0 auto 1.45rem auto;
+    }
+
+    a {
+      .button();
+      background-color: inherit;
+      border-color: transparent;
+      color: white !important;
+      padding: 0.65em 1em;
+      text-decoration: none;
+
+      &:active {
+        border-color: white;
+        text-decoration: underline;
+      }
+
+      &:focus {
+        outline: none;
+      }
+    }
   }
 
-  a {
-    .button();
-    background-color: inherit;
-    border-color: transparent;
-    color: white !important;
-    padding: 0.65em 1em;
-    text-decoration: none;
-
-    &:active {
-      border-color: white;
-      text-decoration: underline;
-    }
-
-    &:focus {
-      outline: none;
-    }
+  .profile-wrapper {
+    display: none;
   }
 }
 
@@ -58,7 +63,7 @@ nav {
   .page-wrapper {
     display: grid;
     grid-gap: 1em;
-    grid-template-columns: repeat(16, 1fr);
+    grid-template-columns: 300px repeat(12, 1fr);
 
     & > * {
       height: auto;
@@ -68,23 +73,25 @@ nav {
     }
 
     header {
-      grid-column: ~'1 / 6';
-
       & > div {
         margin: 0;
         max-width: initial;
       }
-    }
 
-    nav {
-      & > div {
-        margin: 0;
-        max-width: initial;
+      nav {
+        & > div {
+          margin: 0;
+          max-width: initial;
+        }
+      }
+
+      .profile-wrapper {
+        display: block;
       }
     }
 
     .main-wrapper {
-      grid-column: ~'7 / -2';
+      grid-column: ~'3 / -2';
       min-height: 100vh;
     }
   }

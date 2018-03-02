@@ -1,7 +1,8 @@
 import React from 'react'
 import Link from 'gatsby-link'
+import Image from 'gatsby-image'
 
-const Header = () => (
+const Header = ({ profile }) => (
   <header>
     <div>
       <h1>
@@ -15,6 +16,15 @@ const Header = () => (
         <Link to='/about'>About</Link>
       </div>
     </nav>
+
+    <Image
+      alt='Profile'
+      outerWrapperClassName='profile-wrapper'
+      className='profile'
+      fadeIn
+      resolutions={profile.resolutions}
+      sizes={profile.sizes}
+    />
   </header>
 )
 
