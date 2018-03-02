@@ -15,6 +15,7 @@ module.exports = {
     'gatsby-plugin-react-next',
     'gatsby-plugin-sharp',
     'gatsby-plugin-sitemap',
+    'gatsby-transformer-json',
     'gatsby-transformer-sharp',
     {
       resolve: 'gatsby-plugin-favicon',
@@ -54,6 +55,7 @@ module.exports = {
                 allMarkdownRemark(
                   limit: 1000,
                   sort: { order: DESC, fields: [ frontmatter___date ] }
+                  filter: { frontmatter: {type: {eq: "post"}}}
                 ) {
                   edges {
                     node {
@@ -79,6 +81,13 @@ module.exports = {
       options: {
         path: path.resolve(__dirname, './posts'),
         name: 'blog'
+      }
+    },
+    {
+      resolve: 'gatsby-source-filesystem',
+      options: {
+        path: path.resolve(__dirname, './src'),
+        name: 'site'
       }
     },
     {
