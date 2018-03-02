@@ -5,7 +5,7 @@ import Helmet from 'react-helmet'
 import Header from '../components/Header'
 import '../styles/index.less'
 
-const TemplateWrapper = ({ children }) => (
+const TemplateWrapper = ({ data, children }) => (
   <div className='page-wrapper'>
     <Helmet
       title='Mark Hernandez'
@@ -26,7 +26,7 @@ const TemplateWrapper = ({ children }) => (
     >
       <html lang='en' />
     </Helmet>
-    <Header />
+    <Header profile={data.profile} />
     <main className='main-wrapper'>{children()}</main>
   </div>
 )
@@ -36,3 +36,30 @@ TemplateWrapper.propTypes = {
 }
 
 export default TemplateWrapper
+
+export const query = graphql`
+query CommonElementsQuery {
+  profile: imageSharp (
+    id: {regex: "/profile/"}
+  ) {
+    resolutions (
+      height: 400
+      width: 400
+    ) {
+      aspectRatio
+      base64
+      src
+      srcSet
+    }
+    sizes (
+      maxHeight: 400
+      maxWidth: 400
+    ) {
+      aspectRatio
+      base64
+      src
+      srcSet
+    }
+  }
+}
+`
