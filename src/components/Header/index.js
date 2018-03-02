@@ -1,8 +1,6 @@
 import React from 'react'
 import Link from 'gatsby-link'
 
-import Navigation from '../Navigation'
-
 const Header = () => (
   <header>
     <div>
@@ -11,7 +9,12 @@ const Header = () => (
       </h1>
     </div>
 
-    <Navigation />
+    <nav>
+      <div>
+        <Link to='/'>Home</Link>
+        <Link to='/about'>About</Link>
+      </div>
+    </nav>
   </header>
 )
 

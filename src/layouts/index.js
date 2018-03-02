@@ -3,7 +3,6 @@ import PropTypes from 'prop-types'
 import Helmet from 'react-helmet'
 
 import Header from '../components/Header'
-import Navigation from '../components/Navigation/index'
 import '../styles/index.less'
 
 const TemplateWrapper = ({ children }) => (
@@ -11,7 +10,10 @@ const TemplateWrapper = ({ children }) => (
     <Helmet
       title='Mark Hernandez'
       meta={[
-        { name: 'description', content: `A blog for NodeJS, web development, and stuff` },
+        {
+          name: 'description',
+          content: `A blog for NodeJS, web development, and stuff`
+        },
         {
           name: 'keywords',
           content: 'portfolio, web development, javascript, nodejs'

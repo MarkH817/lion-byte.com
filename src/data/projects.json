@@ -1,0 +1,84 @@
+{
+  "title": "Projects",
+  "projects": [
+    {
+      "title": "Sound of Code",
+      "description": "Sonifies your JavaScript code",
+      "demoUrl": "https://raikesschoolds.github.io/cse-cohen",
+      "githubUrl": "",
+      "languages": [
+        "JavaScript"
+      ],
+      "libraries": [
+        "Acorn",
+        "Howler",
+        "React",
+        "Redux"
+      ]
+    },
+    {
+      "title": "Generator LionByte",
+      "description": "A Yeoman generator for NodeJS projecs",
+      "demoUrl": "",
+      "githubUrl": "https://github.com/MarkH817/generator-lionbyte",
+      "languages": [
+        "JavaScript"
+      ],
+      "libraries": [
+        "Yeoman-Generator"
+      ]
+    },
+    {
+      "title": "Online Shop Application",
+      "description": "A web application following MVC approach",
+      "demoUrl": "",
+      "githubUrl": "https://github.com/thien0411/CSCE464-Online-Shop-Application",
+      "languages": [
+        "Java"
+      ],
+      "libraries": [
+        "Java Servlets"
+      ]
+    },
+    {
+      "title": "Blog Single Page App",
+      "description": "A blog SPA that connects to a REST API",
+      "demoUrl": "",
+      "githubUrl": "https://github.com/MarkH817/blog-single-page-application",
+      "languages": [
+        "JavaScript"
+      ],
+      "libraries": [
+        "Angular",
+        "Express",
+        "MongoDB"
+      ]
+    },
+    {
+      "title": "Palette Ballot",
+      "description": "An extension to store and access color palettes",
+      "demoUrl": "",
+      "githubUrl": "https://github.com/MarkH817/palette-ballot",
+      "languages": [
+        "JavaScript"
+      ],
+      "libraries": [
+        "React"
+      ]
+    },
+    {
+      "title": "Sync or Swim",
+      "description": "A simple, fast, and secure file syncing application",
+      "demoUrl": "",
+      "githubUrl": "https://github.com/QuentinCovert/SyncOrSwim",
+      "languages": [
+        "Python"
+      ],
+      "libraries": [
+        "SQLAlchemy",
+        "PyQT4",
+        "Watchman"
+      ]
+    }
+  ]
+}

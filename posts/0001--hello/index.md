@@ -2,6 +2,7 @@
 date: 2018-02-16
 path: /blog/hello
 title: Hello
+type: post
 ---
 
 Hello! My name is Mark Hernandez, and I am a web developer.

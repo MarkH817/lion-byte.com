@@ -1,22 +1,53 @@
 import React from 'react'
 import Helmet from 'react-helmet'
+import graphql from 'graphql'
 
-const AboutPage = () => {
+import { Project } from '../components/Project'
+
+const AboutPage = ({ data }) => {
+  const { projects } = data.dataJson
+  const { html: aboutHtml } = data.markdownRemark
+
   return (
     <section>
       <Helmet title='About | Mark Hernandez' />
 
       <h1>About</h1>
-      <p>
-        My name is Mark Hernandez. I'm a computer science student at the
-        University of Nebraska - Lincoln.
-      </p>
 
-      <h2>Experience</h2>
-      <h3>Development Manager - Sound of Code</h3>
-      <p>Stuff here</p>
+      <section
+        dangerouslySetInnerHTML={{__html: aboutHtml}}
+      />
+
+      <h2>Projects</h2>
+      {projects.map((project, idx) => (
+        <Project key={idx} {...project} />
+      ))}
     </section>
   )
 }
 
 export default AboutPage
+
+export const query = graphql`
+query AboutPageQuery {
+  dataJson (title: {eq: "Projects"}) {
+    projects {
+      title
+      description
+      demoUrl
+      githubUrl
+      languages
+      libraries
+    }
+  }
+
+  markdownRemark (
+    frontmatter: {
+      type: {eq: "partial"}
+      page: {eq: "about"}
+    }
+  ) {
+    html
+  }
+}
+`
