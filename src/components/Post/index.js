@@ -3,7 +3,7 @@ import Link from 'gatsby-link'
 
 export const PostPreview = ({ post }) => (
   <article className='blog-post-preview'>
-    <h2>
+    <h2 className='title'>
       <Link to={post.frontmatter.path}>{post.frontmatter.title}</Link>
     </h2>
 

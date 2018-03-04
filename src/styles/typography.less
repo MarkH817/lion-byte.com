@@ -1,0 +1,50 @@
+@import './colors';
+
+@font-face {
+  font-family: 'Cabin';
+  src: url('../fonts/cabin-600.ttf');
+}
+
+:root {
+  font-family: 'Cabin', Verdana, Geneva, Tahoma, sans-serif;
+  color: @text-color;
+}
+
+a {
+  color: @link-color;
+
+  &:active,
+  &:focus,
+  &:hover {
+    color: @active-link-color;
+  }
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-weight: 700;
+}
+
+.main-wrapper {
+  h1:first-of-type {
+    font-size: 3em;
+    margin: 2rem 0 0 0;
+  }
+
+  h1 {
+    font-size: 2.5em;
+    margin: 1rem 0;
+  }
+
+  h2 {
+    font-size: 1.75em;
+  }
+
+  h3 {
+    font-size: 1.15em;
+  }
+}

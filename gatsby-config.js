@@ -32,7 +32,7 @@ module.exports = {
           yandex: false,
           windows: false
         },
-        logo: path.resolve(__dirname, './src/icons/favicon.png')
+        logo: path.resolve(__dirname, './src/icons/profile.png')
       }
     },
     {
