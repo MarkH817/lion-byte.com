@@ -2,17 +2,8 @@
 @import '~prismjs/themes/prism-okaidia.css';
 
 @import './colors';
+@import './typography';
 @import './structure';
-
-@font-face {
-  font-family: 'Cabin';
-  src: url('../fonts/cabin-600.ttf');
-}
-
-:root {
-  font-family: 'Cabin', Verdana, Geneva, Tahoma, sans-serif;
-  color: @text-color;
-}
 
 * {
   box-sizing: border-box;
@@ -20,25 +11,6 @@
   &:focus {
     outline: 0.1rem solid @focus-color;
   }
-}
-
-a {
-  color: @link-color;
-
-  &:active,
-  &:focus,
-  &:hover {
-    color: @active-link-color;
-  }
-}
-
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-  font-weight: 700;
 }
 
 button,

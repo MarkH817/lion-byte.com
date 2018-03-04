@@ -10,7 +10,6 @@ const HomePage = ({ data }) => {
 
   return (
     <section>
-      <h1>Hello!</h1>
       <section
         dangerouslySetInnerHTML={{__html: homeHtml}}
       />
@@ -43,7 +42,7 @@ export const query = graphql`
           excerpt(pruneLength: 250)
           id
           frontmatter {
-            date(formatString: "MMM DD, YYYY")
+            date(formatString: "MMMM DD, YYYY")
             path
             title
           }
