@@ -65,34 +65,54 @@ header {
     grid-gap: 1em;
     grid-template-columns: 300px repeat(12, 1fr);
 
+    @media (max-width: 768px) {
+      grid-template-columns: repeat(12, 1fr);
+    }
+
     & > * {
       height: auto;
       margin: 0;
-      max-width: initial;
+      max-width: 100%;
       width: auto;
     }
 
     header {
+      @media (max-width: 768px) {
+        grid-column: ~'1 / -1';
+      }
+
       & > div {
         margin: 0;
-        max-width: initial;
+        max-width: 100%;
       }
 
       nav {
         & > div {
           margin: 0;
-          max-width: initial;
+          max-width: 100%;
+        }
+
+        a:not(last-child) {
+          margin-right: 1em;
         }
       }
 
       .profile-wrapper {
         display: block;
+
+        @media (max-width: 768px) {
+          display: none;
+        }
       }
     }
 
     .main-wrapper {
       grid-column: ~'3 / -2';
       min-height: 100vh;
+
+      @media (max-width: 768px) {
+        grid-column: ~'1 / -1';
+      }
     }
   }
 }

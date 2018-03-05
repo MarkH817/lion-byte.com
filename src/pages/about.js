@@ -30,7 +30,7 @@ export default AboutPage
 
 export const query = graphql`
 query AboutPageQuery {
-  dataJson (title: {eq: "Projects"}) {
+  dataJson (name: {eq: "projects"}) {
     projects {
       title
       description
