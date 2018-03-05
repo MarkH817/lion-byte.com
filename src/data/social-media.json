@@ -1,0 +1,25 @@
+{
+  "name": "social-media",
+  "accounts": [
+    {
+      "name": "GitHub",
+      "username": "MarkH817",
+      "url": "https://www.github.com/markh817"
+    },
+    {
+      "name": "Twitter",
+      "username": "@lion_byte",
+      "url": "https://www.twitter.com/lion_byte"
+    },
+    {
+      "name": "LinkedIn",
+      "username": "",
+      "url": "https://www.linkedin.com/in/markhernandez1"
+    },
+    {
+      "name": "Merit",
+      "username": "",
+      "url": "https://meritpages.com/MarkHernandez"
+    }
+  ]
+}
