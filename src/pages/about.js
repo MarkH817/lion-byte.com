@@ -9,45 +9,38 @@ const AboutPage = ({ data }) => {
   const { html: aboutHtml } = data.markdownRemark
 
   return (
-    <section>
+    <main>
       <Helmet title='About | Mark Hernandez' />
 
       <h1>About</h1>
 
-      <section
-        dangerouslySetInnerHTML={{__html: aboutHtml}}
-      />
+      <section dangerouslySetInnerHTML={{ __html: aboutHtml }} />
 
       <h2>Projects</h2>
-      {projects.map((project, idx) => (
-        <Project key={idx} {...project} />
-      ))}
-    </section>
+      {projects.map((project, idx) => <Project key={idx} {...project} />)}
+    </main>
   )
 }
 
 export default AboutPage
 
 export const query = graphql`
-query AboutPageQuery {
-  dataJson (name: {eq: "projects"}) {
-    projects {
-      title
-      description
-      demoUrl
-      githubUrl
-      languages
-      libraries
+  query AboutPageQuery {
+    dataJson(name: { eq: "projects" }) {
+      projects {
+        title
+        description
+        demoUrl
+        githubUrl
+        languages
+        libraries
+      }
     }
-  }
 
-  markdownRemark (
-    frontmatter: {
-      type: {eq: "partial"}
-      page: {eq: "about"}
+    markdownRemark(
+      frontmatter: { type: { eq: "partial" }, page: { eq: "about" } }
+    ) {
+      html
     }
-  ) {
-    html
   }
-}
 `
