@@ -9,14 +9,12 @@ const HomePage = ({ data }) => {
   const { html: homeHtml } = data.markdownRemark
 
   return (
-    <section>
-      <section
-        dangerouslySetInnerHTML={{__html: homeHtml}}
-      />
+    <main>
+      <section dangerouslySetInnerHTML={{ __html: homeHtml }} />
 
       <h1>Blog</h1>
       {posts.map(({ node: post }) => <PostPreview post={post} key={post.id} />)}
-    </section>
+    </main>
   )
 }
 
@@ -24,11 +22,8 @@ export default HomePage
 
 export const query = graphql`
   query HomePageQuery {
-    markdownRemark (
-      frontmatter: {
-        type: {eq: "partial"}
-        page: {eq: "home"}
-      }
+    markdownRemark(
+      frontmatter: { type: { eq: "partial" }, page: { eq: "home" } }
     ) {
       html
     }

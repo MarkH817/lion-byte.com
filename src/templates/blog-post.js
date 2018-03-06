@@ -7,7 +7,7 @@ const Template = ({ data }) => {
   const { markdownRemark: post } = data
 
   return (
-    <section className='blog-post-container'>
+    <main className='blog-post-container'>
       <Helmet title={`${post.frontmatter.title} | Mark Hernandez`} />
 
       <article className='blog-post'>
@@ -22,7 +22,7 @@ const Template = ({ data }) => {
           dangerouslySetInnerHTML={{ __html: post.html }}
         />
       </article>
-    </section>
+    </main>
   )
 }
 
