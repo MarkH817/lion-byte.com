@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { Fragment } from 'react'
 import Helmet from 'react-helmet'
 
 import './blog-post.less'
@@ -7,22 +7,22 @@ const Template = ({ data }) => {
   const { markdownRemark: post } = data
 
   return (
-    <main className='blog-post-container'>
-      <Helmet title={`${post.frontmatter.title} | Mark Hernandez`} />
+    <Fragment>
+      <Helmet
+        title={`${post.frontmatter.title} | Mark Hernandez`}
+      />
 
-      <article className='blog-post'>
-        <h1 className='title'>{post.frontmatter.title}</h1>
+      <h1 className='blog-post title'>
+        {post.frontmatter.title}
+      </h1>
 
-        <p>
-          <time>{post.frontmatter.date}</time>
-        </p>
+      <time>{post.frontmatter.date}</time>
 
-        <section
-          className='content'
-          dangerouslySetInnerHTML={{ __html: post.html }}
-        />
-      </article>
-    </main>
+      <section
+        className='content'
+        dangerouslySetInnerHTML={{ __html: post.html }}
+      />
+    </Fragment>
   )
 }
 

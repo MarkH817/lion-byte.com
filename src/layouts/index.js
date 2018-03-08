@@ -26,23 +26,25 @@ const TemplateWrapper = ({ data, children }) => (
     >
       <html lang='en' />
     </Helmet>
-    <Header profile={data.profile} />
-    <section className='main-wrapper'>
-      <section className='social'>
-        {data.social.accounts.map(({ name, username, url }) => (
-          <a
-            key={url}
-            href={url}
-            title={username}
-            target='_blank'
-            rel='noopener noreferrer'
-          >
-            {name}
-          </a>
-        ))}
-      </section>
 
+    <Header profile={data.profile} />
+
+    <main className='main-wrapper'>
       {children()}
+    </main>
+
+    <section className='social'>
+      {data.social.accounts.map(({ name, username, url }) => (
+        <a
+          key={url}
+          href={url}
+          title={username}
+          target='_blank'
+          rel='noopener noreferrer'
+        >
+          {name} {username ? `(${username})` : ''}
+        </a>
+      ))}
     </section>
   </div>
 )

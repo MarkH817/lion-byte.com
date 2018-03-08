@@ -8,15 +8,7 @@ export const Project = ({
   languages,
   libraries
 }) => (
-  <article
-    className='project'
-    style={{
-      border: '0.15em solid #c911b0',
-      borderRadius: '0.5em',
-      margin: '1em auto 1.5em auto',
-      padding: '0 1em'
-    }}
-  >
+  <article className='project'>
     <h3>{title}</h3>
 
     <p>

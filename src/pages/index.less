@@ -1,21 +1,32 @@
 @import '../styles/colors';
 
-article {
-  &.blog-post-preview {
-    .title {
-      margin-bottom: 0;
+article.blog-post-preview {
+  .title {
+    margin-bottom: 0;
 
-      & + p {
-        margin-top: 0.5em;
+    a {
+      color: lighten(@text-color, 15%);
+
+      &:hover,
+      &:focus {
+        color: @active-link-color;
       }
     }
 
-    .excerpt {
+    & + time {
       color: @light-text-color;
-      font-size: 0.9em;
-      line-height: 1.5;
-      margin-bottom: 2.5em;
-      max-width: 40em;
+      display: block;
+      margin-top: 0.5em;
+      margin-bottom: 0.5rem;
     }
+  }
+
+  .excerpt {
+    color: @light-text-color;
+    font-size: 0.85em;
+    line-height: 1.5;
+    margin-bottom: 0;
+    margin-top: 0;
+    max-width: 40em;
   }
 }
