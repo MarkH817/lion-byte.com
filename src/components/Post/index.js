@@ -7,10 +7,10 @@ export const PostPreview = ({ post }) => (
       <Link to={post.frontmatter.path}>{post.frontmatter.title}</Link>
     </h2>
 
-    <p>
-      <time>{post.frontmatter.date}</time>
-    </p>
+    <time>{post.frontmatter.date}</time>
 
-    <p className='excerpt'>{post.excerpt}</p>
+    <p className='excerpt'>
+      {post.excerpt}
+    </p>
   </article>
 )

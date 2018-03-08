@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { Fragment } from 'react'
 import graphql from 'graphql'
 
 import { PostPreview } from '../components/Post'
@@ -9,12 +9,13 @@ const HomePage = ({ data }) => {
   const { html: homeHtml } = data.markdownRemark
 
   return (
-    <main>
+    <Fragment>
       <section dangerouslySetInnerHTML={{ __html: homeHtml }} />
 
       <h1>Blog</h1>
+
       {posts.map(({ node: post }) => <PostPreview post={post} key={post.id} />)}
-    </main>
+    </Fragment>
   )
 }
 
