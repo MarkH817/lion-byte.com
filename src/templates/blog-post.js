@@ -10,6 +10,16 @@ const Template = ({ data }) => {
     <Fragment>
       <Helmet
         title={`${post.frontmatter.title} | Mark Hernandez`}
+        meta={[
+          {
+            name: 'og:title',
+            content: post.frontmatter.title
+          },
+          {
+            name: 'og:description',
+            content: post.excerpt
+          }
+        ]}
       />
 
       <h1 className='blog-post title'>
@@ -31,6 +41,7 @@ export default Template
 export const query = graphql`
   query BlogPostByPath($path: String!) {
     markdownRemark(frontmatter: { path: { eq: $path } }) {
+      excerpt(pruneLength: 250)
       html
       id
       frontmatter {
