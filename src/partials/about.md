@@ -22,8 +22,22 @@ GPA: 3.670 / 4.000
 
 ### Development Manager - Senior Design Project
 
-Stuff here.
+#### August 2017 - Present
+
+The UNL Senior Design led by Professor Myra Cohen is called "Sound of Code." It is an interactive JavaScript web application for learning and hearing JavaScript.
+
+This application augments user JavaScript with sounds to play at runtime. This allows users to visualize and hear their programs as well as their errors.
+
+As a development manager, I performed regular code reviews, maintained the build pipeline, and assisted teammates with new features.
 
 ### Undergraduate Teaching Assistant
 
-Stuff here.
+#### January 2017 - Present
+
+CSCE 156 - Computer Science II (Java)
+
+I assisted students in their coursework for assignments and weekly lab sessions.
+
+I held regular office hours in the Student Resource Center.
+
+I gave feedback to Graduate Teaching Assistants (GTAs) based on students' comments.

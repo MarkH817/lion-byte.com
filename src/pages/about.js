@@ -20,6 +20,7 @@ const AboutPage = ({ data }) => {
       />
 
       <h2>Projects</h2>
+
       <section className='project-area'>
         {projects.map((project, idx) => <Project key={idx} {...project} />)}
       </section>
