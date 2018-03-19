@@ -37,9 +37,7 @@ const TemplateWrapper = ({ data, children }) => (
 
     <Header profile={data.profile} />
 
-    <main className='main-wrapper'>
-      {children()}
-    </main>
+    <main className='main-wrapper'>{children()}</main>
 
     <section className='social'>
       {data.social.accounts.map(({ name, username, url }) => (
@@ -66,17 +64,15 @@ export default TemplateWrapper
 export const query = graphql`
   query CommonElementsQuery {
     profile: imageSharp(id: { regex: "/profile/" }) {
-      resolutions(height: 400, width: 400) {
+      resolutions(height: 265, width: 265) {
         aspectRatio
         base64
         src
-        srcSet
       }
-      sizes(maxHeight: 400, maxWidth: 400) {
+      sizes(maxHeight: 265, maxWidth: 265) {
         aspectRatio
         base64
         src
-        srcSet
       }
     }
 

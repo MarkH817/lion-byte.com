@@ -15,9 +15,7 @@ const AboutPage = ({ data }) => {
 
       <h1>About</h1>
 
-      <section
-        dangerouslySetInnerHTML={{ __html: aboutHtml }}
-      />
+      <section dangerouslySetInnerHTML={{ __html: aboutHtml }} />
 
       <h2>Projects</h2>
 

@@ -4,17 +4,13 @@ import Image from 'gatsby-image'
 
 const Header = ({ profile }) => (
   <header>
-    <div>
-      <h1>
-        <Link to='/'>Mark Hernandez</Link>
-      </h1>
-    </div>
+    <h1>
+      <Link to='/'>Mark Hernandez</Link>
+    </h1>
 
     <nav>
-      <div>
-        <Link to='/'>Home</Link>
-        <Link to='/about'>About</Link>
-      </div>
+      <Link to='/'>Home</Link>
+      <Link to='/about'>About</Link>
     </nav>
 
     <Image
