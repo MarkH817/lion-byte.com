@@ -9,8 +9,6 @@ export const PostPreview = ({ post }) => (
 
     <time>{post.frontmatter.date}</time>
 
-    <p className='excerpt'>
-      {post.excerpt}
-    </p>
+    <p className='excerpt'>{post.excerpt}</p>
   </article>
 )

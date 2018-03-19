@@ -22,9 +22,7 @@ const Template = ({ data }) => {
         ]}
       />
 
-      <h1 className='blog-post title'>
-        {post.frontmatter.title}
-      </h1>
+      <h1 className='blog-post title'>{post.frontmatter.title}</h1>
 
       <time>{post.frontmatter.date}</time>
 
