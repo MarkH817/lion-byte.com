@@ -1,6 +1,7 @@
 import React, { Fragment } from 'react'
 import Helmet from 'react-helmet'
 
+import { TextType } from '../components/Animated/textType'
 import './blog-post.less'
 
 const Template = ({ data }) => {
@@ -22,9 +23,13 @@ const Template = ({ data }) => {
         ]}
       />
 
-      <h1 className='blog-post title'>{post.frontmatter.title}</h1>
+      <h1 className='blog-post title'>
+        <TextType text={post.frontmatter.title} />
+      </h1>
 
       <time>{post.frontmatter.date}</time>
+
+      <hr />
 
       <section
         className='content'

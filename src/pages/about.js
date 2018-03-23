@@ -2,8 +2,9 @@ import React, { Fragment } from 'react'
 import Helmet from 'react-helmet'
 import graphql from 'graphql'
 
-import './about.less'
 import { Project } from '../components/Project'
+import { TextType } from '../components/Animated/textType'
+import './about.less'
 
 const AboutPage = ({ data }) => {
   const { projects } = data.dataJson
@@ -13,11 +14,18 @@ const AboutPage = ({ data }) => {
     <Fragment>
       <Helmet title='About | Mark Hernandez' />
 
-      <h1>About</h1>
+      <h1>
+        <TextType text='About' />
+      </h1>
 
-      <section dangerouslySetInnerHTML={{ __html: aboutHtml }} />
+      <section
+        className='bio'
+        dangerouslySetInnerHTML={{ __html: aboutHtml }}
+      />
 
-      <h2>Projects</h2>
+      <h2>
+        <TextType text='Projects' />
+      </h2>
 
       <section className='project-area'>
         {projects.map((project, idx) => <Project key={idx} {...project} />)}

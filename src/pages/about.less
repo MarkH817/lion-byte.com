@@ -1,4 +1,15 @@
+@import '../styles/animations';
 @import '../styles/colors';
+
+.bio {
+  animation-duration: 0.75s;
+  animation-name: fadeIn;
+
+  hr {
+    animation-duration: 0.75s;
+    animation-name: expandWidth;
+  }
+}
 
 .project-area {
   display: grid;
@@ -8,6 +19,8 @@
 }
 
 .project {
+  animation-duration: 1.5s;
+  animation-name: fadeInSlideUp;
   border: 0.15em solid @extra-light-text-color;
   border-radius: 0.5em;
   grid-column: ~'1 /-1';

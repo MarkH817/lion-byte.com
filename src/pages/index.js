@@ -2,6 +2,7 @@ import React, { Fragment } from 'react'
 import graphql from 'graphql'
 
 import { PostPreview } from '../components/Post'
+import { TextType } from '../components/Animated/textType'
 import './index.less'
 
 const HomePage = ({ data }) => {
@@ -12,7 +13,9 @@ const HomePage = ({ data }) => {
     <Fragment>
       <section dangerouslySetInnerHTML={{ __html: homeHtml }} />
 
-      <h1>Blog</h1>
+      <h1>
+        <TextType text='Blog' />
+      </h1>
 
       {posts.map(({ node: post }) => <PostPreview post={post} key={post.id} />)}
     </Fragment>
