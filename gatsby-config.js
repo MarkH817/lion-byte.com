@@ -5,7 +5,8 @@ module.exports = {
     author: 'Mark Hernandez',
     description: 'A blog for NodeJS, web development, and stuff',
     siteUrl: 'https://www.lion-byte.com',
-    title: 'Mark Hernandez'
+    title: 'Mark Hernandez',
+    keywords: 'portfolio, web development, JavaScript, NodeJS'
   },
   plugins: [
     'gatsby-plugin-catch-links',
@@ -41,12 +42,12 @@ module.exports = {
         feeds: [
           {
             serialize: ({ query: { site, allMarkdownRemark } }) => {
-              return allMarkdownRemark.edges.map(edge => {
-                return Object.assign({}, edge.node.frontmatter, {
-                  description: edge.node.excerpt,
-                  url: path.join(site.siteMetadata.siteUrl, edge.node.frontmatter.path),
-                  guid: path.join(site.siteMetadata.siteUrl, edge.node.frontmatter.path),
-                  custom_elements: [{ 'content:encoded': edge.node.html }]
+              return allMarkdownRemark.edges.map(({ node: { excerpt, html, frontmatter } }) => {
+                return Object.assign({}, frontmatter, {
+                  description: excerpt,
+                  url: path.join(site.siteMetadata.siteUrl, frontmatter.path),
+                  guid: path.join(site.siteMetadata.siteUrl, frontmatter.path),
+                  custom_elements: [{ 'content:encoded': html }]
                 })
               })
             },

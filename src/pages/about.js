@@ -2,14 +2,13 @@ import React, { Fragment } from 'react'
 import Helmet from 'react-helmet'
 import graphql from 'graphql'
 
-import { Project } from '../components/Project'
 import { TextType } from '../components/Animated/textType'
+import { Project } from '../components/Project'
 import './about.less'
 
-const AboutPage = ({ data }) => {
-  const { projects } = data.dataJson
-  const { html: aboutHtml } = data.markdownRemark
-
+const AboutPage = ({
+  data: { dataJson: { projects }, bio: { html: aboutHtml } }
+}) => {
   return (
     <Fragment>
       <Helmet title='About | Mark Hernandez' />
@@ -49,7 +48,7 @@ export const query = graphql`
       }
     }
 
-    markdownRemark(
+    bio: markdownRemark(
       frontmatter: { type: { eq: "partial" }, page: { eq: "about" } }
     ) {
       html

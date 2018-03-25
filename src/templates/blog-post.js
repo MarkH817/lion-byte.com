@@ -4,37 +4,34 @@ import Helmet from 'react-helmet'
 import { TextType } from '../components/Animated/textType'
 import './blog-post.less'
 
-const Template = ({ data }) => {
-  const { markdownRemark: post } = data
-
+const Template = ({
+  data: { markdownRemark: { excerpt, frontmatter, html } }
+}) => {
   return (
     <Fragment>
       <Helmet
-        title={`${post.frontmatter.title} | Mark Hernandez`}
+        title={`${frontmatter.title} | Mark Hernandez`}
         meta={[
           {
             name: 'og:title',
-            content: post.frontmatter.title
+            content: frontmatter.title
           },
           {
             name: 'og:description',
-            content: post.excerpt
+            content: excerpt
           }
         ]}
       />
 
       <h1 className='blog-post title'>
-        <TextType text={post.frontmatter.title} />
+        <TextType text={frontmatter.title} />
       </h1>
 
-      <time>{post.frontmatter.date}</time>
+      <time>{frontmatter.date}</time>
 
       <hr />
 
-      <section
-        className='content'
-        dangerouslySetInnerHTML={{ __html: post.html }}
-      />
+      <section className='content' dangerouslySetInnerHTML={{ __html: html }} />
     </Fragment>
   )
 }
@@ -46,7 +43,6 @@ export const query = graphql`
     markdownRemark(frontmatter: { path: { eq: $path } }) {
       excerpt(pruneLength: 250)
       html
-      id
       frontmatter {
         date(formatString: "MMMM DD, YYYY")
         path

@@ -8,8 +8,8 @@ export class TextType extends Component {
 
     const options = {
       strings: [text],
-      startDelay: 150,
-      typeSpeed: 15,
+      startDelay: 200,
+      typeSpeed: 67,
       preStringTyped: onStart !== undefined ? onStart : () => {},
       onComplete: onEnd !== undefined ? onEnd : () => {}
     }
@@ -42,6 +42,14 @@ export class TextType extends Component {
           role='presentation'
           aria-hidden
         />
+        <noscript>
+          <span
+            role='presentation'
+            aria-hidden
+          >
+            {this.props.text}
+          </span>
+        </noscript>
       </Fragment>
     )
   }
