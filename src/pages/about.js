@@ -2,22 +2,33 @@ import React, { Fragment } from 'react'
 import Helmet from 'react-helmet'
 import graphql from 'graphql'
 
-import './about.less'
+import { TextType } from '../components/Animated/textType'
 import { Project } from '../components/Project'
+import './about.less'
 
-const AboutPage = ({ data }) => {
-  const { projects } = data.dataJson
-  const { html: aboutHtml } = data.markdownRemark
-
+const AboutPage = ({
+  data: {
+    dataJson: { projects },
+    bio: { html: aboutHtml },
+    site: { siteMetadata: { title: siteTitle } }
+  }
+}) => {
   return (
     <Fragment>
-      <Helmet title='About | Mark Hernandez' />
+      <Helmet title='About | Mark Hernandez (lion-byte)' />
 
-      <h1>About</h1>
+      <h2>
+        <TextType text='About' />
+      </h2>
 
-      <section dangerouslySetInnerHTML={{ __html: aboutHtml }} />
+      <section
+        className='bio'
+        dangerouslySetInnerHTML={{ __html: aboutHtml }}
+      />
 
-      <h2>Projects</h2>
+      <h2>
+        <TextType text='Projects' />
+      </h2>
 
       <section className='project-area'>
         {projects.map((project, idx) => <Project key={idx} {...project} />)}
@@ -30,6 +41,12 @@ export default AboutPage
 
 export const query = graphql`
   query AboutPageQuery {
+    site {
+      siteMetadata {
+        title
+      }
+    }
+
     dataJson(name: { eq: "projects" }) {
       projects {
         title
@@ -41,7 +58,7 @@ export const query = graphql`
       }
     }
 
-    markdownRemark(
+    bio: markdownRemark(
       frontmatter: { type: { eq: "partial" }, page: { eq: "about" } }
     ) {
       html

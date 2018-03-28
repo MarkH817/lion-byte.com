@@ -46,10 +46,11 @@ header {
     flex-direction: row;
 
     a {
-      .button();
       background-color: inherit;
-      border-color: transparent;
+      border: 0.1rem solid transparent;
+      border-radius: 0.5em;
       color: white !important;
+      display: inline-block;
       padding: 0.65em 1em;
       text-align: center;
       text-decoration: none;
@@ -59,9 +60,14 @@ header {
         flex-grow: 1;
       }
 
+      &:active,
+      &:focus,
+      &:hover {
+        text-decoration: underline;
+      }
+
       &:active {
         border-color: white;
-        text-decoration: underline;
       }
 
       &:focus {
@@ -71,6 +77,13 @@ header {
   }
 
   .profile-wrapper {
+    display: none;
+
+    /* Only show profile image on grid supported browsers */
+    @supports (display: grid) {
+      display: block;
+    }
+
     @media (max-width: 768px) {
       display: none;
     }
@@ -87,7 +100,7 @@ header {
   grid-auto-rows: min-content;
   grid-template-columns: repeat(10, 1fr);
 
-  & > h1:first-of-type {
+  & > h2:first-of-type {
     font-size: (2em + 1/6em);
     padding-top: 1em;
   }

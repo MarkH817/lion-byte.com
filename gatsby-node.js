@@ -9,36 +9,32 @@ exports.createPages = ({ boundActionCreators, graphql }) => {
   const { createPage } = boundActionCreators
   const blogPostTemplate = path.join(__dirname, './src/templates/blog-post.js')
 
-  return graphql(`{
-    allMarkdownRemark(
-      sort: { order: DESC, fields: [frontmatter___date] }
-      limit: 1000
-    ) {
-      edges {
-        node {
-          excerpt(pruneLength: 250)
-          html
-          id
-          frontmatter {
-            date
-            path
-            title
-            type
+  return graphql(`
+    query CreatePagesQuery {
+      posts: allMarkdownRemark(
+        sort: { order: DESC, fields: [frontmatter___date] }
+        limit: 1000
+      ) {
+        edges {
+          node {
+            frontmatter {
+              path
+              type
+            }
           }
         }
       }
     }
-  }`)
-  .then(result => {
-    if (result.errors) {
-      return Promise.reject(result.errors)
+  `).then(({ errors, data: { posts: { edges } } }) => {
+    if (errors) {
+      return Promise.reject(errors)
     }
 
-    result.data.allMarkdownRemark.edges.forEach(({ node }) => {
-      switch (node.frontmatter.type) {
+    edges.forEach(({ node: { frontmatter } }) => {
+      switch (frontmatter.type) {
         case 'post':
           createPage({
-            path: node.frontmatter.path,
+            path: frontmatter.path,
             component: blogPostTemplate,
             context: {}
           })
