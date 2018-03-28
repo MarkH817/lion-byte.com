@@ -15,7 +15,7 @@ const TemplateWrapper = ({
       htmlAttributes={{
         lang: 'en'
       }}
-      title='Mark Hernandez'
+      title={metadata.title}
       meta={[
         {
           name: 'description',

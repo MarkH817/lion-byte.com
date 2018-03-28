@@ -7,15 +7,19 @@ import { Project } from '../components/Project'
 import './about.less'
 
 const AboutPage = ({
-  data: { dataJson: { projects }, bio: { html: aboutHtml } }
+  data: {
+    dataJson: { projects },
+    bio: { html: aboutHtml },
+    site: { siteMetadata: { title: siteTitle } }
+  }
 }) => {
   return (
     <Fragment>
-      <Helmet title='About | Mark Hernandez' />
+      <Helmet title='About | Mark Hernandez (lion-byte)' />
 
-      <h1>
+      <h2>
         <TextType text='About' />
-      </h1>
+      </h2>
 
       <section
         className='bio'
@@ -37,6 +41,12 @@ export default AboutPage
 
 export const query = graphql`
   query AboutPageQuery {
+    site {
+      siteMetadata {
+        title
+      }
+    }
+
     dataJson(name: { eq: "projects" }) {
       projects {
         title

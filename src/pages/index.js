@@ -10,9 +10,9 @@ const HomePage = ({
 }) => {
   return (
     <Fragment>
-      <h1>
+      <h2>
         <TextType text='Blog' />
-      </h1>
+      </h2>
 
       {posts.map(({ node: post }) => <PostPreview post={post} key={post.id} />)}
     </Fragment>

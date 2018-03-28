@@ -5,12 +5,15 @@ import { TextType } from '../components/Animated/textType'
 import './blog-post.less'
 
 const Template = ({
-  data: { markdownRemark: { excerpt, frontmatter, html } }
+  data: {
+    markdownRemark: { excerpt, frontmatter, html },
+    site: { siteMetadata: { title: siteTitle } }
+  }
 }) => {
   return (
     <Fragment>
       <Helmet
-        title={`${frontmatter.title} | Mark Hernandez`}
+        title={`${frontmatter.title} | ${siteTitle}`}
         meta={[
           {
             name: 'og:title',
@@ -19,13 +22,17 @@ const Template = ({
           {
             name: 'og:description',
             content: excerpt
+          },
+          {
+            name: 'description',
+            content: excerpt
           }
         ]}
       />
 
-      <h1 className='blog-post title'>
+      <h2 className='blog-post title'>
         <TextType text={frontmatter.title} />
-      </h1>
+      </h2>
 
       <time>{frontmatter.date}</time>
 
@@ -40,8 +47,15 @@ export default Template
 
 export const query = graphql`
   query BlogPostByPath($path: String!) {
+    site {
+      siteMetadata {
+        title
+      }
+    }
+
     markdownRemark(frontmatter: { path: { eq: $path } }) {
-      excerpt(pruneLength: 250)
+      excerpt(pruneLength: 300)
+      twitterExcerpt: excerpt(pruneLength: 200)
       html
       frontmatter {
         date(formatString: "MMMM DD, YYYY")

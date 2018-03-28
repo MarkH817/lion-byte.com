@@ -77,6 +77,13 @@ header {
   }
 
   .profile-wrapper {
+    display: none;
+
+    /* Only show profile image on grid supported browsers */
+    @supports (display: grid) {
+      display: block;
+    }
+
     @media (max-width: 768px) {
       display: none;
     }
@@ -93,7 +100,7 @@ header {
   grid-auto-rows: min-content;
   grid-template-columns: repeat(10, 1fr);
 
-  & > h1:first-of-type {
+  & > h2:first-of-type {
     font-size: (2em + 1/6em);
     padding-top: 1em;
   }

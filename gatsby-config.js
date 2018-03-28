@@ -5,7 +5,7 @@ module.exports = {
     author: 'Mark Hernandez',
     description: 'A blog for NodeJS, web development, and stuff',
     siteUrl: 'https://www.lion-byte.com',
-    title: 'Mark Hernandez',
+    title: 'Mark Hernandez (lion-byte)',
     keywords: 'portfolio, web development, JavaScript, NodeJS'
   },
   plugins: [

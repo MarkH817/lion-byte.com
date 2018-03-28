@@ -6,13 +6,18 @@ import { TextType } from '../components/Animated/textType'
 import { PostPreview } from '../components/Post'
 import './blog.less'
 
-const BlogIndexPage = ({ data: { postPreviews: { edges: posts } } }) => (
+const BlogIndexPage = ({
+  data: {
+    postPreviews: { edges: posts },
+    site: { siteMetadata: { title: siteTitle } }
+  }
+}) => (
   <Fragment>
-    <Helmet title='Blog | Mark Hernandez' />
+    <Helmet title='Blog | Mark Hernandez (lion-byte)' />
 
-    <h1>
+    <h2>
       <TextType text='Blog' />
-    </h1>
+    </h2>
 
     {posts.map(({ node: post }) => <PostPreview post={post} key={post.id} />)}
   </Fragment>
@@ -22,6 +27,12 @@ export default BlogIndexPage
 
 export const query = graphql`
   query BlogIndexPageQuery {
+    site {
+      siteMetadata {
+        title
+      }
+    }
+
     postPreviews: allMarkdownRemark(
       sort: { order: DESC, fields: [frontmatter___date] }
       filter: { frontmatter: { type: { eq: "post" } } }
