@@ -1,131 +1,16 @@
 @import './colors';
 
 .page-wrapper {
-  display: grid;
-  grid-template-columns: minmax(auto, 300px) 1fr;
-  grid-template-rows: minmax(min-content, 1fr) minmax(min-content, max-content);
-
-  header,
-  .social,
-  .main-wrapper {
-    @media (max-width: 768px) {
-      grid-column: ~'1 / -1';
-    }
-  }
-}
-
-header {
-  background-color: darken(@color-6, 20%);
-  box-shadow: 0 0 0.5em 0.25em gray;
-  display: grid;
-  grid-auto-rows: minmax(min-content, max-content);
-  grid-row: ~'1 / -1';
-  grid-row-gap: 1.5em;
-  padding: 1.5em 0 0 0;
-
-  @media (min-width: 769px) {
-    min-height: 100vh;
-    padding-bottom: 1.5em;
-  }
-
-  & > * {
-    padding: 0.15rem 1.0875rem;
-    margin: 0;
-  }
-
-  h1 {
-    a {
-      color: white !important;
-      text-decoration: none;
-    }
-  }
-
-  nav {
-    background-color: darken(@color-6, 12.5%);
-    display: flex;
-    flex-direction: row;
-
-    a {
-      background-color: inherit;
-      border: 0.1rem solid transparent;
-      border-radius: 0.5em;
-      color: white !important;
-      display: inline-block;
-      padding: 0.65em 1em;
-      text-align: center;
-      text-decoration: none;
-
-      @media (min-width: 769px) {
-        flex-basis: minmax(20px, auto);
-        flex-grow: 1;
-      }
-
-      &:active,
-      &:focus,
-      &:hover {
-        text-decoration: underline;
-      }
-
-      &:active {
-        border-color: white;
-      }
-
-      &:focus {
-        outline: none;
-      }
-    }
-  }
-
-  .profile-wrapper {
-    display: none;
-
-    /* Only show profile image on grid supported browsers */
-    @supports (display: grid) {
-      display: block;
-    }
-
-    @media (max-width: 768px) {
-      display: none;
-    }
-  }
-}
-
-.main-wrapper,
-.social {
-  grid-column: ~'2 / -1';
+  background: linear-gradient(@color-6, @color-4);
+  min-height: 100vh;
+  padding: 6em 0 4em 0;
 }
 
 .main-wrapper {
-  display: grid;
-  grid-auto-rows: min-content;
-  grid-template-columns: repeat(10, 1fr);
-
-  & > h2:first-of-type {
-    font-size: (2em + 1/6em);
-    padding-top: 1em;
-  }
-
-  & > * {
-    grid-column: ~'2 / -2';
-    margin: 0;
-  }
-}
-
-.social {
-  font-size: 0.85em;
-  display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
-  padding: 1em 0 0.75em 0;
-
-  a {
-    color: @text-color;
-    display: block;
-    padding: 0.5em 1em;
-  }
-
-  a:focus,
-  a:hover {
-    color: @active-link-color;
+  .main-content {
+    background-color: white;
+    box-shadow: 0 0 1em #555;
+    min-height: ~'calc(100vh - 10em)';
+    padding: 0 2em 1em 2em;
   }
 }

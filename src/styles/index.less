@@ -1,62 +1,16 @@
-@import '~normalize.css';
+@import '~picnic/picnic.css';
 @import '~prismjs/themes/prism-okaidia.css';
 
+@import './utils';
 @import './animations';
 @import './colors';
 @import './typography';
 @import './structure';
-@import './utils';
+@import './about';
+@import './post';
 
 * {
-  box-sizing: border-box;
-
   &:focus {
     outline: 0.1rem solid @focus-color;
-  }
-}
-
-button,
-.button {
-  border: 0.125em solid @button-border;
-  border-radius: 0.5em;
-  display: inline-block;
-  padding: 0.35em 1em;
-  text-decoration: none;
-
-  &:active,
-  &:focus,
-  &:hover {
-    text-decoration: underline;
-  }
-
-  &:focus {
-    outline: 0.1rem solid @focus-color;
-  }
-
-  &.default {
-    color: @button-default;
-    background-color: #fefefe;
-  }
-
-  &.primary {
-    color: white;
-    background-color: @button-primary;
-  }
-}
-
-.label {
-  border-radius: 0.5em;
-  display: inline-block;
-  font-size: 75%;
-  padding: 0.25em 0.75em;
-
-  &.default {
-    background-color: @text-color;
-    color: white;
-  }
-
-  &.info {
-    background-color: @color-6;
-    color: white;
   }
 }

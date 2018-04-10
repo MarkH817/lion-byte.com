@@ -2,9 +2,8 @@ import React, { Fragment } from 'react'
 import Helmet from 'react-helmet'
 import graphql from 'graphql'
 
-import { TextType } from '../components/Animated/textType'
-import { PostPreview } from '../components/Post'
-import './blog.less'
+import { TextType } from '../components/animated/textType'
+import { PostPreview } from '../components/post'
 
 const BlogIndexPage = ({
   data: {
@@ -15,9 +14,9 @@ const BlogIndexPage = ({
   <Fragment>
     <Helmet title='Blog | Mark Hernandez (lion-byte)' />
 
-    <h2>
+    <h1>
       <TextType text='Blog' />
-    </h2>
+    </h1>
 
     {posts.map(({ node: post }) => <PostPreview post={post} key={post.id} />)}
   </Fragment>

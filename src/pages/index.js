@@ -1,15 +1,16 @@
 import React, { Fragment } from 'react'
 import graphql from 'graphql'
 
-import { TextType } from '../components/Animated/textType'
-import { PostPreview } from '../components/Post'
-import './index.less'
+import { TextType } from '../components/animated/textType'
+import { PostPreview } from '../components/post'
 
-const HomePage = ({
-  data: { postPreviews: { edges: posts } }
-}) => {
+const HomePage = ({ data: { postPreviews: { edges: posts } } }) => {
   return (
     <Fragment>
+      <h1>
+        <TextType text='Welcome' />
+      </h1>
+
       <h2>
         <TextType text='Blog' />
       </h2>
