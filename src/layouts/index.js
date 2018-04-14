@@ -14,8 +14,8 @@ const TemplateWrapper = ({
 
     <Navigation metadata={metadata} profile={profile} />
 
-    <main className='main-wrapper flex one six-500'>
-      <section className='main-content off-sixth-500 two-third-500'>
+    <main className='main-wrapper flex center one six-800'>
+      <section className='main-content center two-third-800'>
         {children()}
       </section>
     </main>

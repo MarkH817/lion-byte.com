@@ -40,7 +40,7 @@ export const PostSEO = ({ frontmatter, excerpt, siteTitle }) => (
 
 export const Post = ({ frontmatter, html }) => (
   <Fragment>
-    <h1 className='blog-post title'>
+    <h1>
       <TextType text={frontmatter.title} />
     </h1>
 
@@ -48,6 +48,9 @@ export const Post = ({ frontmatter, html }) => (
 
     <hr />
 
-    <section className='content' dangerouslySetInnerHTML={{ __html: html }} />
+    <article
+      className='blog-post content'
+      dangerouslySetInnerHTML={{ __html: html }}
+    />
   </Fragment>
 )

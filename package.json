@@ -8,7 +8,7 @@
     "url": "https://www.lion-byte.com"
   },
   "dependencies": {
-    "gatsby": "^1.9.247",
+    "gatsby": "^1.9.248",
     "gatsby-image": "^1.0.45",
     "gatsby-link": "^1.6.40",
     "gatsby-plugin-catch-links": "^1.0.19",
@@ -19,10 +19,10 @@
     "gatsby-plugin-offline": "^1.0.15",
     "gatsby-plugin-react-helmet": "^2.0.10",
     "gatsby-plugin-react-next": "^1.0.11",
-    "gatsby-plugin-sharp": "^1.6.41",
+    "gatsby-plugin-sharp": "^1.6.42",
     "gatsby-plugin-sitemap": "^1.2.20",
     "gatsby-remark-copy-linked-files": "^1.5.31",
-    "gatsby-remark-images": "^1.5.60",
+    "gatsby-remark-images": "^1.5.61",
     "gatsby-remark-prismjs": "^1.2.24",
     "gatsby-remark-responsive-iframe": "^1.4.18",
     "gatsby-source-filesystem": "^1.5.29",
@@ -46,17 +46,32 @@
     "format:less": "prettier --single-quote --write \"src/**/*.less\"",
     "test": "standard ."
   },
-  "standard": {
-    "globals": [
-      "graphql"
-    ]
+  "husky": {
+    "pre-commit": {
+      "*.js": [
+        "prettier --write",
+        "standard --fix",
+        "git add"
+      ],
+      "*.{md,less}": [
+        "prettier --write",
+        "git add"
+      ]
+    }
   },
   "prettier": {
     "semi": false,
     "singleQuote": true
   },
+  "standard": {
+    "globals": [
+      "graphql"
+    ]
+  },
   "devDependencies": {
-    "prettier": "^1.11.1",
+    "husky": "^0.15.0-rc.13",
+    "lint-staged": "^7.0.4",
+    "prettier": "^1.12.0",
     "standard": "^11.0.1"
   }
 }

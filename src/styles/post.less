@@ -33,15 +33,10 @@ article.blog-post-preview {
   }
 }
 
-article.blog-post.title + time {
-  & + hr {
-    animation-name: expandWidth;
-    animation-duration: 0.75s;
+article.blog-post {
+  &.content {
+    animation-duration: 1s;
+    animation-name: fadeIn;
+    line-height: 1.5;
   }
-}
-
-.content {
-  animation-duration: 1s;
-  animation-name: fadeIn;
-  line-height: 1.5;
 }
