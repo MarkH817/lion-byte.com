@@ -1,44 +1,22 @@
 import React, { Fragment } from 'react'
-import Helmet from 'react-helmet'
 
-import { TextType } from '../components/Animated/textType'
-import './blog-post.less'
+import { Post, PostSEO } from '../components/post'
 
 const Template = ({
   data: {
-    markdownRemark: { excerpt, frontmatter, html },
+    post: { excerpt, frontmatter, html },
     site: { siteMetadata: { title: siteTitle } }
   }
 }) => {
   return (
     <Fragment>
-      <Helmet
-        title={`${frontmatter.title} | ${siteTitle}`}
-        meta={[
-          {
-            name: 'og:title',
-            content: frontmatter.title
-          },
-          {
-            name: 'og:description',
-            content: excerpt
-          },
-          {
-            name: 'description',
-            content: excerpt
-          }
-        ]}
+      <PostSEO
+        frontmatter={frontmatter}
+        excerpt={excerpt}
+        siteTitle={siteTitle}
       />
 
-      <h2 className='blog-post title'>
-        <TextType text={frontmatter.title} />
-      </h2>
-
-      <time>{frontmatter.date}</time>
-
-      <hr />
-
-      <section className='content' dangerouslySetInnerHTML={{ __html: html }} />
+      <Post frontmatter={frontmatter} html={html} />
     </Fragment>
   )
 }
@@ -53,7 +31,7 @@ export const query = graphql`
       }
     }
 
-    markdownRemark(frontmatter: { path: { eq: $path } }) {
+    post: markdownRemark(frontmatter: { path: { eq: $path } }) {
       excerpt(pruneLength: 300)
       twitterExcerpt: excerpt(pruneLength: 200)
       html

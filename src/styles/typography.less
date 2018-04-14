@@ -1,13 +1,7 @@
 @import './colors';
 
-@font-face {
-  font-family: 'Cabin';
-  font-display: swap;
-  src: url('../fonts/cabin-600.ttf');
-}
-
-:root {
-  font-family: 'Cabin', Verdana, Geneva, Tahoma, sans-serif;
+:root,
+body {
   color: @text-color;
 }
 
@@ -21,26 +15,8 @@ a {
   }
 }
 
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-  font-weight: 700;
-}
-
-h1 {
-  font-size: (1em + 2/3em);
-}
-
-h2 {
-  font-size: (1em + 1/3em);
-}
-
 h3 {
   color: @light-text-color;
-  font-size: (1em + 1/6em);
 }
 
 h4,
@@ -49,21 +25,8 @@ h6 {
   color: @extra-light-text-color;
 }
 
-h4 {
-  font-size: 1em;
-}
-
-h5,
-h6 {
-  font-size: (11/12em);
-}
-
 h6 {
   font-style: italic;
-}
-
-hr {
-  color: inherit;
 }
 
 /* In reference to Typed.js cursor */

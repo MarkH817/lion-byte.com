@@ -2,9 +2,8 @@ import React, { Fragment } from 'react'
 import Helmet from 'react-helmet'
 import graphql from 'graphql'
 
-import { TextType } from '../components/Animated/textType'
-import { Project } from '../components/Project'
-import './about.less'
+import { TextType } from '../components/animated/textType'
+import { Project } from '../components/project'
 
 const AboutPage = ({
   data: {
@@ -17,9 +16,9 @@ const AboutPage = ({
     <Fragment>
       <Helmet title='About | Mark Hernandez (lion-byte)' />
 
-      <h2>
+      <h1>
         <TextType text='About' />
-      </h2>
+      </h1>
 
       <section
         className='bio'

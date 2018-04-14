@@ -1,3 +1,20 @@
+.clearfix {
+  &:after {
+    content: '';
+    clear: both;
+    display: table;
+  }
+}
+
+// Float either direction
+.float-left {
+  float: left;
+}
+
+.float-right {
+  float: right;
+}
+
 .visually-hidden {
   border: 0;
   clip: rect(0 0 0 0);

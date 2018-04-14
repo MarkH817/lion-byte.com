@@ -1,92 +1,24 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import Helmet from 'react-helmet'
-import Image from 'gatsby-image'
-import Link from 'gatsby-link'
 
 import '../styles/index.less'
+import { Navigation } from '../components/navigation'
+import { SEO } from '../components/seo'
 
 const TemplateWrapper = ({
-  data: { site: { siteMetadata: metadata }, profile, social },
+  data: { site: { siteMetadata: metadata }, profile },
   children
 }) => (
   <div className='page-wrapper'>
-    <Helmet
-      htmlAttributes={{
-        lang: 'en'
-      }}
-      title={metadata.title}
-      meta={[
-        {
-          name: 'description',
-          content: metadata.description
-        },
-        {
-          name: 'keywords',
-          content: metadata.keywords
-        },
-        {
-          name: 'google-site-verification',
-          content: 'T2CmkDTMt0s2SVUBOfhDO7yuBOD-lJ2ZnJOO1YO5_LY'
-        },
-        {
-          name: 'robots',
-          content: 'index,follow'
-        },
-        {
-          name: 'googlebot',
-          content: 'index,follow'
-        },
-        {
-          name: 'theme-color',
-          content: '#104f5a'
-        },
-        {
-          name: 'og:locale',
-          content: 'en_US'
-        },
-        {
-          name: 'og:image',
-          content: profile.resolutions.src
-        }
-      ]}
-    />
+    <SEO metadata={metadata} profile={profile} />
 
-    <header>
-      <h1>
-        <Link to='/'>Mark Hernandez</Link>
-      </h1>
+    <Navigation metadata={metadata} profile={profile} />
 
-      <nav>
-        <Link to='/'>Home</Link>
-        <Link to='/about'>About</Link>
-      </nav>
-
-      <Image
-        alt='Profile'
-        outerWrapperClassName='profile-wrapper'
-        className='profile'
-        fadeIn
-        resolutions={profile.resolutions}
-        sizes={profile.sizes}
-      />
-    </header>
-
-    <main className='main-wrapper'>{children()}</main>
-
-    <section className='social'>
-      {social.accounts.map(({ name, username, url }) => (
-        <a
-          key={url}
-          href={url}
-          title={username}
-          target='_blank'
-          rel='noopener noreferrer'
-        >
-          {name} {username ? `(${username})` : ''}
-        </a>
-      ))}
-    </section>
+    <main className='main-wrapper flex center one six-800'>
+      <section className='main-content center two-third-800'>
+        {children()}
+      </section>
+    </main>
   </div>
 )
 
@@ -117,14 +49,6 @@ export const query = graphql`
         aspectRatio
         base64
         src
-      }
-    }
-
-    social: dataJson(name: { eq: "social" }) {
-      accounts {
-        name
-        url
-        username
       }
     }
   }
