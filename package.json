@@ -8,31 +8,31 @@
     "url": "https://www.lion-byte.com"
   },
   "dependencies": {
-    "gatsby": "^1.9.248",
-    "gatsby-image": "^1.0.45",
-    "gatsby-link": "^1.6.40",
-    "gatsby-plugin-catch-links": "^1.0.19",
+    "gatsby": "^1.9.270",
+    "gatsby-image": "^1.0.52",
+    "gatsby-link": "^1.6.44",
+    "gatsby-plugin-catch-links": "^1.0.22",
     "gatsby-plugin-favicon": "^2.1.1",
-    "gatsby-plugin-feed": "^1.3.20",
+    "gatsby-plugin-feed": "^1.3.24",
     "gatsby-plugin-less": "^1.1.8",
-    "gatsby-plugin-netlify": "^1.0.19",
-    "gatsby-plugin-offline": "^1.0.15",
-    "gatsby-plugin-react-helmet": "^2.0.10",
+    "gatsby-plugin-netlify": "^1.0.21",
+    "gatsby-plugin-offline": "^1.0.18",
+    "gatsby-plugin-react-helmet": "^2.0.11",
     "gatsby-plugin-react-next": "^1.0.11",
-    "gatsby-plugin-sharp": "^1.6.42",
-    "gatsby-plugin-sitemap": "^1.2.20",
-    "gatsby-remark-copy-linked-files": "^1.5.31",
-    "gatsby-remark-images": "^1.5.61",
+    "gatsby-plugin-sharp": "^1.6.47",
+    "gatsby-plugin-sitemap": "^1.2.25",
+    "gatsby-remark-copy-linked-files": "^1.5.35",
+    "gatsby-remark-images": "^1.5.66",
     "gatsby-remark-prismjs": "^1.2.24",
-    "gatsby-remark-responsive-iframe": "^1.4.18",
-    "gatsby-source-filesystem": "^1.5.29",
-    "gatsby-transformer-json": "^1.0.16",
-    "gatsby-transformer-remark": "^1.7.39",
-    "gatsby-transformer-sharp": "^1.6.22",
+    "gatsby-remark-responsive-iframe": "^1.4.19",
+    "gatsby-source-filesystem": "^1.5.38",
+    "gatsby-transformer-json": "^1.0.19",
+    "gatsby-transformer-remark": "^1.7.42",
+    "gatsby-transformer-sharp": "^1.6.26",
     "picnic": "^6.5.0",
     "prop-types": "^15.6.1",
     "react-helmet": "^5.2.0",
-    "typed.js": "^2.0.6"
+    "typed.js": "^2.0.7"
   },
   "keywords": [
     "gatsby"
@@ -43,7 +43,7 @@
     "build": "gatsby build",
     "dev": "gatsby develop",
     "format": "prettier --write src/**/*.js && standard --fix",
-    "format:less": "prettier --single-quote --write \"src/**/*.less\"",
+    "format:less": "prettier --single-quote --write src/**/*.less",
     "test": "standard ."
   },
   "husky": {
@@ -69,9 +69,9 @@
     ]
   },
   "devDependencies": {
-    "husky": "^0.15.0-rc.13",
-    "lint-staged": "^7.0.4",
-    "prettier": "^1.12.0",
+    "husky": "^1.0.0-rc.8",
+    "lint-staged": "^7.1.3",
+    "prettier": "^1.13.5",
     "standard": "^11.0.1"
   }
 }
