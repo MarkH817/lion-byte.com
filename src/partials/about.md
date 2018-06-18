@@ -14,15 +14,21 @@ My name is Mark Hernandez. I'm a computer science student at the University of N
 Expected graduation: December 2018<br />
 Major: Computer Science<br />
 Minor: Mathematics<br />
-GPA: 3.670 / 4.000
+GPA: 3.679 / 4.000
 
 ## Experience
 
 ---
 
+### Undergraduate Research Assistant
+
+#### May 2018 - Current
+
+Assisting in undergraduate research projects under Professor Myra Cohen. Continuing on the senior design projects and web components on other projects.
+
 ### Development Manager - Senior Design Project
 
-#### August 2017 - Present
+#### August 2017 - May 2018
 
 The UNL Senior Design led by Professor Myra Cohen is called "Sound of Code." It is an interactive JavaScript web application for learning and hearing JavaScript. This application augments user JavaScript with sounds to play at runtime. This allows users to visualize and hear their programs as well as their errors.
 
@@ -30,7 +36,7 @@ As a development manager, I performed regular code reviews, maintained the build
 
 ### Undergraduate Teaching Assistant
 
-#### January 2017 - Present
+#### January 2017 - May 2018
 
 CSCE 156 - Computer Science II (Java)
 
