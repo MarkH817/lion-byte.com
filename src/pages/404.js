@@ -1,10 +1,12 @@
-import React, { Fragment } from 'react'
+import * as React from 'react'
 
-const NotFoundPage = () => (
-  <Fragment>
-    <h1>NOT FOUND</h1>
-    <p>You just hit a route that doesn&#39;t exist... the sadness.</p>
-  </Fragment>
-)
-
-export default NotFoundPage
+export default class NotFoundPage extends React.PureComponent {
+  render () {
+    return (
+      <React.Fragment>
+        <h1>NOT FOUND</h1>
+        <p>You just hit a route that doesn&#39;t exist... the sadness.</p>
+      </React.Fragment>
+    )
+  }
+}

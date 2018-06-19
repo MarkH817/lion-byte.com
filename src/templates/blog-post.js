@@ -1,27 +1,31 @@
-import React, { Fragment } from 'react'
+import * as React from 'react'
 
 import { Post, PostSEO } from '../components/post'
 
-const Template = ({
-  data: {
-    post: { excerpt, frontmatter, html },
-    site: { siteMetadata: { title: siteTitle } }
+export default class BlogPostTemplate extends React.PureComponent {
+  render () {
+    const {
+      data: {
+        post: { excerpt, frontmatter, html },
+        site: {
+          siteMetadata: { title: siteTitle }
+        }
+      }
+    } = this.props
+
+    return (
+      <React.Fragment>
+        <PostSEO
+          frontmatter={frontmatter}
+          excerpt={excerpt}
+          siteTitle={siteTitle}
+        />
+
+        <Post frontmatter={frontmatter} html={html} />
+      </React.Fragment>
+    )
   }
-}) => {
-  return (
-    <Fragment>
-      <PostSEO
-        frontmatter={frontmatter}
-        excerpt={excerpt}
-        siteTitle={siteTitle}
-      />
-
-      <Post frontmatter={frontmatter} html={html} />
-    </Fragment>
-  )
 }
-
-export default Template
 
 export const query = graphql`
   query BlogPostByPath($path: String!) {

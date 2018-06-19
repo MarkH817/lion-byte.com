@@ -1,42 +1,46 @@
-import React, { Fragment } from 'react'
+import * as React from 'react'
 import Helmet from 'react-helmet'
 import graphql from 'graphql'
 
 import { TextType } from '../components/animated/textType'
 import { Project } from '../components/project'
 
-const AboutPage = ({
-  data: {
-    dataJson: { projects },
-    bio: { html: aboutHtml },
-    site: { siteMetadata: { title: siteTitle } }
+export default class AboutPage extends React.PureComponent {
+  render () {
+    const {
+      data: {
+        dataJson: { projects },
+        bio: { html: aboutHtml },
+        site: {
+          siteMetadata: { title: siteTitle }
+        }
+      }
+    } = this.props
+
+    return (
+      <React.Fragment>
+        <Helmet title={`About | ${siteTitle}`} />
+
+        <h1>
+          <TextType text='About' />
+        </h1>
+
+        <section
+          className='bio'
+          dangerouslySetInnerHTML={{ __html: aboutHtml }}
+        />
+
+        <h2>
+          <TextType text='Projects' />
+        </h2>
+
+        <section className='project-area'>
+          {projects.map((project, idx) => <Project key={idx} {...project} />)}
+        </section>
+      </React.Fragment>
+    )
   }
-}) => {
-  return (
-    <Fragment>
-      <Helmet title='About | Mark Hernandez (lion-byte)' />
-
-      <h1>
-        <TextType text='About' />
-      </h1>
-
-      <section
-        className='bio'
-        dangerouslySetInnerHTML={{ __html: aboutHtml }}
-      />
-
-      <h2>
-        <TextType text='Projects' />
-      </h2>
-
-      <section className='project-area'>
-        {projects.map((project, idx) => <Project key={idx} {...project} />)}
-      </section>
-    </Fragment>
-  )
 }
-
-export default AboutPage
 
 export const query = graphql`
   query AboutPageQuery {

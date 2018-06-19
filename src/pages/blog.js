@@ -1,28 +1,36 @@
-import React, { Fragment } from 'react'
+import * as React from 'react'
 import Helmet from 'react-helmet'
 import graphql from 'graphql'
 
 import { TextType } from '../components/animated/textType'
 import { PostPreview } from '../components/post'
 
-const BlogIndexPage = ({
-  data: {
-    postPreviews: { edges: posts },
-    site: { siteMetadata: { title: siteTitle } }
+export default class BlogIndexPage extends React.PureComponent {
+  render () {
+    const {
+      data: {
+        postPreviews: { edges: posts },
+        site: {
+          siteMetadata: { title: siteTitle }
+        }
+      }
+    } = this.props
+
+    return (
+      <React.Fragment>
+        <Helmet title={`Blog | ${siteTitle}`} />
+
+        <h1>
+          <TextType text='Blog' />
+        </h1>
+
+        {posts.map(({ node: post }) => (
+          <PostPreview post={post} key={post.id} />
+        ))}
+      </React.Fragment>
+    )
   }
-}) => (
-  <Fragment>
-    <Helmet title='Blog | Mark Hernandez (lion-byte)' />
-
-    <h1>
-      <TextType text='Blog' />
-    </h1>
-
-    {posts.map(({ node: post }) => <PostPreview post={post} key={post.id} />)}
-  </Fragment>
-)
-
-export default BlogIndexPage
+}
 
 export const query = graphql`
   query BlogIndexPageQuery {

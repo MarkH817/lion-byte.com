@@ -1,32 +1,39 @@
-import React from 'react'
+import * as React from 'react'
 import PropTypes from 'prop-types'
 
 import '../styles/index.less'
 import { Navigation } from '../components/navigation'
 import { SEO } from '../components/seo'
 
-const TemplateWrapper = ({
-  data: { site: { siteMetadata: metadata }, profile },
-  children
-}) => (
-  <div className='page-wrapper'>
-    <SEO metadata={metadata} profile={profile} />
+export default class TemplateWrapper extends React.PureComponent {
+  render () {
+    const {
+      data: {
+        site: { siteMetadata: metadata },
+        profile
+      },
+      children
+    } = this.props
 
-    <Navigation metadata={metadata} profile={profile} />
+    return (
+      <div className='page-wrapper'>
+        <SEO metadata={metadata} profile={profile} />
 
-    <main className='main-wrapper flex center one six-800'>
-      <section className='main-content center two-third-800'>
-        {children()}
-      </section>
-    </main>
-  </div>
-)
+        <Navigation metadata={metadata} profile={profile} />
+
+        <main className='main-wrapper flex center one six-800'>
+          <section className='main-content center two-third-800'>
+            {children()}
+          </section>
+        </main>
+      </div>
+    )
+  }
+}
 
 TemplateWrapper.propTypes = {
   children: PropTypes.func
 }
-
-export default TemplateWrapper
 
 export const query = graphql`
   query CommonElementsQuery {

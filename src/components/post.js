@@ -1,56 +1,64 @@
-import React, { Fragment } from 'react'
+import * as React from 'react'
 import Helmet from 'react-helmet'
 import Link from 'gatsby-link'
 
 import { TextType } from './animated/textType'
 
-export const PostPreview = ({ post: { excerpt, frontmatter } }) => (
-  <article className='blog-post-preview'>
-    <h3 className='title'>
-      <Link to={frontmatter.path}>{frontmatter.title}</Link>
-    </h3>
+export class PostPreview extends React.PureComponent {
+  render () {
+    const {
+      post: { excerpt, frontmatter }
+    } = this.props
 
-    <time>{frontmatter.date}</time>
+    return (
+      <article className='blog-post-preview'>
+        <h3 className='title'>
+          <Link to={frontmatter.path}>{frontmatter.title}</Link>
+        </h3>
 
-    <hr />
+        <time>{frontmatter.date}</time>
 
-    <p className='excerpt'>{excerpt}</p>
-  </article>
-)
+        <hr />
 
-export const PostSEO = ({ frontmatter, excerpt, siteTitle }) => (
-  <Helmet
-    title={`${frontmatter.title} | ${siteTitle}`}
-    meta={[
-      {
-        name: 'og:title',
-        content: frontmatter.title
-      },
-      {
-        name: 'og:description',
-        content: excerpt
-      },
-      {
-        name: 'description',
-        content: excerpt
-      }
-    ]}
-  />
-)
+        <p className='excerpt'>{excerpt}</p>
+      </article>
+    )
+  }
+}
 
-export const Post = ({ frontmatter, html }) => (
-  <Fragment>
-    <h1>
-      <TextType text={frontmatter.title} />
-    </h1>
+export class PostSEO extends React.PureComponent {
+  render () {
+    const { frontmatter, excerpt, siteTitle } = this.props
 
-    <time>{frontmatter.date}</time>
+    return (
+      <Helmet title={`${frontmatter.title} | ${siteTitle}`}>
+        <meta name='og:title' content={frontmatter.title} />
+        <meta name='og:description' content={excerpt} />
+        <meta name='description' content={excerpt} />
+      </Helmet>
+    )
+  }
+}
 
-    <hr />
+export class Post extends React.PureComponent {
+  render () {
+    const { frontmatter, html } = this.props
 
-    <article
-      className='blog-post content'
-      dangerouslySetInnerHTML={{ __html: html }}
-    />
-  </Fragment>
-)
+    return (
+      <React.Fragment>
+        <h1>
+          <TextType text={frontmatter.title} />
+        </h1>
+
+        <time>{frontmatter.date}</time>
+
+        <hr />
+
+        <article
+          className='blog-post content'
+          dangerouslySetInnerHTML={{ __html: html }}
+        />
+      </React.Fragment>
+    )
+  }
+}

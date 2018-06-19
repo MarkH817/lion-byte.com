@@ -1,47 +1,53 @@
-import React from 'react'
+import * as React from 'react'
 import PropTypes from 'prop-types'
 
-export const Project = ({
-  title,
-  description,
-  githubUrl,
-  demoUrl,
-  languages,
-  libraries
-}) => (
-  <article className='project'>
-    <h3>{title}</h3>
+export class Project extends React.PureComponent {
+  render () {
+    const {
+      title,
+      description,
+      githubUrl,
+      demoUrl,
+      languages,
+      libraries
+    } = this.props
 
-    <hr />
+    return (
+      <article className='project'>
+        <h3>{title}</h3>
 
-    <p className='clearfix'>
-      <span className='float-left'>Written in: {languages.join(', ')}</span>
+        <hr />
 
-      <span className='float-right'>
-        {githubUrl && (
-          <a href={githubUrl} target='noopener'>
-            GitHub Repo
-          </a>
-        )}
-      </span>
+        <p className='clearfix'>
+          <span className='float-left'>Written in: {languages.join(', ')}</span>
 
-      {githubUrl &&
-        demoUrl && <span className='float-right'>&nbsp;|&nbsp;</span>}
+          <span className='float-right'>
+            {githubUrl && (
+              <a href={githubUrl} target='noopener'>
+                GitHub Repo
+              </a>
+            )}
+          </span>
 
-      <span className='float-right'>
-        {demoUrl && (
-          <a href={demoUrl} target='noopener'>
-            Demo Link
-          </a>
-        )}
-      </span>
-    </p>
+          {githubUrl &&
+            demoUrl && <span className='float-right'>&nbsp;|&nbsp;</span>}
 
-    {libraries && <p>Libraries used: {libraries.join(', ')}</p>}
+          <span className='float-right'>
+            {demoUrl && (
+              <a href={demoUrl} target='noopener'>
+                Demo Link
+              </a>
+            )}
+          </span>
+        </p>
 
-    <p>{description}</p>
-  </article>
-)
+        {libraries && <p>Libraries used: {libraries.join(', ')}</p>}
+
+        <p>{description}</p>
+      </article>
+    )
+  }
+}
 
 Project.propTypes = {
   title: PropTypes.string.isRequired,

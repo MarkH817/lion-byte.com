@@ -1,12 +1,13 @@
-import React, { Component, Fragment } from 'react'
+import * as React from 'react'
 import PropTypes from 'prop-types'
 import Typed from 'typed.js'
 
-export class TextType extends Component {
+export class TextType extends React.PureComponent {
   componentDidMount () {
     const { text, onStart, onEnd } = this.props
 
     const options = {
+      autoInsertCss: false,
       strings: [text],
       startDelay: 200,
       typeSpeed: 67,
@@ -31,7 +32,7 @@ export class TextType extends Component {
 
   render () {
     return (
-      <Fragment>
+      <React.Fragment>
         <span className='visually-hidden' aria-live='polite'>
           {this.props.text}
         </span>
@@ -43,14 +44,11 @@ export class TextType extends Component {
           aria-hidden
         />
         <noscript>
-          <span
-            role='presentation'
-            aria-hidden
-          >
+          <span role='presentation' aria-hidden>
             {this.props.text}
           </span>
         </noscript>
-      </Fragment>
+      </React.Fragment>
     )
   }
 }

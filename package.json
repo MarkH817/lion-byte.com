@@ -1,38 +1,39 @@
 {
-  "name": "portfolio-mark-hernandez",
+  "name": "lion-byte.com",
   "description": "Mark Hernandez's portfolio site",
   "version": "1.0.0",
-  "author": {
-    "name": "Mark Hernandez",
-    "email": "markedcode@gmail.com",
-    "url": "https://www.lion-byte.com"
+  "author": "Mark Hernandez <mark@lion-byte.com> (https://www.lion-byte.com)",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/MarkH817/lion-byte.com.git"
   },
   "dependencies": {
-    "gatsby": "^1.9.270",
-    "gatsby-image": "^1.0.52",
+    "gatsby": "^1.9.272",
+    "gatsby-image": "^1.0.54",
     "gatsby-link": "^1.6.44",
-    "gatsby-plugin-catch-links": "^1.0.22",
+    "gatsby-plugin-catch-links": "^1.0.24",
     "gatsby-plugin-favicon": "^2.1.1",
-    "gatsby-plugin-feed": "^1.3.24",
+    "gatsby-plugin-feed": "^1.3.25",
     "gatsby-plugin-less": "^1.1.8",
     "gatsby-plugin-netlify": "^1.0.21",
     "gatsby-plugin-offline": "^1.0.18",
     "gatsby-plugin-react-helmet": "^2.0.11",
     "gatsby-plugin-react-next": "^1.0.11",
-    "gatsby-plugin-sharp": "^1.6.47",
+    "gatsby-plugin-sharp": "^1.6.48",
     "gatsby-plugin-sitemap": "^1.2.25",
-    "gatsby-remark-copy-linked-files": "^1.5.35",
-    "gatsby-remark-images": "^1.5.66",
-    "gatsby-remark-prismjs": "^1.2.24",
-    "gatsby-remark-responsive-iframe": "^1.4.19",
-    "gatsby-source-filesystem": "^1.5.38",
-    "gatsby-transformer-json": "^1.0.19",
-    "gatsby-transformer-remark": "^1.7.42",
-    "gatsby-transformer-sharp": "^1.6.26",
+    "gatsby-remark-copy-linked-files": "^1.5.37",
+    "gatsby-remark-images": "^1.5.67",
+    "gatsby-remark-prismjs": "^2.0.4",
+    "gatsby-remark-responsive-iframe": "^1.4.20",
+    "gatsby-source-filesystem": "^1.5.39",
+    "gatsby-transformer-json": "^1.0.20",
+    "gatsby-transformer-remark": "^1.7.44",
+    "gatsby-transformer-sharp": "^1.6.27",
     "picnic": "^6.5.0",
-    "prop-types": "^15.6.1",
+    "prismjs": "^1.15.0",
+    "prop-types": "^15.6.2",
     "react-helmet": "^5.2.0",
-    "typed.js": "^2.0.7"
+    "typed.js": "^2.0.8"
   },
   "keywords": [
     "gatsby"
@@ -69,8 +70,8 @@
     ]
   },
   "devDependencies": {
-    "husky": "^1.0.0-rc.8",
-    "lint-staged": "^7.1.3",
+    "husky": "^1.0.0-rc.9",
+    "lint-staged": "^7.2.0",
     "prettier": "^1.13.5",
     "standard": "^11.0.1"
   }
