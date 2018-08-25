@@ -1,7 +1,7 @@
 import * as React from 'react'
 
 import { PostPreviewList } from '../components/post'
-import { TextType } from '../components/animated/textType'
+import { TextType } from '../components/animated'
 import { Page } from '../templates/page'
 
 export default class HomePage extends React.PureComponent {

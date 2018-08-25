@@ -1,9 +1,9 @@
 import * as React from 'react'
 import { graphql } from 'gatsby'
 
-import { TextType } from '../../components/animated/textType'
+import { TextType } from '../../components/animated'
+import { ProjectList } from '../../components/project'
 import { Page } from '../../templates/page'
-import { ProjectList } from './projects'
 
 export default class AboutPage extends React.PureComponent {
   render () {
