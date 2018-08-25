@@ -13,10 +13,8 @@ module.exports = {
     'gatsby-plugin-less',
     'gatsby-plugin-offline',
     'gatsby-plugin-react-helmet',
-    'gatsby-plugin-react-next',
     'gatsby-plugin-sharp',
     'gatsby-plugin-sitemap',
-    'gatsby-transformer-json',
     'gatsby-transformer-sharp',
     {
       resolve: 'gatsby-plugin-favicon',

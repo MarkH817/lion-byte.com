@@ -22,7 +22,7 @@ GPA: 3.679 / 4.000
 
 ### Undergraduate Research Assistant
 
-#### May 2018 - Current
+#### May 2018 - August 2018
 
 Assisting in undergraduate research projects under Professor Myra Cohen. Continuing on the senior design projects and web components on other projects.
 

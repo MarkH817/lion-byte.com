@@ -4,13 +4,26 @@ import Typed from 'typed.js'
 
 export class TextType extends React.PureComponent {
   componentDidMount () {
+    this.create()
+  }
+
+  componentWillUnmount () {
+    this.typed.destroy()
+  }
+
+  componentDidUpdate () {
+    this.destroy()
+    this.create()
+  }
+
+  create () {
     const { text, onStart, onEnd } = this.props
 
     const options = {
       autoInsertCss: false,
       strings: [text],
       startDelay: 200,
-      typeSpeed: 67,
+      typeSpeed: 32,
       preStringTyped: onStart !== undefined ? onStart : () => {},
       onComplete: onEnd !== undefined ? onEnd : () => {}
     }
@@ -18,16 +31,8 @@ export class TextType extends React.PureComponent {
     this.typed = new Typed(this.el, options)
   }
 
-  componentWillUnmount () {
+  destroy () {
     this.typed.destroy()
-  }
-
-  componentWillUpdate () {
-    this.componentWillUnmount()
-  }
-
-  componentDidUpdate () {
-    this.componentDidMount()
   }
 
   render () {
