@@ -1,8 +1,11 @@
 import * as React from 'react'
+import { Link } from 'gatsby'
 
 import { PostPreviewList } from '../components/post'
 import { TextType } from '../components/animated'
 import { Page } from '../templates/page'
+
+const center = { textAlign: 'center' }
 
 export default class HomePage extends React.PureComponent {
   render () {
@@ -17,6 +20,10 @@ export default class HomePage extends React.PureComponent {
         </h2>
 
         <PostPreviewList limit={2} />
+
+        <div style={center}>
+          <Link to='/blog'>&laquo; View more posts &raquo;</Link>
+        </div>
       </Page>
     )
   }

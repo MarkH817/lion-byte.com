@@ -23,7 +23,7 @@ export class TextType extends React.PureComponent {
       autoInsertCss: false,
       strings: [text],
       startDelay: 200,
-      typeSpeed: 32,
+      typeSpeed: 76,
       preStringTyped: onStart !== undefined ? onStart : () => {},
       onComplete: onEnd !== undefined ? onEnd : () => {}
     }
@@ -36,11 +36,12 @@ export class TextType extends React.PureComponent {
   }
 
   render () {
+    const { text } = this.props
+
     return (
       <React.Fragment>
-        <span className='visually-hidden' aria-live='polite'>
-          {this.props.text}
-        </span>
+        <span className='visually-hidden'>{text}</span>
+
         <span
           ref={el => {
             this.el = el
@@ -48,9 +49,10 @@ export class TextType extends React.PureComponent {
           role='presentation'
           aria-hidden
         />
+
         <noscript>
           <span role='presentation' aria-hidden>
-            {this.props.text}
+            {text}
           </span>
         </noscript>
       </React.Fragment>
