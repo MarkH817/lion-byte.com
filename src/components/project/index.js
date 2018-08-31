@@ -15,7 +15,7 @@ import PropTypes from 'prop-types'
 export const projectListData = [
   {
     title: 'Generator LionByte',
-    description: 'A Yeoman generator for NodeJS projecs.',
+    description: 'A Yeoman generator for NodeJS projects.',
     demoUrl: '',
     githubUrl: 'https://github.com/MarkH817/generator-lionbyte',
     languages: ['JavaScript'],
@@ -96,28 +96,28 @@ export class Project extends React.PureComponent {
 
         <hr />
 
-        <p className='clearfix'>
+        <section className='clearfix'>
           <span className='float-left'>Written in: {languages.join(', ')}</span>
 
-          <span className='float-right'>
-            {githubUrl && (
+          {githubUrl && (
+            <span className='float-right'>
               <a href={githubUrl} target='noopener'>
                 GitHub Repo
               </a>
-            )}
-          </span>
+            </span>
+          )}
 
           {githubUrl &&
             demoUrl && <span className='float-right'>&nbsp;|&nbsp;</span>}
 
-          <span className='float-right'>
-            {demoUrl && (
+          {demoUrl && (
+            <span className='float-right'>
               <a href={demoUrl} target='noopener'>
                 Demo Link
               </a>
-            )}
-          </span>
-        </p>
+            </span>
+          )}
+        </section>
 
         {libraries && <p>Libraries used: {libraries.join(', ')}</p>}
 

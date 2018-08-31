@@ -58,6 +58,10 @@ export class Navigation extends React.PureComponent {
             About
           </Link>
 
+          <Link className='pseudo button' to='/blog'>
+            Blog
+          </Link>
+
           <a
             className='pseudo button'
             href='https://github.com/MarkH817/'

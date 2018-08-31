@@ -16,7 +16,7 @@ export default class HomePage extends React.PureComponent {
         </h1>
 
         <h2>
-          <TextType text='Blog' />
+          <TextType text='Recent Blog Posts' />
         </h2>
 
         <PostPreviewList limit={2} />

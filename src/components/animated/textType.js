@@ -1,6 +1,5 @@
 import * as React from 'react'
 import PropTypes from 'prop-types'
-import Typed from 'typed.js'
 
 export class TextType extends React.PureComponent {
   componentDidMount () {
@@ -16,19 +15,22 @@ export class TextType extends React.PureComponent {
     this.create()
   }
 
-  create () {
+  async create () {
     const { text, onStart, onEnd } = this.props
 
-    const options = {
+    const {
+      default: Typed
+    } = await import(/* webpackChunkName: "typed.js" */ 'typed.js')
+
+    this.typed = new Typed(this.el, {
       autoInsertCss: false,
+      cursorChar: ' ',
       strings: [text],
       startDelay: 200,
       typeSpeed: 76,
-      preStringTyped: onStart !== undefined ? onStart : () => {},
-      onComplete: onEnd !== undefined ? onEnd : () => {}
-    }
-
-    this.typed = new Typed(this.el, options)
+      preStringTyped: onStart,
+      onComplete: onEnd
+    })
   }
 
   destroy () {
@@ -46,14 +48,11 @@ export class TextType extends React.PureComponent {
           ref={el => {
             this.el = el
           }}
-          role='presentation'
           aria-hidden
         />
 
         <noscript>
-          <span role='presentation' aria-hidden>
-            {text}
-          </span>
+          <span aria-hidden>{text}</span>
         </noscript>
       </React.Fragment>
     )
@@ -64,4 +63,9 @@ TextType.propTypes = {
   text: PropTypes.string.isRequired,
   onStart: PropTypes.func,
   onEnd: PropTypes.func
+}
+
+TextType.defaultProps = {
+  onStart: () => {},
+  onEnd: () => {}
 }
