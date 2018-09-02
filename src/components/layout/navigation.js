@@ -1,6 +1,5 @@
 import * as React from 'react'
-import Link from 'gatsby-link'
-import Image from 'gatsby-image'
+import { graphql, Link, StaticQuery } from 'gatsby'
 
 export class Navigation extends React.PureComponent {
   constructor (props) {
@@ -21,26 +20,21 @@ export class Navigation extends React.PureComponent {
   }
 
   render () {
-    const {
-      profile: { resolutions, sizes },
-      metadata: { title }
-    } = this.props
-
     return (
       <nav>
         <Link to='/' className='brand'>
-          <Image
-            alt='Profile'
-            outerWrapperClassName='profile-wrapper'
-            className='profile'
-            fadeIn
-            resolutions={resolutions}
-            sizes={sizes}
+          <StaticQuery
+            query={graphql`
+              query {
+                site {
+                  siteMetadata {
+                    title
+                  }
+                }
+              }
+            `}
+            render={data => <span>{data.site.siteMetadata.title}</span>}
           />
-        </Link>
-
-        <Link to='/' className='brand'>
-          <span>{title}</span>
         </Link>
 
         <input
@@ -50,17 +44,22 @@ export class Navigation extends React.PureComponent {
           checked={this.state.checked}
           onChange={this.toggleNav}
         />
+
         <label htmlFor='menu-toggle' className='burger pseudo button'>
           &#9776;
         </label>
 
-        <div className='menu'>
-          <Link className='pseudo button' to='/' onClick={this.hideNav}>
+        <div className='menu' onClick={this.hideNav}>
+          <Link className='pseudo button' to='/'>
             Home
           </Link>
 
-          <Link className='pseudo button' to='/about' onClick={this.hideNav}>
+          <Link className='pseudo button' to='/about'>
             About
+          </Link>
+
+          <Link className='pseudo button' to='/blog'>
+            Blog
           </Link>
 
           <a

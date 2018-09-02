@@ -1,52 +1,58 @@
 import * as React from 'react'
 import PropTypes from 'prop-types'
-import Typed from 'typed.js'
 
 export class TextType extends React.PureComponent {
   componentDidMount () {
-    const { text, onStart, onEnd } = this.props
-
-    const options = {
-      autoInsertCss: false,
-      strings: [text],
-      startDelay: 200,
-      typeSpeed: 67,
-      preStringTyped: onStart !== undefined ? onStart : () => {},
-      onComplete: onEnd !== undefined ? onEnd : () => {}
-    }
-
-    this.typed = new Typed(this.el, options)
+    this.create()
   }
 
   componentWillUnmount () {
     this.typed.destroy()
   }
 
-  componentWillUpdate () {
-    this.componentWillUnmount()
+  componentDidUpdate () {
+    this.destroy()
+    this.create()
   }
 
-  componentDidUpdate () {
-    this.componentDidMount()
+  async create () {
+    const { text, onStart, onEnd } = this.props
+
+    const {
+      default: Typed
+    } = await import(/* webpackChunkName: "typed.js" */ 'typed.js')
+
+    this.typed = new Typed(this.el, {
+      autoInsertCss: false,
+      cursorChar: '&nbsp;',
+      strings: [text],
+      startDelay: 200,
+      typeSpeed: 76,
+      preStringTyped: onStart,
+      onComplete: onEnd
+    })
+  }
+
+  destroy () {
+    this.typed.destroy()
   }
 
   render () {
+    const { text } = this.props
+
     return (
       <React.Fragment>
-        <span className='visually-hidden' aria-live='polite'>
-          {this.props.text}
-        </span>
+        <span className='visually-hidden'>{text}</span>
+
         <span
           ref={el => {
             this.el = el
           }}
-          role='presentation'
           aria-hidden
         />
+
         <noscript>
-          <span role='presentation' aria-hidden>
-            {this.props.text}
-          </span>
+          <span aria-hidden>{text}</span>
         </noscript>
       </React.Fragment>
     )
@@ -57,4 +63,9 @@ TextType.propTypes = {
   text: PropTypes.string.isRequired,
   onStart: PropTypes.func,
   onEnd: PropTypes.func
+}
+
+TextType.defaultProps = {
+  onStart: () => {},
+  onEnd: () => {}
 }

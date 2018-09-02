@@ -5,9 +5,11 @@ const path = require('path')
  * See: https://www.gatsbyjs.org/docs/node-apis/
  */
 
-exports.createPages = ({ boundActionCreators, graphql }) => {
-  const { createPage } = boundActionCreators
-  const blogPostTemplate = path.join(__dirname, './src/templates/blog-post.js')
+exports.createPages = ({ actions: { createPage }, graphql }) => {
+  const blogPostTemplate = path.join(
+    __dirname,
+    './src/templates/blog-post-page.js'
+  )
 
   return graphql(`
     query CreatePagesQuery {
@@ -39,7 +41,6 @@ exports.createPages = ({ boundActionCreators, graphql }) => {
             context: {}
           })
           break
-        default:
       }
     })
   })
