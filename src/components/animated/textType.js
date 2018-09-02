@@ -24,7 +24,7 @@ export class TextType extends React.PureComponent {
 
     this.typed = new Typed(this.el, {
       autoInsertCss: false,
-      cursorChar: ' ',
+      cursorChar: '&nbsp;',
       strings: [text],
       startDelay: 200,
       typeSpeed: 76,
