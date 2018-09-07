@@ -1,0 +1,71 @@
+@import '~prismjs/themes/prism-okaidia.css';
+
+@import './animations';
+@import './colors';
+@import './layout';
+@import './posts';
+@import './spacing';
+@import './typography';
+@import './utils';
+
+* {
+  box-sizing: border-box;
+
+  &:focus {
+    outline: 0.1rem solid #d3055b;
+  }
+
+  &::selection {
+    color: @white;
+    background-color: @color-accent;
+  }
+}
+
+.page-wrapper {
+  nav {
+    align-items: center;
+    background-color: @black;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    padding: @space-xxxs;
+
+    .brand,
+    .menu a {
+      color: @white;
+      text-decoration: none;
+    }
+
+    .brand {
+      font-size: @font-lg;
+      padding: @space-xxxs;
+    }
+
+    .menu {
+      display: flex;
+      font-size: @font-md;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+
+      a {
+        padding: @space-xs;
+        display: block;
+      }
+
+      @media only screen and (max-width: 500px) {
+        justify-content: center;
+      }
+    }
+  }
+}
+
+main {
+  background-color: @color-main-background;
+  max-width: 70em;
+  margin: 0 auto;
+  padding: @space-lg @space-xl;
+
+  & > * {
+    animation: fadeIn 0.35s;
+  }
+}

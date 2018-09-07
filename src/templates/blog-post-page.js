@@ -29,14 +29,16 @@ export class BlogPostTemplate extends React.PureComponent {
           <TextType text={frontmatter.title} />
         </h1>
 
-        <time>{frontmatter.date}</time>
+        <article className='blog-post'>
+          <span>
+            <time>{frontmatter.date}</time>
+          </span>
 
-        <hr />
-
-        <article
-          className='blog-post content'
-          dangerouslySetInnerHTML={{ __html: html }}
-        />
+          <section
+            className='content'
+            dangerouslySetInnerHTML={{ __html: html }}
+          />
+        </article>
       </Layout>
     )
   }
