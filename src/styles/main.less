@@ -24,7 +24,8 @@
 .page-wrapper {
   nav {
     align-items: center;
-    background-color: @black;
+    background-color: @color-tertiary-dark;
+    box-shadow: @color-tertiary-bg 0 0 0.75em;
     display: flex;
     flex-wrap: wrap;
     justify-content: space-around;
@@ -48,7 +49,7 @@
       justify-content: flex-end;
 
       a {
-        padding: @space-xs;
+        padding: @space-xs @space-xxs;
         display: block;
       }
 
@@ -61,11 +62,17 @@
 
 main {
   background-color: @color-main-background;
-  max-width: 70em;
-  margin: 0 auto;
+  border-radius: 0.6em;
+  box-shadow: rgba(0, 0, 0, 0.15) 0 0 1em;
+  margin: @space-lg auto @space-xl auto;
+  max-width: 100ch;
   padding: @space-lg @space-xl;
 
+  @media only screen and (max-width: 559px) {
+    padding: @space-lg @space-md;
+  }
+
   & > * {
-    animation: fadeIn 0.35s;
+    animation: fadeIn 0.32s;
   }
 }

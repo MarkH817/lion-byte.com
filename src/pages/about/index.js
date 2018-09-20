@@ -1,7 +1,6 @@
 import * as React from 'react'
 import { graphql } from 'gatsby'
 
-import { TextType } from '../../components/animated'
 import { ProjectList } from '../../components/project'
 import { Page } from '../../templates/page'
 
@@ -13,18 +12,14 @@ export default class AboutPage extends React.PureComponent {
 
     return (
       <Page title='About'>
-        <h1>
-          <TextType text='About' />
-        </h1>
+        <h1>About</h1>
 
         <section
           className='bio'
           dangerouslySetInnerHTML={{ __html: bio.html }}
         />
 
-        <h2>
-          <TextType text='Projects' />
-        </h2>
+        <h2>Projects</h2>
 
         <ProjectList className='project-area' />
       </Page>
