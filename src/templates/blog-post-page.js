@@ -2,7 +2,6 @@ import * as React from 'react'
 import { Helmet } from 'react-helmet'
 import { graphql } from 'gatsby'
 
-import { TextType } from '../components/animated/textType'
 import { Layout } from '../components/layout'
 
 export class BlogPostTemplate extends React.PureComponent {
@@ -25,18 +24,18 @@ export class BlogPostTemplate extends React.PureComponent {
           <meta name='twitter:description' content={twitterExcerpt} />
         </Helmet>
 
-        <h1>
-          <TextType text={frontmatter.title} />
-        </h1>
+        <h1>{frontmatter.title}</h1>
 
-        <time>{frontmatter.date}</time>
+        <article className='blog-post'>
+          <span>
+            <time>{frontmatter.date}</time>
+          </span>
 
-        <hr />
-
-        <article
-          className='blog-post content'
-          dangerouslySetInnerHTML={{ __html: html }}
-        />
+          <section
+            className='content'
+            dangerouslySetInnerHTML={{ __html: html }}
+          />
+        </article>
       </Layout>
     )
   }

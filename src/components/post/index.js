@@ -9,13 +9,13 @@ export class PostPreview extends React.PureComponent {
 
     return (
       <article className='blog-post-preview'>
-        <h3 className='title'>
+        <h3>
           <Link to={frontmatter.path}>{frontmatter.title}</Link>
         </h3>
 
-        <time>{frontmatter.date}</time>
-
-        <hr />
+        <span>
+          <time>{frontmatter.date}</time>
+        </span>
 
         <p className='excerpt'>{excerpt}</p>
       </article>

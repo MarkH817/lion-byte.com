@@ -37,7 +37,7 @@ export class Navigation extends React.PureComponent {
           />
         </Link>
 
-        <input
+        {/* <input
           id='menu-toggle'
           type='checkbox'
           className='show'
@@ -47,23 +47,16 @@ export class Navigation extends React.PureComponent {
 
         <label htmlFor='menu-toggle' className='burger pseudo button'>
           &#9776;
-        </label>
+        </label> */}
 
         <div className='menu' onClick={this.hideNav}>
-          <Link className='pseudo button' to='/'>
-            Home
-          </Link>
+          <Link to='/'>Home</Link>
 
-          <Link className='pseudo button' to='/about'>
-            About
-          </Link>
+          <Link to='/about'>About</Link>
 
-          <Link className='pseudo button' to='/blog'>
-            Blog
-          </Link>
+          <Link to='/blog'>Blog</Link>
 
           <a
-            className='pseudo button'
             href='https://github.com/MarkH817/'
             target='_blank'
             rel='noopener noreferrer'
@@ -72,7 +65,6 @@ export class Navigation extends React.PureComponent {
           </a>
 
           <a
-            className='pseudo button'
             href='https://www.twitter.com/lion_byte'
             target='_blank'
             rel='noopener noreferrer'
@@ -81,7 +73,6 @@ export class Navigation extends React.PureComponent {
           </a>
 
           <a
-            className='pseudo button'
             href='https://www.linkedin.com/in/markhernandez1'
             target='_blank'
             rel='noopener noreferrer'
