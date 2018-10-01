@@ -39,7 +39,7 @@ export class SEO extends React.PureComponent {
             />
             <meta name='keywords' content={data.site.siteMetadata.keywords} />
 
-            <meta name='theme-color' content='#104f5a' />
+            <meta name='theme-color' content='#552050' />
             <meta http-equiv='x-ua-compatible' content='ie=edge' />
 
             <meta
