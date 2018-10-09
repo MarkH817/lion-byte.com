@@ -11,7 +11,6 @@ module.exports = {
   plugins: [
     'gatsby-plugin-catch-links',
     'gatsby-plugin-less',
-    'gatsby-plugin-offline',
     'gatsby-plugin-react-helmet',
     'gatsby-plugin-sharp',
     'gatsby-plugin-sitemap',
@@ -40,14 +39,19 @@ module.exports = {
         feeds: [
           {
             serialize: ({ query: { site, allMarkdownRemark } }) => {
-              return allMarkdownRemark.edges.map(({ node: { excerpt, html, frontmatter } }) => {
-                return Object.assign({}, frontmatter, {
-                  description: excerpt,
-                  url: path.join(site.siteMetadata.siteUrl, frontmatter.path),
-                  guid: path.join(site.siteMetadata.siteUrl, frontmatter.path),
-                  custom_elements: [{ 'content:encoded': html }]
-                })
-              })
+              return allMarkdownRemark.edges.map(
+                ({ node: { excerpt, html, frontmatter } }) => {
+                  return Object.assign({}, frontmatter, {
+                    description: excerpt,
+                    url: path.join(site.siteMetadata.siteUrl, frontmatter.path),
+                    guid: path.join(
+                      site.siteMetadata.siteUrl,
+                      frontmatter.path
+                    ),
+                    custom_elements: [{ 'content:encoded': html }]
+                  })
+                }
+              )
             },
             query: `
               {
@@ -105,6 +109,19 @@ module.exports = {
         ]
       }
     },
+    {
+      resolve: 'gatsby-plugin-manifest',
+      options: {
+        name: 'Mark Hernandez (lion-byte)',
+        short_name: 'Mark H.',
+        start_url: '/',
+        background_color: '#e8e7e8',
+        theme_color: '#552050',
+        display: 'minimal-ui',
+        icon: './src/icons/profile.png'
+      }
+    },
+    'gatsby-plugin-offline', // Must be placed after `gatsby-plugin-manifest`
     'gatsby-plugin-netlify' // Must be last in list
   ]
 }
