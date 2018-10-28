@@ -1,7 +1,6 @@
 import * as React from 'react'
 import { graphql } from 'gatsby'
 
-import { ProjectList } from '../../components/project'
 import { Page } from '../../templates/page'
 
 export default class AboutPage extends React.PureComponent {
@@ -18,10 +17,6 @@ export default class AboutPage extends React.PureComponent {
           className='bio'
           dangerouslySetInnerHTML={{ __html: bio.html }}
         />
-
-        <h2>Projects</h2>
-
-        <ProjectList className='project-area' />
       </Page>
     )
   }

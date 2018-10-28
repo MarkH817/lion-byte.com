@@ -91,15 +91,6 @@
   .generate-lg-columns(@n, (@i + 1));
 }
 
-.generate-xl-columns(@n, @i: 1) when (@i <= @n) {
-  &.col-xl-@{i} {
-    flex-basis: round(@i * 100% / @n, 2);
-    max-width: round(@i * 100% / @n, 2);
-  }
-
-  .generate-xl-columns(@n, (@i + 1));
-}
-
 .generate-columns(@n) {
   @media only screen and (max-width: 599px) {
     .generate-sm-columns(@n);
@@ -109,12 +100,8 @@
     .generate-md-columns(@n);
   }
 
-  @media only screen and (min-width: 1200px) and (max-width: 1599px) {
+  @media only screen and (min-width: 1200px) {
     .generate-lg-columns(@n);
-  }
-
-  @media only screen and (min-width: 1600px) {
-    .generate-xl-columns(@n);
   }
 }
 
