@@ -2,21 +2,21 @@ import * as React from 'react'
 import PropTypes from 'prop-types'
 
 export class Project extends React.PureComponent {
-  render () {
+  render() {
     const {
       frontmatter: { title, githubUrl, demoUrl, languages, libraries },
       html
     } = this.props
 
     return (
-      <article className='project'>
-        <h3>{title}</h3>
+      <article className="project" style={{ marginTop: '2em' }}>
+        <div className="grid-flex">
+          <div className="col col-sm-12 col-md-8 col-lg-8">
+            <h3 style={{ marginTop: 0 }}>{title}</h3>
 
-        <div className='grid-flex'>
-          <div className='col col-sm-12 col-md-8 col-lg-8'>
             <section>
               {languages.map(lang => (
-                <span className='badge' key={lang}>
+                <span className="badge" key={lang}>
                   {lang}
                 </span>
               ))}
@@ -26,7 +26,7 @@ export class Project extends React.PureComponent {
               <section>
                 <p>
                   {githubUrl && (
-                    <a className='button' href={githubUrl} target='noopener'>
+                    <a className="button" href={githubUrl} target="noopener">
                       Source Code
                     </a>
                   )}
@@ -34,7 +34,7 @@ export class Project extends React.PureComponent {
                   {githubUrl && demoUrl && ' '}
 
                   {demoUrl && (
-                    <a className='button' href={demoUrl} target='noopener'>
+                    <a className="button" href={demoUrl} target="noopener">
                       Try It Out
                     </a>
                   )}
@@ -45,7 +45,7 @@ export class Project extends React.PureComponent {
             <section dangerouslySetInnerHTML={{ __html: html }} />
           </div>
 
-          <div className='col col-sm-12 col-md-4 col-lg-4'>
+          <div className="col col-sm-12 col-md-4 col-lg-4">
             <section>
               Libraries:
               <ul style={{ marginTop: 0 }}>
