@@ -1,4 +1,4 @@
-@import './colors';
+@import './colors.less';
 @import './spacing.less';
 
 @primary-font: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen,
@@ -136,5 +136,33 @@ article {
 
   u {
     text-decoration: underline;
+  }
+}
+
+.badge {
+  display: inline-block;
+  border: (@space-xxs / 4) solid @color-tertiary-light;
+  border-radius: @space-md;
+  color: @white;
+  background-color: @color-tertiary-dark;
+  padding: @space-xxxs @space-sm;
+  line-height: 1;
+  text-align: center;
+  white-space: nowrap;
+  vertical-align: baseline;
+}
+
+.button {
+  background-color: transparent;
+  border: (@space-xxs / 2) solid @color-primary;
+  border-radius: @space-sm;
+  display: inline-block;
+  padding: @space-xxs @space-sm;
+  text-align: center;
+  text-decoration: none;
+  vertical-align: middle;
+
+  &:hover {
+    text-decoration: none;
   }
 }
