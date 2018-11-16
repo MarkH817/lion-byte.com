@@ -11,28 +11,11 @@ module.exports = {
   plugins: [
     'gatsby-plugin-catch-links',
     'gatsby-plugin-less',
+    'gatsby-plugin-styled-components',
     'gatsby-plugin-react-helmet',
     'gatsby-plugin-sharp',
     'gatsby-plugin-sitemap',
     'gatsby-transformer-sharp',
-    {
-      resolve: 'gatsby-plugin-favicon',
-      options: {
-        injectHTML: true,
-        icons: {
-          android: false,
-          appleIcon: false,
-          appleStartup: true,
-          coast: true,
-          favicons: true,
-          firefox: true,
-          twitter: true,
-          yandex: false,
-          windows: false
-        },
-        logo: path.resolve(__dirname, './src/icons/profile.png')
-      }
-    },
     {
       resolve: 'gatsby-plugin-feed',
       options: {
