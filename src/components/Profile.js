@@ -2,7 +2,7 @@ import * as React from 'react'
 import Image from 'gatsby-image'
 import { graphql, StaticQuery } from 'gatsby'
 
-export class ProfileImage extends React.PureComponent {
+export class Profile extends React.PureComponent {
   render () {
     return (
       <StaticQuery
@@ -33,3 +33,5 @@ export class ProfileImage extends React.PureComponent {
     )
   }
 }
+
+export default Profile
