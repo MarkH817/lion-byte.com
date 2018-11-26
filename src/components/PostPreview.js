@@ -3,35 +3,33 @@ import { Link } from 'gatsby'
 import styled from 'styled-components'
 
 const PostPreviewStyles = styled.article`
-  h3 {
+  h2 {
     text-align: center;
   }
 
-  .excerpt {
-    font-size: 0.8em;
+  .date {
+    font-size: 0.85em;
   }
 `
 
-export class PostPreview extends React.PureComponent {
-  render () {
-    const {
-      post: { excerpt, frontmatter }
-    } = this.props
+export const PostPreview = props => {
+  const {
+    post: { excerpt, frontmatter }
+  } = props
 
-    return (
-      <PostPreviewStyles>
-        <h3>
-          <Link to={frontmatter.path}>{frontmatter.title}</Link>
-        </h3>
+  return (
+    <PostPreviewStyles>
+      <h2>
+        <Link to={frontmatter.path}>{frontmatter.title}</Link>
+      </h2>
 
-        <p>
-          <time>{frontmatter.date}</time>
-        </p>
+      <p className='date'>
+        <time>{frontmatter.date}</time>
+      </p>
 
-        <p className='excerpt'>{excerpt}</p>
-      </PostPreviewStyles>
-    )
-  }
+      <p className='excerpt'>{excerpt}</p>
+    </PostPreviewStyles>
+  )
 }
 
 export default PostPreview

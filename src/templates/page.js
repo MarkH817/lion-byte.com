@@ -1,20 +1,21 @@
-import * as React from 'react'
+import React from 'react'
 import { Helmet } from 'react-helmet'
+import { SkipNavContent } from '@reach/skip-nav'
 
-import Layout from '../components/Layout'
+import Meta from '../components/Meta'
 
-export class Page extends React.PureComponent {
-  render () {
-    const { children, title } = this.props
+export const Page = props => {
+  const { children, title } = props
 
-    return (
-      <Layout>
-        {title ? <Helmet title={title} /> : null}
+  return (
+    <SkipNavContent>
+      <Meta />
 
-        {children}
-      </Layout>
-    )
-  }
+      {title ? <Helmet title={title} /> : null}
+
+      {children}
+    </SkipNavContent>
+  )
 }
 
 export default Page

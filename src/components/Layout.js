@@ -1,17 +1,15 @@
 import React from 'react'
 import styled from 'styled-components'
-import { SkipNavLink, SkipNavContent } from '@reach/skip-nav'
+import { SkipNavLink } from '@reach/skip-nav'
 
-import '../styles/main.less'
-import Nav from './Nav'
-import Meta from './Meta'
+import Header from './Header'
 
 const Page = styled.div`
   max-width: 1200px;
   margin: 0 auto;
+  padding: 0 2ch;
 
   [data-reach-skip-link] {
-    font-family: 'polygon party', 'Courier New', Courier, monospace;
     color: cornflowerblue;
     text-decoration: none;
   }
@@ -19,22 +17,33 @@ const Page = styled.div`
   [data-reach-skip-link]:focus {
     outline-color: currentColor;
   }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-family: ${props => props.theme.headerFont};
+  }
+
+  a {
+    color: ${props => props.theme.blue};
+  }
 `
 
 const Main = styled.main`
-  border-top: 1em solid red;
-  margin-top: -1em;
-  padding: 0.5em calc(1em + 1vw);
+  color: ${props => props.theme.black};
+  margin: 0 auto;
+  max-width: ${props => props.theme.maxWidth};
+  padding: 0.5em 0;
 `
 
 export const Layout = props => (
   <Page>
-    <Meta />
-
     <SkipNavLink />
-    <Nav />
+    <Header />
 
-    <SkipNavContent />
     <Main>{props.children}</Main>
   </Page>
 )

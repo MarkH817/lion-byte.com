@@ -1,44 +1,52 @@
-import * as React from 'react'
+import React from 'react'
 import { Helmet } from 'react-helmet'
 import { graphql } from 'gatsby'
+import { SkipNavContent } from '@reach/skip-nav'
+import styled from 'styled-components'
 
-import Layout from '../components/Layout'
+import Meta from '../components/Meta'
 
-export class BlogPostTemplate extends React.PureComponent {
-  render () {
-    const {
-      data: {
-        post: { excerpt, frontmatter, html, twitterExcerpt }
-      }
-    } = this.props
-
-    return (
-      <Layout>
-        <Helmet title={frontmatter.title}>
-          <meta name='description' content={excerpt} />
-
-          <meta name='og:title' content={frontmatter.title} />
-          <meta name='og:description' content={excerpt} />
-
-          <meta name='twitter:title' content={frontmatter.title} />
-          <meta name='twitter:description' content={twitterExcerpt} />
-        </Helmet>
-
-        <h1>{frontmatter.title}</h1>
-
-        <article className='blog-post'>
-          <span>
-            <time>{frontmatter.date}</time>
-          </span>
-
-          <section
-            className='content'
-            dangerouslySetInnerHTML={{ __html: html }}
-          />
-        </article>
-      </Layout>
-    )
+const BlogPost = styled.article`
+  .date {
+    font-size: 0.85em;
   }
+`
+
+export const BlogPostTemplate = props => {
+  const {
+    data: {
+      post: { excerpt, frontmatter, html, twitterExcerpt }
+    }
+  } = props
+
+  return (
+    <SkipNavContent>
+      <Meta />
+
+      <Helmet title={frontmatter.title}>
+        <meta name='description' content={excerpt} />
+
+        <meta name='og:title' content={frontmatter.title} />
+        <meta name='og:description' content={excerpt} />
+
+        <meta name='twitter:title' content={frontmatter.title} />
+        <meta name='twitter:description' content={twitterExcerpt} />
+      </Helmet>
+
+      <h1>{frontmatter.title}</h1>
+
+      <BlogPost>
+        <p className='date'>
+          <time>{frontmatter.date}</time>
+        </p>
+
+        <section
+          className='content'
+          dangerouslySetInnerHTML={{ __html: html }}
+        />
+      </BlogPost>
+    </SkipNavContent>
+  )
 }
 
 export const query = graphql`

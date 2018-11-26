@@ -22,7 +22,7 @@ export const META_QUERY = graphql`
   }
 `
 
-export const Meta = () => (
+export const Meta = props => (
   <StaticQuery query={META_QUERY}>
     {data => (
       <Helmet
