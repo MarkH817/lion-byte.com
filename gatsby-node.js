@@ -8,7 +8,7 @@ const path = require('path')
 exports.createPages = ({ actions: { createPage }, graphql }) => {
   const blogPostTemplate = path.join(
     __dirname,
-    './src/templates/blog-post-page.js'
+    './src/templates/BlogPostPage.js'
   )
 
   return graphql(`

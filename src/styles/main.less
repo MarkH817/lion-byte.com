@@ -1,13 +1,5 @@
+@import '~@reach/skip-nav/styles.css';
 @import '~prismjs/themes/prism-okaidia.css';
-
-@import './colors';
-@import './spacing';
-@import './animations';
-@import './utils';
-
-@import './typography';
-@import './layout';
-@import './posts';
 
 * {
   box-sizing: border-box;
@@ -17,63 +9,24 @@
   }
 
   &::selection {
-    color: @white;
-    background-color: @color-accent;
+    color: #ffffff;
+    background-color: #e73212;
   }
 }
 
-.page-wrapper {
-  nav {
-    align-items: center;
-    background-color: @color-tertiary-dark;
-    box-shadow: @color-tertiary-bg 0 0 0.75em;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-around;
-    padding: @space-xxxs;
-
-    .brand,
-    .menu a {
-      color: @white;
-      text-decoration: none;
-    }
-
-    .brand {
-      font-size: @font-lg;
-      padding: @space-xxxs;
-    }
-
-    .menu {
-      display: flex;
-      font-size: @font-md;
-      flex-wrap: wrap;
-      justify-content: flex-end;
-
-      a {
-        padding: @space-xs @space-xxs;
-        display: block;
-      }
-
-      @media only screen and (max-width: 500px) {
-        justify-content: center;
-      }
-    }
-  }
+body {
+  font-family: 'Open Sans', Arial, Helvetica, sans-serif;
+  line-height: 2;
+  margin: 0;
+  padding: 0;
 }
 
-main {
-  background-color: @color-main-background;
-  border-radius: 0.6em;
-  box-shadow: rgba(0, 0, 0, 0.15) 0 0 1em;
-  margin: @space-lg auto @space-xl auto;
-  max-width: 80ch;
-  padding: @space-lg @space-xl;
-
-  @media only screen and (max-width: 559px) {
-    padding: @space-lg @space-md;
+@keyframes fadein {
+  0% {
+    opacity: 0;
   }
 
-  & > * {
-    animation: fadeIn 0.32s;
+  100% {
+    opacity: 1;
   }
 }

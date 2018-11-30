@@ -3,46 +3,52 @@ page: about
 type: partial
 ---
 
-My name is Mark Hernandez. I'm a computer science student at the University of Nebraska - Lincoln.
+Hello, my name is Mark Hernandez.
 
-## Education
+I'm a computer science student at the University of Nebraska - Lincoln. I started doing web development when I wanted to change the design of my Tumblr page back in 2011. Now, I use React, GraphQL, TypeScript, and other tools to get my side projects developed quickly. My overall goal is just to keep learning new technologies and maintaining a healthy work-life balance.
 
----
+I also love listening to podcasts like [Syntax](https://syntax.fm/) and [Developer Tea](https://developertea.com/)! In addition talking about web dev topics and technologies, they focus on the human-side of development like subtle psychological phenomena, stress, and giving/taking constructive feedback.
 
-### University of Nebraska - Lincoln
+Please [contact me](/contact) if you would like to chat.
+
+## More Information
+
+### Education
+
+#### University of Nebraska - Lincoln
 
 Expected graduation: December 2018<br />
 Major: Computer Science<br />
 Minor: Mathematics<br />
 GPA: 3.679 / 4.000
 
-## Experience
+### Experience
 
----
+#### Undergraduate Research Assistant
 
-### Undergraduate Research Assistant
+##### May 2018 - August 2018
 
-#### May 2018 - August 2018
+- Assisted in undergraduate research projects under Professor Myra Cohen.
+- Continued development on audible JavaScript heuristics.
+- Lead development for UNL iGEM collaboration project.
 
-Assisting in undergraduate research projects under Professor Myra Cohen. Continuing on the senior design projects and web components on other projects.
+#### Development Manager - Senior Design Project
 
-### Development Manager - Senior Design Project
+##### August 2017 - May 2018
 
-#### August 2017 - May 2018
+- Prepared development environment and tooling.
+- Performed regular code reviews.
+- Maintained the build pipeline.
+- Assisted teammates with new features.
 
-The UNL Senior Design led by Professor Myra Cohen is called "Sound of Code." It is an interactive JavaScript web application for learning and hearing JavaScript. This application augments user JavaScript with sounds to play at runtime. This allows users to visualize and hear their programs as well as their errors.
+#### Undergraduate Teaching Assistant
 
-As a development manager, I performed regular code reviews, maintained the build pipeline, and assisted teammates with new features.
+##### January 2017 - May 2018
 
-### Undergraduate Teaching Assistant
-
-#### January 2017 - May 2018
-
-CSCE 156 - Computer Science II (Java)
-
-I assisted students in their coursework for assignments and weekly lab sessions and held regular office hours in the Student Resource Center.
-
-I gave feedback to Graduate Teaching Assistants (GTAs) based on students' comments regarding labs and assignments.
+- Assisted students in their coursework for Java assignments.
+- Facilitated weekly lab sessions.
+- Held regular office hours in the Student Resource Center.
+- Reported feedback weekly to Graduate Teaching Assistants (GTAs) with students' comments regarding labs and assignments.
 
 ---
 

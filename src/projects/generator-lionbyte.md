@@ -9,4 +9,4 @@ libraries:
   - Yeoman-Generator
 ---
 
-A Yeoman generator for NodeJS projects.
+A Yeoman generator that scaffolds JavaScript projects with various development tools and environments. This holds my personal preferences for all of my personal projects.
