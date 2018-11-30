@@ -2,7 +2,7 @@ import React from 'react'
 import Image from 'gatsby-image'
 import { graphql, StaticQuery } from 'gatsby'
 
-export const PROFILE_IMAGE_QUERY = graphql`
+const PROFILE_IMAGE_QUERY = graphql`
   query PROFILE_IMAGE_QUERY {
     profileImage: imageSharp(original: { src: { regex: "/profile/" } }) {
       fixed(width: 128, height: 128) {

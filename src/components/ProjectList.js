@@ -6,7 +6,7 @@ import Project from './Project'
 
 const ProjectListStyles = styled.section``
 
-export const PROJECTS_QUERY = graphql`
+const PROJECTS_QUERY = graphql`
   query PROJECTS_QUERY {
     projects: allMarkdownRemark(
       filter: { frontmatter: { type: { eq: "project" } } }

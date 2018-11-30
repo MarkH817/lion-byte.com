@@ -3,7 +3,7 @@ import { graphql, StaticQuery } from 'gatsby'
 
 import Page from '../templates/Page'
 
-export const ABOUT_PAGE_QUERY = graphql`
+const ABOUT_PAGE_QUERY = graphql`
   query ABOUT_PAGE_QUERY {
     bio: markdownRemark(
       frontmatter: { type: { eq: "partial" }, page: { eq: "about" } }

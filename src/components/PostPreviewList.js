@@ -3,7 +3,7 @@ import { graphql, StaticQuery } from 'gatsby'
 
 import PostPreview from './PostPreview'
 
-export const POST_PREVIEW_LIST_QUERY = graphql`
+const POST_PREVIEW_LIST_QUERY = graphql`
   query POST_PREVIEW_QUERY {
     postPreviews: allMarkdownRemark(
       sort: { order: DESC, fields: [frontmatter___date] }
