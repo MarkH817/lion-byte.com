@@ -1,20 +1,17 @@
 import React from 'react'
 import { Helmet } from 'react-helmet'
-import { SkipNavContent } from '@reach/skip-nav'
 
-import Meta from '../components/Meta'
+import Layout from '../components/Layout'
 
 export const Page = props => {
   const { children, title } = props
 
   return (
-    <SkipNavContent>
-      <Meta />
-
+    <Layout>
       {title ? <Helmet title={title} /> : null}
 
       {children}
-    </SkipNavContent>
+    </Layout>
   )
 }
 

@@ -1,63 +1,35 @@
-import * as React from 'react'
+import React from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
 
 const ProjectStyles = styled.article`
-  margin-top: 2em;
-  display: grid;
-  grid-template-columns: 1fr 1fr;
+  margin-bottom: 2em;
+
+  footer {
+    font-size: 0.85em;
+  }
 `
 
 export const Project = props => {
   const {
-    frontmatter: { title, githubUrl, demoUrl, languages, libraries },
+    frontmatter: { title, languages, libraries },
     html
   } = props
 
   return (
     <ProjectStyles>
-      <div>
-        <h3 style={{ marginTop: 0 }}>{title}</h3>
+      <h3>{title}</h3>
 
-        <section>
-          {languages.map(lang => (
-            <span key={lang}>{lang}</span>
-          ))}
-        </section>
+      <section
+        className='description'
+        dangerouslySetInnerHTML={{ __html: html }}
+      />
 
-        {(githubUrl || demoUrl) && (
-          <section>
-            <p>
-              {githubUrl && (
-                <a href={githubUrl} target='noopener'>
-                  Source Code
-                </a>
-              )}
+      <footer>
+        <p>Written in: {languages.join(', ')}</p>
 
-              {githubUrl && demoUrl && ' '}
-
-              {demoUrl && (
-                <a href={demoUrl} target='noopener'>
-                  Try It Out
-                </a>
-              )}
-            </p>
-          </section>
-        )}
-
-        <section dangerouslySetInnerHTML={{ __html: html }} />
-      </div>
-
-      <div>
-        <section>
-          Libraries:
-          <ul style={{ marginTop: 0 }}>
-            {libraries.map(lib => (
-              <li key={lib}>{lib}</li>
-            ))}
-          </ul>
-        </section>
-      </div>
+        <p>Libraries: {libraries.join(', ')}</p>
+      </footer>
     </ProjectStyles>
   )
 }

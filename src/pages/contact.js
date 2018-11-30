@@ -14,6 +14,32 @@ export const Contact = props => (
     <p>
       <a href='mailto:mark@lion-byte.com'>mark@lion-byte.com</a>
     </p>
+
+    <p>
+      <a
+        href='https://github.com/MarkH817/'
+        target='_blank'
+        rel='noopener noreferrer'
+      >
+        GitHub
+      </a>
+      {' | '}
+      <a
+        href='https://www.twitter.com/lion_byte'
+        target='_blank'
+        rel='noopener noreferrer'
+      >
+        Twitter
+      </a>
+      {' | '}
+      <a
+        href='https://www.linkedin.com/in/markhernandez1'
+        target='_blank'
+        rel='noopener noreferrer'
+      >
+        Linkedin
+      </a>
+    </p>
   </Page>
 )
 

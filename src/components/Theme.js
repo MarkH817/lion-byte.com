@@ -3,8 +3,7 @@ import { ThemeProvider } from 'styled-components'
 import 'typeface-nunito'
 import 'typeface-open-sans'
 
-import Layout from './src/components/Layout'
-import './src/styles/main.less'
+import '../styles/main.less'
 
 const theme = {
   headerFont: `'Nunito', Arial, Helvetica, sans-serif`,
@@ -19,8 +18,10 @@ const theme = {
   bs: '0 12px 24px 0 rgba(0, 0, 0, 0.09)'
 }
 
-export const wrapRootElement = ({ element }) => (
-  <ThemeProvider theme={theme}>
-    <Layout>{element}</Layout>
-  </ThemeProvider>
-)
+export const Theme = props => {
+  const { children } = props
+
+  return <ThemeProvider theme={theme}>{children}</ThemeProvider>
+}
+
+export default Theme

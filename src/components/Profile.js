@@ -1,17 +1,15 @@
-import * as React from 'react'
+import React from 'react'
 import Image from 'gatsby-image'
 import { graphql, StaticQuery } from 'gatsby'
 
 export const PROFILE_IMAGE_QUERY = graphql`
-  {
+  query PROFILE_IMAGE_QUERY {
     profileImage: imageSharp(original: { src: { regex: "/profile/" } }) {
       fixed(width: 128, height: 128) {
-        aspectRatio
         width
         height
         src
         srcSet
-        srcWebp
         srcWebp
         base64
       }
@@ -19,7 +17,7 @@ export const PROFILE_IMAGE_QUERY = graphql`
   }
 `
 
-export const Profile = () => (
+export const Profile = props => (
   <StaticQuery query={PROFILE_IMAGE_QUERY}>
     {({ profileImage }) => (
       <Image fixed={profileImage.fixed} alt='Mark Hernandez' />

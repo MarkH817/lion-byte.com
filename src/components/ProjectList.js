@@ -38,9 +38,11 @@ export const ProjectList = props => (
         <ProjectListStyles>
           <h2>Projects</h2>
 
-          {edges.map(({ node }) => (
-            <Project key={node.frontmatter.title} {...node} />
-          ))}
+          <section className='projects'>
+            {edges.map(({ node }) => (
+              <Project key={node.frontmatter.title} {...node} />
+            ))}
+          </section>
         </ProjectListStyles>
       )
     }}

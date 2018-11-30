@@ -5,20 +5,26 @@ import styled from 'styled-components'
 import Nav from './Nav'
 
 const HeaderStyles = styled.header`
+  align-items: center;
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
-  align-items: center;
+  margin: 1em 0 1.5em 0;
+
+  @media screen and (max-width: 1200px) {
+    flex-direction: column;
+    justify-content: center;
+  }
 
   .brand {
     flex: 0 1 auto;
     font-family: ${props => props.theme.headerFont};
-    font-size: 2em;
     font-weight: bold;
 
     a {
       color: ${props => props.theme.blue};
       display: inline-block;
+      font-size: 2em;
       padding: 0 1ch;
       text-decoration: none;
     }

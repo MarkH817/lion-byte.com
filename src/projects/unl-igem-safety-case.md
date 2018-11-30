@@ -6,7 +6,6 @@ githubUrl: ''
 languages:
   - JavaScript
 libraries:
-  - '@reach/router'
   - Apollo-Client
   - ExpressJS
   - GraphQL
@@ -15,4 +14,4 @@ libraries:
   - React
 ---
 
-Generate safety case diagrams.
+Generate safety case diagrams for the 2018 Collaboration Project with UNL's iGEM team. The diagrams were meant to encourage thoughts about the saftey portions of synthetic biology projects.

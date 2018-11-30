@@ -1,10 +1,9 @@
 import React from 'react'
 import { Helmet } from 'react-helmet'
 import { graphql } from 'gatsby'
-import { SkipNavContent } from '@reach/skip-nav'
 import styled from 'styled-components'
 
-import Meta from '../components/Meta'
+import Layout from '../components/Layout'
 
 const BlogPost = styled.article`
   .date {
@@ -20,9 +19,7 @@ export const BlogPostTemplate = props => {
   } = props
 
   return (
-    <SkipNavContent>
-      <Meta />
-
+    <Layout>
       <Helmet title={frontmatter.title}>
         <meta name='description' content={excerpt} />
 
@@ -45,7 +42,7 @@ export const BlogPostTemplate = props => {
           dangerouslySetInnerHTML={{ __html: html }}
         />
       </BlogPost>
-    </SkipNavContent>
+    </Layout>
   )
 }
 

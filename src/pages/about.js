@@ -1,48 +1,10 @@
 import React from 'react'
-import { graphql } from 'gatsby'
+import { graphql, StaticQuery } from 'gatsby'
 
 import Page from '../templates/Page'
 
-export const About = props => {
-  const {
-    data: { bio }
-  } = props
-
-  return (
-    <Page title='About'>
-      <h1>About</h1>
-
-      <a
-        href='https://github.com/MarkH817/'
-        target='_blank'
-        rel='noopener noreferrer'
-      >
-        GitHub
-      </a>
-
-      <a
-        href='https://www.twitter.com/lion_byte'
-        target='_blank'
-        rel='noopener noreferrer'
-      >
-        Twitter
-      </a>
-
-      <a
-        href='https://www.linkedin.com/in/markhernandez1'
-        target='_blank'
-        rel='noopener noreferrer'
-      >
-        Linkedin
-      </a>
-
-      <section dangerouslySetInnerHTML={{ __html: bio.html }} />
-    </Page>
-  )
-}
-
-export const query = graphql`
-  query AboutPageQuery {
+export const ABOUT_PAGE_QUERY = graphql`
+  query ABOUT_PAGE_QUERY {
     bio: markdownRemark(
       frontmatter: { type: { eq: "partial" }, page: { eq: "about" } }
     ) {
@@ -50,5 +12,19 @@ export const query = graphql`
     }
   }
 `
+
+export const About = props => {
+  return (
+    <Page title='About'>
+      <h1>About</h1>
+
+      <StaticQuery query={ABOUT_PAGE_QUERY}>
+        {({ bio }) => (
+          <section dangerouslySetInnerHTML={{ __html: bio.html }} />
+        )}
+      </StaticQuery>
+    </Page>
+  )
+}
 
 export default About

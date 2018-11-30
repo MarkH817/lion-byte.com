@@ -6,11 +6,10 @@ githubUrl: ''
 languages:
   - JavaScript
 libraries:
-  - '@reach/router'
   - Acorn
   - Howler
   - React
   - Redux
 ---
 
-Sonifies your JavaScript code.
+It is an interactive JavaScript web application for learning and hearing JavaScript. This application augments user JavaScript with sounds to play at runtime. This allows users to visualize and hear their programs as well as their errors.

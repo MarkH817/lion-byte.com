@@ -8,7 +8,6 @@ const Menu = styled.nav`
   flex-direction: row;
   flex-wrap: wrap;
   justify-content: space-around;
-  margin: 1em 0;
 `
 
 const MenuLink = styled.section`
