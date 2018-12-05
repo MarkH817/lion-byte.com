@@ -4,8 +4,12 @@ import { graphql } from 'gatsby'
 import styled from 'styled-components'
 
 import Layout from '../components/Layout'
+import Introduction from '../components/Introduction'
 
 const BlogPost = styled.article`
+  border-bottom: 0.15em solid ${props => props.theme.grey};
+  margin-bottom: 2em;
+
   .date {
     font-size: 0.85em;
   }
@@ -42,6 +46,8 @@ export const BlogPostTemplate = props => {
           dangerouslySetInnerHTML={{ __html: html }}
         />
       </BlogPost>
+
+      <Introduction />
     </Layout>
   )
 }
