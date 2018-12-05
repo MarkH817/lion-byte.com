@@ -36,7 +36,7 @@ let numberList = [1, 24, 25.01, 6, 0]
 // Can hold mixed different types of data
 let mixedList = [
   "I'm a string using double-quotes",
-  'I\'m a string using single-quotes',
+  'I am a string using single-quotes',
   `I'm a string using backticks`,
   12,
   false
@@ -52,24 +52,23 @@ const addNums = (a, b) => {
   return a + b
 }
 
-let addResult = addNums(1, 2)  // 3
+let addResult = addNums(1, 2) // 3
 
 // Using a function as an input
 // It will use the callbackFunction input within the function.
 // Many APIs and libraries do this
-function multiplyNums (a, b, callbackFunction) {
+function multiplyNums(a, b, callbackFunction) {
   const result = a * b
   callbackFunction(result)
 }
 
 // Note: The function is unnamed. It's fine if we only use it once.
-multiplyNums(2, 12, function (answer) {
+multiplyNums(2, 12, function(answer) {
   console.log(answer) // 24
 })
 
-
 // Alternatively, we can write it like this:
-multiplyNums(15, 3, (answer) => {
+multiplyNums(15, 3, answer => {
   console.log(answer) // 45
 })
 ```
@@ -78,29 +77,29 @@ multiplyNums(15, 3, (answer) => {
 
 ```javascript
 class Person {
-  constructor (name, age) {
+  constructor(name, age) {
     this.name = name
     this.age = age
   }
 
   // This is a method
-  introduce () {
+  introduce() {
     console.log(`My name is ${this.name}. I am ${this.age} years old.`)
   }
 }
 
 // New instance of Person class
 let p1 = new Person('Marty', 15)
-p1.introduce()  // console reads: 'My name is Marty. I am 15 years old.'
+p1.introduce() // console reads: 'My name is Marty. I am 15 years old.'
 
 // You can extend classes as well
 class Student extends Person {
-  constructor (name, age, id) {
+  constructor(name, age, id) {
     super(name, age)
     this.id = id
   }
 
-  showId () {
+  showId() {
     console.log(this.id)
   }
 
@@ -123,7 +122,7 @@ const addNums = (a, b) => {
   return a + b
 }
 
-function multiplyNums (a, b) {
+function multiplyNums(a, b) {
   return a * b
 }
 

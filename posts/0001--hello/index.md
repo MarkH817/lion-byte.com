@@ -39,6 +39,6 @@ After scrolling around on Twitter, I saw a couple tweets mentioning Netlify. It'
 
 ## Lessons Learned
 
-* Gatsby and Netlify are so great individually and together
-* Webpack does a lot more than what I realized
-* My appreciation for open source projects continuously increases
+- Gatsby and Netlify are so great individually and together
+- Webpack does a lot more than what I realized
+- My appreciation for open source projects continuously increases

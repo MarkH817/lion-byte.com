@@ -49,9 +49,10 @@
   "scripts": {
     "build": "gatsby build",
     "dev": "gatsby develop",
-    "format": "prettier --write src/**/*.js && eslint . --fix",
-    "format:less": "prettier --single-quote --write src/**/*.less",
-    "test": "eslint ."
+    "format": "npm run prettier && npm run lint -- --fix",
+    "lint": "eslint .",
+    "prettier": "prettier --ignore-path .gitignore --write \"**/*.+(js|json|yml|yaml|css|less|ts|md|graphql|mdx)\"",
+    "test": "npm run lint"
   },
   "devDependencies": {
     "babel-eslint": "^10.0.1",

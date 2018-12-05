@@ -16,6 +16,18 @@ const HeaderStyles = styled.header`
     justify-content: center;
   }
 
+  /**
+   * Ensure that the header is shrunken for screens
+   * less than 650 x 650 pixels in dimensions
+   */
+  @media screen and (max-width: 650px) {
+    font-size: 0.75em;
+  }
+
+  @media screen and (max-height: 650px) {
+    font-size: 0.75em;
+  }
+
   .brand {
     flex: 0 1 auto;
     font-family: ${props => props.theme.headerFont};

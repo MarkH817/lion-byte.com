@@ -11,12 +11,12 @@ Today, I want to share all the changes I made and my thoughts as I was working o
 
 If you want to follow along or review the changes at your leisure, here are links to the version tags:
 
-* [v0.4.0](https://github.com/MarkH817/generator-lionbyte/tree/v0.4.0)
-* [v1.0.1](https://github.com/MarkH817/generator-lionbyte/tree/v1.0.1)
+- [v0.4.0](https://github.com/MarkH817/generator-lionbyte/tree/v0.4.0)
+- [v1.0.1](https://github.com/MarkH817/generator-lionbyte/tree/v1.0.1)
 
 You can check the diffs on this page:
 
-* [Compare changes from v0.4.0 to v1.0.1](https://github.com/MarkH817/generator-lionbyte/compare/v0.4.0...v1.0.1)
+- [Compare changes from v0.4.0 to v1.0.1](https://github.com/MarkH817/generator-lionbyte/compare/v0.4.0...v1.0.1)
 
 ## Why I Decided to Update
 
@@ -56,14 +56,14 @@ Since I was removing all gulp tasks, I thought it would be better to fully utili
 
 I previously only used webpack to package the JavaScript portion of a project. Now I'm letting it build and bundle everything. Most plugins have already updated to support this version, but some have to be installed with either @latest or @next. As of March 11, 2018, it is the following:
 
-* extract-text-webpack-plugin@next
-* html-webpack-plugin@latest
+- extract-text-webpack-plugin@next
+- html-webpack-plugin@latest
 
 You can look at the webpack [configuration files that I defined here](https://github.com/MarkH817/generator-lionbyte/tree/v1.0.1/src/static-site/templates).
 
 ## Lessons Learned
 
-* Node.js versions > 8 already support all JavaScript features I want and _more_
-* `prettier` and `standard` code formatters are a nice pair
-* `gulp` is still pretty good, but has better use cases for it
-* `webpack` does so much for web development
+- Node.js versions > 8 already support all JavaScript features I want and _more_
+- `prettier` and `standard` code formatters are a nice pair
+- `gulp` is still pretty good, but has better use cases for it
+- `webpack` does so much for web development
