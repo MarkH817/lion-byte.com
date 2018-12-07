@@ -11,8 +11,10 @@ const Menu = styled.nav`
 `
 
 const MenuLink = styled.section`
+  transition: transform 0.08s ease-in-out;
+
   &:hover {
-    transform: scale(1.05);
+    transform: scale(1.1);
   }
 
   a {
@@ -23,6 +25,10 @@ const MenuLink = styled.section`
     padding: 0 1ch;
     text-align: center;
     text-decoration: none;
+
+    @media screen and (max-width: 450px) {
+      padding: 0 0.75ch;
+    }
   }
 `
 

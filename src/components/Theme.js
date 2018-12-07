@@ -1,5 +1,5 @@
 import React from 'react'
-import { ThemeProvider } from 'styled-components'
+import { ThemeProvider, createGlobalStyle } from 'styled-components'
 import 'typeface-nunito'
 import 'typeface-open-sans'
 
@@ -18,10 +18,66 @@ const theme = {
   bs: '0 12px 24px 0 rgba(0, 0, 0, 0.09)'
 }
 
+const GlobalStyles = createGlobalStyle`
+  * {
+    box-sizing: border-box;
+
+    &:focus {
+      outline: 0.1rem solid ${props => props.theme.red};
+    }
+
+    &::selection {
+      background-color: ${props => props.theme.red};
+      color: #ffffff;
+    }
+  }
+
+  body {
+    font-family: ${props => props.theme.textFont};
+    line-height: 2;
+    margin: 0;
+    padding: 0;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-family: ${props => props.theme.headerFont};
+  }
+
+  a {
+    color: ${props => props.theme.blue};
+
+    &:active {
+      color: ${props => props.theme.red};
+    }
+  }
+
+  [data-reach-skip-link] {
+    color: cornflowerblue;
+    text-decoration: none;
+
+    &:focus {
+      outline-color: currentColor;
+    }
+  }
+`
+
 export const Theme = props => {
   const { children } = props
 
-  return <ThemeProvider theme={theme}>{children}</ThemeProvider>
+  return (
+    <ThemeProvider theme={theme}>
+      <React.Fragment>
+        <GlobalStyles />
+
+        {children}
+      </React.Fragment>
+    </ThemeProvider>
+  )
 }
 
 export default Theme
