@@ -33,7 +33,7 @@ export const Meta = props => (
         <meta name='description' content={data.site.siteMetadata.description} />
         <meta name='keywords' content={data.site.siteMetadata.keywords} />
 
-        <meta name='theme-color' content='#552050' />
+        <meta name='theme-color' content='#28579d' />
         <meta http-equiv='x-ua-compatible' content='ie=edge' />
 
         <meta

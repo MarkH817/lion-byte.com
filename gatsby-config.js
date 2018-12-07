@@ -98,8 +98,8 @@ module.exports = {
         name: 'Mark Hernandez (lion-byte)',
         short_name: 'Mark H.',
         start_url: '/',
-        background_color: '#e8e7e8',
-        theme_color: '#552050',
+        background_color: '#ffffff',
+        theme_color: '#28579d',
         display: 'minimal-ui',
         icon: './src/icons/profile.png'
       }
