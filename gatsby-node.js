@@ -1,47 +1,51 @@
-const path = require('path')
+const { resolve } = require('path')
 /**
  * Implement Gatsby's Node APIs in this file.
  *
  * See: https://www.gatsbyjs.org/docs/node-apis/
  */
 
-exports.createPages = ({ actions: { createPage }, graphql }) => {
-  const blogPostTemplate = path.join(
-    __dirname,
-    './src/templates/BlogPostPage.js'
-  )
+exports.createPages = ({ actions, graphql }) => {
+  const { createPage } = actions
+  const blogPostTemplate = resolve(__dirname, './src/templates/BlogPostPage.js')
 
   return graphql(`
     query CreatePagesQuery {
       posts: allMarkdownRemark(
-        sort: { order: DESC, fields: [frontmatter___date] }
-        limit: 1000
+        filter: { frontmatter: { type: { eq: "post" } } }
       ) {
         edges {
           node {
+            id
             frontmatter {
               path
-              type
             }
           }
         }
       }
     }
-  `).then(({ errors, data: { posts: { edges } } }) => {
+  `).then(({ errors, data }) => {
     if (errors) {
       return Promise.reject(errors)
     }
 
-    edges.forEach(({ node: { frontmatter } }) => {
-      switch (frontmatter.type) {
-        case 'post':
-          createPage({
-            path: frontmatter.path,
-            component: blogPostTemplate,
-            context: {}
-          })
-          break
-      }
+    const {
+      posts: { edges }
+    } = data
+
+    edges.forEach(({ node }) => {
+      const {
+        id,
+        frontmatter: { path }
+      } = node
+
+      createPage({
+        path,
+        component: blogPostTemplate,
+        context: {
+          id
+        }
+      })
     })
   })
 }

@@ -15,6 +15,7 @@ module.exports = {
     'gatsby-plugin-react-helmet',
     'gatsby-plugin-sharp',
     'gatsby-plugin-sitemap',
+    'gatsby-plugin-netlify-cms',
     'gatsby-transformer-sharp',
     {
       resolve: 'gatsby-plugin-feed',
@@ -39,7 +40,6 @@ module.exports = {
             query: `
               {
                 allMarkdownRemark(
-                  limit: 1000,
                   sort: { order: DESC, fields: [ frontmatter___date ] }
                   filter: { frontmatter: {type: {eq: "post"}}}
                 ) {

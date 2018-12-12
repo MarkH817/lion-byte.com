@@ -53,8 +53,8 @@ export const BlogPostTemplate = props => {
 }
 
 export const query = graphql`
-  query BlogPostByPath($path: String!) {
-    post: markdownRemark(frontmatter: { path: { eq: $path } }) {
+  query BLOG_POST_PAGE_QUERY($id: String!) {
+    post: markdownRemark(id: { eq: $id }) {
       excerpt(pruneLength: 300)
       twitterExcerpt: excerpt(pruneLength: 200)
       html
