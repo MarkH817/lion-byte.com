@@ -11,7 +11,7 @@ It's been over six weeks since my spring semester ended and a quite a bit has ha
 
 In my capstone course for my computer science major, [I received a Rockstar Developer award](https://newsroom.unl.edu/announce/cse/7994/45857) for "outstanding work leading and contributing to the overall final product and growth of their team members." I am grateful for the peer nomination for the award. I loved being the team's Development Manager for in this year.
 
-![Design Studio Rockstar Award attributed to Mark Hernandez for the 2017-2018 year.](./media/ds-rockstar.jpg)
+![Design Studio Rockstar Award attributed to Mark Hernandez for the 2017-2018 year.](../media/ds-rockstar.jpg)
 
 After the Design Studio showcase, I chose to keep working on the project as an Undergraduate Research Assistant for Myra Cohen. She was amazed at the outcome and welcomed my continued contribution to this and other undergraduate research projects. I'm looking forward to that!
 
