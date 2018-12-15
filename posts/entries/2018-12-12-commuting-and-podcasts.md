@@ -1,11 +1,24 @@
 ---
-date: 2018-12-15T00:00:00.000Z
+date: 2018-12-16T00:00:00.000Z
 title: Commuting and Podcasts
 path: /blog/commuting-and-podcasts
 type: post
 ---
-Ha, well it's been a while since I last wrote a post here. The past 6 months have been pretty busy with my summer research projects and final classes for graduation!
+Ha, well it's been a while since I last wrote a post here. Working on summer projects, finishing my last classes, and moving to Omaha filled up my past 6 months. During that time, I’ve been commuting to Lincoln, which was lengthy compared to having everything within 15 minutes.
 
-I also moved to Omaha while still taking my classes in Lincoln, so I had a lot of time to myself on the road. Having 2 hours of my day used up just for traveling was kind of a challenge at first. Everything used to be walking distance living on campus. My scheduling skills improved since time became a lot more restricted.
+For the first couple of months, I just had the radio playing. However, the signal to my favorite station gets hazy the closer I get to Lincoln. Other stations played either five songs on repeat or country songs. I grabbed my Spotify Discover Weekly for at least two months, but sometimes the algorithm missed my tastes pretty badly.
 
-Rather than involuntarily memorize the same five songs on the radio, I had some fun, lighthearted podcasts to keep me company.
+I mixed in podcasts between weekly playlists. It turns out that this was the perfect situation to listen and catch up on lengthy podcast episodes. They’ve made my 2 hours of driving per day something to enjoy rather than suffer!
+
+My main collection of podcasts includes:
+
+* Syntax
+  * This is all about web development, but they’re a lot more lively than most others on the topic.
+* Developer Tea
+  * This podcast focuses on the human-side of software development: stress, goal management, the reasons behind fundamental rules in development, etc.
+* Wonderful!
+  * An enthusiast podcast celebrating the small or large items or activities!
+* Shmanners
+  * An etiquette podcast for often unspoken rules in special occasions.
+* My Brother, My Brother, and Me
+  * A comedy podcast by three brothers giving advice comedically.
