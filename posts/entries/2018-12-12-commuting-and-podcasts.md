@@ -12,13 +12,10 @@ I mixed in podcasts between weekly playlists. It turns out that this was the per
 
 My main collection of podcasts includes:
 
-* Syntax
-  * This is all about web development, but they’re a lot more lively than most others on the topic.
-* Developer Tea
-  * This podcast focuses on the human-side of software development: stress, goal management, the reasons behind fundamental rules in development, etc.
-* Wonderful!
-  * An enthusiast podcast celebrating the small or large items or activities!
-* Shmanners
-  * An etiquette podcast for often unspoken rules in special occasions.
-* My Brother, My Brother, and Me
-  * A comedy podcast by three brothers giving advice comedically.
+* **Syntax** - This is all about web development, but they’re a lot more lively than most others on the topic.
+* **Developer Tea** - This podcast focuses on the human-side of software development: stress, goal management, the reasons behind fundamental rules in development, etc.
+* **Wonderful!** - An enthusiast podcast celebrating the small or large items or activities!
+* **Shmanners** - An etiquette podcast for often unspoken rules in special occasions.
+* **My Brother, My Brother, and Me** - A comedy podcast by three brothers giving advice comedically.
+
+I’ve been listening to most of these for over a year; I came across Developer Tea only three months ago. I would wholeheartedly recommend checking out these shows if you’re curious.
