@@ -9,7 +9,7 @@ const HeaderStyles = styled.header`
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
-  margin: 1em 0 1.5em 0;
+  margin: 1em 0 2em 0;
 
   @media screen and (max-width: 1200px) {
     flex-direction: column;

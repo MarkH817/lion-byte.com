@@ -12,7 +12,7 @@ export const Contact = props => (
     </p>
 
     <p>
-      <a href='mailto:mark@lion-byte.com'>mark@lion-byte.com</a>
+      Email: <a href='mailto:mark@lion-byte.com'>mark@lion-byte.com</a>
     </p>
 
     <p>

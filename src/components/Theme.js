@@ -1,9 +1,9 @@
 import React from 'react'
 import { ThemeProvider, createGlobalStyle } from 'styled-components'
+import '@reach/skip-nav/styles.css'
+import 'prismjs/themes/prism-okaidia.css'
 import 'typeface-nunito'
 import 'typeface-open-sans'
-
-import '../styles/main.less'
 
 const theme = {
   headerFont: `'Nunito', Arial, Helvetica, sans-serif`,
@@ -14,7 +14,7 @@ const theme = {
   grey: '#3a3a3a',
   lightGrey: '#e1e1e1',
   offWhite: '#ededed',
-  maxWidth: '750px',
+  maxWidth: '650px',
   bs: '0 12px 24px 0 rgba(0, 0, 0, 0.09)'
 }
 
@@ -34,7 +34,7 @@ const GlobalStyles = createGlobalStyle`
 
   body {
     font-family: ${props => props.theme.textFont};
-    line-height: 2;
+    line-height: 1.5;
     margin: 0;
     padding: 0;
   }
@@ -56,12 +56,26 @@ const GlobalStyles = createGlobalStyle`
     }
   }
 
+  p {
+    margin-bottom: 2em;
+  }
+
   [data-reach-skip-link] {
     color: cornflowerblue;
     text-decoration: none;
 
     &:focus {
       outline-color: currentColor;
+    }
+  }
+
+  @keyframes fadein {
+    0% {
+      opacity: 0;
+    }
+
+    100% {
+      opacity: 1;
     }
   }
 `

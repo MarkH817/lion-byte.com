@@ -22,8 +22,8 @@ export const Introduction = () => (
     <Description>
       <p>
         Personal site &amp; blog of <strong>Mark Hernandez</strong>. I'm a web
-        developer and a computer science student at the University of Nebraska -
-        Lincoln.
+        developer and a recent graduate from the University of Nebraska -
+        Lincoln with a major in computer science.
       </p>
     </Description>
   </IntroductionStyles>

@@ -10,7 +10,6 @@ module.exports = {
   },
   plugins: [
     'gatsby-plugin-catch-links',
-    'gatsby-plugin-less',
     'gatsby-plugin-styled-components',
     'gatsby-plugin-react-helmet',
     'gatsby-plugin-sharp',
