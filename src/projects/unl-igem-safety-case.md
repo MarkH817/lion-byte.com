@@ -2,7 +2,7 @@
 type: project
 title: UNL iGEM Safety Case
 demoUrl: https://unl-igem-test.netlify.com/
-githubUrl: ''
+githubUrl: 'https://github.com/lion-byte/unl-igem-saftey-case'
 languages:
   - JavaScript
 libraries:
