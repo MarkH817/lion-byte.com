@@ -14,4 +14,4 @@ libraries:
   - React
 ---
 
-Generate safety case diagrams for the 2018 Collaboration Project with UNL's iGEM team. The diagrams were meant to encourage thoughts about the saftey portions of synthetic biology projects.
+Generate safety case diagrams for the 2018 Collaboration Project with UNL's iGEM team. The diagrams were meant to encourage thoughts about the safety portions of synthetic biology projects.
