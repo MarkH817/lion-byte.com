@@ -17,6 +17,13 @@ module.exports = {
     'gatsby-plugin-netlify-cms',
     'gatsby-transformer-sharp',
     {
+      resolve: 'gatsby-plugin-nprogress',
+      options: {
+        color: '#28579d',
+        showSpinner: true
+      }
+    },
+    {
       resolve: 'gatsby-plugin-feed',
       options: {
         feeds: [

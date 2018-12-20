@@ -17,6 +17,7 @@
     "gatsby-plugin-manifest": "^2.0.11",
     "gatsby-plugin-netlify": "^2.0.6",
     "gatsby-plugin-netlify-cms": "^3.0.9",
+    "gatsby-plugin-nprogress": "^2.0.7",
     "gatsby-plugin-offline": "^2.0.18",
     "gatsby-plugin-react-helmet": "^3.0.3",
     "gatsby-plugin-sharp": "^2.0.14",
@@ -49,7 +50,7 @@
     "build": "gatsby build",
     "dev": "gatsby develop",
     "format": "npm run prettier && npm run lint -- --fix",
-    "lint": "eslint .",
+    "lint": "eslint --ignore-path .gitignore .",
     "prettier": "prettier --ignore-path .gitignore --write \"**/*.+(js|json|yml|yaml|css|less|ts|md|graphql|mdx)\"",
     "test": "npm run lint"
   },
