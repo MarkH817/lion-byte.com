@@ -24,14 +24,12 @@ export const Layout = props => {
 
   return (
     <Theme>
+      <Meta />
       <Page>
         <SkipNavLink />
         <Header />
         <SkipNavContent />
-        <Main>
-          <Meta />
-          {children}
-        </Main>
+        <Main>{children}</Main>
       </Page>
     </Theme>
   )
