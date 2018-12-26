@@ -9,12 +9,16 @@ public_folder: '../media'
 
 collections:
   - name: 'blog' # Used in routes, e.g., /admin/collections/blog
-    label: 'Blog' # Used in the UI
-    folder: 'posts/entries' # The path to the folder where the documents are stored
-    create: true # Allow users to create new documents in this collection
-    slug: '{{year}}-{{month}}-{{day}}-{{slug}}' # Filename template, e.g., YYYY-MM-DD-title.md
-    fields: # The fields for each document, usually in front matter
-      - { label: 'Publish Date', name: 'date', widget: 'datetime' }
+    label: 'Blog Entries'
+    label_singular: 'Blog Entry'
+    description: 'Write a blog entry.'
+    folder: 'posts/entries'
+    create: true
+    delete: false
+    extension: 'md'
+    slug: '{{year}}-{{month}}-{{day}}-{{slug}}'
+    fields:
+      - { label: 'Publish Date', name: 'date', widget: 'date' }
       - { label: 'Title', name: 'title', widget: 'string' }
       - {
           label: 'Path',
@@ -24,3 +28,5 @@ collections:
         }
       - { label: 'Type', name: 'type', widget: 'hidden', default: 'post' }
       - { label: 'Body', name: 'body', widget: 'markdown' }
+    editor:
+      preview: false
