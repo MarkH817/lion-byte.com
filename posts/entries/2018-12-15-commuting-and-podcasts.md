@@ -1,5 +1,5 @@
 ---
-date: 2018-12-15T00:00:00.000Z
+date: 2018-12-15
 title: Commuting and Podcasts
 path: /blog/commuting-and-podcasts
 type: post
