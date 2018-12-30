@@ -7,7 +7,7 @@ Hello, my name is Mark Hernandez.
 
 I recently graduated from the University of Nebraska - Lincoln with a major in computer science. I started doing web development when I wanted to change the design of my Tumblr page back in 2011. Now, I use React, GraphQL, TypeScript, and other tools to get my side projects developed quickly. My overall goal is just to keep learning new technologies and maintaining a healthy work-life balance.
 
-I also love listening to podcasts like [Syntax](https://syntax.fm/) and [Developer Tea](https://developertea.com/)! In addition talking about web dev topics and technologies, they focus on the human-side of development like subtle psychological phenomena, stress, and giving/taking constructive feedback.
+I also love listening to podcasts like [Syntax](https://syntax.fm/) and [Developer Tea](https://developertea.com/)! In addition to talking about web dev topics and technologies, they focus on the human-side of development like subtle psychological phenomena, stress, and giving/taking constructive feedback.
 
 Please [contact me](/contact) if you would like to chat.
 

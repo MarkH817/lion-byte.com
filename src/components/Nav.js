@@ -19,10 +19,9 @@ const MenuLink = styled.section`
 
   a {
     color: ${props => props.theme.blue};
-    font-size: 2em;
     font-weight: bold;
     display: inline-block;
-    padding: 0 1ch;
+    padding: 0 0.75ch;
     text-align: center;
     text-decoration: none;
 

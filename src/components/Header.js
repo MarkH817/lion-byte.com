@@ -7,11 +7,12 @@ import Nav from './Nav'
 const HeaderStyles = styled.header`
   align-items: center;
   display: flex;
+  font-size: 2em;
   flex-wrap: wrap;
   justify-content: space-between;
-  margin: 1em 0 2em 0;
+  margin: 0.5em 0 1em 0;
 
-  @media screen and (max-width: 1200px) {
+  @media screen and (max-width: 1175px) {
     flex-direction: column;
     justify-content: center;
   }
@@ -21,11 +22,11 @@ const HeaderStyles = styled.header`
    * less than 650 x 650 pixels in dimensions
    */
   @media screen and (max-width: 650px) {
-    font-size: 0.75em;
+    font-size: 1.5em;
   }
 
   @media screen and (max-height: 650px) {
-    font-size: 0.75em;
+    font-size: 1.5em;
   }
 
   .brand {
@@ -36,7 +37,6 @@ const HeaderStyles = styled.header`
     a {
       color: ${props => props.theme.blue};
       display: inline-block;
-      font-size: 2em;
       padding: 0 1ch;
       text-decoration: none;
     }

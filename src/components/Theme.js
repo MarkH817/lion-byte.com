@@ -14,7 +14,7 @@ const theme = {
   grey: '#3a3a3a',
   lightGrey: '#e1e1e1',
   offWhite: '#ededed',
-  maxWidth: '650px',
+  maxWidth: '750px',
   bs: '0 12px 24px 0 rgba(0, 0, 0, 0.09)'
 }
 
@@ -34,7 +34,8 @@ const GlobalStyles = createGlobalStyle`
 
   body {
     font-family: ${props => props.theme.textFont};
-    line-height: 1.5;
+    font-size: 1.2em;
+    line-height: 1.3;
     margin: 0;
     padding: 0;
   }

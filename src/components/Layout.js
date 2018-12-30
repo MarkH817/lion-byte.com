@@ -7,7 +7,7 @@ import Meta from './Meta'
 import Theme from './Theme'
 
 const Page = styled.div`
-  max-width: 1200px;
+  max-width: 1400px;
   margin: 0 auto;
   padding: 0 2ch;
 `
