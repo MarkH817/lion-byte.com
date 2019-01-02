@@ -8,7 +8,9 @@ import Introduction from '../components/Introduction'
 
 const BlogPost = styled.article`
   border-bottom: 0.15em solid ${props => props.theme.grey};
-  margin-bottom: 2em;
+  font-size: 1.15em;
+  margin: 0 auto 2em auto;
+  max-width: 650px;
 
   .date {
     font-size: 0.85em;
