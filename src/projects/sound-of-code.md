@@ -12,6 +12,6 @@ libraries:
   - Redux
 ---
 
-![](./sound-of-code.png)
+![Sound of Code](./sound-of-code.png)
 
 It is an interactive JavaScript web application for learning and hearing JavaScript. This application augments user JavaScript with sounds to play at runtime. This allows users to visualize and hear their programs as well as their errors.

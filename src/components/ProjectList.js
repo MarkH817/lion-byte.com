@@ -4,7 +4,13 @@ import styled from 'styled-components'
 
 import Project from './Project'
 
-const ProjectListStyles = styled.section``
+const ProjectListStyles = styled.section`
+  .projects {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    grid-gap: 5em;
+  }
+`
 
 const PROJECTS_QUERY = graphql`
   query PROJECTS_QUERY {

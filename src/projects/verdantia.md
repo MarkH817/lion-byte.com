@@ -1,6 +1,6 @@
 ---
 type: project
-title: Verdantia Wiki
+title: Verdantia
 demoUrl: https://festive-carson-768b57.netlify.com/
 githubUrl: https://github.com/lion-byte/Verdantia
 languages:
@@ -11,6 +11,6 @@ libraries:
   - Netlify-CMS
 ---
 
-![](./verdantia.png)
+![Verdantia](./verdantia.png)
 
 A collective wiki for a role-play server.

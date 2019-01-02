@@ -34,7 +34,6 @@ const GlobalStyles = createGlobalStyle`
 
   body {
     font-family: ${props => props.theme.textFont};
-    font-size: 1.2em;
     line-height: 1.3;
     margin: 0;
     padding: 0;

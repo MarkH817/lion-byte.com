@@ -9,6 +9,6 @@ libraries:
   - Yeoman-Generator
 ---
 
-![](./generator-lionbyte.png)
+![Generator LionByte](./generator-lionbyte.png)
 
 A Yeoman generator that scaffolds JavaScript projects with various development tools and environments.

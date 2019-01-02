@@ -13,6 +13,6 @@ libraries:
   - Netlify-Lambda
 ---
 
-![](./soft-sight.png)
+![Soft Sight](./soft-sight.png)
 
 Retrieve list of likely explicit blogs on Tumblr.
