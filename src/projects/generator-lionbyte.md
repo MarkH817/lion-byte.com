@@ -9,4 +9,6 @@ libraries:
   - Yeoman-Generator
 ---
 
-A Yeoman generator that scaffolds JavaScript projects with various development tools and environments. This holds my personal preferences for all of my personal projects.
+![](./generator-lionbyte.png)
+
+A Yeoman generator that scaffolds JavaScript projects with various development tools and environments.
