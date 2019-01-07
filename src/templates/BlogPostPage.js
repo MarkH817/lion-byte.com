@@ -3,7 +3,6 @@ import { Helmet } from 'react-helmet'
 import { graphql } from 'gatsby'
 import styled from 'styled-components'
 
-import Layout from '../components/Layout'
 import Introduction from '../components/Introduction'
 
 const BlogPost = styled.article`
@@ -25,7 +24,7 @@ export const BlogPostTemplate = props => {
   } = props
 
   return (
-    <Layout>
+    <React.Fragment>
       <Helmet title={frontmatter.title}>
         <meta name='description' content={excerpt} />
 
@@ -50,7 +49,7 @@ export const BlogPostTemplate = props => {
       </BlogPost>
 
       <Introduction />
-    </Layout>
+    </React.Fragment>
   )
 }
 
