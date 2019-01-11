@@ -1,7 +1,7 @@
 ---
 type: project
 title: Verdantia
-demoUrl: https://festive-carson-768b57.netlify.com/
+demoUrl: https://verdantia.netlify.com/
 githubUrl: https://github.com/lion-byte/Verdantia
 languages:
   - JavaScript
