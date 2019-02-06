@@ -1,5 +1,15 @@
 {
   "extends": ["standard", "standard-jsx"],
+  "globals": {
+    "afterAll": true,
+    "afterEach": true,
+    "beforeAll": true,
+    "beforeEach": true,
+    "describe": true,
+    "expect": true,
+    "jest": true,
+    "test": true
+  },
   "rules": {
     "no-var": "error",
     "react/jsx-uses-react": "error",
