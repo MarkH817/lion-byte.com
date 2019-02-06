@@ -10,11 +10,11 @@ module.exports = {
   },
   plugins: [
     'gatsby-plugin-catch-links',
-    'gatsby-plugin-styled-components',
-    'gatsby-plugin-react-helmet',
     'gatsby-plugin-sharp',
     'gatsby-plugin-sitemap',
+    'gatsby-plugin-styled-components',
     'gatsby-plugin-netlify-cms',
+    'gatsby-plugin-react-helmet',
     'gatsby-transformer-sharp',
     {
       resolve: 'gatsby-plugin-nprogress',
@@ -26,44 +26,48 @@ module.exports = {
     {
       resolve: 'gatsby-plugin-feed',
       options: {
+        query: `
+          {
+            site {
+              siteMetadata {
+                title
+                description
+                siteUrl
+                site_url: siteUrl
+              }
+            }
+          }
+        `,
         feeds: [
           {
             serialize: ({ query: { site, allMarkdownRemark } }) => {
-              return allMarkdownRemark.edges.map(
-                ({ node: { excerpt, html, frontmatter } }) => {
-                  return Object.assign({}, frontmatter, {
-                    description: excerpt,
-                    url: path.join(site.siteMetadata.siteUrl, frontmatter.path),
-                    guid: path.join(
-                      site.siteMetadata.siteUrl,
-                      frontmatter.path
-                    ),
-                    custom_elements: [{ 'content:encoded': html }]
-                  })
-                }
-              )
+              return allMarkdownRemark.edges.map(edge => {
+                return Object.assign({}, edge.node.frontmatter, {
+                  description: edge.node.excerpt,
+                  date: edge.node.frontmatter.date,
+                  url: site.siteMetadata.siteUrl + edge.node.frontmatter.path,
+                  guid: site.siteMetadata.siteUrl + edge.node.frontmatter.path,
+                  custom_elements: [{ 'content:encoded': edge.node.html }]
+                })
+              })
             },
-            query: `
-              {
-                allMarkdownRemark(
-                  sort: { order: DESC, fields: [ frontmatter___date ] }
-                  filter: { frontmatter: {type: {eq: "post"}}}
-                ) {
-                  edges {
-                    node {
-                      excerpt
-                      html
-                      frontmatter {
-                        date
-                        path
-                        title
-                      }
+            query: `{
+              allMarkdownRemark(sort: {order: DESC, fields: [frontmatter___date]}, filter: {frontmatter: {type: {eq: "post"}}}) {
+                edges {
+                  node {
+                    excerpt
+                    html
+                    frontmatter {
+                      date
+                      path
+                      title
                     }
                   }
                 }
               }
-            `,
-            output: '/rss.xml'
+            }`,
+            output: '/rss.xml',
+            title: 'Mark Hernandez (lion-byte)'
           }
         ]
       }
