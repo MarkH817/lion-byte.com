@@ -7,7 +7,6 @@ import Introduction from '../components/Introduction'
 
 const BlogPost = styled.article`
   border-bottom: 0.15em solid ${props => props.theme.grey};
-  font-size: 1.15em;
   margin: 0 auto 2em auto;
   max-width: 650px;
 
