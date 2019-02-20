@@ -4,11 +4,11 @@ import styled from 'styled-components'
 
 import Project from './Project'
 
-const ProjectListStyles = styled.section`
+const ProjectListStyles = styled.div`
   .projects {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    grid-gap: 5em;
+    grid-gap: 2em;
   }
 `
 
@@ -33,12 +33,10 @@ const PROJECTS_QUERY = graphql`
   }
 `
 
-export const ProjectList = props => (
+export const Projects = () => (
   <StaticQuery query={PROJECTS_QUERY}>
     {data => {
-      const {
-        projects: { edges }
-      } = data
+      const { edges } = data.projects
 
       return (
         <ProjectListStyles>
@@ -55,4 +53,4 @@ export const ProjectList = props => (
   </StaticQuery>
 )
 
-export default ProjectList
+export default Projects

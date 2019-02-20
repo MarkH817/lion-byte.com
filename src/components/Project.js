@@ -3,8 +3,6 @@ import PropTypes from 'prop-types'
 import styled from 'styled-components'
 
 const ProjectStyles = styled.article`
-  margin-bottom: 3em;
-
   .description p {
     margin-bottom: 1.5em;
   }
@@ -13,7 +11,7 @@ const ProjectStyles = styled.article`
     font-size: 0.85em;
 
     p {
-      margin: 0.5em 0 0.5em 0;
+      margin: 0.5em 0;
     }
   }
 `

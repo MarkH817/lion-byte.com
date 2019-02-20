@@ -95,7 +95,7 @@ module.exports = {
           {
             resolve: 'gatsby-remark-images',
             options: {
-              maxWidth: 624
+              showCaptions: true
             }
           },
           'gatsby-remark-copy-linked-files'

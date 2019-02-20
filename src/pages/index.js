@@ -2,15 +2,15 @@ import React from 'react'
 
 import Page from '../templates/Page'
 import Introduction from '../components/Introduction'
-import ProjectList from '../components/ProjectList'
+import Projects from '../components/Projects'
 
-export const Home = props => (
+export const Home = () => (
   <Page>
     <h1>Welcome</h1>
 
     <Introduction />
 
-    <ProjectList />
+    <Projects />
   </Page>
 )
 
