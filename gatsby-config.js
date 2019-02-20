@@ -41,15 +41,14 @@ module.exports = {
         feeds: [
           {
             serialize: ({ query: { site, allMarkdownRemark } }) => {
-              return allMarkdownRemark.edges.map(edge => {
-                return Object.assign({}, edge.node.frontmatter, {
-                  description: edge.node.excerpt,
-                  date: edge.node.frontmatter.date,
-                  url: site.siteMetadata.siteUrl + edge.node.frontmatter.path,
-                  guid: site.siteMetadata.siteUrl + edge.node.frontmatter.path,
-                  custom_elements: [{ 'content:encoded': edge.node.html }]
-                })
-              })
+              return allMarkdownRemark.edges.map(edge => ({
+                ...edge.node.frontmatter,
+                description: edge.node.excerpt,
+                date: edge.node.frontmatter.date,
+                url: site.siteMetadata.siteUrl + edge.node.frontmatter.path,
+                guid: site.siteMetadata.siteUrl + edge.node.frontmatter.path,
+                custom_elements: [{ 'content:encoded': edge.node.html }]
+              }))
             },
             query: `{
               allMarkdownRemark(sort: {order: DESC, fields: [frontmatter___date]}, filter: {frontmatter: {type: {eq: "post"}}}) {
@@ -90,6 +89,7 @@ module.exports = {
       resolve: 'gatsby-transformer-remark',
       options: {
         plugins: [
+          'gatsby-remark-copy-linked-files',
           'gatsby-remark-prismjs',
           'gatsby-remark-responsive-iframe',
           {
@@ -97,8 +97,7 @@ module.exports = {
             options: {
               showCaptions: true
             }
-          },
-          'gatsby-remark-copy-linked-files'
+          }
         ]
       }
     },
