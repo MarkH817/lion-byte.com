@@ -31,7 +31,7 @@ const MenuLink = styled.section`
   }
 `
 
-export const Nav = props => (
+export const Nav = () => (
   <Menu>
     <MenuLink>
       <Link to='/'>Home</Link>

@@ -9,7 +9,8 @@
     "format": "npm run prettier && npm run lint -- --fix",
     "lint": "eslint --ignore-path .gitignore .",
     "prettier": "prettier --ignore-path .gitignore --write \"**/*.+(js|json|yml|yaml|css|less|ts|md|graphql|mdx)\"",
-    "test": "jest"
+    "test": "jest",
+    "type": "tsc --pretty"
   },
   "repository": {
     "type": "git",
@@ -54,6 +55,13 @@
     "typeface-open-sans": "0.0.54"
   },
   "devDependencies": {
+    "@types/jest": "^24.0.6",
+    "@types/node": "^11.9.4",
+    "@types/prop-types": "^15.5.9",
+    "@types/react": "^16.8.4",
+    "@types/react-dom": "^16.8.2",
+    "@types/react-helmet": "^5.0.8",
+    "@types/styled-components": "4.1.7",
     "babel-eslint": "^10.0.1",
     "babel-jest": "^24.1.0",
     "babel-preset-gatsby": "^0.1.7",
@@ -74,6 +82,8 @@
     "lint-staged": "^8.1.4",
     "prettier": "^1.16.4",
     "react-test-renderer": "^16.8.2",
-    "react-testing-library": "^5.9.0"
+    "react-testing-library": "^5.9.0",
+    "typescript": "^3.3.3",
+    "typescript-styled-plugin": "^0.13.0"
   }
 }

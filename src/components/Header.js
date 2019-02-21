@@ -43,7 +43,7 @@ const HeaderStyles = styled.header`
   }
 `
 
-export const Header = props => (
+export const Header = () => (
   <HeaderStyles>
     <section className='brand'>
       <Link to='/'>Mark Hernandez (lion-byte)</Link>
