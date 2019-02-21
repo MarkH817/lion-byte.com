@@ -1,5 +1,4 @@
 import React from 'react'
-import { Link } from 'gatsby'
 
 import Page from '../templates/Page'
 
@@ -17,10 +16,6 @@ export const About = () => (
         GraphQL, TypeScript, and other tools to get my side projects developed
         quickly. My overall goal is just to keep learning new technologies and
         maintaining a healthy work-life balance.
-      </p>
-
-      <p>
-        Please <Link to='/contact'>contact me</Link> if you would like to chat.
       </p>
     </div>
 

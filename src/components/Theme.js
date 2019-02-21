@@ -28,6 +28,10 @@ const GlobalStyles = createGlobalStyle`
     }
   }
 
+  html {
+    background-color: #ffffff;
+  }
+
   body {
     font-family: ${props => props.theme.textFont};
     line-height: 1.3;

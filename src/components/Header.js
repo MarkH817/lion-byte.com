@@ -12,7 +12,7 @@ const HeaderStyles = styled.header`
   justify-content: space-between;
   margin: 0.5em 0 1em 0;
 
-  @media screen and (max-width: 1175px) {
+  @media screen and (max-width: 55em) {
     flex-direction: column;
     justify-content: center;
   }
@@ -30,7 +30,7 @@ const HeaderStyles = styled.header`
   }
 
   .brand {
-    flex: 0 1 auto;
+    flex: 2 1 0;
     font-family: ${props => props.theme.headerFont};
     font-weight: bold;
 

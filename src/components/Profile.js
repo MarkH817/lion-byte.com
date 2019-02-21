@@ -19,9 +19,7 @@ const PROFILE_IMAGE_QUERY = graphql`
 
 export const Profile = () => (
   <StaticQuery query={PROFILE_IMAGE_QUERY}>
-    {({ profileImage }) => (
-      <Image fixed={profileImage.fixed} alt='Mark Hernandez' />
-    )}
+    {data => <Image fixed={data.profileImage.fixed} alt='Mark Hernandez' />}
   </StaticQuery>
 )
 
