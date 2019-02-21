@@ -35,7 +35,6 @@ const HeaderStyles = styled.header`
     font-weight: bold;
 
     a {
-      color: ${props => props.theme.blue};
       display: inline-block;
       padding: 0 1ch;
       text-decoration: none;
@@ -45,9 +44,9 @@ const HeaderStyles = styled.header`
 
 export const Header = () => (
   <HeaderStyles>
-    <section className='brand'>
+    <div className='brand'>
       <Link to='/'>Mark Hernandez (lion-byte)</Link>
-    </section>
+    </div>
 
     <Nav />
   </HeaderStyles>

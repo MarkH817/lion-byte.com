@@ -1,5 +1,4 @@
 import React from 'react'
-import PropTypes from 'prop-types'
 import styled from 'styled-components'
 
 const ProjectStyles = styled.article`
@@ -15,7 +14,16 @@ const ProjectStyles = styled.article`
     }
   }
 `
-
+/**
+ * @param {object} props
+ * @param {string} props.html
+ * @param {object} props.frontmatter
+ * @param {string} props.frontmatter.title
+ * @param {Array<string>} props.frontmatter.languages
+ * @param {Array<string>} props.frontmatter.libraries
+ * @param {string} props.frontmatter.githubUrl
+ * @param {string} props.frontmatter.demoUrl
+ */
 export const Project = props => {
   const {
     frontmatter: { title, languages, libraries, githubUrl, demoUrl },
@@ -56,22 +64,6 @@ export const Project = props => {
       </footer>
     </ProjectStyles>
   )
-}
-
-Project.propTypes = {
-  frontmatter: PropTypes.shape({
-    title: PropTypes.string.isRequired,
-    githubUrl: PropTypes.string,
-    demoUrl: PropTypes.string,
-    languages: PropTypes.arrayOf(PropTypes.string),
-    libraries: PropTypes.arrayOf(PropTypes.string)
-  }).isRequired,
-  html: PropTypes.string.isRequired
-}
-
-Project.defaultProps = {
-  languages: [],
-  libraries: []
 }
 
 export default Project

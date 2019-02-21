@@ -4,13 +4,9 @@ declare module 'styled-components' {
   interface DefaultTheme {
     headerFont: string
     textFont: string
-    blue: string
-    red: string
+    primaryColor: string
+    accentColor: string
     black: string
-    grey: string
-    lightGrey: string
-    offWhite: string
-    maxWidth: string
-    bs: string
+    gray: string
   }
 }

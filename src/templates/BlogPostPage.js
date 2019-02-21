@@ -6,9 +6,9 @@ import styled from 'styled-components'
 import Introduction from '../components/Introduction'
 
 const BlogPost = styled.article`
-  border-bottom: 0.15em solid ${props => props.theme.grey};
+  border-bottom: 0.15em solid ${props => props.theme.gray};
   margin: 0 auto 2em auto;
-  max-width: 650px;
+  max-width: 40em;
 
   .date {
     font-size: 0.85em;
@@ -16,11 +16,7 @@ const BlogPost = styled.article`
 `
 
 export const BlogPostTemplate = props => {
-  const {
-    data: {
-      post: { excerpt, frontmatter, html, twitterExcerpt }
-    }
-  } = props
+  const { excerpt, frontmatter, html, twitterExcerpt } = props.data.post
 
   return (
     <React.Fragment>

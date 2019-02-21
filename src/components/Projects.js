@@ -7,7 +7,7 @@ import Project from './Project'
 const ProjectListStyles = styled.div`
   .projects {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(18em, 1fr));
     grid-gap: 2em;
   }
 `
