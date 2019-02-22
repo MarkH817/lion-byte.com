@@ -16,8 +16,12 @@ const IntroductionStyles = styled.section`
   }
 
   .icon {
-    flex: 1 0 auto;
+    flex: 2 0 8em;
     justify-content: center;
+
+    & > * {
+      border-radius: 10%;
+    }
   }
 
   .description {
@@ -27,6 +31,7 @@ const IntroductionStyles = styled.section`
     p {
       max-width: 40em;
       margin: 1em auto;
+      text-align: center;
     }
   }
 

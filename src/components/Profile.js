@@ -6,11 +6,13 @@ const PROFILE_IMAGE_QUERY = graphql`
   query PROFILE_IMAGE_QUERY {
     profileImage: imageSharp(original: { src: { regex: "/profile/" } }) {
       fixed(width: 128, height: 128) {
+        aspectRatio
         width
         height
         src
         srcSet
         srcWebp
+        srcSetWebp
         base64
       }
     }

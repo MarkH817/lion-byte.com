@@ -5,7 +5,7 @@ import styled from 'styled-components'
 
 import Introduction from '../components/Introduction'
 
-const BlogPost = styled.article`
+const BlogPost = styled.div`
   margin: 0 auto 2em auto;
   max-width: 40em;
 
@@ -23,7 +23,7 @@ export const BlogPostTemplate = props => {
   const { excerpt, frontmatter, html, twitterExcerpt } = props.data.post
 
   return (
-    <React.Fragment>
+    <BlogPost>
       <Helmet title={frontmatter.title}>
         <meta name='description' content={excerpt} />
 
@@ -36,7 +36,7 @@ export const BlogPostTemplate = props => {
 
       <h1>{frontmatter.title}</h1>
 
-      <BlogPost>
+      <article>
         <p className='date'>
           <time>{frontmatter.date}</time>
         </p>
@@ -49,8 +49,8 @@ export const BlogPostTemplate = props => {
         <footer>
           <Introduction />
         </footer>
-      </BlogPost>
-    </React.Fragment>
+      </article>
+    </BlogPost>
   )
 }
 

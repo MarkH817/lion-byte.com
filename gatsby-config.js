@@ -110,7 +110,7 @@ module.exports = {
         background_color: '#ffffff',
         theme_color: '#28579d',
         display: 'minimal-ui',
-        icon: './src/icons/profile.png'
+        icon: './src/images/profile.png'
       }
     },
     'gatsby-plugin-offline', // Must be placed after `gatsby-plugin-manifest`
