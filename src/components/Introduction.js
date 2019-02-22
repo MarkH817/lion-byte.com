@@ -1,9 +1,9 @@
 import React from 'react'
+import Image from 'gatsby-image'
+import { graphql, StaticQuery } from 'gatsby'
 import { FaGithub, FaTwitter, FaLinkedin } from 'react-icons/fa'
 import { MdEmail } from 'react-icons/md'
 import styled from 'styled-components'
-
-import Profile from './Profile'
 
 const IntroductionStyles = styled.section`
   &,
@@ -48,6 +48,29 @@ const IntroductionStyles = styled.section`
     }
   }
 `
+
+const PROFILE_IMAGE_QUERY = graphql`
+  query PROFILE_IMAGE_QUERY {
+    profileImage: imageSharp(original: { src: { regex: "/profile/" } }) {
+      fixed(width: 160, height: 160) {
+        aspectRatio
+        width
+        height
+        src
+        srcSet
+        srcWebp
+        srcSetWebp
+        base64
+      }
+    }
+  }
+`
+
+export const Profile = () => (
+  <StaticQuery query={PROFILE_IMAGE_QUERY}>
+    {data => <Image fixed={data.profileImage.fixed} alt='Mark Hernandez' />}
+  </StaticQuery>
+)
 
 export const Introduction = () => (
   <IntroductionStyles>

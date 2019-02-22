@@ -36,7 +36,7 @@ const HeaderStyles = styled.header`
 
     a {
       display: inline-block;
-      padding: 0 1ch;
+      padding: 0 0.75ch;
       text-decoration: none;
     }
   }
