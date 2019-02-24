@@ -5,7 +5,7 @@ import Theme from '../Theme'
 import Nav from '../Nav'
 
 describe('Nav', () => {
-  test('Nav renders correctly', () => {
+  test('renders correctly', () => {
     const tree = renderer
       .create(
         <Theme>

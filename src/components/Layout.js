@@ -7,16 +7,15 @@ import Meta from './Meta'
 import Theme from './Theme'
 
 const Page = styled.div`
-  max-width: 1400px;
+  max-width: 90em;
   margin: 0 auto;
-  padding: 0 2ch;
-`
+  padding: 0 0.5em;
 
-const Main = styled.main`
-  animation: 0.35s fadein ease-in;
-  color: ${props => props.theme.black};
-  margin: 0 auto 3em auto;
-  max-width: ${props => props.theme.maxWidth};
+  main {
+    color: ${props => props.theme.black};
+    margin: 0 auto 3em auto;
+    max-width: 60em;
+  }
 `
 
 export const Layout = props => {
@@ -29,7 +28,7 @@ export const Layout = props => {
         <SkipNavLink />
         <Header />
         <SkipNavContent />
-        <Main>{children}</Main>
+        <main>{children}</main>
       </Page>
     </Theme>
   )

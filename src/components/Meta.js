@@ -14,42 +14,38 @@ const META_QUERY = graphql`
   }
 `
 
-export const Meta = props => (
-  <React.Fragment>
-    <Helmet
-      htmlAttributes={{ lang: 'en' }}
-      defaultTitle={siteMetadata.title}
-      titleTemplate={`%s | ${siteMetadata.title}`}
-    >
-      <meta name='description' content={siteMetadata.description} />
-      <meta name='keywords' content={siteMetadata.keywords} />
-      <meta http-equiv='x-ua-compatible' content='ie=edge' />
+export const Meta = () => (
+  <StaticQuery query={META_QUERY}>
+    {data => (
+      <Helmet
+        htmlAttributes={{ lang: 'en' }}
+        defaultTitle={siteMetadata.title}
+        titleTemplate={`%s | ${siteMetadata.title}`}
+      >
+        <meta name='description' content={siteMetadata.description} />
+        <meta name='keywords' content={siteMetadata.keywords} />
+        <meta http-equiv='x-ua-compatible' content='ie=edge' />
 
-      <meta name='robots' content='index,follow' />
-      <meta name='googlebot' content='index,follow' />
-      <meta name='pinterest' content='nopin' />
+        <meta name='robots' content='index,follow' />
+        <meta name='googlebot' content='index,follow' />
+        <meta name='pinterest' content='nopin' />
 
-      <meta name='og:site_name' content={siteMetadata.title} />
-      <meta name='og:title' content={siteMetadata.title} />
-      <meta name='og:type' content='website' />
-      <meta name='og:description' content={siteMetadata.description} />
-      <meta name='og:locale' content='en_US' />
+        <meta name='og:site_name' content={siteMetadata.title} />
+        <meta name='og:title' content={siteMetadata.title} />
+        <meta name='og:type' content='website' />
+        <meta name='og:description' content={siteMetadata.description} />
+        <meta name='og:locale' content='en_US' />
 
-      <meta name='twitter:card' content='summary' />
-      <meta name='twitter:title' content={siteMetadata.title} />
-      <meta name='twitter:description' content={siteMetadata.description} />
-      <meta name='twitter:creator' content='@lion_byte' />
-    </Helmet>
+        <meta name='twitter:card' content='summary' />
+        <meta name='twitter:title' content={siteMetadata.title} />
+        <meta name='twitter:description' content={siteMetadata.description} />
+        <meta name='twitter:creator' content='@lion_byte' />
 
-    <StaticQuery query={META_QUERY}>
-      {data => (
-        <Helmet>
-          <meta name='og:image' content={data.profile.resize.src} />
-          <meta name='twitter:image' content={data.profile.resize.src} />
-        </Helmet>
-      )}
-    </StaticQuery>
-  </React.Fragment>
+        <meta name='og:image' content={data.profile.resize.src} />
+        <meta name='twitter:image' content={data.profile.resize.src} />
+      </Helmet>
+    )}
+  </StaticQuery>
 )
 
 export default Meta

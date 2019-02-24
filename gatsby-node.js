@@ -1,9 +1,4 @@
 const { resolve } = require('path')
-/**
- * Implement Gatsby's Node APIs in this file.
- *
- * See: https://www.gatsbyjs.org/docs/node-apis/
- */
 
 exports.createPages = ({ actions, graphql }) => {
   const { createPage } = actions
@@ -24,20 +19,18 @@ exports.createPages = ({ actions, graphql }) => {
         }
       }
     }
-  `).then(({ errors, data }) => {
-    if (errors) {
-      return Promise.reject(errors)
+  `).then(result => {
+    if (result.errors) {
+      return Promise.reject(result.errors)
     }
 
-    const {
-      posts: { edges }
-    } = data
+    const { edges } = result.data.posts
 
-    edges.forEach(({ node }) => {
+    edges.forEach(edge => {
       const {
         id,
         frontmatter: { path }
-      } = node
+      } = edge.node
 
       createPage({
         path,

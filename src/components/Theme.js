@@ -8,14 +8,10 @@ import 'typeface-open-sans'
 const theme = {
   headerFont: `'Nunito', Arial, Helvetica, sans-serif`,
   textFont: `'Open Sans', Arial, Helvetica, sans-serif`,
-  blue: '#28579d',
-  red: '#e73212',
+  primaryColor: '#28579d',
+  accentColor: '#e73212',
   black: '#2e2e31',
-  grey: '#3a3a3a',
-  lightGrey: '#e1e1e1',
-  offWhite: '#ededed',
-  maxWidth: '750px',
-  bs: '0 12px 24px 0 rgba(0, 0, 0, 0.09)'
+  gray: '#3a3a3a'
 }
 
 const GlobalStyles = createGlobalStyle`
@@ -23,13 +19,17 @@ const GlobalStyles = createGlobalStyle`
     box-sizing: border-box;
 
     &:focus {
-      outline: 0.1rem solid ${props => props.theme.red};
+      outline: 0.1rem solid ${props => props.theme.accentColor};
     }
 
     &::selection {
-      background-color: ${props => props.theme.red};
+      background-color: ${props => props.theme.accentColor};
       color: #ffffff;
     }
+  }
+
+  html {
+    background-color: #ffffff;
   }
 
   body {
@@ -49,10 +49,10 @@ const GlobalStyles = createGlobalStyle`
   }
 
   a {
-    color: ${props => props.theme.blue};
+    color: ${props => props.theme.primaryColor};
 
     &:active {
-      color: ${props => props.theme.red};
+      color: ${props => props.theme.accentColor};
     }
   }
 
@@ -61,21 +61,11 @@ const GlobalStyles = createGlobalStyle`
   }
 
   [data-reach-skip-link] {
-    color: cornflowerblue;
+    color: ${props => props.theme.primaryColor};
     text-decoration: none;
 
     &:focus {
       outline-color: currentColor;
-    }
-  }
-
-  @keyframes fadein {
-    0% {
-      opacity: 0;
-    }
-
-    100% {
-      opacity: 1;
     }
   }
 `

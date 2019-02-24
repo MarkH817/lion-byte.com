@@ -25,7 +25,7 @@ Although I am largely satisfied with typing it all out, I still find myself need
 
 After going through Wes Bos's [Advanced React](https://advancedreact.com/) course, I decided to plan out my own solution for this need. Although my dependencies differ slightly from the course, the concepts really let me accelerate the process.
 
-![Prototype adventure page for a podcast called "'Till Death Do Us Blart."](../media/rpjournal-1.png)
+![Prototype adventure page for a podcast called 'Till Death Do Us Blart](../media/rpjournal-1.png)
 
 The application centers around three types of models: _Adventures_, _Sessions_, and _Quests_. Adventures are the main model that reference an RPG campaign or story, as well as the sessions and quests for it. The screenshot above shows the initial presentation of an Adventure page.
 

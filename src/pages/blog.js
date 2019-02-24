@@ -1,13 +1,13 @@
 import React from 'react'
 
 import Page from '../templates/Page'
-import PostPreviewList from '../components/PostPreviewList'
+import PostPreviews from '../components/PostPreviews'
 
-export const Blog = props => (
+export const Blog = () => (
   <Page title='Blog'>
     <h1>Blog</h1>
 
-    <PostPreviewList limit={1000} />
+    <PostPreviews />
   </Page>
 )
 

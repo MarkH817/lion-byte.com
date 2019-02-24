@@ -8,46 +8,21 @@ const Menu = styled.nav`
   flex-direction: row;
   flex-wrap: wrap;
   justify-content: space-around;
-`
-
-const MenuLink = styled.section`
-  transition: transform 0.08s ease-in-out;
-
-  &:hover {
-    transform: scale(1.1);
-  }
 
   a {
-    color: ${props => props.theme.blue};
     font-weight: bold;
     display: inline-block;
     padding: 0 0.75ch;
     text-align: center;
     text-decoration: none;
-
-    @media screen and (max-width: 450px) {
-      padding: 0 0.75ch;
-    }
   }
 `
 
-export const Nav = props => (
+export const Nav = () => (
   <Menu>
-    <MenuLink>
-      <Link to='/'>Home</Link>
-    </MenuLink>
-
-    <MenuLink>
-      <Link to='/about'>About</Link>
-    </MenuLink>
-
-    <MenuLink>
-      <Link to='/blog'>Blog</Link>
-    </MenuLink>
-
-    <MenuLink>
-      <Link to='/contact'>Contact</Link>
-    </MenuLink>
+    <Link to='/'>Home</Link>
+    <Link to='/about'>About</Link>
+    <Link to='/blog'>Blog</Link>
   </Menu>
 )
 

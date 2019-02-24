@@ -3,35 +3,64 @@ import { Link } from 'gatsby'
 import styled from 'styled-components'
 
 const PostPreviewStyles = styled.article`
-  margin-bottom: 2em;
+  border: 1px solid transparent;
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  flex-wrap: wrap;
 
-  h2 {
-    text-align: center;
-    margin-bottom: 0;
+  header {
+    flex: 1 0 15em;
+    margin-right: 2em;
+
+    h2 {
+      margin: 0;
+    }
+
+    .date {
+      font-size: 0.85em;
+    }
   }
 
-  .date {
-    font-size: 0.85em;
-    margin-top: 0;
+  .excerpt {
+    flex: 3 1 25em;
+
+    p {
+      margin: 0;
+    }
   }
 `
 
+/**
+ * @param {object} props
+ * @param {object} props.post
+ * @param {object} props.post.frontmatter
+ * @param {string} props.post.frontmatter.date
+ * @param {string} props.post.frontmatter.path
+ * @param {string} props.post.frontmatter.title
+ * @param {string} props.post.excerpt
+ */
 export const PostPreview = props => {
   const {
-    post: { excerpt, frontmatter }
-  } = props
+    excerpt,
+    frontmatter: { date, path, title }
+  } = props.post
 
   return (
     <PostPreviewStyles>
-      <h2>
-        <Link to={frontmatter.path}>{frontmatter.title}</Link>
-      </h2>
+      <header>
+        <h2>
+          <Link to={path}>{title}</Link>
+        </h2>
 
-      <p className='date'>
-        <time>{frontmatter.date}</time>
-      </p>
+        <p className='date'>
+          <time>{date}</time>
+        </p>
+      </header>
 
-      <p className='excerpt'>{excerpt}</p>
+      <section className='excerpt'>
+        <p>{excerpt}</p>
+      </section>
     </PostPreviewStyles>
   )
 }

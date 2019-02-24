@@ -5,25 +5,25 @@ import styled from 'styled-components'
 
 import Introduction from '../components/Introduction'
 
-const BlogPost = styled.article`
-  border-bottom: 0.15em solid ${props => props.theme.grey};
+const BlogPost = styled.div`
   margin: 0 auto 2em auto;
-  max-width: 650px;
+  max-width: 40em;
 
   .date {
     font-size: 0.85em;
   }
+
+  .content {
+    border-bottom: 0.25em solid ${props => props.theme.gray};
+    margin-bottom: 2em;
+  }
 `
 
 export const BlogPostTemplate = props => {
-  const {
-    data: {
-      post: { excerpt, frontmatter, html, twitterExcerpt }
-    }
-  } = props
+  const { excerpt, frontmatter, html, twitterExcerpt } = props.data.post
 
   return (
-    <React.Fragment>
+    <BlogPost>
       <Helmet title={frontmatter.title}>
         <meta name='description' content={excerpt} />
 
@@ -36,7 +36,7 @@ export const BlogPostTemplate = props => {
 
       <h1>{frontmatter.title}</h1>
 
-      <BlogPost>
+      <article>
         <p className='date'>
           <time>{frontmatter.date}</time>
         </p>
@@ -45,10 +45,12 @@ export const BlogPostTemplate = props => {
           className='content'
           dangerouslySetInnerHTML={{ __html: html }}
         />
-      </BlogPost>
 
-      <Introduction />
-    </React.Fragment>
+        <footer>
+          <Introduction />
+        </footer>
+      </article>
+    </BlogPost>
   )
 }
 
