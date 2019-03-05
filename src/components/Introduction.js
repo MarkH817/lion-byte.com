@@ -5,46 +5,26 @@ import { FaGithub, FaTwitter, FaLinkedin } from 'react-icons/fa'
 import { MdEmail } from 'react-icons/md'
 import styled from 'styled-components'
 
-const IntroductionStyles = styled.section`
+import ProfileCard from './styles/ProfileCard'
+
+const Social = styled.div`
   &,
-  .icon,
-  .social,
-  .social a {
+  a {
     align-items: center;
     display: flex;
     flex-wrap: wrap;
   }
 
-  .icon {
-    flex: 2 0 8em;
+  & {
     justify-content: center;
-
-    & > * {
-      border-radius: 10%;
-    }
   }
 
-  .description {
-    flex: 5 1 20em;
-    margin: 0 1em;
+  a {
+    margin-right: 1em;
+    text-decoration: none;
 
-    p {
-      max-width: 40em;
-      margin: 1em auto;
-      text-align: center;
-    }
-  }
-
-  .social {
-    justify-content: center;
-
-    a {
-      margin-right: 1em;
-      text-decoration: none;
-
-      span {
-        padding-left: 0.25ch;
-      }
+    span {
+      padding-left: 0.25ch;
     }
   }
 `
@@ -73,19 +53,19 @@ export const Profile = () => (
 )
 
 export const Introduction = () => (
-  <IntroductionStyles>
-    <div className='icon'>
+  <ProfileCard>
+    <div className='image'>
       <Profile />
     </div>
 
-    <div className='description'>
+    <div className='text'>
       <p>
         Personal site &amp; blog of <strong>Mark Hernandez</strong>. I'm a web
         developer and a recent graduate from the University of Nebraska -
         Lincoln with a major in computer science.
       </p>
 
-      <div className='social'>
+      <Social>
         <a
           href='https://github.com/MarkH817/'
           target='_blank'
@@ -121,9 +101,9 @@ export const Introduction = () => (
           <MdEmail />
           <span>mark@lion-byte.com</span>
         </a>
-      </div>
+      </Social>
     </div>
-  </IntroductionStyles>
+  </ProfileCard>
 )
 
 export default Introduction
