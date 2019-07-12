@@ -1,5 +1,5 @@
 import React from 'react'
-import { graphql, StaticQuery } from 'gatsby'
+import { graphql, useStaticQuery } from 'gatsby'
 import styled from 'styled-components'
 
 import Project from './Project'
@@ -33,24 +33,21 @@ const PROJECTS_QUERY = graphql`
   }
 `
 
-export const Projects = () => (
-  <StaticQuery query={PROJECTS_QUERY}>
-    {data => {
-      const { edges } = data.projects
+export function Projects () {
+  const data = useStaticQuery(PROJECTS_QUERY)
+  const { edges } = data.projects
 
-      return (
-        <ProjectListStyles>
-          <h2>Projects</h2>
+  return (
+    <ProjectListStyles>
+      <h2>Projects</h2>
 
-          <section className='projects'>
-            {edges.map(({ node }) => (
-              <Project key={node.frontmatter.title} {...node} />
-            ))}
-          </section>
-        </ProjectListStyles>
-      )
-    }}
-  </StaticQuery>
-)
+      <section className='projects'>
+        {edges.map(({ node }) => (
+          <Project key={node.frontmatter.title} {...node} />
+        ))}
+      </section>
+    </ProjectListStyles>
+  )
+}
 
 export default Projects

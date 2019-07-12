@@ -1,6 +1,6 @@
 import React from 'react'
 import Image from 'gatsby-image'
-import { graphql, StaticQuery } from 'gatsby'
+import { graphql, useStaticQuery } from 'gatsby'
 import { FaGithub, FaTwitter, FaLinkedin } from 'react-icons/fa'
 import { MdEmail } from 'react-icons/md'
 import styled from 'styled-components'
@@ -46,11 +46,11 @@ const PROFILE_IMAGE_QUERY = graphql`
   }
 `
 
-export const Profile = () => (
-  <StaticQuery query={PROFILE_IMAGE_QUERY}>
-    {data => <Image fixed={data.profileImage.fixed} alt='Mark Hernandez' />}
-  </StaticQuery>
-)
+export function Profile () {
+  const data = useStaticQuery(PROFILE_IMAGE_QUERY)
+
+  return <Image fixed={data.profileImage.fixed} alt='Mark Hernandez' />
+}
 
 export const Introduction = () => (
   <ProfileCard>

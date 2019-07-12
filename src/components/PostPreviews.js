@@ -1,5 +1,5 @@
 import React from 'react'
-import { graphql, StaticQuery } from 'gatsby'
+import { graphql, useStaticQuery } from 'gatsby'
 import styled from 'styled-components'
 
 import PostPreview from './PostPreview'
@@ -31,20 +31,17 @@ const PostListStyles = styled.div`
   grid-gap: 2em;
 `
 
-export const PostPreviews = () => (
-  <StaticQuery query={POST_PREVIEWS_QUERY}>
-    {data => {
-      const { edges } = data.postPreviews
+export function PostPreviews () {
+  const data = useStaticQuery(POST_PREVIEWS_QUERY)
+  const { edges } = data.postPreviews
 
-      return (
-        <PostListStyles>
-          {edges.map(edge => (
-            <PostPreview key={edge.node.id} post={edge.node} />
-          ))}
-        </PostListStyles>
-      )
-    }}
-  </StaticQuery>
-)
+  return (
+    <PostListStyles>
+      {edges.map(edge => (
+        <PostPreview key={edge.node.id} post={edge.node} />
+      ))}
+    </PostListStyles>
+  )
+}
 
 export default PostPreviews
