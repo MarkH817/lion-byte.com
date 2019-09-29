@@ -42,14 +42,16 @@ const HeaderStyles = styled.header`
   }
 `
 
-export const Header = () => (
-  <HeaderStyles>
-    <div className='brand'>
-      <Link to='/'>Mark Hernandez (lion-byte)</Link>
-    </div>
+export function Header () {
+  return (
+    <HeaderStyles>
+      <div className='brand'>
+        <Link to='/'>Mark Hernandez (lion-byte)</Link>
+      </div>
 
-    <Nav />
-  </HeaderStyles>
-)
+      <Nav />
+    </HeaderStyles>
+  )
+}
 
 export default Header

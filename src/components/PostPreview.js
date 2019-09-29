@@ -40,7 +40,7 @@ const PostPreviewStyles = styled.article`
  * @param {string} props.post.frontmatter.title
  * @param {string} props.post.excerpt
  */
-export const PostPreview = props => {
+export function PostPreview (props) {
   const {
     excerpt,
     frontmatter: { date, path, title }

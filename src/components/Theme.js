@@ -70,7 +70,7 @@ const GlobalStyles = createGlobalStyle`
   }
 `
 
-export const Theme = props => {
+export function Theme (props) {
   const { children } = props
 
   return (

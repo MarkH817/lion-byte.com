@@ -18,7 +18,7 @@ const Page = styled.div`
   }
 `
 
-export const Layout = props => {
+export function Layout (props) {
   const { children } = props
 
   return (

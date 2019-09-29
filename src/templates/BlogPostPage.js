@@ -19,7 +19,7 @@ const BlogPost = styled.div`
   }
 `
 
-export const BlogPostTemplate = props => {
+export function BlogPostTemplate (props) {
   const { excerpt, frontmatter, html, twitterExcerpt } = props.data.post
 
   return (

@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 
-const ProfileCard = styled.div`
+export const ProfileCard = styled.div`
   &,
   .image {
     align-items: center;

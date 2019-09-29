@@ -24,7 +24,7 @@ const ProjectStyles = styled.article`
  * @param {string} props.frontmatter.githubUrl
  * @param {string} props.frontmatter.demoUrl
  */
-export const Project = props => {
+export function Project (props) {
   const {
     frontmatter: { title, languages, libraries, githubUrl, demoUrl },
     html

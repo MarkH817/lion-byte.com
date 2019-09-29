@@ -18,12 +18,14 @@ const Menu = styled.nav`
   }
 `
 
-export const Nav = () => (
-  <Menu>
-    <Link to='/'>Home</Link>
-    <Link to='/about'>About</Link>
-    <Link to='/blog'>Blog</Link>
-  </Menu>
-)
+export function Nav () {
+  return (
+    <Menu>
+      <Link to='/'>Home</Link>
+      <Link to='/about'>About</Link>
+      <Link to='/blog'>Blog</Link>
+    </Menu>
+  )
+}
 
 export default Nav

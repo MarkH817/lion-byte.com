@@ -4,14 +4,16 @@ import Page from '../templates/Page'
 import Introduction from '../components/Introduction'
 import Projects from '../components/Projects'
 
-export const Home = () => (
-  <Page>
-    <h1>Welcome</h1>
+export function Home () {
+  return (
+    <Page>
+      <h1>Welcome</h1>
 
-    <Introduction />
+      <Introduction />
 
-    <Projects />
-  </Page>
-)
+      <Projects />
+    </Page>
+  )
+}
 
 export default Home

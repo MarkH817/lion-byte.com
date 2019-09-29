@@ -1,7 +1,7 @@
 import React from 'react'
 import { Helmet } from 'react-helmet'
 
-export const Page = props => {
+export function Page (props) {
   const { children, title } = props
 
   return (
