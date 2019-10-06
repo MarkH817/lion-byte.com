@@ -1,0 +1,120 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Nav renders correctly 1`] = `
+.c0 {
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  font-size: 2em;
+  -webkit-flex-wrap: wrap;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+  margin: 0.5em 0 1em 0;
+}
+
+.c0 .name {
+  -webkit-flex: 2 1 0;
+  -ms-flex: 2 1 0;
+  flex: 2 1 0;
+  font-family: 'Nunito',Arial,Helvetica,sans-serif;
+  font-weight: bold;
+}
+
+.c0 .name a {
+  display: inline-block;
+  padding: 0 0.75ch;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+}
+
+.c0 nav {
+  font-family: 'Nunito',Arial,Helvetica,sans-serif;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
+  -webkit-flex-wrap: wrap;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+  -webkit-box-pack: space-around;
+  -webkit-justify-content: space-around;
+  -ms-flex-pack: space-around;
+  justify-content: space-around;
+}
+
+.c0 nav a {
+  font-weight: bold;
+  display: inline-block;
+  padding: 0 0.75ch;
+  text-align: center;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+}
+
+@media screen and (max-width:55em) {
+  .c0 {
+    -webkit-flex-direction: column;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    -webkit-box-pack: center;
+    -webkit-justify-content: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+  }
+}
+
+@media screen and (max-width:650px) {
+  .c0 {
+    font-size: 1.5em;
+  }
+}
+
+@media screen and (max-height:650px) {
+  .c0 {
+    font-size: 1.5em;
+  }
+}
+
+<header
+  className="c0"
+>
+  <div
+    className="name"
+  >
+    <a
+      href="/"
+    >
+      Mark Hernandez (lion-byte)
+    </a>
+  </div>
+  <nav>
+    <a
+      href="/"
+    >
+      Home
+    </a>
+    <a
+      href="/about"
+    >
+      About
+    </a>
+    <a
+      href="/blog"
+    >
+      Blog
+    </a>
+  </nav>
+</header>
+`;

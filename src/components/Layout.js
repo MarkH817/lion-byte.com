@@ -20,7 +20,6 @@ const Page = styled.div`
 
 export function Layout (props) {
   const { children } = props
-
   return (
     <Theme>
       <Meta />

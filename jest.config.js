@@ -17,7 +17,6 @@ module.exports = {
   setupFiles: ['<rootDir>/test/loadershim.js'],
   setupFilesAfterEnv: [
     '@testing-library/jest-dom/extend-expect',
-    '@testing-library/react/cleanup-after-each',
     'jest-styled-components'
   ],
   projects: ['<rootDir>', '<rootDir>/test/jest.lint.js']
