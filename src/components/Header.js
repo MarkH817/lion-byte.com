@@ -2,9 +2,7 @@ import React from 'react'
 import { Link } from 'gatsby'
 import styled from 'styled-components'
 
-import Nav from './Nav'
-
-const HeaderStyles = styled.header`
+export const HeaderStyles = styled.header`
   align-items: center;
   display: flex;
   font-size: 2em;
@@ -29,7 +27,7 @@ const HeaderStyles = styled.header`
     font-size: 1.5em;
   }
 
-  .brand {
+  .name {
     flex: 2 1 0;
     font-family: ${props => props.theme.headerFont};
     font-weight: bold;
@@ -40,16 +38,36 @@ const HeaderStyles = styled.header`
       text-decoration: none;
     }
   }
+
+  nav {
+    font-family: ${props => props.theme.headerFont};
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-around;
+
+    a {
+      font-weight: bold;
+      display: inline-block;
+      padding: 0 0.75ch;
+      text-align: center;
+      text-decoration: none;
+    }
+  }
 `
 
 export function Header () {
   return (
     <HeaderStyles>
-      <div className='brand'>
+      <div className='name'>
         <Link to='/'>Mark Hernandez (lion-byte)</Link>
       </div>
 
-      <Nav />
+      <nav>
+        <Link to='/'>Home</Link>
+        <Link to='/about'>About</Link>
+        <Link to='/blog'>Blog</Link>
+      </nav>
     </HeaderStyles>
   )
 }

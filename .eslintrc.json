@@ -12,6 +12,12 @@
   },
   "rules": {
     "no-var": "error",
+    "quotes": [
+      "error",
+      "single",
+      { "avoidEscape": true, "allowTemplateLiterals": true }
+    ],
+    "react/jsx-fragments": "off",
     "react/jsx-uses-react": "error",
     "react/jsx-uses-vars": "error"
   },

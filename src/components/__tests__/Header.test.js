@@ -2,14 +2,14 @@ import React from 'react'
 import renderer from 'react-test-renderer'
 
 import Theme from '../Theme'
-import Nav from '../Nav'
+import Header from '../Header'
 
 describe('Nav', () => {
   test('renders correctly', () => {
     const tree = renderer
       .create(
         <Theme>
-          <Nav />
+          <Header />
         </Theme>
       )
       .toJSON()
