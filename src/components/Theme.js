@@ -15,6 +15,11 @@ const theme = {
 }
 
 const GlobalStyles = createGlobalStyle`
+  @font-face {
+    font-family: 'PopJoy';
+    src: url('/fonts/FOT-PopJoyStd-B.otf');
+  }
+
   * {
     box-sizing: border-box;
 
@@ -70,6 +75,9 @@ const GlobalStyles = createGlobalStyle`
   }
 `
 
+/**
+ * @param {{ children: any; }} props
+ */
 export function Theme (props) {
   const { children } = props
 
