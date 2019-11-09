@@ -1,5 +1,6 @@
 import React from 'react'
 import { ThemeProvider, createGlobalStyle } from 'styled-components'
+import 'turretcss/dist/turretcss.min.css'
 import '@reach/skip-nav/styles.css'
 import 'prismjs/themes/prism-solarizedlight.css'
 import 'typeface-nunito'
@@ -15,17 +16,9 @@ const theme = {
 }
 
 const GlobalStyles = createGlobalStyle`
-  * {
-    box-sizing: border-box;
-
-    &:focus {
-      outline: 0.1rem solid ${props => props.theme.accentColor};
-    }
-
-    &::selection {
-      background-color: ${props => props.theme.accentColor};
-      color: #ffffff;
-    }
+  @font-face {
+    font-family: 'PopJoy';
+    src: url('/fonts/FOT-PopJoyStd-B.otf');
   }
 
   html {
@@ -34,9 +27,6 @@ const GlobalStyles = createGlobalStyle`
 
   body {
     font-family: ${props => props.theme.textFont};
-    line-height: 1.3;
-    margin: 0;
-    padding: 0;
   }
 
   h1,
@@ -56,10 +46,6 @@ const GlobalStyles = createGlobalStyle`
     }
   }
 
-  p {
-    margin-bottom: 2em;
-  }
-
   [data-reach-skip-link] {
     color: ${props => props.theme.primaryColor};
     text-decoration: none;
@@ -70,15 +56,16 @@ const GlobalStyles = createGlobalStyle`
   }
 `
 
+/**
+ * @param {object} props
+ * @param {React.ReactNode} props.children
+ */
 export function Theme (props) {
-  const { children } = props
-
   return (
     <ThemeProvider theme={theme}>
       <React.Fragment>
         <GlobalStyles />
-
-        {children}
+        {props.children}
       </React.Fragment>
     </ThemeProvider>
   )
