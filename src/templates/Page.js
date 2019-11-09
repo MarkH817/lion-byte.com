@@ -4,7 +4,7 @@ import { Helmet } from 'react-helmet'
 /**
  * @param {object} props
  * @param {object} props.children
- * @param {string} props.title
+ * @param {string} [props.title]
  */
 export function Page (props) {
   const { children, title } = props
