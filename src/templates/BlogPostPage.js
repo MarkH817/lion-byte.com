@@ -7,15 +7,9 @@ import Introduction from '../components/Introduction'
 
 const BlogPost = styled.div`
   margin: 0 auto 2em auto;
-  max-width: 40em;
 
   .date {
     font-size: 0.85em;
-  }
-
-  .content {
-    border-bottom: 0.25em solid ${props => props.theme.gray};
-    margin-bottom: 2em;
   }
 `
 
@@ -41,10 +35,7 @@ export function BlogPostTemplate (props) {
           <time>{frontmatter.date}</time>
         </p>
 
-        <section
-          className='content'
-          dangerouslySetInnerHTML={{ __html: html }}
-        />
+        <section dangerouslySetInnerHTML={{ __html: html }} />
 
         <footer>
           <Introduction />

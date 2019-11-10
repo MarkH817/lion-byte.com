@@ -1,14 +1,15 @@
 import React from 'react'
 import { ThemeProvider, createGlobalStyle } from 'styled-components'
-import 'turretcss/dist/turretcss.min.css'
 import '@reach/skip-nav/styles.css'
 import 'prismjs/themes/prism-solarizedlight.css'
 import 'typeface-nunito'
 import 'typeface-open-sans'
 
+const baseFonts = 'Arial,Helvetica,sans-serif'
+
 const theme = {
-  headerFont: `'Nunito', Arial, Helvetica, sans-serif`,
-  textFont: `'Open Sans', Arial, Helvetica, sans-serif`,
+  headerFont: `'Nunito',${baseFonts}`,
+  textFont: `'Open Sans',${baseFonts}`,
   primaryColor: '#28579d',
   accentColor: '#e73212',
   black: '#2e2e31',
@@ -21,12 +22,28 @@ const GlobalStyles = createGlobalStyle`
     src: url('/fonts/FOT-PopJoyStd-B.otf');
   }
 
+  * {
+    box-sizing: border-box;
+
+    &:focus {
+      outline: 0.1rem solid ${props => props.theme.accentColor};
+    }
+
+    &::selection {
+      background-color: ${props => props.theme.accentColor};
+      color: #ffffff;
+    }
+  }
+
   html {
     background-color: #ffffff;
   }
 
   body {
     font-family: ${props => props.theme.textFont};
+    line-height: 1.2;
+    margin: 0;
+    padding: 0;
   }
 
   h1,
@@ -41,9 +58,16 @@ const GlobalStyles = createGlobalStyle`
   a {
     color: ${props => props.theme.primaryColor};
 
+    &:hover{
+      color: currentColor;
+    }
     &:active {
       color: ${props => props.theme.accentColor};
     }
+  }
+
+  p {
+    margin-bottom: 2em;
   }
 
   [data-reach-skip-link] {
@@ -65,6 +89,7 @@ export function Theme (props) {
     <ThemeProvider theme={theme}>
       <React.Fragment>
         <GlobalStyles />
+
         {props.children}
       </React.Fragment>
     </ThemeProvider>
