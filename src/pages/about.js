@@ -66,6 +66,10 @@ export function About () {
           GPA: 3.651 / 4.000
         </p>
         <h3>Experience</h3>
+        <h4>Software Engineer</h4>
+        <h5>November 2019 - Present</h5>
+        <h4>Software Application Programmer I</h4>
+        <h5>March 2019 - October 2019</h5>
         <h4>Undergraduate Research Assistant</h4>
         <h5>May 2018 - August 2018</h5>
         <ul>

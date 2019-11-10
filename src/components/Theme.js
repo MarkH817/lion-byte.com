@@ -5,9 +5,11 @@ import 'prismjs/themes/prism-solarizedlight.css'
 import 'typeface-nunito'
 import 'typeface-open-sans'
 
+const baseFonts = 'Arial,Helvetica,sans-serif'
+
 const theme = {
-  headerFont: `'Nunito', Arial, Helvetica, sans-serif`,
-  textFont: `'Open Sans', Arial, Helvetica, sans-serif`,
+  headerFont: `'Nunito',${baseFonts}`,
+  textFont: `'Open Sans',${baseFonts}`,
   primaryColor: '#28579d',
   accentColor: '#e73212',
   black: '#2e2e31',
@@ -39,7 +41,7 @@ const GlobalStyles = createGlobalStyle`
 
   body {
     font-family: ${props => props.theme.textFont};
-    line-height: 1.3;
+    line-height: 1.2;
     margin: 0;
     padding: 0;
   }
@@ -56,6 +58,9 @@ const GlobalStyles = createGlobalStyle`
   a {
     color: ${props => props.theme.primaryColor};
 
+    &:hover{
+      color: currentColor;
+    }
     &:active {
       color: ${props => props.theme.accentColor};
     }
@@ -76,17 +81,16 @@ const GlobalStyles = createGlobalStyle`
 `
 
 /**
- * @param {{ children: any; }} props
+ * @param {object} props
+ * @param {React.ReactNode} props.children
  */
 export function Theme (props) {
-  const { children } = props
-
   return (
     <ThemeProvider theme={theme}>
       <React.Fragment>
         <GlobalStyles />
 
-        {children}
+        {props.children}
       </React.Fragment>
     </ThemeProvider>
   )
