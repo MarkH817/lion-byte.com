@@ -1,32 +1,8 @@
 import React from 'react'
-import Image from 'gatsby-image'
-import { graphql, StaticQuery } from 'gatsby'
 
 import Page from '../templates/Page'
+import MyPhoto from '../components/images/MyPhoto'
 import ProfileCard from '../components/styles/ProfileCard'
-
-const MyPhoto = () => (
-  <StaticQuery
-    query={graphql`
-      query MyPhoto {
-        photo: imageSharp(original: { src: { regex: "/mark/" } }) {
-          fixed(width: 160, height: 160) {
-            aspectRatio
-            width
-            height
-            src
-            srcSet
-            srcWebp
-            srcSetWebp
-            base64
-          }
-        }
-      }
-    `}
-  >
-    {data => <Image fixed={data.photo.fixed} alt='Mark Hernandez' />}
-  </StaticQuery>
-)
 
 export function About () {
   return (
