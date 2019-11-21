@@ -1,3 +1,7 @@
+import '@reach/skip-nav/styles.css'
+import 'prismjs/themes/prism-solarizedlight.css'
+import 'typeface-nunito'
+import 'typeface-open-sans'
 import React from 'react'
 import styled from 'styled-components'
 import { SkipNavLink, SkipNavContent } from '@reach/skip-nav'

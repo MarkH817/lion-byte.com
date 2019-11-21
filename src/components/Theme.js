@@ -1,9 +1,5 @@
 import React from 'react'
 import { ThemeProvider, createGlobalStyle } from 'styled-components'
-import '@reach/skip-nav/styles.css'
-import 'prismjs/themes/prism-solarizedlight.css'
-import 'typeface-nunito'
-import 'typeface-open-sans'
 
 const baseFonts = 'Arial,Helvetica,sans-serif'
 
