@@ -182,7 +182,7 @@ There are other neat features to ES6 that you can learn in the resources linked 
 
 ## Node.JS
 
-Node.js is a runtime environment that interprets JavaScript - similar to JVM for Java. Node.js lets a JavaScript program to be organized into separate files/modules.
+Node.js is a runtime environment that interprets JavaScript - similar to JVM for Java. Node.js lets a JavaScript program be organized into separate files/modules.
 
 ### NPM
 
@@ -190,7 +190,7 @@ NPM is _unofficially_ called the Node Package Manager. (Technically it's not an 
 
 ### package.json and package-lock.json
 
-Node.js projects, like any other projects, will have to manage dependencies. They also need to be tested, built, etc. Luckily, the package.json file holds all the information listed above!
+Node.js projects, like any other project, will have to manage dependencies. They also need to be tested, built, etc. Luckily, the package.json file holds all the information listed above!
 
 The important sections in that file are as follows:
 
