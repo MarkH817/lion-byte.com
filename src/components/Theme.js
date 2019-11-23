@@ -54,16 +54,9 @@ const GlobalStyles = createGlobalStyle`
   a {
     color: ${props => props.theme.primaryColor};
 
-    &:hover{
-      color: currentColor;
-    }
     &:active {
       color: ${props => props.theme.accentColor};
     }
-  }
-
-  p {
-    margin-bottom: 2em;
   }
 
   [data-reach-skip-link] {
