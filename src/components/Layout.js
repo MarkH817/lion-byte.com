@@ -1,6 +1,6 @@
 import 'turretcss/dist/turretcss.min.css'
-import '@reach/skip-nav/styles.css'
 import 'prismjs/themes/prism-solarizedlight.css'
+import '@reach/skip-nav/styles.css'
 import 'typeface-nunito'
 import 'typeface-open-sans'
 import React from 'react'
@@ -23,8 +23,11 @@ const Page = styled.div`
   }
 `
 
+/**
+ * @param {object} props
+ * @param {React.ReactNode} props.children
+ */
 export function Layout (props) {
-  const { children } = props
   return (
     <Theme>
       <Meta />
@@ -32,7 +35,7 @@ export function Layout (props) {
         <SkipNavLink />
         <Header />
         <SkipNavContent />
-        <main>{children}</main>
+        <main>{props.children}</main>
       </Page>
     </Theme>
   )

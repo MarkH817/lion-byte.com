@@ -4,9 +4,8 @@ import Page from '../templates/Page'
 
 export function NotFound () {
   return (
-    <Page>
-      <h1>NOT FOUND</h1>
-
+    <Page title='Page Not Found'>
+      <h1>Page Not Found</h1>
       <p>You just hit a route that doesn't exist... RIP.</p>
     </Page>
   )
