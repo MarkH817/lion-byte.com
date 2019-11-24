@@ -39,10 +39,6 @@ export const PostPreviewsStyles = styled.div`
       flex: 1 0 15em;
       margin-right: 2em;
 
-      h2 {
-        margin: 0;
-      }
-
       .date {
         font-size: 0.85em;
       }
@@ -50,10 +46,6 @@ export const PostPreviewsStyles = styled.div`
 
     .excerpt {
       flex: 3 1 25em;
-
-      p {
-        margin: 0;
-      }
     }
   }
 `
@@ -76,7 +68,7 @@ export function PostPreviews () {
   return (
     <PostPreviewsStyles>
       {posts.map(post => (
-        <article className='post-preview' key={post.id}>
+        <article key={post.id} className='post-preview'>
           <header>
             <h2>
               <Link to={post.frontmatter.path}>{post.frontmatter.title}</Link>

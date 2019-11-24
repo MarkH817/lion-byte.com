@@ -5,7 +5,7 @@ import styled from 'styled-components'
 export const HeaderStyles = styled.header`
   align-items: center;
   display: flex;
-  font-size: 2em;
+  font-size: 1.75em;
   flex-wrap: wrap;
   justify-content: space-between;
   margin: 0.5em 0 1em 0;
@@ -41,16 +41,13 @@ export const HeaderStyles = styled.header`
 
   nav {
     font-family: ${props => props.theme.headerFont};
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: space-around;
+    ul {
+      font-size: 1em;
+    }
 
     a {
       font-weight: bold;
-      display: inline-block;
       padding: 0 0.75ch;
-      text-align: center;
       text-decoration: none;
     }
   }
@@ -63,10 +60,18 @@ export function Header () {
         <Link to='/'>Mark Hernandez (lion-byte)</Link>
       </div>
 
-      <nav>
-        <Link to='/'>Home</Link>
-        <Link to='/about'>About</Link>
-        <Link to='/blog'>Blog</Link>
+      <nav className='nav-inline'>
+        <ul>
+          <li>
+            <Link to='/'>Home</Link>
+          </li>
+          <li>
+            <Link to='/about'>About</Link>
+          </li>
+          <li>
+            <Link to='/blog'>Blog</Link>
+          </li>
+        </ul>
       </nav>
     </HeaderStyles>
   )

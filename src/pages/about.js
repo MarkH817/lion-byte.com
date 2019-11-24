@@ -1,4 +1,5 @@
 import React from 'react'
+import { FaLaptopCode, FaUniversity } from 'react-icons/fa'
 
 import Page from '../templates/Page'
 import MyPhoto from '../components/images/MyPhoto'
@@ -30,7 +31,9 @@ export function About () {
 
       <div>
         <h2>More Information</h2>
-        <h3>Education</h3>
+        <h3>
+          <FaUniversity /> Education
+        </h3>
         <h4>University of Nebraska - Lincoln</h4>
         <p>
           Graduated: December 2018
@@ -41,7 +44,10 @@ export function About () {
           <br />
           GPA: 3.651 / 4.000
         </p>
-        <h3>Experience</h3>
+
+        <h3>
+          <FaLaptopCode /> Experience
+        </h3>
         <h4>Software Engineer</h4>
         <h5>November 2019 - Present</h5>
         <h4>Software Application Programmer I</h4>

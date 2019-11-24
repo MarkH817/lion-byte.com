@@ -18,11 +18,13 @@ const GlobalStyles = createGlobalStyle`
     src: url('/fonts/FOT-PopJoyStd-B.otf');
   }
 
-  * {
-    box-sizing: border-box;
+  :root {
+    font-size: 1rem;
+  }
 
+  * {
     &:focus {
-      outline: 0.1rem solid ${props => props.theme.accentColor};
+      outline-color: ${props => props.theme.accentColor};
     }
 
     &::selection {
@@ -37,9 +39,6 @@ const GlobalStyles = createGlobalStyle`
 
   body {
     font-family: ${props => props.theme.textFont};
-    line-height: 1.2;
-    margin: 0;
-    padding: 0;
   }
 
   h1,
@@ -54,24 +53,8 @@ const GlobalStyles = createGlobalStyle`
   a {
     color: ${props => props.theme.primaryColor};
 
-    &:hover{
-      color: currentColor;
-    }
     &:active {
       color: ${props => props.theme.accentColor};
-    }
-  }
-
-  p {
-    margin-bottom: 2em;
-  }
-
-  [data-reach-skip-link] {
-    color: ${props => props.theme.primaryColor};
-    text-decoration: none;
-
-    &:focus {
-      outline-color: currentColor;
     }
   }
 `
@@ -85,7 +68,6 @@ export function Theme (props) {
     <ThemeProvider theme={theme}>
       <React.Fragment>
         <GlobalStyles />
-
         {props.children}
       </React.Fragment>
     </ThemeProvider>

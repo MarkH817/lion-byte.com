@@ -7,7 +7,6 @@ export function Blog () {
   return (
     <Page title='Blog'>
       <h1>Blog</h1>
-
       <PostPreviews />
     </Page>
   )
