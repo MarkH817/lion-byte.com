@@ -1,6 +1,5 @@
 # Mark Hernandez (lion-byte)
 
-[![JavaScript Style Guide](https://img.shields.io/badge/code_style-standard-brightgreen.svg)](https://standardjs.com)
 [![Build Status](https://travis-ci.org/MarkH817/lion-byte.com.svg?branch=master)](https://travis-ci.org/MarkH817/lion-byte.com)
 
 Personal site and blog.
@@ -15,4 +14,4 @@ https://www.lion-byte.com
 - Styled using Styled-Components
 - PWA
 - Includes RSS, Sitemap, Twitter/Facebook meta tags
-- Linted using Prettier and ESLint (Standard config)
+- Linted using Prettier and ESLint
