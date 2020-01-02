@@ -1,5 +1,41 @@
 const path = require('path')
 
+const gql = String.raw
+
+const PLUGIN_FEED_QUERY = gql`
+  query PLUGIN_FEED_QUERY {
+    site {
+      siteMetadata {
+        title
+        description
+        siteUrl
+        site_url: siteUrl
+      }
+    }
+  }
+`
+
+const PLUGIN_FEED_BLOG_POSTS_QUERY = gql`
+  query PLUGIN_FEED_BLOG_POSTS_QUERY {
+    allMarkdownRemark(
+      sort: { order: DESC, fields: [frontmatter___date] }
+      filter: { frontmatter: { type: { eq: "post" } } }
+    ) {
+      edges {
+        node {
+          excerpt
+          html
+          frontmatter {
+            date
+            path
+            title
+          }
+        }
+      }
+    }
+  }
+`
+
 module.exports = {
   siteMetadata: {
     author: 'Mark Hernandez',
@@ -18,53 +54,24 @@ module.exports = {
     'gatsby-transformer-sharp',
     {
       resolve: 'gatsby-plugin-nprogress',
-      options: {
-        color: '#28579d',
-        showSpinner: true
-      }
+      options: { color: '#28579d', showSpinner: true }
     },
     {
       resolve: 'gatsby-plugin-feed',
       options: {
-        query: `
-          {
-            site {
-              siteMetadata {
-                title
-                description
-                siteUrl
-                site_url: siteUrl
-              }
-            }
-          }
-        `,
+        query: PLUGIN_FEED_QUERY,
         feeds: [
           {
-            serialize: ({ query: { site, allMarkdownRemark } }) => {
-              return allMarkdownRemark.edges.map(edge => ({
+            serialize: ({ query: { site, allMarkdownRemark } }) =>
+              allMarkdownRemark.edges.map(edge => ({
                 ...edge.node.frontmatter,
                 description: edge.node.excerpt,
                 date: edge.node.frontmatter.date,
                 url: site.siteMetadata.siteUrl + edge.node.frontmatter.path,
                 guid: site.siteMetadata.siteUrl + edge.node.frontmatter.path,
                 custom_elements: [{ 'content:encoded': edge.node.html }]
-              }))
-            },
-            query: `{
-              allMarkdownRemark(sort: {order: DESC, fields: [frontmatter___date]}, filter: {frontmatter: {type: {eq: "post"}}}) {
-                edges {
-                  node {
-                    excerpt
-                    html
-                    frontmatter {
-                      date
-                      path
-                      title
-                    }
-                  }
-                }
-              }
-            }`,
+              })),
+            query: PLUGIN_FEED_BLOG_POSTS_QUERY,
             output: '/rss.xml',
             title: 'Mark Hernandez (lion-byte)'
           }
@@ -74,7 +81,7 @@ module.exports = {
     {
       resolve: 'gatsby-source-filesystem',
       options: {
-        path: path.resolve(__dirname, './posts'),
+        path: path.resolve(__dirname, './src/posts'),
         name: 'blog'
       }
     },
@@ -101,9 +108,7 @@ module.exports = {
           'gatsby-remark-responsive-iframe',
           {
             resolve: 'gatsby-remark-images',
-            options: {
-              showCaptions: true
-            }
+            options: { showCaptions: true }
           }
         ]
       }
