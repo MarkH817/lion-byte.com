@@ -37,9 +37,9 @@ export function Introduction () {
 
       <div className='text'>
         <p>
-          Personal site &amp; blog of <strong>Mark Hernandez</strong>. I'm a web
-          developer and a recent graduate from the University of Nebraska -
-          Lincoln with a major in computer science.
+          Personal site &amp; blog of <strong>Mark Hernandez</strong>. I'm a
+          Software Engineer at gWorks with a specialization in UI/UX,
+          JavaScript, and modern web technologies.
         </p>
 
         <Social>

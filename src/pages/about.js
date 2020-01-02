@@ -12,15 +12,23 @@ export function About () {
 
       <ProfileCard className='reverse'>
         <div className='text'>
-          <p>Hello, my name is Mark Hernandez.</p>
+          <p>
+            Hello, my name is Mark Hernandez. I'm non-binary (they/them) and
+            bisexual.{' '}
+            <span aria-labelledby='pride-flag-description' role='img'>
+              🏳️‍🌈
+            </span>
+            <span id='pride-flag-description' className='screen-reader'>
+              Pride flag
+            </span>
+          </p>
 
           <p>
-            I recently graduated from the University of Nebraska - Lincoln with
-            a major in computer science. I started doing web development when I
-            wanted to change the design of my Tumblr page back in 2011. Now, I
-            use React, GraphQL, TypeScript, and other tools to get my side
-            projects developed quickly. My overall goal is just to keep learning
-            new technologies and maintaining a healthy work-life balance.
+            I am a Software Engineer at gWorks who specializes in UI/UX,
+            JavaScript, and modern web technologies. I strive to continuously
+            grow and improve my skillsets to provide a smooth experience for
+            both users and developers. TypeScript, ESLint, Jest, and other tools
+            help achieve this ongoing goal as I move forward in my career.
           </p>
         </div>
 
