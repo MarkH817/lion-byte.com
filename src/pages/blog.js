@@ -1,7 +1,7 @@
 import React from 'react'
 
-import Page from '../templates/Page'
 import PostPreviews from '../components/PostPreviews'
+import Page from '../templates/Page'
 
 export function Blog () {
   return (

@@ -1,5 +1,5 @@
-import React from 'react'
 import { graphql, Link, useStaticQuery } from 'gatsby'
+import React from 'react'
 import styled from 'styled-components'
 
 const POST_PREVIEWS_QUERY = graphql`

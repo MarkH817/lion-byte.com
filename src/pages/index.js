@@ -1,8 +1,8 @@
 import React from 'react'
 
-import Page from '../templates/Page'
 import Introduction from '../components/Introduction'
 import Projects from '../components/Projects'
+import Page from '../templates/Page'
 
 export function Home () {
   return (

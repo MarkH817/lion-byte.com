@@ -1,5 +1,5 @@
-import React from 'react'
 import { graphql, useStaticQuery } from 'gatsby'
+import React from 'react'
 import styled from 'styled-components'
 
 const PROJECTS_QUERY = graphql`
@@ -23,6 +23,7 @@ const PROJECTS_QUERY = graphql`
     }
   }
 `
+
 export const ProjectListStyles = styled.div`
   .project-list {
     display: grid;

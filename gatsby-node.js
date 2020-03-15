@@ -1,27 +1,33 @@
 const { resolve } = require('path')
 
-exports.createPages = ({ actions, graphql }) => {
-  const { createPage } = actions
-  const blogPostTemplate = resolve(__dirname, './src/templates/BlogPostPage.js')
+/** @type {import('gatsby').GatsbyNode} */
+module.exports = {
+  async createPages ({ actions, graphql }) {
+    const { createPage } = actions
+    const blogPostTemplate = resolve(
+      __dirname,
+      './src/templates/BlogPostPage.js'
+    )
 
-  return graphql(`
-    query CreatePagesQuery {
-      posts: allMarkdownRemark(
-        filter: { frontmatter: { type: { eq: "post" } } }
-      ) {
-        edges {
-          node {
-            id
-            frontmatter {
-              path
+    const result = await graphql(`
+      query CreatePagesQuery {
+        posts: allMarkdownRemark(
+          filter: { frontmatter: { type: { eq: "post" } } }
+        ) {
+          edges {
+            node {
+              id
+              frontmatter {
+                path
+              }
             }
           }
         }
       }
-    }
-  `).then(result => {
+    `)
+
     if (result.errors) {
-      return Promise.reject(result.errors)
+      throw result.errors
     }
 
     const { edges } = result.data.posts
@@ -31,14 +37,7 @@ exports.createPages = ({ actions, graphql }) => {
         id,
         frontmatter: { path }
       } = edge.node
-
-      createPage({
-        path,
-        component: blogPostTemplate,
-        context: {
-          id
-        }
-      })
+      createPage({ path, component: blogPostTemplate, context: { id } })
     })
-  })
+  }
 }

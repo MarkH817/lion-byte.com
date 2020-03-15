@@ -1,9 +1,9 @@
 import React from 'react'
 import { FaLaptopCode, FaUniversity } from 'react-icons/fa'
 
-import Page from '../templates/Page'
 import MyPhoto from '../components/images/MyPhoto'
 import ProfileCard from '../components/styles/ProfileCard'
+import Page from '../templates/Page'
 
 export function About () {
   return (

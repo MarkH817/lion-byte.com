@@ -36,6 +36,7 @@ const PLUGIN_FEED_BLOG_POSTS_QUERY = gql`
   }
 `
 
+/** @type {import('gatsby').GatsbyConfig} */
 module.exports = {
   siteMetadata: {
     author: 'Mark Hernandez',

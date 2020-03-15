@@ -1,5 +1,5 @@
 import React from 'react'
-import { ThemeProvider, createGlobalStyle } from 'styled-components'
+import { createGlobalStyle, ThemeProvider } from 'styled-components'
 
 const baseFonts = 'Arial,Helvetica,sans-serif'
 

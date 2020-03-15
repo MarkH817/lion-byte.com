@@ -1,5 +1,5 @@
 import React from 'react'
-import { FaGithub, FaTwitter, FaLinkedin } from 'react-icons/fa'
+import { FaGithub, FaLinkedin, FaTwitter } from 'react-icons/fa'
 import { MdEmail } from 'react-icons/md'
 import styled from 'styled-components'
 
