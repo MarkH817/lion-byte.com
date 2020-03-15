@@ -75,44 +75,46 @@ exports[`Nav renders correctly 1`] = `
   }
 }
 
-<header
-  className="c0"
->
-  <div
-    className="name"
+<div>
+  <header
+    class="c0"
   >
-    <a
-      href="/"
+    <div
+      class="name"
     >
-      Mark Hernandez (lion-byte)
-    </a>
-  </div>
-  <nav
-    className="nav-inline"
-  >
-    <ul>
-      <li>
-        <a
-          href="/"
-        >
-          Home
-        </a>
-      </li>
-      <li>
-        <a
-          href="/about"
-        >
-          About
-        </a>
-      </li>
-      <li>
-        <a
-          href="/blog"
-        >
-          Blog
-        </a>
-      </li>
-    </ul>
-  </nav>
-</header>
+      <a
+        href="/"
+      >
+        Mark Hernandez (lion-byte)
+      </a>
+    </div>
+    <nav
+      class="nav-inline"
+    >
+      <ul>
+        <li>
+          <a
+            href="/"
+          >
+            Home
+          </a>
+        </li>
+        <li>
+          <a
+            href="/about"
+          >
+            About
+          </a>
+        </li>
+        <li>
+          <a
+            href="/blog"
+          >
+            Blog
+          </a>
+        </li>
+      </ul>
+    </nav>
+  </header>
+</div>
 `;

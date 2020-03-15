@@ -1,19 +1,17 @@
 import React from 'react'
-import renderer from 'react-test-renderer'
+import { render } from '@testing-library/react'
 
 import Theme from '../Theme'
 import Header from '../Header'
 
 describe('Nav', () => {
   test('renders correctly', () => {
-    const tree = renderer
-      .create(
-        <Theme>
-          <Header />
-        </Theme>
-      )
-      .toJSON()
+    const { container } = render(
+      <Theme>
+        <Header />
+      </Theme>
+    )
 
-    expect(tree).toMatchSnapshot()
+    expect(container).toMatchSnapshot()
   })
 })

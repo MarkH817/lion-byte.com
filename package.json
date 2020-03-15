@@ -8,7 +8,7 @@
     "dev": "gatsby develop",
     "format": "npm run prettier && npm run lint -- --fix",
     "lint": "eslint --ignore-path .gitignore .",
-    "prettier": "prettier --ignore-path .gitignore --write \"**/*.+(js|json|yml|yaml|css|less|ts|md|graphql|mdx)\"",
+    "prettier": "prettier --ignore-path .gitignore --write \"**/*.+(js|json|yml|yaml|css|ts|md|graphql|mdx)\"",
     "test": "npm run type && jest",
     "type": "tsc --pretty"
   },
@@ -23,8 +23,6 @@
   "license": "MIT",
   "dependencies": {
     "@reach/skip-nav": "^0.7.3",
-    "@testing-library/jest-dom": "^5.0.0",
-    "@testing-library/react": "^9.4.0",
     "babel-plugin-styled-components": "^1.10.6",
     "gatsby": "^2.18.25",
     "gatsby-image": "^2.2.39",
@@ -48,7 +46,6 @@
     "gatsby-transformer-sharp": "^2.3.13",
     "netlify-cms-app": "^2.11.5",
     "prismjs": "^1.19.0",
-    "prop-types": "^15.7.2",
     "react": "^16.12.0",
     "react-dom": "^16.12.0",
     "react-helmet": "^5.2.1",
@@ -60,13 +57,15 @@
   },
   "devDependencies": {
     "@lionbyte/eslint-config": "^1.5.0",
+    "@testing-library/jest-dom": "^5.1.1",
+    "@testing-library/react": "^9.5.0",
     "@types/jest": "^24.9.0",
     "@types/node": "^13.1.8",
     "@types/prop-types": "^15.7.3",
     "@types/react": "^16.9.17",
     "@types/react-dom": "^16.9.4",
     "@types/react-helmet": "^5.0.15",
-    "@types/styled-components": "^4.1.8",
+    "@types/styled-components": "4.1.8",
     "babel-eslint": "^10.0.3",
     "babel-jest": "^24.9.0",
     "babel-preset-gatsby": "^0.2.27",
@@ -78,7 +77,6 @@
     "jest-styled-components": "^7.0.0",
     "lint-staged": "^9.5.0",
     "prettier": "^1.19.1",
-    "react-test-renderer": "^16.12.0",
     "typescript": "^3.7.5",
     "typescript-styled-plugin": "^0.15.0"
   }

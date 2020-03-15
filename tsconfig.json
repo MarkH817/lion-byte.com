@@ -3,6 +3,7 @@
     "allowJs": true,
     "checkJs": true,
     "esModuleInterop": true,
+    "forceConsistentCasingInFileNames": true,
     "jsx": "react",
     "module": "es6",
     "moduleResolution": "node",
@@ -10,6 +11,5 @@
     "noEmit": true,
     "target": "esnext"
   },
-  "exclude": [".cache/", "coverage/", "node_modules/", "public/"],
-  "include": ["test/theme.d.ts", "**/*.js"]
+  "exclude": [".cache/", "coverage/", "node_modules/", "public/"]
 }
