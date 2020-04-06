@@ -11,6 +11,11 @@ const BlogPost = styled.div`
   .date {
     font-size: 0.85em;
   }
+
+  .blog-post-content {
+    min-height: 35vh;
+    padding: 0 0 2em 0;
+  }
 `
 
 export function BlogPostTemplate (props) {
@@ -35,7 +40,10 @@ export function BlogPostTemplate (props) {
           <time>{frontmatter.date}</time>
         </p>
 
-        <section dangerouslySetInnerHTML={{ __html: html }} />
+        <section
+          className='blog-post-content'
+          dangerouslySetInnerHTML={{ __html: html }}
+        />
 
         <footer>
           <Introduction />
