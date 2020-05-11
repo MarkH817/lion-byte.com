@@ -63,7 +63,7 @@ const GlobalStyles = createGlobalStyle`
  * @param {object} props
  * @param {React.ReactNode} props.children
  */
-export function Theme (props) {
+function Theme (props) {
   return (
     <ThemeProvider theme={theme}>
       <React.Fragment>
