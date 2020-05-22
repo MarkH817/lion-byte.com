@@ -10,9 +10,9 @@ export function About () {
     <Page title='About'>
       <h1>About</h1>
 
-      <ProfileCard className='reverse'>
-        <div className='text'>
-          <p>
+      <ProfileCard wrapReverse>
+        <div className='profile-card__text-container'>
+          <p className='profile-card__text'>
             Hello, my name is Mark Hernandez. I'm non-binary (they/them) and
             bisexual.{' '}
             <span aria-labelledby='pride-flag-description' role='img'>
@@ -23,7 +23,7 @@ export function About () {
             </span>
           </p>
 
-          <p>
+          <p className='profile-card__text'>
             I am a Software Engineer at gWorks who specializes in UI/UX,
             JavaScript, and modern web technologies. I strive to continuously
             grow and improve my skillsets to provide a smooth experience for
@@ -32,8 +32,8 @@ export function About () {
           </p>
         </div>
 
-        <div className='image'>
-          <MyPhoto />
+        <div className='profile-card__image-container'>
+          <MyPhoto className='profile-card__image' />
         </div>
       </ProfileCard>
 

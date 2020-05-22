@@ -1,0 +1,26 @@
+.blog-post-list {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-gap: 2em;
+}
+
+.blog-post-list__article {
+  border: 1px solid transparent;
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+.blog-post-list__article-header {
+  flex: 1 0 15em;
+  margin-right: 2em;
+}
+
+.blog-post-list__article-date {
+  font-size: 0.85em;
+}
+
+.blog-post-list__article-excerpt {
+  flex: 3 1 25em;
+}

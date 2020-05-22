@@ -19,9 +19,19 @@ const PROFILE_IMAGE_QUERY = graphql`
   }
 `
 
-export function Profile () {
+/**
+ * @param {object} props
+ * @param {string} [props.className]
+ */
+function Profile (props) {
   const data = useStaticQuery(PROFILE_IMAGE_QUERY)
-  return <Image fixed={data.profileImage.fixed} alt='Mark Hernandez' />
+  return (
+    <Image
+      className={props.className}
+      fixed={data.profileImage.fixed}
+      alt='Mark Hernandez'
+    />
+  )
 }
 
 export default Profile

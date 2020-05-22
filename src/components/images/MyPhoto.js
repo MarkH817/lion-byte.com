@@ -19,9 +19,19 @@ const MY_PHOTO_QUERY = graphql`
   }
 `
 
-export function MyPhoto () {
+/**
+ * @param {object} props
+ * @param {string} [props.className]
+ */
+function MyPhoto (props) {
   const data = useStaticQuery(MY_PHOTO_QUERY)
-  return <Image fixed={data.photo.fixed} alt='Mark Hernandez' />
+  return (
+    <Image
+      className={props.className}
+      fixed={data.photo.fixed}
+      alt='Mark Hernandez'
+    />
+  )
 }
 
 export default MyPhoto

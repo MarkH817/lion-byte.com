@@ -1,36 +1,24 @@
-import styled from 'styled-components'
+import React from 'react'
 
-export const ProfileCard = styled.div`
-  &,
-  .image {
-    align-items: center;
-    display: flex;
-    flex-wrap: wrap;
-  }
+import './ProfileCard.less'
 
-  &.reverse {
-    flex-wrap: wrap-reverse;
-  }
-
-  .image {
-    flex: 2 0 8em;
-    justify-content: center;
-
-    & > * {
-      border-radius: 10%;
-    }
-  }
-
-  .text {
-    flex: 5 1 20em;
-    margin: 0 1em;
-
-    p {
-      max-width: 40em;
-      margin: 1em auto;
-      text-align: center;
-    }
-  }
-`
+/**
+ * @param {object} props
+ * @param {React.ReactNode} props.children
+ * @param {string} [props.className]
+ * @param {boolean} [props.wrapReverse]
+ */
+function ProfileCard (props) {
+  const { children, className = '', wrapReverse = false } = props
+  return (
+    <div
+      className={`profile-card ${
+        wrapReverse ? 'profile-card--wrap-reverse' : ''
+      } ${className}`}
+    >
+      {children}
+    </div>
+  )
+}
 
 export default ProfileCard

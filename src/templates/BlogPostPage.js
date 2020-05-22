@@ -1,28 +1,16 @@
 import { graphql } from 'gatsby'
 import React from 'react'
 import { Helmet } from 'react-helmet'
-import styled from 'styled-components'
 
 import Introduction from '../components/Introduction'
 
-const BlogPost = styled.div`
-  margin: 0 auto 2em auto;
+import './BlogPostPage.less'
 
-  .date {
-    font-size: 0.85em;
-  }
-
-  .blog-post-content {
-    min-height: 35vh;
-    padding: 0 0 2em 0;
-  }
-`
-
-export function BlogPostTemplate (props) {
+function BlogPostTemplate (props) {
   const { excerpt, frontmatter, html, twitterExcerpt } = props.data.post
 
   return (
-    <BlogPost>
+    <div className='blog-post-page'>
       <Helmet title={frontmatter.title}>
         <meta name='description' content={excerpt} />
 
@@ -36,12 +24,12 @@ export function BlogPostTemplate (props) {
       <h1>{frontmatter.title}</h1>
 
       <article>
-        <p className='date'>
+        <p className='blog-post-page__date'>
           <time>{frontmatter.date}</time>
         </p>
 
         <section
-          className='blog-post-content'
+          className='blog-post-page__content'
           dangerouslySetInnerHTML={{ __html: html }}
         />
 
@@ -49,7 +37,7 @@ export function BlogPostTemplate (props) {
           <Introduction />
         </footer>
       </article>
-    </BlogPost>
+    </div>
   )
 }
 

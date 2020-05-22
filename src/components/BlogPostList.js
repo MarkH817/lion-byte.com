@@ -1,9 +1,10 @@
 import { graphql, Link, useStaticQuery } from 'gatsby'
 import React from 'react'
-import styled from 'styled-components'
 
-const POST_PREVIEWS_QUERY = graphql`
-  query POST_PREVIEWS_QUERY {
+import './BlogPostList.less'
+
+const BLOG_POST_LIST_QUERY = graphql`
+  query BLOG_POST_LIST_QUERY {
     postPreviews: allMarkdownRemark(
       sort: { order: DESC, fields: [frontmatter___date] }
       filter: { frontmatter: { type: { eq: "post" } } }
@@ -23,33 +24,6 @@ const POST_PREVIEWS_QUERY = graphql`
   }
 `
 
-export const PostPreviewsStyles = styled.div`
-  display: grid;
-  grid-template-columns: 1fr;
-  grid-gap: 2em;
-
-  .post-preview {
-    border: 1px solid transparent;
-    display: flex;
-    align-items: flex-start;
-    justify-content: space-between;
-    flex-wrap: wrap;
-
-    header {
-      flex: 1 0 15em;
-      margin-right: 2em;
-
-      .date {
-        font-size: 0.85em;
-      }
-    }
-
-    .excerpt {
-      flex: 3 1 25em;
-    }
-  }
-`
-
 /**
  * @typedef {object} PostPreviewData
  * @property {string} id
@@ -60,32 +34,32 @@ export const PostPreviewsStyles = styled.div`
  * @property {string} frontmatter.title
  */
 
-export function PostPreviews () {
-  const data = useStaticQuery(POST_PREVIEWS_QUERY)
+function BlogPostList () {
+  const data = useStaticQuery(BLOG_POST_LIST_QUERY)
   /** @type {Array<PostPreviewData>} */
   const posts = data.postPreviews.edges.map(edge => edge.node)
 
   return (
-    <PostPreviewsStyles>
+    <div className='blog-post-list'>
       {posts.map(post => (
-        <article key={post.id} className='post-preview'>
-          <header>
+        <article key={post.id} className='blog-post-list__article'>
+          <header className='blog-post-list__article-header'>
             <h2>
               <Link to={post.frontmatter.path}>{post.frontmatter.title}</Link>
             </h2>
 
-            <p className='date'>
+            <p className='blog-post-list__article-date'>
               <time>{post.frontmatter.date}</time>
             </p>
           </header>
 
-          <section className='excerpt'>
+          <section className='blog-post-list__article-excerpt'>
             <p>{post.excerpt}</p>
           </section>
         </article>
       ))}
-    </PostPreviewsStyles>
+    </div>
   )
 }
 
-export default PostPreviews
+export default BlogPostList

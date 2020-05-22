@@ -1,6 +1,7 @@
 import { graphql, useStaticQuery } from 'gatsby'
 import React from 'react'
-import styled from 'styled-components'
+
+import './ProjectList.less'
 
 const PROJECTS_QUERY = graphql`
   query PROJECTS_QUERY {
@@ -24,60 +25,26 @@ const PROJECTS_QUERY = graphql`
   }
 `
 
-export const ProjectListStyles = styled.div`
-  .project-list {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(18em, 1fr));
-    grid-gap: 2em;
-  }
-
-  .project {
-    .description p {
-      margin-bottom: 1.5em;
-    }
-
-    footer {
-      font-size: 0.85em;
-
-      p {
-        margin: 0.5em 0;
-      }
-    }
-  }
-`
-
-/**
- * @typedef {object} ProjectData
- * @property {string} id
- * @property {object} frontmatter
- * @property {string} frontmatter.title
- * @property {Array<string>} frontmatter.languages
- * @property {Array<string>} frontmatter.libraries
- * @property {string} [frontmatter.githubUrl]
- * @property {string} [frontmatter.demoUrl]
- * @property {string} html
- */
-
-export function Projects () {
+function ProjectList () {
   const data = useStaticQuery(PROJECTS_QUERY)
   /** @type {Array<ProjectData>} */
   const projects = data.projects.edges.map(edge => edge.node)
 
   return (
-    <ProjectListStyles>
+    <div>
       <h2>Projects</h2>
 
       <section className='project-list'>
         {projects.map(project => (
-          <article key={project.id} className='project'>
+          <article key={project.id} className='project-list__item'>
             <h3>{project.frontmatter.title}</h3>
 
             <section
-              className='description'
+              className='project-list__item-description'
               dangerouslySetInnerHTML={{ __html: project.html }}
             />
 
-            <footer>
+            <footer className='project-list__item-footer'>
               {project.frontmatter.demoUrl ? (
                 <a
                   href={project.frontmatter.demoUrl}
@@ -98,14 +65,30 @@ export function Projects () {
                 </a>
               ) : null}
 
-              <p>Written in: {project.frontmatter.languages.join(', ')}</p>
-              <p>Libraries: {project.frontmatter.libraries.join(', ')}</p>
+              <p className='project-list__item-footer-extras'>
+                Written in: {project.frontmatter.languages.join(', ')}
+              </p>
+              <p className='project-list__item-footer-extras'>
+                Libraries: {project.frontmatter.libraries.join(', ')}
+              </p>
             </footer>
           </article>
         ))}
       </section>
-    </ProjectListStyles>
+    </div>
   )
 }
 
-export default Projects
+/**
+ * @typedef {object} ProjectData
+ * @property {string} id
+ * @property {object} frontmatter
+ * @property {string} frontmatter.title
+ * @property {Array<string>} frontmatter.languages
+ * @property {Array<string>} frontmatter.libraries
+ * @property {string} [frontmatter.githubUrl]
+ * @property {string} [frontmatter.demoUrl]
+ * @property {string} html
+ */
+
+export default ProjectList

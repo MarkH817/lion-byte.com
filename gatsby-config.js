@@ -1,5 +1,7 @@
 const path = require('path')
 
+const theme = require('./src/theme')
+
 const gql = String.raw
 
 const PLUGIN_FEED_QUERY = gql`
@@ -53,9 +55,10 @@ module.exports = {
     'gatsby-plugin-netlify-cms',
     'gatsby-plugin-react-helmet',
     'gatsby-transformer-sharp',
+    { resolve: 'gatsby-plugin-less', options: { modifyVars: theme } },
     {
       resolve: 'gatsby-plugin-nprogress',
-      options: { color: '#28579d', showSpinner: true }
+      options: { color: theme['color-primary'], showSpinner: true }
     },
     {
       resolve: 'gatsby-plugin-feed',
@@ -121,7 +124,7 @@ module.exports = {
         short_name: 'Mark H.',
         start_url: '/',
         background_color: '#ffffff',
-        theme_color: '#28579d',
+        theme_color: theme['color-primary'],
         display: 'minimal-ui',
         icon: './src/images/profile.png'
       }

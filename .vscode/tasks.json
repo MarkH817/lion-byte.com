@@ -12,10 +12,13 @@
       "type": "npm",
       "script": "build",
       "problemMatcher": [],
-      "group": {
-        "kind": "build",
-        "isDefault": true
-      }
+      "group": { "isDefault": true, "kind": "build" }
+    },
+    {
+      "type": "npm",
+      "script": "test",
+      "group": { "isDefault": true, "kind": "test" },
+      "problemMatcher": []
     }
   ]
 }

@@ -1,84 +1,66 @@
 import React from 'react'
 import { FaGithub, FaLinkedin, FaTwitter } from 'react-icons/fa'
 import { MdEmail } from 'react-icons/md'
-import styled from 'styled-components'
 
 import Profile from './images/Profile'
 import ProfileCard from './styles/ProfileCard'
+import './Introduction.less'
 
-const Social = styled.div`
-  &,
-  a {
-    align-items: center;
-    display: flex;
-    flex-wrap: wrap;
-  }
-
-  & {
-    justify-content: center;
-  }
-
-  a {
-    margin-right: 1em;
-    text-decoration: none;
-
-    span {
-      padding-left: 0.25ch;
-    }
-  }
-`
-
-export function Introduction () {
+function Introduction () {
   return (
     <ProfileCard>
-      <div className='image'>
-        <Profile />
+      <div className='profile-card__image-container'>
+        <Profile className='profile-card__image' />
       </div>
 
-      <div className='text'>
-        <p>
+      <div className='profile-card__text-container'>
+        <p className='profile-card__text'>
           Personal site &amp; blog of <strong>Mark Hernandez</strong>. I'm a
           Software Engineer at gWorks with a specialization in UI/UX,
           JavaScript, and modern web technologies.
         </p>
 
-        <Social>
+        <div className='social'>
           <a
+            className='social__link'
             href='https://github.com/MarkH817/'
             target='_blank'
             rel='noopener noreferrer'
           >
             <FaGithub />
-            <span>@markh817</span>
+            <span className='social__link-text'>@markh817</span>
           </a>
 
           <a
+            className='social__link'
             href='https://www.twitter.com/lion_byte'
             target='_blank'
             rel='noopener noreferrer'
           >
             <FaTwitter />
-            <span>@lion_byte</span>
+            <span className='social__link-text'>@lion_byte</span>
           </a>
 
           <a
+            className='social__link'
             href='https://www.linkedin.com/in/markhernandez1'
             target='_blank'
             rel='noopener noreferrer'
           >
             <FaLinkedin />
-            <span>Mark Hernandez</span>
+            <span className='social__link-text'>Mark Hernandez</span>
           </a>
 
           <a
+            className='social__link'
             href='mailto:mark@lion-byte.com'
             target='_blank'
             rel='noopener noreferrer'
           >
             <MdEmail />
-            <span>mark@lion-byte.com</span>
+            <span className='social__link-text'>mark@lion-byte.com</span>
           </a>
-        </Social>
+        </div>
       </div>
     </ProfileCard>
   )

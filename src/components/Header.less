@@ -1,0 +1,50 @@
+.header {
+  align-items: center;
+  display: flex;
+  font-size: 1.75em;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  margin: 0.5em 0 1em 0;
+  @media screen and (max-width: 55em) {
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  /**
+   * Ensure that the header is shrunken for screens
+   * less than 650 x 650 pixels in dimensions
+   */
+  @media screen and (max-width: 650px) {
+    font-size: 1.5em;
+  }
+
+  @media screen and (max-height: 650px) {
+    font-size: 1.5em;
+  }
+}
+
+.header__name {
+  flex: 2 1 0;
+  font-family: @font-header;
+  font-weight: bold;
+}
+
+.header__name-link {
+  display: inline-block;
+  padding: 0 0.75ch;
+  text-decoration: none;
+}
+
+.header__nav {
+  font-family: @font-header;
+}
+
+.header__nav-list {
+  font-size: 1em;
+}
+
+.header__nav-link {
+  font-weight: bold;
+  padding: 0 0.75ch;
+  text-decoration: none;
+}

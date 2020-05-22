@@ -1,0 +1,45 @@
+@font-face {
+  font-family: 'PopJoy';
+  font-display: swap;
+  src: url('/fonts/FOT-PopJoyStd-B.otf');
+}
+
+:root {
+  font-size: 1rem;
+}
+
+* {
+  &:focus {
+    outline-color: @color-accent;
+  }
+
+  &::selection {
+    background-color: @color-accent;
+    color: #ffffff;
+  }
+}
+
+html {
+  background-color: #ffffff;
+}
+
+body {
+  font-family: @font-text;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: @font-header;
+}
+
+a {
+  color: @color-primary;
+
+  &:active {
+    color: @color-accent;
+  }
+}

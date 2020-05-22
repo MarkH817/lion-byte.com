@@ -6,7 +6,7 @@ import { Helmet } from 'react-helmet'
  * @param {React.ReactNode} props.children
  * @param {string} [props.title]
  */
-export function Page (props) {
+function Page (props) {
   const { children, title } = props
   return (
     <React.Fragment>

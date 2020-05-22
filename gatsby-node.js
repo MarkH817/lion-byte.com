@@ -1,10 +1,10 @@
-const { resolve } = require('path')
+const path = require('path')
 
 /** @type {import('gatsby').GatsbyNode} */
 module.exports = {
   async createPages ({ actions, graphql }) {
     const { createPage } = actions
-    const blogPostTemplate = resolve(
+    const blogPostTemplate = path.resolve(
       __dirname,
       './src/templates/BlogPostPage.js'
     )

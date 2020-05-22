@@ -1,7 +1,7 @@
 import React from 'react'
 
 import Introduction from '../components/Introduction'
-import Projects from '../components/Projects'
+import ProjectList from '../components/ProjectList'
 import Page from '../templates/Page'
 
 export function Home () {
@@ -11,7 +11,7 @@ export function Home () {
 
       <Introduction />
 
-      <Projects />
+      <ProjectList />
     </Page>
   )
 }

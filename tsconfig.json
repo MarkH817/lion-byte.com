@@ -7,7 +7,6 @@
     "jsx": "react",
     "module": "es6",
     "moduleResolution": "node",
-    "plugins": [{ "name": "typescript-styled-plugin" }],
     "noEmit": true,
     "target": "esnext"
   },
