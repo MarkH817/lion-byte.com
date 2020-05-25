@@ -15,9 +15,6 @@ module.exports = {
     __PATH_PREFIX__: ''
   },
   setupFiles: ['<rootDir>/test/loadershim.js'],
-  setupFilesAfterEnv: [
-    '@testing-library/jest-dom/extend-expect',
-    'jest-styled-components'
-  ],
+  setupFilesAfterEnv: ['@testing-library/jest-dom/extend-expect'],
   projects: ['<rootDir>', '<rootDir>/test/jest.lint.js']
 }

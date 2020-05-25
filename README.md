@@ -11,7 +11,6 @@ https://www.lion-byte.com
 - Hosted by Netlify
 - Content managed by Netlify-CMS (headless CMS)
 - Built with React and Gatsby
-- Styled using Styled-Components
 - PWA
 - Includes RSS, Sitemap, Twitter/Facebook meta tags
 - Linted using Prettier and ESLint

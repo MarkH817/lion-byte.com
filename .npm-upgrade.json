@@ -1,8 +1,1 @@
-{
-  "ignore": {
-    "@types/styled-components": {
-      "versions": ">=4.1.8",
-      "reason": "Includes react-native-dom as a dependency"
-    }
-  }
-}
+{ "ignore": {} }
