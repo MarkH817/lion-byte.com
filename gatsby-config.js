@@ -51,7 +51,6 @@ module.exports = {
     'gatsby-plugin-catch-links',
     'gatsby-plugin-sharp',
     'gatsby-plugin-sitemap',
-    'gatsby-plugin-netlify-cms',
     'gatsby-plugin-react-helmet',
     'gatsby-transformer-sharp',
     { resolve: 'gatsby-plugin-less', options: { modifyVars: theme } },
