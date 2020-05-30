@@ -1,6 +1,6 @@
 const path = require('path')
 
-const theme = require('./src/theme')
+const theme = require('./src/styles/theme')
 
 const gql = String.raw
 
