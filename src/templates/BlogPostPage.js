@@ -21,12 +21,11 @@ function BlogPostTemplate (props) {
         <meta name='twitter:description' content={twitterExcerpt} />
       </Helmet>
 
-      <h1>{frontmatter.title}</h1>
-
       <article>
-        <p className='blog-post-page__date'>
-          <time>{frontmatter.date}</time>
-        </p>
+        <header className='blog-post-page__header'>
+          <h1 className='blog-post-page__title'>{frontmatter.title}</h1>
+          <time className='blog-post-page__date'>{frontmatter.date}</time>
+        </header>
 
         <section
           className='blog-post-page__content'

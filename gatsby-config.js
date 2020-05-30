@@ -106,11 +106,14 @@ module.exports = {
       options: {
         plugins: [
           'gatsby-remark-copy-linked-files',
-          'gatsby-remark-prismjs',
           'gatsby-remark-responsive-iframe',
           {
             resolve: 'gatsby-remark-images',
             options: { showCaptions: true }
+          },
+          {
+            resolve: 'gatsby-remark-prismjs',
+            options: { noInlineHighlight: true, showLineNumbers: false }
           }
         ]
       }

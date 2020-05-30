@@ -1,6 +1,11 @@
 const baseFonts = 'Arial,Helvetica,sans-serif'
 
 const theme = {
+  'screen-sm': '40rem',
+  'screen-md': '48rem',
+  'screen-lg': '60rem',
+  'screen-xl': '75rem',
+  'screen-xxl': '100rem',
   'font-header': `'Nunito',${baseFonts}`,
   'font-text': `'Open Sans',${baseFonts}`,
   'font-size-1': '0.75rem',

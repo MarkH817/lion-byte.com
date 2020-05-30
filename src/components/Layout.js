@@ -16,7 +16,7 @@ function Layout (props) {
       <SkipNavLink />
       <Header />
       <SkipNavContent />
-      <main>{props.children}</main>
+      <main className='site-main'>{props.children}</main>
     </div>
   )
 }

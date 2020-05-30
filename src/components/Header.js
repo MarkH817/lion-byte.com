@@ -8,7 +8,7 @@ function Header () {
     <header className='header'>
       <div className='header__name'>
         <Link className='header__name-link' to='/'>
-          Mark Hernandez (lion-byte)
+          Mark Hernandez
         </Link>
       </div>
 

@@ -6,19 +6,25 @@
     {
       "type": "npm",
       "script": "dev",
-      "problemMatcher": []
+      "problemMatcher": [],
+      "label": "npm run dev",
+      "detail": "Run site in development mode"
     },
     {
       "type": "npm",
       "script": "build",
       "problemMatcher": [],
+      "label": "npm run build",
+      "detail": "Build site in production mode",
       "group": { "isDefault": true, "kind": "build" }
     },
     {
       "type": "npm",
       "script": "test",
-      "group": { "isDefault": true, "kind": "test" },
-      "problemMatcher": []
+      "label": "npm test",
+      "detail": "Run tests",
+      "problemMatcher": [],
+      "group": { "isDefault": true, "kind": "test" }
     }
   ]
 }
