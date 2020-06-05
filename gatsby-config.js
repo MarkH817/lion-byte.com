@@ -109,7 +109,7 @@ module.exports = {
           'gatsby-remark-responsive-iframe',
           {
             resolve: 'gatsby-remark-images',
-            options: { showCaptions: true }
+            options: { showCaptions: false }
           },
           {
             resolve: 'gatsby-remark-prismjs',

@@ -31,7 +31,7 @@ function ProjectList () {
   const projects = data.projects.edges.map(edge => edge.node)
 
   return (
-    <div>
+    <section>
       <h2>Projects</h2>
 
       <section className='project-list'>
@@ -45,37 +45,39 @@ function ProjectList () {
             />
 
             <footer className='project-list__item-footer'>
-              {project.frontmatter.demoUrl ? (
-                <a
-                  href={project.frontmatter.demoUrl}
-                  target='_blank'
-                  rel='noopener noreferrer'
-                >
-                  {project.frontmatter.demoUrl}
-                </a>
-              ) : null}
+              <ul className='project-list__item-footer-info'>
+                {project.frontmatter.demoUrl ? (
+                  <li>
+                    <a
+                      href={project.frontmatter.demoUrl}
+                      target='_blank'
+                      rel='noopener noreferrer'
+                    >
+                      {project.frontmatter.demoUrl}
+                    </a>
+                  </li>
+                ) : null}
 
-              {project.frontmatter.githubUrl ? (
-                <a
-                  href={project.frontmatter.githubUrl}
-                  target='_blank'
-                  rel='noopener noreferrer'
-                >
-                  {project.frontmatter.githubUrl}
-                </a>
-              ) : null}
+                {project.frontmatter.githubUrl ? (
+                  <li>
+                    <a
+                      href={project.frontmatter.githubUrl}
+                      target='_blank'
+                      rel='noopener noreferrer'
+                    >
+                      {project.frontmatter.githubUrl}
+                    </a>
+                  </li>
+                ) : null}
 
-              <p className='project-list__item-footer-extras'>
-                Written in: {project.frontmatter.languages.join(', ')}
-              </p>
-              <p className='project-list__item-footer-extras'>
-                Libraries: {project.frontmatter.libraries.join(', ')}
-              </p>
+                <li>Written in: {project.frontmatter.languages.join(', ')}</li>
+                <li>Libraries: {project.frontmatter.libraries.join(', ')}</li>
+              </ul>
             </footer>
           </article>
         ))}
       </section>
-    </div>
+    </section>
   )
 }
 

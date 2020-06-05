@@ -8,7 +8,7 @@ import Page from '../templates/Page'
 export function About () {
   return (
     <Page title='About'>
-      <h1>About</h1>
+      <h1 className='page-title'>About</h1>
 
       <ProfileCard wrapReverse>
         <div className='profile-card__text-container'>

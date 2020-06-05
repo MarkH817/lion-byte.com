@@ -6,7 +6,7 @@ import Page from '../templates/Page'
 export function Blog () {
   return (
     <Page title='Blog'>
-      <h1>Blog</h1>
+      <h1 className='page-title'>Blog</h1>
       <BlogPostList />
     </Page>
   )
