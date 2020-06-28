@@ -12,7 +12,11 @@ function Header () {
         </Link>
       </div>
 
-      <nav className='header__nav nav-inline'>
+      <nav className='header__nav' aria-labelledby='main-nav-label'>
+        <span id='main-nav-label' className='screen-reader'>
+          Main
+        </span>
+
         <ul className='header__nav-list'>
           <li>
             <Link className='header__nav-link' to='/'>

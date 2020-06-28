@@ -40,25 +40,37 @@ function BlogPostList () {
   const posts = data.postPreviews.edges.map(edge => edge.node)
 
   return (
-    <div className='blog-post-list'>
+    <ol className='blog-post-list'>
       {posts.map(post => (
-        <article key={post.id} className='blog-post-list__article'>
-          <header className='blog-post-list__article-header'>
-            <h2>
-              <Link to={post.frontmatter.path}>{post.frontmatter.title}</Link>
-            </h2>
+        <li key={post.id}>
+          <article className='blog-post-list__article'>
+            <header className='blog-post-list__article-header'>
+              <h2 className='blog-post-list__article-title'>
+                <Link to={post.frontmatter.path}>{post.frontmatter.title}</Link>
+              </h2>
 
-            <p className='blog-post-list__article-date'>
-              <time>{post.frontmatter.date}</time>
-            </p>
-          </header>
+              <time className='blog-post-list__article-date'>
+                {post.frontmatter.date}
+              </time>
+            </header>
 
-          <section className='blog-post-list__article-excerpt'>
-            <p>{post.excerpt}</p>
-          </section>
-        </article>
+            <section className='blog-post-list__article-excerpt'>
+              <p>{post.excerpt}</p>
+            </section>
+
+            <footer className='blog-post-list__article-footer'>
+              <Link
+                className='button button-xs button-pill'
+                to={post.frontmatter.path}
+              >
+                Continue reading {post.frontmatter.title}{' '}
+                <span aria-hidden>&rarr;</span>
+              </Link>
+            </footer>
+          </article>
+        </li>
       ))}
-    </div>
+    </ol>
   )
 }
 

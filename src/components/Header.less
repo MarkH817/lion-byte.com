@@ -38,12 +38,19 @@
 
 .header__nav-list {
   font-size: 1em;
+
+  li {
+    display: inline-block;
+    margin: 0 @space-size-4;
+  }
 }
 
 .header__nav-link {
   font-weight: normal;
   padding: 0 0.75ch;
   text-decoration: none;
+  display: block;
+  border-bottom: 0.1em solid transparent;
 
   &[aria-current] {
     text-decoration: none;

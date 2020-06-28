@@ -28,7 +28,10 @@ function Introduction () {
             rel='noopener noreferrer'
           >
             <FaGithub />
-            <span className='social__link-text'>@markh817</span>
+            <span className='social__link-text'>
+              <span className='screen-reader'>GitHub</span>
+              @markh817
+            </span>
           </a>
 
           <a
@@ -38,7 +41,10 @@ function Introduction () {
             rel='noopener noreferrer'
           >
             <FaTwitter />
-            <span className='social__link-text'>@lion_byte</span>
+            <span className='social__link-text'>
+              <span className='screen-reader'>Twitter</span>
+              @lion_byte
+            </span>
           </a>
 
           <a
@@ -48,7 +54,10 @@ function Introduction () {
             rel='noopener noreferrer'
           >
             <FaLinkedin />
-            <span className='social__link-text'>Mark Hernandez</span>
+            <span className='social__link-text'>
+              <span className='screen-reader'>LinkedIn</span>
+              Mark Hernandez
+            </span>
           </a>
 
           <a
@@ -58,7 +67,10 @@ function Introduction () {
             rel='noopener noreferrer'
           >
             <MdEmail />
-            <span className='social__link-text'>mark@lion-byte.com</span>
+            <span className='social__link-text'>
+              <span className='screen-reader'>Email</span>
+              mark@lion-byte.com
+            </span>
           </a>
         </div>
       </div>

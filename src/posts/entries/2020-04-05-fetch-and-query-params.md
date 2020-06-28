@@ -5,7 +5,7 @@ path: /blog/fetch-and-query-params
 type: post
 ---
 
-Lately at work, I've been updating some front-end code to be more modern. Among the changes, I was swapping a lot of API calls to use [Fetch](https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API) instead of [Dojo's xhr](https://dojotoolkit.org/reference-guide/1.9/dojo/request/xhr.html) or [jQuery's ajax](https://api.jquery.com/jQuery.ajax/). Fetch calls return a promise, so that meant that we could use it with Async/Await syntax. Although it's been easy to make this change, the Fetch API doesn't technically support adding query parameters to the URL for HTTP GET, unlike most other libary implementations of this.
+Lately at work, I've been updating some front-end code to be more modern. Among the changes, I was swapping a lot of API calls to use [Fetch](https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API) instead of [Dojo's xhr](https://dojotoolkit.org/reference-guide/1.9/dojo/request/xhr.html) or [jQuery's ajax](https://api.jquery.com/jQuery.ajax/). Fetch calls return a promise, so that meant that we could use it with async/await syntax. Although it's been easy to make this change, the Fetch API doesn't technically support adding query parameters to the URL for HTTP GET, unlike most other library implementations of this.
 
 ```javascript
 // Desired: GET `/api/item?q=test`
