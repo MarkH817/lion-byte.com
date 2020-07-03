@@ -56,7 +56,7 @@ module.exports = {
     { resolve: 'gatsby-plugin-less', options: { modifyVars: theme } },
     {
       resolve: 'gatsby-plugin-nprogress',
-      options: { color: theme['color-primary'], showSpinner: true }
+      options: { color: theme.primaryColor, showSpinner: true }
     },
     {
       resolve: 'gatsby-plugin-feed',
@@ -125,7 +125,7 @@ module.exports = {
         short_name: 'Mark H.',
         start_url: '/',
         background_color: '#ffffff',
-        theme_color: theme['color-primary'],
+        theme_color: theme.primaryColor,
         display: 'minimal-ui',
         icon: './src/images/profile.png'
       }

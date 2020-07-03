@@ -63,7 +63,7 @@ function BlogPostList () {
                 className='button button-xs button-pill'
                 to={post.frontmatter.path}
               >
-                Continue reading {post.frontmatter.title}{' '}
+                Continue reading: {post.frontmatter.title}{' '}
                 <span aria-hidden>&rarr;</span>
               </Link>
             </footer>
