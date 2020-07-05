@@ -12,12 +12,19 @@ exports[`Nav renders correctly 1`] = `
         class="header__name-link"
         href="/"
       >
-        Mark Hernandez (lion-byte)
+        Mark Hernandez
       </a>
     </div>
     <nav
-      class="header__nav nav-inline"
+      aria-labelledby="main-nav-label"
+      class="header__nav"
     >
+      <span
+        class="screen-reader"
+        id="main-nav-label"
+      >
+        Main
+      </span>
       <ul
         class="header__nav-list"
       >
