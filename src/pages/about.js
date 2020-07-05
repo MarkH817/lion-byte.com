@@ -14,13 +14,14 @@ export function About () {
         <div className='profile-card__text-container'>
           <p className='profile-card__text'>
             Hello, my name is Mark Hernandez. I'm non-binary (they/them) and
-            bisexual.{' '}
+            bisexual{' '}
             <span aria-labelledby='pride-flag-description' role='img'>
               🏳️‍🌈
             </span>
             <span id='pride-flag-description' className='screen-reader'>
-              Pride flag
+              (pride flag)
             </span>
+            .
           </p>
 
           <p className='profile-card__text'>
@@ -56,11 +57,15 @@ export function About () {
         <h3>
           <FaLaptopCode /> Experience
         </h3>
-        <h4>Software Engineer</h4>
+        <h4>Software Engineer | gWorks</h4>
         <h5>November 2019 - Present</h5>
-        <h4>Software Application Programmer I</h4>
+
+        <h4>Software Application Programmer I | National Indemnity Company</h4>
         <h5>March 2019 - October 2019</h5>
-        <h4>Undergraduate Research Assistant</h4>
+
+        <h4>
+          Undergraduate Research Assistant | University of Nebraska - Lincoln
+        </h4>
         <h5>May 2018 - August 2018</h5>
         <ul>
           <li>
@@ -70,15 +75,10 @@ export function About () {
           <li>Continued development on audible JavaScript heuristics.</li>
           <li>Lead development for UNL iGEM collaboration project.</li>
         </ul>
-        <h4>Development Manager - Senior Design Project</h4>
-        <h5>August 2017 - May 2018</h5>
-        <ul>
-          <li>Prepared development environment and tooling.</li>
-          <li>Performed regular code reviews.</li>
-          <li>Maintained the build pipeline.</li>
-          <li>Assisted teammates with new features.</li>
-        </ul>
-        <h4>Undergraduate Teaching Assistant</h4>
+
+        <h4>
+          Undergraduate Teaching Assistant | University of Nebraska - Lincoln
+        </h4>
         <h5>January 2017 - May 2018</h5>
         <ul>
           <li>Assisted students in their coursework for Java assignments.</li>
@@ -90,6 +90,7 @@ export function About () {
           </li>
         </ul>
         <hr />
+
         <p>
           Other achievments can be found on{' '}
           <a
