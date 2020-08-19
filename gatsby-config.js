@@ -130,7 +130,7 @@ module.exports = {
         icon: './src/images/profile.png'
       }
     },
-    'gatsby-plugin-offline', // Must be placed after `gatsby-plugin-manifest`
+    'gatsby-plugin-remove-serviceworker',
     'gatsby-plugin-netlify' // Must be last in list
   ]
 }
