@@ -10,5 +10,5 @@
     "noEmit": true,
     "target": "esnext"
   },
-  "exclude": [".cache/", "coverage/", "node_modules/", "public/"]
+  "exclude": [".cache/", "coverage/", "node_modules/", "dist/"]
 }

@@ -2,7 +2,7 @@
 
 # Build outputs
 .cache/
-public/
+dist/
 
 # Logs
 logs

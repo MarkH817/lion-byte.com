@@ -1,7 +1,7 @@
 .header {
   align-items: center;
   display: flex;
-  font-size: @font-size-6;
+  font-size: var(--font-size-6);
   flex-wrap: wrap;
   justify-content: space-between;
   margin: 0.5em 0 1em 0;
@@ -11,17 +11,17 @@
   }
 
   @media screen and (max-width: @screen-sm) {
-    font-size: @font-size-5;
+    font-size: var(--font-size-5);
   }
 
   @media screen and (max-height: @screen-sm) {
-    font-size: @font-size-5;
+    font-size: var(--font-size-5);
   }
 }
 
 .header__name {
   flex: 2 1 0;
-  font-family: @font-header;
+  font-family: var(--font-header);
   font-weight: normal;
   letter-spacing: 0.05em;
 }
@@ -33,7 +33,7 @@
 }
 
 .header__nav {
-  font-family: @font-header;
+  font-family: var(--font-header);
 }
 
 .header__nav-list {
@@ -41,7 +41,7 @@
 
   li {
     display: inline-block;
-    margin: 0 @space-size-4;
+    margin: 0 var(--space-size-4);
   }
 }
 

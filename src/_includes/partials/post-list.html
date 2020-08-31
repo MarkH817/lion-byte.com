@@ -1,0 +1,13 @@
+<ol id="blog-post-list" class="blog-post-list">
+  {% for item in postListItems %}
+  <li>
+    <article class="blog-post-list__article">
+      <header class="blog-post-list__article-header">
+        <a class="blog-post-list__article-title" href="{{ item.url }}"
+          >{{ item.data.title }}</a
+        >
+      </header>
+    </article>
+  </li>
+  {% endfor %}
+</ol>

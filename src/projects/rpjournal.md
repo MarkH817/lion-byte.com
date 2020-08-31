@@ -1,5 +1,4 @@
 ---
-type: project
 title: RPJournal
 demoUrl: ''
 githubUrl: https://github.com/MarkH817/RPJournal
@@ -17,6 +16,6 @@ libraries:
   - Sanitize-HTML
 ---
 
-![RPJournal](./rpjournal.png)
+![RPJournal](/images/projects/rpjournal.png)
 
 A journaling tool for holding RPG session notes.

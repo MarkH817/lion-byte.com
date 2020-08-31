@@ -1,0 +1,21 @@
+{% extends "layouts/base.html" %}
+
+{% set projectListItems = collections.projects %}
+
+{% block content %}
+  <h1>About</h1>
+
+  <article class="profile-card profile-card--wrape-reverse">
+    <div class="profile-card__text-container">
+      {{ content | safe }}
+    </div>
+
+    <div class="profile-card__image-container">
+      <img src="/images/icons/mark.jpg" alt="Mark Hernandez" />
+    </div>
+  </article>
+
+  <h2>Past Projects</h2>
+
+  {% include "partials/project-list.html" %}
+{% endblock %}

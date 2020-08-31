@@ -1,6 +1,5 @@
 ---
-type: project
-title: Generator LionByte
+title: generator-lionbyte
 demoUrl: ''
 githubUrl: https://github.com/MarkH817/generator-lionbyte
 languages:
@@ -9,6 +8,7 @@ libraries:
   - Yeoman-Generator
 ---
 
-![Generator LionByte](./generator-lionbyte.png)
+![generator-lionbyte](/images/projects/generator-lionbyte.png)
 
-A Yeoman generator that scaffolds JavaScript projects with various development tools and environments.
+A Yeoman generator that scaffolds JavaScript projects with various development
+tools and environments.

@@ -1,5 +1,4 @@
 ---
-type: project
 title: Verdantia
 demoUrl: https://verdantia.netlify.com/
 githubUrl: https://github.com/lion-byte/Verdantia
@@ -11,6 +10,6 @@ libraries:
   - Netlify-CMS
 ---
 
-![Verdantia](./verdantia.png)
+![Verdantia](/images/projects/verdantia.png)
 
 A collective wiki for a role-play server.
