@@ -11,6 +11,12 @@
         "printWidth": 80,
         "proseWrap": "always"
       }
+    },
+    {
+      "files": "*.less",
+      "options": {
+        "singleQuote": false
+      }
     }
   ]
 }

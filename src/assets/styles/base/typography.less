@@ -1,7 +1,9 @@
 @font-face {
-  font-family: 'PopJoy';
+  font-family: "PopJoy";
   font-display: swap;
-  src: url('/fonts/FOT-PopJoyStd-B.otf');
+  font-weight: normal;
+  src: url("../../fonts/FOT-PopJoyStd-B.woff") format("woff"),
+    url("../../fonts/FOT-PopJoyStd-B.otf") format("opentype");
 }
 
 :root {
@@ -36,14 +38,14 @@ h6 {
   font-family: var(--font-header);
 }
 
-h1.page-title {
+h1 {
   font-size: var(--font-size-7);
   text-align: center;
   margin: 0 0 var(--space-size-5);
   font-weight: 300;
   letter-spacing: 0.05em;
 
-  @media screen and (max-width: @screen-sm) {
+  @media screen and (max-width: 40rem) {
     font-size: var(--font-size-6);
   }
 }

@@ -1,8 +1,8 @@
 /temp
 
 # Build outputs
-.cache/
-dist/
+/.cache/
+/dist/
 
 # Logs
 logs

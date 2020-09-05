@@ -4,8 +4,7 @@
     "checkJs": true,
     "esModuleInterop": true,
     "forceConsistentCasingInFileNames": true,
-    "jsx": "react",
-    "module": "es6",
+    "module": "ESNext",
     "moduleResolution": "node",
     "noEmit": true,
     "target": "esnext"

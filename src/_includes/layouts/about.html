@@ -5,13 +5,18 @@
 {% block content %}
   <h1>About</h1>
 
-  <article class="profile-card profile-card--wrape-reverse">
+  <article class="profile-card profile-card--wrap-reverse">
     <div class="profile-card__text-container">
       {{ content | safe }}
     </div>
 
     <div class="profile-card__image-container">
-      <img src="/images/icons/mark.jpg" alt="Mark Hernandez" />
+      <img
+        class="profile-card__image"
+        src="/images/icons/mark.jpg"
+        alt="Mark Hernandez"
+        loading="lazy"
+      />
     </div>
   </article>
 
