@@ -1,1 +1,1 @@
-import '../styles/site.less'
+import '../styles/index.less'

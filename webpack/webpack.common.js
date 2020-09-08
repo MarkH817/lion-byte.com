@@ -4,9 +4,11 @@ const autoprefixer = require('autoprefixer')
 const cssnano = require('cssnano')
 const MiniCSSExtractPlugin = require('mini-css-extract-plugin')
 
+/** @type {import('webpack').Configuration} */
 module.exports = {
   entry: {
-    main: path.resolve(__dirname, '../src/assets/scripts/index.js')
+    main: path.resolve(__dirname, '../src/assets/scripts/index.js'),
+    blog: path.resolve(__dirname, '../src/assets/styles/blog.less')
   },
   output: {
     path: path.resolve(__dirname, '../dist/assets/'),

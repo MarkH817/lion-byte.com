@@ -1,0 +1,51 @@
+@import "~prism-themes/themes/prism-a11y-dark.css";
+
+.blog-post-page {
+  margin: 0 auto var(--space-size-6);
+}
+
+.blog-post-page__header {
+  text-align: center;
+  margin-bottom: var(--space-size-8);
+}
+
+.blog-post-page__title {
+  font-size: var(--font-size-7);
+  font-weight: 300;
+  letter-spacing: -0.025em;
+  line-height: 1.1;
+  margin: 0;
+
+  @media screen and (max-width: 40rem) {
+    font-size: var(--font-size-6);
+  }
+}
+
+.blog-post-page__date {
+  font-size: var(--font-size-3);
+  font-weight: bold;
+  color: hsl(197, 70%, 35%);
+  letter-spacing: 0.15em;
+}
+
+.blog-post-page__content {
+  min-height: 35vh;
+  margin: 0 auto var(--space-size-8);
+  max-width: 35em;
+  font-size: var(--font-size-4);
+
+  p {
+    text-indent: 2em;
+    font-size: inherit;
+  }
+
+  &,
+  p {
+    line-height: 1.5;
+  }
+
+  p,
+  .gatsby-highlight {
+    margin: 0 auto var(--space-size-6);
+  }
+}
