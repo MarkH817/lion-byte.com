@@ -1,14 +1,12 @@
 const path = require('path')
 
-const autoprefixer = require('autoprefixer')
-const cssnano = require('cssnano')
 const MiniCSSExtractPlugin = require('mini-css-extract-plugin')
 
 /** @type {import('webpack').Configuration} */
 module.exports = {
   entry: {
     main: path.resolve(__dirname, '../src/assets/scripts/index.js'),
-    blog: path.resolve(__dirname, '../src/assets/styles/blog.less')
+    blog: path.resolve(__dirname, '../src/assets/scripts/blog.js')
   },
   output: {
     path: path.resolve(__dirname, '../dist/assets/'),
@@ -29,10 +27,7 @@ module.exports = {
           'style-loader',
           MiniCSSExtractPlugin.loader,
           { loader: 'css-loader', options: { sourceMap: true } },
-          {
-            loader: 'postcss-loader',
-            options: { plugins: [autoprefixer(), cssnano()], sourceMap: true }
-          },
+          { loader: 'postcss-loader', options: { sourceMap: true } },
           { loader: 'less-loader', options: { sourceMap: true } }
         ]
       },
