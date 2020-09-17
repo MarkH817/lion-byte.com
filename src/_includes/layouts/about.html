@@ -1,5 +1,13 @@
 {% extends "layouts/base.html" %}
 
+{% block preloads %}
+<link rel="preload" as="style" href="/assets/styles/about.css" />
+{% endblock %}
+
+{% block stylesheets %}
+<link rel="stylesheet" href="/assets/styles/about.css" />
+{% endblock %}
+
 {% set projectListItems = collections.projects %}
 
 {% block content %}

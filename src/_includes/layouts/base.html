@@ -25,8 +25,11 @@
       crossorigin="anonymous"
     />
     <link rel="preload" as="style" href="/assets/styles/main.css" />
-    <link rel="stylesheet" href="/assets/styles/main.css" />
 
+    {% block preloads %}{% endblock %}
+    {% block prefetches %}{% endblock %}
+
+    <link rel="stylesheet" href="/assets/styles/main.css" />
     {% block stylesheets %}{% endblock %}
   </head>
   <body>
@@ -37,5 +40,6 @@
     </main>
 
     <script src="/assets/scripts/main.js" defer></script>
+    {% block scripts %}{% endblock %}
   </body>
 </html>

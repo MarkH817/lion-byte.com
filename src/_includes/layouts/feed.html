@@ -1,5 +1,9 @@
 {% extends "layouts/base.html" %}
 
+{% block preloads %}
+<link rel="preload" as="style" href="/assets/styles/feed.css" />
+{% endblock %}
+
 {% block stylesheets %}
 <link rel="stylesheet" href="/assets/styles/feed.css" />
 {% endblock %}

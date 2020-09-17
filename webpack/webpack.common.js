@@ -5,8 +5,9 @@ const MiniCSSExtractPlugin = require('mini-css-extract-plugin')
 /** @type {import('webpack').Configuration} */
 module.exports = {
   entry: {
-    main: path.resolve(__dirname, '../src/assets/scripts/index.js'),
+    about: path.resolve(__dirname, '../src/assets/scripts/about.js'),
     feed: path.resolve(__dirname, '../src/assets/scripts/feed.js'),
+    main: path.resolve(__dirname, '../src/assets/scripts/index.js'),
     post: path.resolve(__dirname, '../src/assets/scripts/post.js')
   },
   output: {
