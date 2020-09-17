@@ -1,20 +1,17 @@
 {% extends "layouts/base.html" %}
 
+{% block stylesheets %}
+<link rel="stylesheet" href="/assets/styles/post.css" />
+{% endblock %}
+
 {% block content %}
-<div class="blog-post-page">
-  <article>
-    <header class="blog-post-page__header">
-      <h1 class="blog-post-page__title">{{ title }}</h1>
-      <time class="blog-post-page__date" datetime="{{ date | isoDateFilter }}">
-        {{ date | dateFilter }}
-      </time>
-    </header>
+<article class="post">
+  <header class="post__header">
+    <time class="post__date" datetime="{{ date | isoDateFilter }}">
+      {{ date | dateFilter }}
+    </time>
+  </header>
 
-    <div class="blog-post-page__content">{{ content | safe }}</div>
-
-    <footer>
-      {% include "partials/introduction.html" %}
-    </footer>
-  </article>
-</div>
+  <div class="post__content">{{ content | safe }}</div>
+</article>
 {% endblock %}

@@ -1,8 +1,16 @@
+.skip-link {
+  background-color: #ffffff;
+  left: var(--space-size-3);
+  padding: var(--space-size-3) var(--space-size-2);
+  position: absolute;
+  top: var(--space-size-3);
+}
+
 .header {
   align-items: center;
   display: flex;
-  font-size: var(--font-size-6);
   flex-wrap: wrap;
+  font-size: var(--font-size-6);
   justify-content: space-between;
   margin: 0.5em 0 1em 0;
   @media screen and (max-width: 60rem) {
@@ -10,11 +18,7 @@
     justify-content: center;
   }
 
-  @media screen and (max-width: 40rem) {
-    font-size: var(--font-size-5);
-  }
-
-  @media screen and (max-height: 40rem) {
+  @media screen and (max-width: 40rem), screen and (max-height: 40rem) {
     font-size: var(--font-size-5);
   }
 }
@@ -46,14 +50,14 @@
 }
 
 .header__nav-link {
+  border-bottom: 0.125rem solid transparent;
+  display: block;
   font-weight: normal;
   padding: 0 0.75ch;
   text-decoration: none;
-  display: block;
-  border-bottom: 0.125rem solid transparent;
 
   &[aria-current] {
-    text-decoration: none;
     border-bottom-color: currentColor;
+    text-decoration: none;
   }
 }

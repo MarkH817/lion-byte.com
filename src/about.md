@@ -1,5 +1,5 @@
 ---
-title: 'About Mark Hernandez'
+title: 'About'
 layout: 'layouts/about.html'
 ---
 

@@ -18,6 +18,9 @@ module.exports = config => {
   config.addCollection('blog', collection =>
     Array.from(collection.getFilteredByGlob('./src/posts/*.md')).reverse()
   )
+  config.addCollection('notes', collection =>
+    Array.from(collection.getFilteredByGlob('./src/notes/*.md'))
+  )
   config.addCollection('projects', collection =>
     Array.from(collection.getFilteredByGlob('./src/projects/*.md'))
   )

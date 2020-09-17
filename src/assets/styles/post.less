@@ -1,0 +1,29 @@
+.post__header {
+  margin-bottom: var(--space-size-8);
+  text-align: center;
+}
+
+.post__date {
+  color: hsl(197, 70%, 35%);
+  font-size: var(--font-size-3);
+  font-weight: bold;
+  letter-spacing: 0.15em;
+}
+
+.post__content {
+  font-size: var(--font-size-4);
+  line-height: 1.5;
+
+  p {
+    font-size: inherit;
+    margin: 0 auto var(--space-size-6);
+
+    img {
+      max-width: 100%;
+    }
+  }
+
+  & > [class*="language-"] {
+    margin: 0 auto var(--space-size-6);
+  }
+}

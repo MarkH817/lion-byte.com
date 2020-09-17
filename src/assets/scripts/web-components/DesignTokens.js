@@ -18,10 +18,10 @@ class DesignTokens extends LitElement {
         <div title="MAIN CHARACTER" style="background-color: #aa1c00"></div>
         <div
           title="MAIN CHARACTER - SIDE"
-          style="background-color: #aa1c0080"
+          style="background-color: #d48d7f"
         ></div>
         <div title="GEAR" style="background-color: #c0880a"></div>
-        <div title="GEAR - SIDE" style="background-color: #c0880a80"></div>
+        <div title="GEAR - SIDE" style="background-color: #dfc384"></div>
       </div>
     </section>`
   }

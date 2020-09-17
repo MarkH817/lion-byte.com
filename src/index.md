@@ -1,4 +1,4 @@
 ---
-title: 'Mark Hernandez (lion-byte)'
+title: 'Welcome'
 layout: 'layouts/home.html'
 ---

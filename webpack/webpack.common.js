@@ -6,7 +6,8 @@ const MiniCSSExtractPlugin = require('mini-css-extract-plugin')
 module.exports = {
   entry: {
     main: path.resolve(__dirname, '../src/assets/scripts/index.js'),
-    blog: path.resolve(__dirname, '../src/assets/scripts/blog.js')
+    feed: path.resolve(__dirname, '../src/assets/scripts/feed.js'),
+    post: path.resolve(__dirname, '../src/assets/scripts/post.js')
   },
   output: {
     path: path.resolve(__dirname, '../dist/assets/'),

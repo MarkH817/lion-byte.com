@@ -1,9 +1,12 @@
 {% extends "layouts/base.html" %}
 
+{% block stylesheets %}
+<link rel="stylesheet" href="/assets/styles/feed.css" />
+{% endblock %}
+
 {% set postListItems = pagination.items %}
 
 {% block content %}
-  <h1>Blog</h1>
   {% include "partials/post-list.html" %}
   {% include "partials/pagination.html" %}
 {% endblock %}
