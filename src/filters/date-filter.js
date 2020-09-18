@@ -4,9 +4,7 @@ const { format } = require('date-fns')
  * @param {string} date
  */
 function dateFilter (date) {
-  const d = new Date(date)
-  d.setDate(d.getDate() + 1)
-  return format(d, 'MMMM d, yyyy')
+  return format(new Date(date), 'MMMM dd, yyyy')
 }
 
 module.exports = dateFilter

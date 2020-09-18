@@ -1,17 +1,21 @@
 <article class="profile-card">
   <div class="profile-card__image-container">
-    <img
-      class="profile-card__image"
-      src="/images/icons/profile.png"
-      alt="Mark Hernandez"
-      loading="lazy"
-    />
+    <picture>
+      <source srcset="/images/icons/profile-256x256.webp" type="image/webp" />
+      <source srcset="/images/icons/profile-256x256.jpg" type="image/jpeg" />
+      <img
+        class="profile-card__image"
+        src="/images/icons/profile.png"
+        alt="Mark Hernandez"
+        loading="lazy"
+      />
+    </picture>
   </div>
 
   <div class="profile-card__text-container">
     <p class="profile-card__text">
-      Personal site &amp; blog of Mark Hernandez. I'm a
-      software developer at gWorks.
+      Personal site &amp; blog of Mark Hernandez. I'm a software developer at
+      gWorks.
     </p>
 
     <div class="social">

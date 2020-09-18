@@ -1,28 +1,30 @@
 {% extends "layouts/base.html" %}
 
 {% block preloads %}
-<link rel="preload" as="style" href="/assets/styles/about.css" />
+  <link rel="preload" as="style" href="/assets/styles/about.css" />
 {% endblock %}
 
 {% block stylesheets %}
-<link rel="stylesheet" href="/assets/styles/about.css" />
+  <link rel="stylesheet" href="/assets/styles/about.css" />
 {% endblock %}
 
 {% set projectListItems = collections.projects %}
 
 {% block content %}
   <article class="profile-card profile-card--wrap-reverse">
-    <div class="profile-card__text-container">
-      {{ content | safe }}
-    </div>
+    <div class="profile-card__text-container">{{ content | safe }}</div>
 
     <div class="profile-card__image-container">
-      <img
-        class="profile-card__image"
-        src="/images/icons/mark.jpg"
-        alt="Mark Hernandez"
-        loading="lazy"
-      />
+      <picture>
+        <source srcset="/images/icons/mark-256x256.webp" type="image/webp" />
+        <source srcset="/images/icons/mark-256x256.jpg" type="image/jpeg" />
+        <img
+          class="profile-card__image"
+          src="/images/icons/mark.jpg"
+          alt="Mark Hernandez"
+          loading="lazy"
+        />
+      </picture>
     </div>
   </article>
 
