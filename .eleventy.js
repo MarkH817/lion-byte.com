@@ -21,9 +21,6 @@ module.exports = config => {
   config.addCollection('notes', collection =>
     Array.from(collection.getFilteredByGlob('./src/notes/*.md'))
   )
-  config.addCollection('projects', collection =>
-    Array.from(collection.getFilteredByGlob('./src/projects/*.md'))
-  )
 
   return {
     markdownTemplateEngine: 'njk',
