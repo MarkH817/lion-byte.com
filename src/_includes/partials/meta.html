@@ -1,10 +1,34 @@
+{% set pageTitle = title + ' | ' + site.name %}
+
+{% set siteTitle = site.name %}
+
+{% set currentUrl = site.url + page.url %}
+
+{% if not title or page.url == "/" %}
+  {% set pageTitle = siteTitle %}
+{% endif %}
+
+{% if not metaDesc %}
+  {% set metaDesc = summary %}
+{% endif %}
+
+
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <meta http-equiv="X-UA-Compatible" content="ie=edge" />
 
-{% set titleHeader = "" %}
-{% if title and page.url != "/" %}
-  {% set titleHeader = title + " | " %}
+<title>{{ pageTitle }}</title>
+
+{% if socialImage %}
+<meta name="twitter:card" content="summary_large_image" />
+<meta property="og:image" content="{{ socialImage }}" />
+<meta name="twitter:image" content="{{ socialImage }}" />
+<meta property="og:image:alt" content="Page image for {{ site.name }}" />
+<meta name="twitter:image:alt" content="Page image for {{ site.name }}" />
 {% endif %}
 
-<title>{{ titleHeader }}Mark Hernandez (lion-byte)</title>
+{% if metaDesc %}
+<meta name="description" content="{{ metaDesc }}" />
+<meta name="twitter:description" content="{{ metaDesc }}" />
+<meta property="og:description" content="{{ metaDesc }}" />
+{% endif %}
