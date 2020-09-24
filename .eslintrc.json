@@ -1,3 +1,27 @@
 {
-  "extends": ["@lionbyte"]
+  "extends": ["@lionbyte"],
+  "settings": {
+    "import/internal-regex": "^(app|styles)"
+  },
+  "rules": {
+    "import/order": [
+      "error",
+      {
+        "alphabetize": { "caseInsensitive": true, "order": "asc" },
+        "groups": [
+          "builtin",
+          "external",
+          "internal",
+          "parent",
+          "sibling",
+          "index"
+        ],
+        "newlines-between": "always",
+        "pathGroups": [
+          { "pattern": "app/**", "group": "internal", "position": "after" },
+          { "pattern": "styles/**", "group": "internal", "position": "after" }
+        ]
+      }
+    ]
+  }
 }

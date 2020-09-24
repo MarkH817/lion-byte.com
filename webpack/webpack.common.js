@@ -13,7 +13,7 @@ module.exports = {
   output: {
     path: path.resolve(__dirname, '../dist/assets/'),
     filename: 'scripts/[name].js',
-    chunkFilename: 'scripts/[name].[chunkhash].js',
+    chunkFilename: 'scripts/[name].bundle.js',
     publicPath: '/assets/'
   },
   module: {
@@ -58,11 +58,17 @@ module.exports = {
       }
     ]
   },
-  resolve: { alias: { src: path.resolve(__dirname, '../src') } },
+  resolve: {
+    alias: {
+      app: path.resolve(__dirname, '../src/assets/scripts'),
+      styles: path.resolve(__dirname, '../src/assets/styles')
+    }
+  },
   plugins: [
     new MiniCSSExtractPlugin({
       filename: 'styles/[name].css',
-      chunkFilename: 'styles/[name].css'
+      chunkFilename: 'styles/[name].bundle.css',
+      esModule: true
     })
   ]
 }

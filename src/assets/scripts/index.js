@@ -1,7 +1,8 @@
 import 'modern-normalize'
 import 'typeface-nunito'
 import 'typeface-open-sans'
-import '../styles/index.less'
+
+import 'styles/index.less'
 
 async function core () {
   if (

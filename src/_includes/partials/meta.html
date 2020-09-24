@@ -19,6 +19,13 @@
 
 <title>{{ pageTitle }}</title>
 
+<link rel="canonical" href="{{ currentUrl }}" />
+<link rel="icon" href="/images/icons/profile-32x32.png" />
+
+<meta name="pinterest" content="nopin" />
+<meta name="og:type" content="website" />
+<meta name="twitter:creator" content="{{ site.twitter }}" />
+
 {% if socialImage %}
 <meta name="twitter:card" content="summary_large_image" />
 <meta property="og:image" content="{{ socialImage }}" />
