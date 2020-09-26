@@ -1,11 +1,13 @@
-const syntaxHighlight = require('@11ty/eleventy-plugin-syntaxhighlight')
+const pluginRss = require('@11ty/eleventy-plugin-rss')
+const pluginSyntaxHighlight = require('@11ty/eleventy-plugin-syntaxhighlight')
 
 const dateFilter = require('./src/filters/date-filter')
 const isoDateFilter = require('./src/filters/iso-date-filter')
 
 module.exports = config => {
   // Plugins
-  config.addPlugin(syntaxHighlight)
+  config.addPlugin(pluginRss)
+  config.addPlugin(pluginSyntaxHighlight)
 
   // Passthrough copies
   config.addPassthroughCopy('./src/images/')
