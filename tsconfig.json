@@ -1,14 +1,19 @@
 {
   "compilerOptions": {
     "allowJs": true,
+    "baseUrl": "./",
     "checkJs": true,
     "esModuleInterop": true,
     "forceConsistentCasingInFileNames": true,
-    "jsx": "react",
-    "module": "es6",
+    "module": "ESNext",
     "moduleResolution": "node",
     "noEmit": true,
-    "target": "esnext"
+    "plugins": [{ "name": "typescript-styled-plugin", "validate": false }],
+    "target": "esnext",
+    "paths": {
+      "app/*": ["src/assets/scripts/*"],
+      "styles/*": ["src/assets/styles/*"]
+    }
   },
-  "exclude": [".cache/", "coverage/", "node_modules/", "public/"]
+  "exclude": [".cache/", "coverage/", "node_modules/", "dist/"]
 }

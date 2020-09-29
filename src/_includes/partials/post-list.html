@@ -1,0 +1,9 @@
+<ol id="feed-list" class="feed-list">
+  {% for item in postListItems %}
+  <li class="feed-list__item">
+    <a class="feed-list_link" href="{{ item.url }}"
+      >{{ item.data.title }}</a
+    >
+  </li>
+  {% endfor %}
+</ol>

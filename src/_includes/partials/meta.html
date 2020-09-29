@@ -1,0 +1,43 @@
+{% set pageTitle = title + ' | ' + site.name %}
+
+{% set siteTitle = site.name %}
+
+{% set currentUrl = site.url + page.url %}
+
+{% if not title or page.url == "/" %}
+  {% set pageTitle = siteTitle %}
+{% endif %}
+
+{% if not metaDesc %}
+  {% set metaDesc = summary %}
+{% endif %}
+
+
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta http-equiv="X-UA-Compatible" content="ie=edge" />
+
+<title>{{ pageTitle }}</title>
+
+<link rel="canonical" href="{{ currentUrl }}" />
+<link rel="icon" href="/images/icons/profile-32x32.png" />
+
+<meta name="pinterest" content="nopin" />
+<meta name="og:type" content="website" />
+<meta name="twitter:creator" content="{{ site.twitter }}" />
+
+{% if socialImage %}
+<meta name="twitter:card" content="summary_large_image" />
+<meta property="og:image" content="{{ socialImage }}" />
+<meta name="twitter:image" content="{{ socialImage }}" />
+<meta property="og:image:alt" content="Page image for {{ site.name }}" />
+<meta name="twitter:image:alt" content="Page image for {{ site.name }}" />
+{% endif %}
+
+{% if metaDesc %}
+<meta name="description" content="{{ metaDesc }}" />
+<meta name="twitter:description" content="{{ metaDesc }}" />
+<meta property="og:description" content="{{ metaDesc }}" />
+{% endif %}
+
+<link rel="alternate" type="application/rss+xml" href="{{ site.url }}/rss.xml" />

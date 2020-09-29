@@ -1,0 +1,21 @@
+{% extends "layouts/base.html" %}
+
+{% block preloads %}
+<link rel="preload" as="style" href="/assets/styles/post.css" />
+{% endblock %}
+
+{% block stylesheets %}
+<link rel="stylesheet" href="/assets/styles/post.css" />
+{% endblock %}
+
+{% block content %}
+<article class="post">
+  <header class="post__header">
+    <time class="post__date" datetime="{{ date | isoDateFilter }}">
+      {{ date | dateFilter }}
+    </time>
+  </header>
+
+  <div class="post__content">{{ content | safe }}</div>
+</article>
+{% endblock %}

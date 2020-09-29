@@ -1,0 +1,22 @@
+<a class="sr-only skip-link" href="#main-content">Skip to main content</a>
+
+<header class="header">
+  <div class="header__name">
+    <a class="header__name-link" href="/">Mark Hernandez</a>
+  </div>
+
+  <nav class="header__nav" aria-label="Main Navigation">
+    <ul class="header__nav-list">
+      {% for item in navigation.main %}
+      <li>
+        <a
+          class="header__nav-link"
+          href="{{ item.url }}"
+          {{ helpers.getLinkActiveState(item.url, page.url) | safe }}
+          >{{ item.text }}</a
+        >
+      </li>
+      {% endfor %}
+    </ul>
+  </nav>
+</header>

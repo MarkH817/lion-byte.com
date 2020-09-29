@@ -1,0 +1,64 @@
+@font-face {
+  font-display: swap;
+  font-family: "Hey Gorgeous";
+  src: url("../../fonts/Hey-Gorgeous.woff2") format("woff2"),
+    url("../../fonts/Hey-Gorgeous.woff") format("woff"),
+    url("../../fonts/Hey-Gorgeous.ttf") format("ttf");
+}
+
+:root {
+  font-size: 1rem;
+}
+
+* {
+  &:focus {
+    outline: 0.15rem dashed var(--color-accent);
+  }
+
+  &::selection {
+    background-color: var(--color-accent);
+    color: #ffffff;
+  }
+}
+
+html {
+  background-color: #ffffff;
+}
+
+body {
+  color: var(--color-black);
+  font-family: var(--font-nunito);
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: var(--font-nunito);
+}
+
+h1 {
+  font-size: var(--font-size-7);
+  font-weight: 400;
+  letter-spacing: 0.05em;
+  margin: 0 0 var(--space-size-5);
+  text-align: center;
+
+  @media screen and (max-width: 40rem) {
+    font-size: var(--font-size-6);
+  }
+}
+
+a {
+  color: var(--color-primary);
+
+  &:active {
+    color: var(--color-accent);
+  }
+}
+
+code:not([class]) {
+  color: var(--color-accent);
+}
