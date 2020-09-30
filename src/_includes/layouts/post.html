@@ -4,6 +4,11 @@
 <link rel="preload" as="style" href="/assets/styles/post.css" />
 {% endblock %}
 
+{% block prefetches %}
+<link rel="prefetch" as="style" href="/assets/styles/about.css" />
+<link rel="prefetch" as="style" href="/assets/styles/feed.css" />
+{% endblock %}
+
 {% block stylesheets %}
 <link rel="stylesheet" href="/assets/styles/post.css" />
 {% endblock %}

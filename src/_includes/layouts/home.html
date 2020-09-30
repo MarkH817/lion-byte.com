@@ -1,5 +1,11 @@
 {% extends "layouts/base.html" %}
 
+{% block prefetches %}
+<link rel="prefetch" as="style" href="/assets/styles/about.css" />
+<link rel="prefetch" as="style" href="/assets/styles/feed.css" />
+<link rel="prefetch" as="style" href="/assets/styles/post.css" />
+{% endblock %}
+
 {% block content %}
   {% include "partials/introduction.html" %}
 {% endblock %}
