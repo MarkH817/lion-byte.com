@@ -19,7 +19,7 @@ module.exports = {
   module: {
     rules: [
       {
-        test: /\.js$/,
+        test: /\.(t|j)sx?$/,
         exclude: [/node_modules/],
         use: { loader: 'babel-loader' }
       },
@@ -62,7 +62,8 @@ module.exports = {
     alias: {
       app: path.resolve(__dirname, '../src/assets/scripts'),
       styles: path.resolve(__dirname, '../src/assets/styles')
-    }
+    },
+    extensions: ['.wasm', '.mjs', '.js', '.ts', '.tsx', '.json']
   },
   plugins: [
     new MiniCSSExtractPlugin({

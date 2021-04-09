@@ -57,9 +57,22 @@
   padding: 0.25ch 0.75ch;
   text-decoration: none;
 
+  @media (prefers-reduced-motion: no-preference) {
+    transition: transform 50ms ease-in;
+  }
+
   &[aria-current],
   &[data-state="active"] {
-    border-bottom-color: currentColor;
+    border-color: currentColor;
     text-decoration: none;
+  }
+
+  &:hover,
+  &:focus {
+    transform: rotate(5deg);
+  }
+
+  &:active {
+    transform: rotate(2deg);
   }
 }

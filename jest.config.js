@@ -2,7 +2,7 @@ module.exports = {
   ...require('./test/jest.common'),
   displayName: 'test',
   transform: {
-    '^.+\\.js$': 'babel-jest'
+    '^.+\\.(t|j)sx?$': 'babel-jest'
   },
   moduleNameMapper: {
     '.+\\.(css|less)$': '<rootDir>/__mocks__/file-mock.js',

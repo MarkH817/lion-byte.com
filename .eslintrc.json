@@ -3,6 +3,8 @@
   "settings": {
     "import/internal-regex": "^(app|styles)"
   },
+  "parser": "@typescript-eslint/parser",
+  "plugins": ["@typescript-eslint"],
   "rules": {
     "import/order": [
       "error",
