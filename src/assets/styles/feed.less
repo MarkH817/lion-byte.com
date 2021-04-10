@@ -7,7 +7,8 @@
   margin: var(--space-size-4) 0;
 }
 
-.feed-list_link {
+.feed-list__link {
+  display: inline-block;
   font-size: var(--font-size-6);
   letter-spacing: 0.05em;
   @media (prefers-reduced-motion: no-preference) {
@@ -16,7 +17,11 @@
 
   &:focus,
   &:hover {
-    transform: skewX(90deg);
+    transform: skewX(-20deg);
+  }
+
+  &:active {
+    transform: skewX(-5deg);
   }
 }
 
@@ -37,4 +42,20 @@
 
 .pagination__link--forwards {
   margin-inline-start: auto;
+}
+
+.pagination__link--backwards,
+.pagination__link--forwards {
+  @media (prefers-reduced-motion: no-preference) {
+    transition: transform 50ms ease-in-out;
+  }
+
+  &:focus,
+  &:hover {
+    transform: skewX(-20deg);
+  }
+
+  &:active {
+    transform: skewX(-5deg);
+  }
 }
