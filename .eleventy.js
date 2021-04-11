@@ -24,6 +24,12 @@ module.exports = config => {
     Array.from(collection.getFilteredByGlob('./src/notes/*.md'))
   )
 
+  // Additional watch targets
+  config.addWatchTarget('./src/assets/')
+
+  // Other configurations
+  config.setWatchThrottleWaitTime(250)
+
   return {
     markdownTemplateEngine: 'njk',
     dataTemplateEngine: 'njk',
