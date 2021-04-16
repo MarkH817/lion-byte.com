@@ -23,6 +23,22 @@
     }
   }
 
+  a {
+    display: inline-block;
+    @media (prefers-reduced-motion: no-preference) {
+      transition: transform 50ms ease-in-out;
+    }
+
+    &:focus,
+    &:hover {
+      transform: scale(1.05);
+    }
+
+    &:active {
+      transform: scale(1.02);
+    }
+  }
+
   & > [class*="language-"] {
     margin: 0 auto var(--space-size-6);
   }
