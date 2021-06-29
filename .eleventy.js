@@ -25,7 +25,7 @@ module.exports = config => {
   )
 
   // Additional watch targets
-  config.addWatchTarget('./src/assets/')
+  config.addWatchTarget('./assets/')
 
   // Other configurations
   config.setWatchThrottleWaitTime(250)

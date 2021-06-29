@@ -12,21 +12,21 @@
 
 * {
   &:focus {
-    outline: 0.15rem dashed var(--color-accent);
+    outline: 0.15rem dashed currentColor;
   }
 
   &::selection {
     background-color: var(--color-accent);
-    color: #ffffff;
+    color: var(--color-white);
   }
 }
 
 html {
-  background-color: #ffffff;
+  background-color: var(--color-black);
 }
 
 body {
-  color: var(--color-black);
+  color: var(--color-white);
   font-family: var(--font-nunito);
 }
 
@@ -55,7 +55,7 @@ a {
   color: var(--color-primary);
 
   &:active {
-    color: var(--color-accent);
+    color: var(--color-primary-light);
   }
 }
 

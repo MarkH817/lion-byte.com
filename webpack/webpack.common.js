@@ -5,10 +5,10 @@ const MiniCSSExtractPlugin = require('mini-css-extract-plugin')
 /** @type {import('webpack').Configuration} */
 module.exports = {
   entry: {
-    about: path.resolve(__dirname, '../src/assets/scripts/about.js'),
-    feed: path.resolve(__dirname, '../src/assets/scripts/feed.js'),
-    main: path.resolve(__dirname, '../src/assets/scripts/index.js'),
-    post: path.resolve(__dirname, '../src/assets/scripts/post.js')
+    about: path.resolve(__dirname, '../assets/scripts/about.js'),
+    feed: path.resolve(__dirname, '../assets/scripts/feed.js'),
+    main: path.resolve(__dirname, '../assets/scripts/index.js'),
+    post: path.resolve(__dirname, '../assets/scripts/post.js')
   },
   output: {
     path: path.resolve(__dirname, '../dist/assets/'),
@@ -51,7 +51,7 @@ module.exports = {
             loader: 'file-loader',
             options: {
               name: 'images/[path][name].[contenthash].[ext]',
-              context: 'src/assets/images/'
+              context: 'assets/images/'
             }
           }
         ]
@@ -60,8 +60,8 @@ module.exports = {
   },
   resolve: {
     alias: {
-      app: path.resolve(__dirname, '../src/assets/scripts'),
-      styles: path.resolve(__dirname, '../src/assets/styles')
+      app: path.resolve(__dirname, '../assets/scripts'),
+      styles: path.resolve(__dirname, '../assets/styles')
     },
     extensions: ['.wasm', '.mjs', '.js', '.ts', '.tsx', '.json']
   },
