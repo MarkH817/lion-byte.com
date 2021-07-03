@@ -16,17 +16,14 @@
   }
 
   &::selection {
-    background-color: var(--color-accent);
-    color: var(--color-white);
+    background-color: var(--text-color);
+    color: var(--background-color);
   }
 }
 
-html {
-  background-color: var(--color-black);
-}
-
 body {
-  color: var(--color-white);
+  background-color: var(--background-color);
+  color: var(--text-color);
   font-family: var(--font-nunito);
 }
 
@@ -52,13 +49,17 @@ h1 {
 }
 
 a {
-  color: var(--color-primary);
+  color: var(--link-color);
 
   &:active {
-    color: var(--color-primary-light);
+    color: var(--link-color--active);
   }
 }
 
 code:not([class]) {
   color: var(--color-accent);
+}
+
+main {
+  font-size: var(--font-size-5);
 }

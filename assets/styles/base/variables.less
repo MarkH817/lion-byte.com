@@ -21,8 +21,9 @@
   --font-size-10: 4.5rem;
 
   // #region colors
-  --color-primary-light: hsl(106, 70%, 70%);
-  --color-primary: hsl(106, 70%, 50%);
+  --color-blue-dark: hsl(186, 50%, 20%);
+  --color-blue: hsl(186, 70%, 50%);
+  --color-blue-light: hsl(186, 70%, 70%);
 
   --color-accent: hsl(9, 86%, 49%);
   --color-black: hsl(240, 3%, 19%);
@@ -46,4 +47,36 @@
   --space-size-14: 32rem;
   --space-size-15: 40rem;
   --space-size-16: 48rem;
+}
+
+.body-light-mode() {
+  --background-color: var(--color-white);
+  --link-color: var(--color-blue);
+  --link-color--active: var(--color-blue-dark);
+  --text-color: var(--color-black);
+}
+
+.body-dark-mode() {
+  --background-color: var(--color-black);
+  --link-color: var(--color-blue);
+  --link-color--active: var(--color-blue-light);
+  --text-color: var(--color-white);
+}
+
+body {
+  @media (prefers-color-scheme: light) {
+    .body-light-mode();
+  }
+
+  @media (prefers-color-scheme: dark) {
+    .body-dark-mode();
+  }
+
+  &.light {
+    .body-light-mode();
+  }
+
+  &.dark {
+    .body-dark-mode();
+  }
 }
