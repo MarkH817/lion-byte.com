@@ -14,7 +14,8 @@ module.exports = {
     path: path.resolve(__dirname, '../dist/assets/'),
     filename: 'scripts/[name].js',
     chunkFilename: 'scripts/[name].bundle.js',
-    publicPath: '/assets/'
+    publicPath: '/assets/',
+    clean: true
   },
   module: {
     rules: [
@@ -26,35 +27,29 @@ module.exports = {
       {
         test: /\.(css|less)$/,
         use: [
-          'style-loader',
           MiniCSSExtractPlugin.loader,
           { loader: 'css-loader', options: { sourceMap: true } },
-          { loader: 'postcss-loader', options: { sourceMap: true } },
+          {
+            loader: 'postcss-loader',
+            options: {
+              sourceMap: true,
+              postcssOptions: {
+                config: path.resolve(__dirname, './postcss.config.js')
+              }
+            }
+          },
           { loader: 'less-loader', options: { sourceMap: true } }
         ]
       },
       {
         test: /\.(woff(2)?|ttf|eot|otf)$/i,
-        use: [
-          {
-            loader: 'file-loader',
-            options: {
-              name: 'fonts/[name].[ext]'
-            }
-          }
-        ]
+        type: 'asset/resource',
+        generator: { filename: 'fonts/[name].[ext]' }
       },
       {
         test: /\.(png|jpe?g|gif|svg)$/i,
-        use: [
-          {
-            loader: 'file-loader',
-            options: {
-              name: 'images/[path][name].[contenthash].[ext]',
-              context: 'assets/images/'
-            }
-          }
-        ]
+        type: 'asset/resource',
+        generator: { filename: 'images/[path][name].[contenthash].[ext]' }
       }
     ]
   },
@@ -68,8 +63,7 @@ module.exports = {
   plugins: [
     new MiniCSSExtractPlugin({
       filename: 'styles/[name].css',
-      chunkFilename: 'styles/[name].bundle.css',
-      esModule: true
+      chunkFilename: 'styles/[name].bundle.css'
     })
   ]
 }

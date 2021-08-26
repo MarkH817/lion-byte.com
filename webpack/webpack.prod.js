@@ -1,4 +1,3 @@
-const { CleanWebpackPlugin } = require('clean-webpack-plugin')
 const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer')
 const { merge } = require('webpack-merge')
 
@@ -8,7 +7,6 @@ module.exports = merge(common, {
   mode: 'production',
   devtool: 'source-map',
   plugins: [
-    new CleanWebpackPlugin(),
     new BundleAnalyzerPlugin({
       analyzerMode: 'static',
       openAnalyzer: false,
