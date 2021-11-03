@@ -1,0 +1,8 @@
+{
+  "ignore": {
+    "husky": {
+      "versions": ">=7",
+      "reason": ""
+    }
+  }
+}

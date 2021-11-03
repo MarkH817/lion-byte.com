@@ -6,9 +6,10 @@
     "esModuleInterop": true,
     "forceConsistentCasingInFileNames": true,
     "module": "ESNext",
-    "moduleResolution": "node",
+    "moduleResolution": "Node",
     "noEmit": true,
-    "target": "esnext",
+    "strictNullChecks": true,
+    "target": "ESNext",
     "paths": {
       "app/*": ["assets/scripts/*"],
       "styles/*": ["assets/styles/*"]

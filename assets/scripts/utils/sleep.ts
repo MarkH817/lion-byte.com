@@ -1,5 +1,5 @@
-function sleep(ms = 0): Promise<void> {
-  return new Promise(resolve => setTimeout(resolve, ms))
+function sleep(ms = 0) {
+  return new Promise<void>(resolve => setTimeout(resolve, ms))
 }
 
 export default sleep
