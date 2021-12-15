@@ -1,0 +1,23 @@
+button,
+.btn {
+  -webkit-appearance: none;
+  background-color: var(--btn-background-color, transparent);
+  border: none;
+  border-radius: 0.317em;
+  color: var(--btn-color, inherit);
+  cursor: pointer;
+  display: inline-block;
+  font: inherit;
+  -webkit-font-smoothing: inherit;
+  -moz-osx-font-smoothing: inherit;
+  line-height: normal;
+  margin: 0;
+  overflow: visible;
+  padding: var(--btn-padding, 0.75em 1em);
+  width: auto;
+
+  &.primary {
+    --btn-background-color: var(--link-color);
+    --btn-text-color: var(--background-color);
+  }
+}

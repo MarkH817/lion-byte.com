@@ -1,29 +1,11 @@
 {
+  "root": true,
   "extends": ["@lionbyte"],
   "settings": {
     "import/internal-regex": "^(app|styles)"
   },
-  "parser": "@typescript-eslint/parser",
-  "plugins": ["@typescript-eslint"],
   "rules": {
-    "import/order": [
-      "error",
-      {
-        "alphabetize": { "caseInsensitive": true, "order": "asc" },
-        "groups": [
-          "builtin",
-          "external",
-          "internal",
-          "parent",
-          "sibling",
-          "index"
-        ],
-        "newlines-between": "always",
-        "pathGroups": [
-          { "pattern": "app/**", "group": "internal", "position": "after" },
-          { "pattern": "styles/**", "group": "internal", "position": "after" }
-        ]
-      }
-    ]
+    "react-hooks/rules-of-hooks": "off",
+    "react-hooks/exhaustive-deps": "off"
   }
 }

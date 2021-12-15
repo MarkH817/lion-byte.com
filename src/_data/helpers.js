@@ -6,7 +6,7 @@
  * @param {string} pageUrl The page context
  * @returns {string} The attributes or empty
  */
-function getLinkActiveState (itemUrl, pageUrl) {
+function getLinkActiveState(itemUrl, pageUrl) {
   let response = ''
 
   if (itemUrl === pageUrl) {

@@ -1,7 +1,7 @@
 /**
  * @param {string} date
  */
-function isoDateFilter (date) {
+function isoDateFilter(date) {
   return new Date(date).toISOString()
 }
 
