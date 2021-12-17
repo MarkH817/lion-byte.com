@@ -5,10 +5,10 @@ const MiniCSSExtractPlugin = require('mini-css-extract-plugin')
 /** @type {import('webpack').Configuration} */
 module.exports = {
   entry: {
-    about: path.resolve(__dirname, '../assets/scripts/about.js'),
-    feed: path.resolve(__dirname, '../assets/scripts/feed.js'),
-    main: path.resolve(__dirname, '../assets/scripts/index.js'),
-    post: path.resolve(__dirname, '../assets/scripts/post.js')
+    about: path.resolve(__dirname, '../assets/scripts/about.ts'),
+    feed: path.resolve(__dirname, '../assets/scripts/feed.ts'),
+    main: path.resolve(__dirname, '../assets/scripts/index.ts'),
+    post: path.resolve(__dirname, '../assets/scripts/post.ts')
   },
   output: {
     path: path.resolve(__dirname, '../dist/assets/'),
