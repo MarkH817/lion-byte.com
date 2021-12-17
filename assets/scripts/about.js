@@ -1,1 +1,1 @@
-import '../styles/about.less'
+import 'styles/about.less'

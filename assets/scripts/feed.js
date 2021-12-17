@@ -1,1 +1,1 @@
-import '../styles/feed.less'
+import 'styles/feed.less'
