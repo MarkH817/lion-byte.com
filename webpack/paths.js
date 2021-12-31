@@ -1,6 +1,6 @@
 const { resolve } = require('path')
 
-const assets = resolve(__dirname, '../assets')
+const assets = resolve(__dirname, '../src-app')
 
 const paths = {
   assets,
