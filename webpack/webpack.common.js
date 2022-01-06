@@ -2,16 +2,18 @@ const path = require('path')
 
 const MiniCSSExtractPlugin = require('mini-css-extract-plugin')
 
+const paths = require('./paths')
+
 /** @type {import('webpack').Configuration} */
 module.exports = {
   entry: {
-    about: path.resolve(__dirname, '../assets/scripts/about.js'),
-    feed: path.resolve(__dirname, '../assets/scripts/feed.js'),
-    main: path.resolve(__dirname, '../assets/scripts/index.js'),
-    post: path.resolve(__dirname, '../assets/scripts/post.js')
+    about: path.resolve(paths.scripts, './about.ts'),
+    feed: path.resolve(paths.scripts, './feed.ts'),
+    main: path.resolve(paths.scripts, './index.ts'),
+    post: path.resolve(paths.scripts, './post.ts')
   },
   output: {
-    path: path.resolve(__dirname, '../dist/assets/'),
+    path: paths.dist,
     filename: 'scripts/[name].js',
     chunkFilename: 'scripts/[name].bundle.js',
     publicPath: '/assets/',
@@ -55,10 +57,10 @@ module.exports = {
   },
   resolve: {
     alias: {
-      app: path.resolve(__dirname, '../assets/scripts'),
-      styles: path.resolve(__dirname, '../assets/styles')
+      app: paths.scripts,
+      styles: paths.styles
     },
-    extensions: ['.wasm', '.mjs', '.js', '.ts', '.tsx', '.json']
+    extensions: ['.wasm', '.mjs', '.js', '.jsx', '.ts', '.tsx', '.json']
   },
   plugins: [
     new MiniCSSExtractPlugin({

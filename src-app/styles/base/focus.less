@@ -1,0 +1,14 @@
+* {
+  &:focus-visible {
+    outline: 0.15rem dashed currentColor;
+  }
+
+  &:focus:not(:focus-visible) {
+    outline-width: 0;
+  }
+
+  &::selection {
+    background-color: var(--text-color);
+    color: var(--background-color);
+  }
+}

@@ -11,8 +11,8 @@
     "strictNullChecks": true,
     "target": "ESNext",
     "paths": {
-      "app/*": ["assets/scripts/*"],
-      "styles/*": ["assets/styles/*"]
+      "app/*": ["src-app/scripts/*"],
+      "styles/*": ["src-app/styles/*"]
     }
   },
   "exclude": [".cache/", "coverage/", "node_modules/", "dist/"]
