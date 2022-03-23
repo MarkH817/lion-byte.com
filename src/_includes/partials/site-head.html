@@ -2,17 +2,17 @@
   >Skip to main content</a
 >
 
-<header class="header">
-  <div class="header__name">
-    <a class="header__name-link" href="/">Mark Hernandez</a>
-  </div>
+<header class="header d-flex flex-wrap align-items-center">
+  <a class="header__name d-block text-align-center" href="/">Mark Hernandez</a>
 
   <nav class="header__nav" aria-label="Main Navigation">
-    <ul class="header__nav-list">
+    <ul
+      class="header__nav-list list-unstyled d-flex flex-wrap justify-content-center"
+    >
       {% for item in navigation.main %}
       <li>
         <a
-          class="header__nav-link"
+          class="header__nav-link d-block"
           href="{{ item.url }}"
           {{
           helpers.getLinkActiveState(item.url,
