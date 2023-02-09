@@ -2,7 +2,6 @@
   "main": [
     { "text": "Home", "url": "/" },
     { "text": "About", "url": "/about/" },
-    { "text": "Blog", "url": "/blog/" },
-    { "text": "Notes", "url": "/notes/" }
+    { "text": "Blog", "url": "/blog/" }
   ]
 }
