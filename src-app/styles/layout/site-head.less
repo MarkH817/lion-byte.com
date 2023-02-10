@@ -39,24 +39,57 @@
     border-bottom: 0.125rem solid transparent;
     padding: 0.25ch 0.75ch;
     text-decoration: none;
+    position: relative;
+    isolation: isolate;
+    outline: none;
 
-    @media (prefers-reduced-motion: no-preference) {
-      transition: transform 50ms ease-in;
+    &::before,
+    &::after {
+      position: absolute;
+      inset: 0;
+      content: "";
+      z-index: -1;
+      margin: -5%;
+      box-shadow: inset 0 0 0 2px transparent;
+      @media (prefers-reduced-motion: no-preference) {
+        animation: link-border-anim var(--anim-time, 6s) linear infinite;
+        transition: box-shadow 75ms ease-in-out;
+      }
+    }
+
+    &:hover,
+    &:focus {
+      &::before,
+      &::after {
+        box-shadow: inset 0 0 0 2px;
+      }
+
+      &::before {
+        @media (prefers-reduced-motion: no-preference) {
+          animation-delay: var(--anim-offset, -3s);
+        }
+      }
     }
 
     &[aria-current],
     &[data-state="active"] {
       border-color: currentColor;
-      text-decoration: none;
     }
+  }
+}
 
-    &:hover,
-    &:focus {
-      transform: rotate(5deg);
-    }
-
-    &:active {
-      transform: rotate(2deg);
-    }
+@keyframes link-border-anim {
+  0%,
+  100% {
+    clip-path: inset(0 0 calc(100% - 2px) 0);
+  }
+  25% {
+    clip-path: inset(0 calc(100% - 2px) 0 0);
+  }
+  50% {
+    clip-path: inset(calc(100% - 2px) 0 0 0);
+  }
+  75% {
+    clip-path: inset(0 0 0 calc(100% - 2px));
   }
 }
