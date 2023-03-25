@@ -7,10 +7,9 @@ const paths = require('./paths')
 /** @type {import('webpack').Configuration} */
 module.exports = {
   entry: {
-    about: path.resolve(paths.scripts, './about.ts'),
-    feed: path.resolve(paths.scripts, './feed.ts'),
+    feed: path.resolve(paths.styles, './feed.less'),
     main: path.resolve(paths.scripts, './index.ts'),
-    post: path.resolve(paths.scripts, './post.ts')
+    post: path.resolve(paths.styles, './post.less')
   },
   output: {
     path: paths.dist,

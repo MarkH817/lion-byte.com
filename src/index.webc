@@ -1,0 +1,81 @@
+---
+title: 'Welcome'
+layout: 'layouts/home.html'
+metaDesc: 'A blog for NodeJS, web development, and stuff'
+---
+
+<profile-card>
+  <picture slot="image">
+    <source srcset="/images/icons/profile-256x256.webp" type="image/webp" />
+    <source srcset="/images/icons/profile-256x256.jpg" type="image/jpeg" />
+    <img src="/images/icons/profile.png" alt="Mark Hernandez" />
+  </picture>
+
+  <p>
+    Personal site &amp; blog of Mark Hernandez. I'm a software developer and
+    occasional streamer on Twitch.
+  </p>
+
+  <div class="social-links">
+    <ul aria-label="Social media links">
+      <li>
+        <social-link
+          href="https://kind.social/@lionbyte"
+          label="Mastodon"
+          username="@lionbyte@kind.social"
+        ></social-link>
+      </li>
+
+      <li>
+        <social-link
+          href="https://twitch.com/lion_byte"
+          label="Twitch"
+          username="@lion_byte"
+        ></social-link>
+      </li>
+
+      <li>
+        <social-link
+          href="https://github.com/MarkH817/"
+          label="GitHub"
+          username="@MarkH817"
+        ></social-link>
+      </li>
+
+      <li>
+        <social-link
+          href="https://www.linkedin.com/in/markhernandez1"
+          label="LinkedIn"
+          username="Mark Hernandez"
+        ></social-link>
+      </li>
+
+      <li>
+        <social-link
+          href="mailto:mark@lion-byte.com"
+          label="Email"
+          username="mark@lion-byte.com"
+        ></social-link>
+      </li>
+    </ul>
+  </div>
+</profile-card>
+
+<style>
+  .profile-card {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    flex-direction: row;
+  }
+
+  .social-links ul {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    list-style: none;
+    margin: 0;
+    padding: 0 0.25rem;
+  }
+</style>

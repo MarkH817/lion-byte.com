@@ -1,0 +1,25 @@
+---
+title: 'About'
+layout: 'layouts/about.html'
+---
+
+<profile-card reversed="true">
+  <picture slot="image">
+    <source srcset="/images/icons/mark-256x256.webp" type="image/webp" />
+    <source srcset="/images/icons/mark-256x256.jpg" type="image/jpeg" />
+    <img
+      class="profile-card__image"
+      src="/images/icons/mark.jpg"
+      alt="Mark Hernandez"
+    />
+  </picture>
+
+
+  <p>Hello, my name is Mark Hernandez.</p>
+
+  <p>
+    I am a software developer, and I focus on the front-end, accessibility, and
+    modern web technologies. I strive to continuously grow and improve my
+    skill-sets to provide a smooth experience for users.
+  </p>
+</profile-card>

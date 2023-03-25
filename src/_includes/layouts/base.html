@@ -28,15 +28,17 @@
 
     <link rel="stylesheet" href="/assets/styles/main.css" />
     {% block stylesheets %}{% endblock %}
+    <style type="text/css">{% getBundle 'css', 'default' %}</style>
   </head>
   <body>
     {% include "partials/site-head.html" %}
     <main id="main-content" class="site-main" tabindex="-1">
-      <h1>{{title}}</h1>
+      <h1>{{ title }}</h1>
       {% block content %}{% endblock %}
     </main>
 
     <script src="/assets/scripts/main.js" defer></script>
     {% block scripts %}{% endblock %}
+    <script type="module">{% getBundle 'js', 'default' %}</script>
   </body>
 </html>

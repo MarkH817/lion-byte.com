@@ -1,0 +1,46 @@
+<a :href="href" target="_blank" rel="me noopener noreferrer">
+  <img class="icon" webc:if="src" :src="src" :alt="label" />
+  <span class="label" webc:if="!src" @text="label"></span>
+  <span class="username" @text="username"></span>
+</a>
+
+<style webc:scoped>
+  :host {
+    display: block;
+  }
+
+  a {
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    gap: 0.25ch;
+    padding: 0.75rem 1rem;
+    text-decoration: none;
+  }
+
+  @media (prefers-reduced-motion: no-preference) {
+    a {
+      transition: transform 50ms ease-in-out;
+    }
+
+    a:hover,
+    a:focus {
+      transform: rotate(3deg) scale(1.15);
+    }
+
+    a:active {
+      transform: rotate(1deg) scale(1.05);
+    }
+  }
+
+  .icon {
+    width: 1em;
+    height: 1em;
+    object-fit: contain;
+  }
+
+  .label::after {
+    content: ':';
+  }
+</style>

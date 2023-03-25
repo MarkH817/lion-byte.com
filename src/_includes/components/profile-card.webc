@@ -1,0 +1,55 @@
+<article class="profile-card">
+  <div class="image-container" webc:if="!reversed">
+    <slot name="image"></slot>
+  </div>
+
+  <div class="content-container">
+    <slot></slot>
+  </div>
+
+  <div class="image-container" webc:if="reversed">
+    <slot name="image"></slot>
+  </div>
+</article>
+
+<style webc:scoped>
+  :host {
+    display: block;
+  }
+
+  .profile-card {
+    align-items: center;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    gap: var(--space-size-6);
+  }
+
+  :host[reversed='true'] .profile-card {
+    flex-wrap: wrap-reverse;
+  }
+
+  .image-container {
+    align-items: center;
+    display: flex;
+    flex: 2 0 8em;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .image-container img {
+    border-radius: 10%;
+    height: 16rem;
+    width: 16rem;
+  }
+
+  .content-container {
+    flex: 5 1 35em;
+  }
+
+  .content-container p {
+    margin: 0 auto var(--space-size-5);
+    max-width: 35em;
+    text-align: center;
+  }
+</style>
