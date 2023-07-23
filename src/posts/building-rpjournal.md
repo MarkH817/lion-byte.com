@@ -27,7 +27,7 @@ help a lot months into our campaign.
 As the notes spanned over about a dozen pages, I wanted to move towards a more
 compact format. I spent a couple days transferring my notes to a single Google
 Docs file with the same structure as my college class lectures. It's still my
-current solution, since I became very effecient with the learned shortcuts.
+current solution, since I became very efficient with the learned shortcuts.
 
 Although I am largely satisfied with typing it all out, I still find myself
 needing to keep a couple sheets and sticky notes at my side. I'm perfectly fine

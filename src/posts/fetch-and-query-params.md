@@ -64,5 +64,5 @@ fetch(url.toString(), {
 
 I really love how readable and flexible it is! We're also using Babel and
 core-js@3 in our builds, so the URL API is polyfilled automatically when needed!
-This code snippet might not be as succint as just using a library's version of
+This code snippet might not be as succinct as just using a library's version of
 fetch, but I'd like to keep our build sizes lower if I can help it.

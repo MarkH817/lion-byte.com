@@ -72,7 +72,7 @@ was using TypeScript as well! This, in my opinion, was a good way of introducing
 TypeScript.
 
 I added TypeScript to my side projects in later months and found a couple
-uncaught faults. It was mostly just placing the wrong input in a libary's
+uncaught faults. It was mostly just placing the wrong input in a library's
 function. The configuration was very simple, and the documentation was stellar!
 
 So after trying it out, I decided to add TypeScript to the XKit project.

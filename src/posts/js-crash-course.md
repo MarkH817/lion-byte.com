@@ -111,7 +111,7 @@ class Student extends Person {
 
 ## Modules
 
-You can have functions, classes, and constants `export`ed frome one file and
+You can have functions, classes, and constants `export`ed from one file and
 `require`d / `import`ed in another.
 
 Let's have a simple example. Assume that both files are in the same directory.
