@@ -6,6 +6,9 @@ const htmlMin = require('html-minifier')
 const dateFilter = require('./src/filters/date-filter')
 const isoDateFilter = require('./src/filters/iso-date-filter')
 
+/**
+ * @param {import('@11ty/eleventy').UserConfig} config
+ */
 module.exports = function (config) {
   // Plugins
   config.addPlugin(pluginRss)
@@ -47,6 +50,7 @@ module.exports = function (config) {
 
   // Other configurations
   config.setWatchThrottleWaitTime(250)
+  config.setServerOptions({ showAllHosts: true, showVersion: true })
 
   return {
     markdownTemplateEngine: 'njk',

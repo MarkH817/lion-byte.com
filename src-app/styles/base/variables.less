@@ -27,15 +27,17 @@
   --font-size-10: 4.5rem;
 
   // #region colors
-  --color-blue-darker: hsl(186, 50%, 20%);
-  --color-blue-dark: hsl(186, 50%, 35%);
-  --color-blue: hsl(186, 70%, 45%);
-  --color-blue-light: hsl(186, 70%, 60%);
-  --color-blue-lighter: hsl(186, 70%, 70%);
+  --color-main-darkest: hsl(140, 50%, 10%);
+  --color-main-darker: hsl(140, 50%, 20%);
+  --color-main-dark: hsl(140, 50%, 35%);
+  --color-main: hsl(140, 70%, 45%);
+  --color-main-light: hsl(140, 70%, 60%);
+  --color-main-lighter: hsl(140, 70%, 70%);
+  --color-main-lightest: hsl(140, 50%, 90%);
 
-  --color-accent: hsl(9, 86%, 49%);
-  --color-black: hsl(240, 3%, 19%);
-  --color-gray: hsl(0, 0%, 23%);
+  --color-accent: hsl(40, 86%, 49%);
+  --color-black: hsl(140, 15%, 19%);
+  --color-gray: hsl(140, 15%, 23%);
   --color-gray-lighter: hsl(0, 0%, 95%);
   --color-white: hsl(0, 0%, 100%);
   // #endregion
@@ -59,19 +61,19 @@
 }
 
 .body-light-mode() {
-  --background-color: var(--color-white);
-  --link-color: var(--color-blue-dark);
-  --link-color--active: var(--color-blue-darker);
+  --background-color: var(--color-main-lightest);
+  --link-color: var(--color-main-dark);
+  --link-color--active: var(--color-main-darker);
   --text-color: var(--color-gray);
-  --divider-color: var(--color-gray-lighter);
+  --divider-color: var(--color-main-dark);
 }
 
 .body-dark-mode() {
-  --background-color: var(--color-black);
-  --link-color: var(--color-blue-light);
-  --link-color--active: var(--color-blue-lighter);
+  --background-color: var(--color-main-darkest);
+  --link-color: var(--color-main-light);
+  --link-color--active: var(--color-main-lighter);
   --text-color: var(--color-white);
-  --divider-color: var(--color-gray);
+  --divider-color: var(--color-main-light);
 }
 
 body {

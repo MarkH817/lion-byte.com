@@ -1,5 +1,10 @@
 @import "~prism-themes/themes/prism-a11y-dark.css";
 
+.post {
+  max-width: 45ch;
+  font-size: var(--font-size-5);
+}
+
 .post__header {
   margin-bottom: var(--space-size-6);
 }
@@ -29,8 +34,9 @@
     }
   }
 
-  & > [class*="language-"] {
+  & > pre[class*="language-"] {
     font-size: var(--font-size-3);
-    margin: var(--space-size-5) auto;
+    margin: var(--space-size-5) calc(-1 * var(--space-size-5));
+    padding-inline: var(--space-size-5);
   }
 }
