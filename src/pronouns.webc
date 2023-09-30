@@ -1,0 +1,18 @@
+---
+title: 'My Pronouns and FAQ'
+layout: 'layouts/about.html'
+---
+
+<article>
+  <h2>Pronouns</h2>
+  <p>I use they/them/theirs.</p>
+
+  <h2>FAQ</h2>
+  <dl class="q-and-a">
+    <dt>Sorry for using he/him when referring to you.</dt>
+    <dl>You're fine.</dl>
+
+    <dt>I'll try my best to accommodate.</dt>
+    <dl>Even trying means a lot to me. Thank you!</dl>
+  </dl>
+</article>

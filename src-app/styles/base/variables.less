@@ -36,7 +36,7 @@
   --color-main-lightest: hsl(140, 50%, 90%);
 
   --color-accent: hsl(40, 86%, 49%);
-  --color-black: hsl(140, 15%, 19%);
+  --color-black: hsl(137, 14%, 10%);
   --color-gray: hsl(140, 15%, 23%);
   --color-gray-lighter: hsl(0, 0%, 95%);
   --color-white: hsl(0, 0%, 100%);
@@ -61,19 +61,17 @@
 }
 
 .body-light-mode() {
-  --background-color: var(--color-main-lightest);
+  --background-color: var(--color-white);
+  --text-color: var(--color-black);
   --link-color: var(--color-main-dark);
   --link-color--active: var(--color-main-darker);
-  --text-color: var(--color-gray);
-  --divider-color: var(--color-main-dark);
 }
 
 .body-dark-mode() {
-  --background-color: var(--color-main-darkest);
+  --background-color: var(--color-black);
+  --text-color: var(--color-white);
   --link-color: var(--color-main-light);
   --link-color--active: var(--color-main-lighter);
-  --text-color: var(--color-white);
-  --divider-color: var(--color-main-light);
 }
 
 body {

@@ -12,8 +12,8 @@ metaDesc: 'A blog for NodeJS, web development, and stuff'
   </picture>
 
   <p>
-    Personal site &amp; blog of Mark Hernandez. I'm a software developer and
-    occasional streamer on Twitch.
+    Personal site and blog of Mark Hernandez. I'm a friend, a gaymer, a software
+    developer, and an all-around enjoyer of spaghetti.
   </p>
 
   <div class="social-links">
@@ -23,6 +23,14 @@ metaDesc: 'A blog for NodeJS, web development, and stuff'
           href="https://kind.social/@lionbyte"
           label="Mastodon"
           username="@lionbyte@kind.social"
+        ></social-link>
+      </li>
+
+      <li>
+        <social-link
+          href="https://bsky.app/profile/lion-byte.com"
+          label="Bluesky"
+          username="@lion-byte.com"
         ></social-link>
       </li>
 

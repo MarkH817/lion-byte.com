@@ -1,8 +1,11 @@
 @import "~prism-themes/themes/prism-a11y-dark.css";
+@import (reference) "./base/variables.less";
 
 .post {
-  max-width: 45ch;
   font-size: var(--font-size-5);
+  @media screen and (min-width: @screen-lg) {
+    max-width: 45ch;
+  }
 }
 
 .post__header {
