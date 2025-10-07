@@ -1,0 +1,53 @@
+<ol :id="paginationAnchor" class="feed-list list-unstyled">
+  <li class="feed-list__item" webc:for="item of list">
+    <a class="feed-list__link" :href="item.url" @text="item.data.title"></a>
+  </li>
+</ol>
+
+<style webc:scoped>
+  :host {
+    display: block;
+  }
+
+  .feed-list__item {
+    margin: var(--space-size-6) 0;
+  }
+
+  .feed-list__link {
+    font-size: var(--font-size-6);
+    position: relative;
+    &::before,
+    &::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -1.5ch;
+    }
+
+    &:focus,
+    &:hover {
+      outline: none;
+      &::before {
+        content: '▷';
+      }
+      &::after {
+        content: '▶';
+        overflow: hidden;
+        @media (prefers-reduced-motion: no-preference) {
+          width: 0.001ch;
+          transition: width 100ms ease-in;
+        }
+      }
+    }
+
+    &:active {
+      &::after {
+        @media (prefers-reduced-motion: no-preference) {
+          width: 2ch;
+          transition-timing-function: ease-out;
+          transition-duration: 250ms;
+        }
+      }
+    }
+  }
+</style>
