@@ -7,7 +7,6 @@ const paths = require('./paths')
 /** @type {import('webpack').Configuration} */
 module.exports = {
   entry: {
-    feed: path.resolve(paths.styles, './feed.less'),
     main: path.resolve(paths.scripts, './index.ts'),
     post: path.resolve(paths.styles, './post.less')
   },
