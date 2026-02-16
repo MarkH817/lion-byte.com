@@ -8,7 +8,6 @@ const paths = require('./paths')
 module.exports = {
   entry: {
     main: path.resolve(paths.scripts, './index.ts'),
-    post: path.resolve(paths.styles, './post.less')
   },
   output: {
     path: paths.dist,
