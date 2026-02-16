@@ -1,6 +1,9 @@
-const path = require('path')
+import path from 'node:path'
+import { fileURLToPath } from 'node:url'
 
-module.exports = {
+const __dirname = fileURLToPath(new URL('.', import.meta.url))
+
+export default {
   cliOptions: {
     ignorePath: path.resolve(__dirname, './.gitignore')
   }

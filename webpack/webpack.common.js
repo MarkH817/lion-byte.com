@@ -1,13 +1,16 @@
-const path = require('path')
+import path from 'node:path'
+import { fileURLToPath } from 'node:url'
 
-const MiniCSSExtractPlugin = require('mini-css-extract-plugin')
+import MiniCSSExtractPlugin from 'mini-css-extract-plugin'
 
-const paths = require('./paths')
+import paths from './paths.js'
+
+const __dirname = fileURLToPath(new URL('.', import.meta.url))
 
 /** @type {import('webpack').Configuration} */
-module.exports = {
+export default {
   entry: {
-    main: path.resolve(paths.scripts, './index.ts'),
+    main: path.resolve(paths.scripts, './index.ts')
   },
   output: {
     path: paths.dist,

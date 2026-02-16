@@ -1,5 +1,7 @@
-const { resolve } = require('path')
+import { resolve } from 'node:path'
+import { fileURLToPath } from 'node:url'
 
+const __dirname = fileURLToPath(new URL('.', import.meta.url))
 const assets = resolve(__dirname, '../src-app')
 
 const paths = {
@@ -9,4 +11,4 @@ const paths = {
   dist: resolve(__dirname, '../dist/assets')
 }
 
-module.exports = paths
+export default paths
