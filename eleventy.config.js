@@ -23,7 +23,8 @@ module.exports = function (config) {
       return htmlMin.minify(content, {
         useShortDoctype: true,
         removeComments: true,
-        collapseWhitespace: true
+        collapseWhitespace: true,
+        minifyCSS: true
       })
     }
 
