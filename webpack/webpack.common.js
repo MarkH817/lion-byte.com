@@ -1,15 +1,13 @@
-const path = require('path')
+import path from 'node:path'
 
-const MiniCSSExtractPlugin = require('mini-css-extract-plugin')
+import MiniCSSExtractPlugin from 'mini-css-extract-plugin'
 
-const paths = require('./paths')
+import paths from './paths.js'
 
 /** @type {import('webpack').Configuration} */
-module.exports = {
+export default {
   entry: {
-    feed: path.resolve(paths.styles, './feed.less'),
-    main: path.resolve(paths.scripts, './index.ts'),
-    post: path.resolve(paths.styles, './post.less')
+    main: path.resolve(paths.scripts, './index.ts')
   },
   output: {
     path: paths.dist,
@@ -35,7 +33,7 @@ module.exports = {
             options: {
               sourceMap: true,
               postcssOptions: {
-                config: path.resolve(__dirname, './postcss.config.js')
+                config: path.resolve(import.meta.dirname, './postcss.config.js')
               }
             }
           },

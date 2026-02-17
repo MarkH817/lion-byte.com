@@ -1,0 +1,58 @@
+<footer class="pagination" webc:if="true">
+  <nav
+    class="pagination__nav d-flex flex-row flex-wrap"
+    aria-label="Pagination links"
+  >
+    <a
+      webc:if="prevLink"
+      :href="prevLink + '#' + paginationAnchor"
+      class="pagination__link pagination__link--backwards d-block"
+      @text="prevText ?? 'Previous'"
+    ></a>
+    <a
+      webc:if="nextLink"
+      :href="nextLink + '#' + paginationAnchor"
+      class="pagination__link pagination__link--forwards d-block"
+      @text="nextText ?? 'Next'"
+    ></a>
+  </nav>
+</footer>
+
+<style webc:scoped>
+  :host {
+    display: block;
+  }
+
+  .pagination {
+    margin-top: var(--space-size-6);
+  }
+
+  .pagination__nav {
+    font-size: var(--font-size-4);
+  }
+
+  .pagination__link {
+    padding: var(--space-size-2) var(--space-size-3);
+  }
+
+  .pagination__link--backwards,
+  .pagination__link--forwards {
+    transform: skewX(0deg);
+    @media (prefers-reduced-motion: no-preference) {
+      transition: transform 50ms ease-in-out;
+    }
+
+    &:focus,
+    &:hover {
+      transform: skewX(-10deg);
+    }
+
+    &:active {
+      transform: skewX(-5deg);
+    }
+  }
+
+  .pagination__link--forwards {
+    margin-inline-start: auto;
+  }
+</style>

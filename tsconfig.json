@@ -10,7 +10,6 @@
     "noEmit": true,
     "strictNullChecks": true,
     "target": "ESNext",
-    "types": ["@11ty/eleventy"],
     "paths": {
       "app/*": ["src-app/scripts/*"],
       "styles/*": ["src-app/styles/*"]

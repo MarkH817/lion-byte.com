@@ -1,5 +1,7 @@
-module.exports = {
-  ...require('./test/jest.common'),
+import common from './test/jest.common.js'
+
+export default {
+  ...common,
   displayName: 'test',
   transform: {
     '^.+\\.(t|j)sx?$': 'babel-jest'

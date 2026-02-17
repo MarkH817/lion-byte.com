@@ -1,6 +1,6 @@
-const path = require('path')
+import { resolve } from 'node:path'
 
-module.exports = {
-  rootDir: path.resolve(__dirname, '../'),
+export default {
+  rootDir: resolve(import.meta.dirname, '../'),
   testPathIgnorePatterns: ['node_modules', '.cache', 'dist']
 }

@@ -1,15 +1,15 @@
-const pluginRss = require('@11ty/eleventy-plugin-rss')
-const pluginSyntaxHighlight = require('@11ty/eleventy-plugin-syntaxhighlight')
-const pluginWebc = require('@11ty/eleventy-plugin-webc')
-const htmlMin = require('html-minifier')
+import pluginRss from '@11ty/eleventy-plugin-rss'
+import pluginSyntaxHighlight from '@11ty/eleventy-plugin-syntaxhighlight'
+import pluginWebc from '@11ty/eleventy-plugin-webc'
+import { minify } from 'html-minifier-next'
 
-const dateFilter = require('./src/filters/date-filter')
-const isoDateFilter = require('./src/filters/iso-date-filter')
+import dateFilter from './src/filters/date-filter.js'
+import isoDateFilter from './src/filters/iso-date-filter.js'
 
 /**
  * @param {import('@11ty/eleventy').UserConfig} config
  */
-module.exports = function (config) {
+export default function (config) {
   // Plugins
   config.addPlugin(pluginRss)
   config.addPlugin(pluginSyntaxHighlight)
@@ -18,17 +18,22 @@ module.exports = function (config) {
   })
 
   // Transforms
-  config.addTransform('html-min', function (content) {
-    if (this.page.outputPath?.endsWith('.html')) {
-      return htmlMin.minify(content, {
-        useShortDoctype: true,
-        removeComments: true,
-        collapseWhitespace: true
-      })
-    }
+  config.addTransform(
+    'html-min',
+    /** @param {string} content  */
+    function (content) {
+      if (this.page.outputPath?.endsWith('.html')) {
+        return minify(content, {
+          useShortDoctype: true,
+          removeComments: true,
+          collapseWhitespace: true,
+          minifyCSS: true
+        })
+      }
 
-    return content
-  })
+      return content
+    }
+  )
 
   // Passthrough copies
   config.addPassthroughCopy('./src/images/')

@@ -1,0 +1,27 @@
+---js
+{
+  title: 'Notes',
+  layout: 'layouts/home.html',
+  pagination: {
+    data: 'collections.notes',
+    size: 20
+  },
+  permalink: ({pagination}) =>
+    `notes${pagination.pageNumber > 0 ? `/page/${pagination.pageNumber + 1}` : ''}/index.html`,
+  paginationPrevText: 'Newer notes',
+  paginationNextText: 'Older notes',
+  paginationAnchor: 'feed-list'
+}
+---
+
+<feed-list
+  :@list="pagination.items"
+  :@pagination-anchor="paginationAnchor"
+></feed-list>
+<feed-pagination
+  :@prev-text="paginationPrevText"
+  :@prev-link="pagination.href.previous"
+  :@next-text="paginationNextText"
+  :@next-link="pagination.href.next"
+  :@pagination-anchor="paginationAnchor"
+></feed-pagination>

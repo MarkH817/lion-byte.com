@@ -1,7 +1,7 @@
-const path = require('path')
+import path from 'node:path'
 
-module.exports = {
+export default {
   cliOptions: {
-    ignorePath: path.resolve(__dirname, './.gitignore')
+    ignorePath: path.resolve(import.meta.dirname, './.gitignore')
   }
 }

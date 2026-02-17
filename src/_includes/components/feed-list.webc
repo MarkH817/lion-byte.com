@@ -1,14 +1,24 @@
-.feed-list {
-  &__item {
+<ol :id="paginationAnchor" class="feed-list list-unstyled">
+  <li class="feed-list__item" webc:for="item of list">
+    <a class="feed-list__link" :href="item.url" @text="item.data.title"></a>
+  </li>
+</ol>
+
+<style webc:scoped>
+  :host {
+    display: block;
+  }
+
+  .feed-list__item {
     margin: var(--space-size-6) 0;
   }
 
-  &__link {
+  .feed-list__link {
     font-size: var(--font-size-6);
     position: relative;
     &::before,
     &::after {
-      content: "";
+      content: '';
       position: absolute;
       top: 0;
       left: -1.5ch;
@@ -18,10 +28,10 @@
     &:hover {
       outline: none;
       &::before {
-        content: "▷";
+        content: '▷';
       }
       &::after {
-        content: "▶";
+        content: '▶';
         overflow: hidden;
         @media (prefers-reduced-motion: no-preference) {
           width: 0.001ch;
@@ -40,36 +50,4 @@
       }
     }
   }
-}
-
-.pagination {
-  margin-top: var(--space-size-6);
-
-  &__nav {
-    font-size: var(--font-size-4);
-  }
-
-  &__link {
-    padding: var(--space-size-2) var(--space-size-3);
-  }
-
-  &__link--backwards,
-  &__link--forwards {
-    @media (prefers-reduced-motion: no-preference) {
-      transition: transform 50ms ease-in-out;
-    }
-
-    &:focus,
-    &:hover {
-      transform: skewX(-10deg);
-    }
-
-    &:active {
-      transform: skewX(-5deg);
-    }
-  }
-
-  &__link--forwards {
-    margin-inline-start: auto;
-  }
-}
+</style>

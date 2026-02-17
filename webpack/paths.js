@@ -1,12 +1,10 @@
-const { resolve } = require('path')
+import { resolve } from 'node:path'
 
-const assets = resolve(__dirname, '../src-app')
+const assets = resolve(import.meta.dirname, '../src-app')
 
-const paths = {
+export default {
   assets,
   scripts: resolve(assets, './scripts'),
   styles: resolve(assets, './styles'),
-  dist: resolve(__dirname, '../dist/assets')
+  dist: resolve(import.meta.dirname, '../dist/assets')
 }
-
-module.exports = paths
