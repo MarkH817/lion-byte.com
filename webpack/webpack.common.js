@@ -1,11 +1,8 @@
 import path from 'node:path'
-import { fileURLToPath } from 'node:url'
 
 import MiniCSSExtractPlugin from 'mini-css-extract-plugin'
 
 import paths from './paths.js'
-
-const __dirname = fileURLToPath(new URL('.', import.meta.url))
 
 /** @type {import('webpack').Configuration} */
 export default {
@@ -36,7 +33,7 @@ export default {
             options: {
               sourceMap: true,
               postcssOptions: {
-                config: path.resolve(__dirname, './postcss.config.js')
+                config: path.resolve(import.meta.dirname, './postcss.config.js')
               }
             }
           },

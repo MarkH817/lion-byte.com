@@ -18,18 +18,22 @@ export default function (config) {
   })
 
   // Transforms
-  config.addTransform('html-min', function (content) {
-    if (this.page.outputPath?.endsWith('.html')) {
-      return minify(content, {
-        useShortDoctype: true,
-        removeComments: true,
-        collapseWhitespace: true,
-        minifyCSS: true
-      })
-    }
+  config.addTransform(
+    'html-min',
+    /** @param {string} content  */
+    function (content) {
+      if (this.page.outputPath?.endsWith('.html')) {
+        return minify(content, {
+          useShortDoctype: true,
+          removeComments: true,
+          collapseWhitespace: true,
+          minifyCSS: true
+        })
+      }
 
-    return content
-  })
+      return content
+    }
+  )
 
   // Passthrough copies
   config.addPassthroughCopy('./src/images/')

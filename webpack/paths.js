@@ -1,14 +1,10 @@
 import { resolve } from 'node:path'
-import { fileURLToPath } from 'node:url'
 
-const __dirname = fileURLToPath(new URL('.', import.meta.url))
-const assets = resolve(__dirname, '../src-app')
+const assets = resolve(import.meta.dirname, '../src-app')
 
-const paths = {
+export default {
   assets,
   scripts: resolve(assets, './scripts'),
   styles: resolve(assets, './styles'),
-  dist: resolve(__dirname, '../dist/assets')
+  dist: resolve(import.meta.dirname, '../dist/assets')
 }
-
-export default paths

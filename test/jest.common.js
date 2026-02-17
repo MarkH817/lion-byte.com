@@ -1,9 +1,6 @@
-import path from 'path'
-import { fileURLToPath } from 'url'
-
-const __dirname = fileURLToPath(new URL('.', import.meta.url))
+import { resolve } from 'node:path'
 
 export default {
-  rootDir: path.resolve(__dirname, '../'),
+  rootDir: resolve(import.meta.dirname, '../'),
   testPathIgnorePatterns: ['node_modules', '.cache', 'dist']
 }
