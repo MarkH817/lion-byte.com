@@ -2,7 +2,6 @@ import pluginRss from '@11ty/eleventy-plugin-rss'
 import pluginSyntaxHighlight from '@11ty/eleventy-plugin-syntaxhighlight'
 import pluginWebc from '@11ty/eleventy-plugin-webc'
 import { minify } from 'html-minifier-next'
-
 import dateFilter from './src/filters/date-filter.js'
 import isoDateFilter from './src/filters/iso-date-filter.js'
 

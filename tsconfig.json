@@ -9,6 +9,7 @@
     "moduleResolution": "Node",
     "noEmit": true,
     "strictNullChecks": true,
+    "skipLibCheck": true,
     "target": "ESNext",
     "paths": {
       "app/*": ["src-app/scripts/*"],
