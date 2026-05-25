@@ -1,6 +1,6 @@
-<footer class="pagination" webc:if="true">
+<footer class="pagination" webc:if="prevLink || nextLink">
   <nav
-    class="pagination__nav d-flex flex-row flex-wrap"
+    class="pagination__nav"
     aria-label="Pagination links"
   >
     <a
@@ -18,17 +18,16 @@
   </nav>
 </footer>
 
-<style webc:scoped>
-  :host {
-    display: block;
-  }
-
+<style>
   .pagination {
     margin-top: var(--space-size-6);
   }
 
   .pagination__nav {
     font-size: var(--font-size-4);
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
   }
 
   .pagination__link {

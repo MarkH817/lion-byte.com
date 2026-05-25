@@ -3,7 +3,7 @@ title: 'About'
 layout: 'layouts/about.html'
 ---
 
-<profile-card reversed="true">
+<profile-card reversed="true" webc:nokeep> 
   <picture slot="image">
     <source srcset="/images/icons/mark-256x256.webp" type="image/webp" />
     <source srcset="/images/icons/mark-256x256.jpg" type="image/jpeg" />

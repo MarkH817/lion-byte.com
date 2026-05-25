@@ -17,6 +17,7 @@
 <feed-list
   :@list="pagination.items"
   :@pagination-anchor="paginationAnchor"
+  webc:nokeep
 ></feed-list>
 <feed-pagination
   :@prev-text="paginationPrevText"
@@ -24,4 +25,5 @@
   :@next-text="paginationNextText"
   :@next-link="pagination.href.next"
   :@pagination-anchor="paginationAnchor"
+  webc:nokeep
 ></feed-pagination>

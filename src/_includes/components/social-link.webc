@@ -1,46 +1,35 @@
-<a :href="href" target="_blank" rel="me noopener noreferrer">
-  <img class="icon" webc:if="src" :src="src" :alt="label" />
-  <span class="label" webc:if="!src" @text="label"></span>
+<a class="social-link" :href="href" target="_blank" rel="me noopener noreferrer">
+  <img class="social-link__icon" webc:if="src" :src="src" :alt="label" />
+  <span class="social-link__label" webc:if="!src" @text="label"></span>
   <span class="username" @text="username"></span>
 </a>
 
-<style webc:scoped>
-  :host {
+<style>
+  .social-link {
     display: block;
-  }
-
-  a {
-    display: flex;
-    align-items: center;
-    flex-direction: row;
-    flex-wrap: nowrap;
-    gap: 0.25ch;
     padding: 0.75rem 1rem;
     text-decoration: none;
-  }
-
-  @media (prefers-reduced-motion: no-preference) {
-    a {
+    @media (prefers-reduced-motion: no-preference) {
       transition: transform 50ms ease-in-out;
     }
 
-    a:hover,
-    a:focus {
+    &:hover,
+    &:focus {
       transform: rotate(3deg) scale(1.15);
     }
 
-    a:active {
+    &:active {
       transform: rotate(1deg) scale(1.05);
     }
   }
 
-  .icon {
+  .social-link__icon {
     width: 1em;
     height: 1em;
     object-fit: contain;
   }
 
-  .label::after {
+  .social-link__label::after {
     content: ':';
   }
 </style>

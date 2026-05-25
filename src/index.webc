@@ -4,7 +4,7 @@ layout: 'layouts/home.html'
 metaDesc: 'A blog for NodeJS, web development, and stuff'
 ---
 
-<profile-card>
+<profile-card webc:nokeep>
   <picture slot="image">
     <source srcset="/images/icons/profile-256x256.webp" type="image/webp" />
     <source srcset="/images/icons/profile-256x256.jpg" type="image/jpeg" />
@@ -23,6 +23,7 @@ metaDesc: 'A blog for NodeJS, web development, and stuff'
           href="https://kind.social/@lionbyte"
           label="Mastodon"
           username="@lionbyte@kind.social"
+          webc:nokeep
         ></social-link>
       </li>
 
@@ -31,6 +32,7 @@ metaDesc: 'A blog for NodeJS, web development, and stuff'
           href="https://bsky.app/profile/lion-byte.com"
           label="Bluesky"
           username="@lion-byte.com"
+          webc:nokeep
         ></social-link>
       </li>
 
@@ -39,6 +41,7 @@ metaDesc: 'A blog for NodeJS, web development, and stuff'
           href="https://twitch.com/lion_byte"
           label="Twitch"
           username="@lion_byte"
+          webc:nokeep
         ></social-link>
       </li>
 
@@ -47,6 +50,7 @@ metaDesc: 'A blog for NodeJS, web development, and stuff'
           href="https://github.com/MarkH817/"
           label="GitHub"
           username="@MarkH817"
+          webc:nokeep
         ></social-link>
       </li>
 
@@ -55,6 +59,7 @@ metaDesc: 'A blog for NodeJS, web development, and stuff'
           href="https://www.linkedin.com/in/markhernandez1"
           label="LinkedIn"
           username="Mark Hernandez"
+          webc:nokeep
         ></social-link>
       </li>
 
@@ -63,6 +68,7 @@ metaDesc: 'A blog for NodeJS, web development, and stuff'
           href="mailto:mark@lion-byte.com"
           label="Email"
           username="mark@lion-byte.com"
+          webc:nokeep
         ></social-link>
       </li>
     </ul>

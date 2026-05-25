@@ -4,11 +4,7 @@
   </li>
 </ol>
 
-<style webc:scoped>
-  :host {
-    display: block;
-  }
-
+<style>
   .feed-list__item {
     margin: var(--space-size-6) 0;
   }
