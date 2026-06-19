@@ -39,7 +39,7 @@ started by improving their CI test speed by updating their configurations. It
 was minor but needed since they were using an unmaintained version of Node.
 
 I then saw that only `eslint` was used in their test script. No unit or
-integration tests. Due to the project’s structure, their testing options were
+integration tests. Due to the project's structure, their testing options were
 limited without doing a whole rework.
 
 Initially, I wanted to modularize the project to allow more tests to be added.

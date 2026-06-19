@@ -1,0 +1,56 @@
+---
+interface Props {
+  href: string
+  platform: string
+  username: string
+}
+
+const { href, platform, username } = Astro.props
+---
+
+<a
+  class='social-link'
+  href={href}
+  target='_blank'
+  rel='me noopener noreferrer'
+  aria-label={`${platform}: ${username}`}
+>
+  <div class='container'>
+    <slot name='icon' />
+    <span>
+      {username}
+    </span>
+  </div>
+</a>
+
+<style>
+  .social-link {
+    display: block;
+    padding: 0.75rem 1rem;
+    text-decoration: none;
+    @media (prefers-reduced-motion: no-preference) {
+      transition: transform 50ms ease-in-out;
+    }
+
+    &:hover,
+    &:focus {
+      transform: rotate(3deg) scale(1.15);
+    }
+
+    &:active {
+      transform: rotate(1deg) scale(1.05);
+    }
+
+    .container {
+      display: flex;
+      flex-direction: row;
+      flex-wrap: nowrap;
+      align-items: center;
+      gap: var(--space-size-1);
+    }
+
+    svg {
+      font-size: 1em;
+    }
+  }
+</style>

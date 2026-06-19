@@ -1,0 +1,66 @@
+---
+import BaseLayout from '#layouts/BaseLayout.astro'
+import { getCollection } from 'astro:content'
+
+const blogPosts = await getCollection('blog').then(list =>
+  list.toSorted((a, b) => b.data.date.valueOf() - a.data.date.valueOf())
+)
+---
+
+<BaseLayout title='Blog'>
+  <ol class='feed-list list-unstyled'>
+    {
+      blogPosts.map(post => (
+        <li>
+          <a href={`/blog/${post.id}`}>{post.data.title}</a>
+        </li>
+      ))
+    }
+  </ol>
+</BaseLayout>
+
+<style>
+  .feed-list {
+    li {
+      margin: var(--space-size-6) 0;
+    }
+
+    a {
+      font-size: var(--font-size-6);
+      position: relative;
+      &::before,
+      &::after {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: -1.5ch;
+      }
+
+      &:focus,
+      &:hover {
+        outline: none;
+        &::before {
+          content: '▷';
+        }
+        &::after {
+          content: '▶';
+          overflow: hidden;
+          @media (prefers-reduced-motion: no-preference) {
+            width: 0.001ch;
+            transition: width 100ms ease-in;
+          }
+        }
+      }
+
+      &:active {
+        &::after {
+          @media (prefers-reduced-motion: no-preference) {
+            width: 2ch;
+            transition-timing-function: ease-out;
+            transition-duration: 250ms;
+          }
+        }
+      }
+    }
+  }
+</style>

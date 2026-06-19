@@ -1,6 +1,7 @@
 /temp
 
 # Build outputs
+.astro/
 /.cache/
 /dist/
 
@@ -62,3 +63,4 @@ typings/
 
 # dotenv environment variables file
 .env
+.env.production

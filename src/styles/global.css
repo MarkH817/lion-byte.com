@@ -1,0 +1,194 @@
+@import url('../../node_modules/modern-normalize/modern-normalize.css');
+@import url('../../node_modules/typeface-nunito/index.css');
+@import url('../../node_modules/typeface-open-sans/index.css');
+
+/* Focus */
+* {
+  &:focus-visible {
+    outline: 0.15rem dashed currentColor;
+  }
+
+  &:focus:not(:focus-visible) {
+    outline-width: 0;
+  }
+
+  &::selection {
+    background-color: var(--text-color);
+    color: var(--background-color);
+  }
+}
+
+/* sm 40rem // md 48rem // lg 60rem // xl 75rem // xxl 100rem */
+
+/* Typography */
+:root {
+  font-size: 1rem;
+  --font-nunito: 'Nunito', Arial, Helvetica, sans-serif;
+  --font-open-sans: 'Open Sans', Arial, Helvetica, sans-serif;
+  --font-hey-gorgeous: 'Hey Gorgeous', Arial, Helvetica, sans-serif;
+
+  --font-size-1: 0.75rem;
+  --font-size-2: 0.875rem;
+  --font-size-3: 1rem;
+  --font-size-4: 1.125rem;
+  --font-size-5: 1.25rem;
+  --font-size-6: 1.875rem;
+  --font-size-7: 2.25rem;
+  --font-size-8: 3rem;
+  --font-size-9: 3.75rem;
+  --font-size-10: 4.5rem;
+
+  /* #region colors */
+  --color-main-darkest: hsl(140, 50%, 10%);
+  --color-main-darker: hsl(140, 50%, 20%);
+  --color-main-dark: hsl(140, 50%, 35%);
+  --color-main: hsl(140, 70%, 45%);
+  --color-main-light: hsl(140, 70%, 60%);
+  --color-main-lighter: hsl(140, 70%, 70%);
+  --color-main-lightest: hsl(140, 50%, 90%);
+
+  --color-accent: hsl(40, 86%, 49%);
+  --color-black: hsl(137, 14%, 10%);
+  --color-gray: hsl(140, 15%, 23%);
+  --color-gray-lighter: hsl(0, 0%, 95%);
+  --color-white: hsl(0, 0%, 100%);
+  /* #endregion */
+
+  --space-size-1: 0.25rem;
+  --space-size-2: 0.5rem;
+  --space-size-3: 0.75rem;
+  --space-size-4: 1rem;
+  --space-size-5: 1.5rem;
+  --space-size-6: 2rem;
+  --space-size-7: 3rem;
+  --space-size-8: 4rem;
+  --space-size-9: 6rem;
+  --space-size-10: 8rem;
+  --space-size-11: 12rem;
+  --space-size-12: 16rem;
+  --space-size-13: 24rem;
+  --space-size-14: 32rem;
+  --space-size-15: 40rem;
+  --space-size-16: 48rem;
+}
+
+body {
+  background-color: var(--background-color);
+  color: var(--text-color);
+  font-family: var(--font-nunito);
+
+  @media (prefers-color-scheme: light) {
+    --background-color: var(--color-white);
+    --text-color: var(--color-black);
+    --link-color: var(--color-main-dark);
+    --link-color--active: var(--color-main-darker);
+  }
+  @media (prefers-color-scheme: dark) {
+    --background-color: var(--color-black);
+    --text-color: var(--color-white);
+    --link-color: var(--color-main-light);
+    --link-color--active: var(--color-main-lighter);
+  }
+  &.light {
+    --background-color: var(--color-white);
+    --text-color: var(--color-black);
+    --link-color: var(--color-main-dark);
+    --link-color--active: var(--color-main-darker);
+  }
+  &.dark {
+    --background-color: var(--color-black);
+    --text-color: var(--color-white);
+    --link-color: var(--color-main-light);
+    --link-color--active: var(--color-main-lighter);
+  }
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: var(--font-nunito);
+  font-weight: 400;
+  margin: var(--space-size-4) 0 var(--space-size-2);
+}
+
+h1,
+.h1 {
+  font-size: var(--font-size-8);
+  letter-spacing: calc(-0.02 * var(--font-size-8));
+
+  @media screen and (max-width: 40rem) {
+    font-size: var(--font-size-7);
+    letter-spacing: calc(-0.02 * var(--font-size-7));
+  }
+}
+
+h2,
+.h2 {
+  font-size: var(--font-size-6);
+  font-weight: 700;
+  letter-spacing: calc(-0.02 * var(--font-size-6));
+}
+
+h3,
+.h3 {
+  font-size: var(--font-size-5);
+  letter-spacing: calc(-0.02 * var(--font-size-5));
+}
+
+h4,
+.h4 {
+  font-size: var(--font-size-4);
+  letter-spacing: calc(-0.02 * var(--font-size-4));
+}
+
+h5,
+.h5 {
+  font-size: var(--font-size-3);
+  letter-spacing: calc(-0.02 * var(--font-size-3));
+}
+
+h6,
+.h6 {
+  font-size: var(--font-size-2);
+  letter-spacing: calc(-0.02 * var(--font-size-2));
+}
+
+a {
+  color: var(--link-color);
+
+  &:active {
+    color: var(--link-color--active);
+  }
+}
+
+code:not([class]) {
+  color: var(--color-accent);
+}
+
+main {
+  font-size: var(--font-size-5);
+}
+
+p {
+  margin: 0 0 1.5em;
+}
+
+/* Utils */
+.list-unstyled {
+  padding-left: 0;
+  list-style: none;
+}
+
+.visually-hidden,
+.visually-hidden-focusable:not(:focus):not(:active) {
+  clip: rect(0 0 0 0);
+  clip-path: inset(50%);
+  height: 1px;
+  overflow: hidden;
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
+}

@@ -1,0 +1,80 @@
+---
+interface Props {
+  prevLink?: string
+  prevText?: string
+  nextLink?: string
+  nextText?: string
+  paginationAnchor?: string
+}
+const {
+  prevLink,
+  prevText = 'Previous',
+  nextLink,
+  nextText = 'Next',
+  paginationAnchor
+} = Astro.props
+---
+
+<footer class='pagination'>
+  <nav aria-label='Pagination links'>
+    {
+      prevLink ? (
+        <a
+          href={paginationAnchor ? `${prevLink}#${paginationAnchor}` : prevLink}
+          class='pagination-link pagination-link--backwards'
+        >
+          {prevText}
+        </a>
+      ) : null
+    }
+    {
+      nextLink ? (
+        <a
+          href={paginationAnchor ? `${nextLink}#${paginationAnchor}` : nextLink}
+          class='pagination-link pagination-link--forwards'
+        >
+          {nextText}
+        </a>
+      ) : null
+    }
+  </nav>
+</footer>
+
+<style>
+  .pagination {
+    margin-top: var(--space-size-6);
+
+    nav {
+      font-size: var(--font-size-4);
+      display: flex;
+      flex-direction: row;
+      flex-wrap: wrap;
+    }
+  }
+
+  .pagination-link {
+    padding: var(--space-size-2) var(--space-size-3);
+    display: block;
+  }
+
+  .pagination-link--backwards,
+  .pagination-link--forwards {
+    transform: skewX(0deg);
+    @media (prefers-reduced-motion: no-preference) {
+      transition: transform 50ms ease-in-out;
+    }
+
+    &:focus,
+    &:hover {
+      transform: skewX(-10deg);
+    }
+
+    &:active {
+      transform: skewX(-5deg);
+    }
+  }
+
+  .pagination-link--forwards {
+    margin-inline-start: auto;
+  }
+</style>

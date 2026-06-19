@@ -41,7 +41,7 @@ I use the latest available Node version on my personal machines, so I'm content.
 
 As I was looking through the page, I saw that ES6 import/export was not natively
 supported. I read Vance Lucas's article
-[Don’t Transpile JavaScript for Node.js ](http://vancelucas.com/blog/dont-transpile-javascript-for-node-js/)
+[Don't Transpile JavaScript for Node.js ](http://vancelucas.com/blog/dont-transpile-javascript-for-node-js/)
 afterward. He basically reaffirmed that I came to the right conclusions. He
 mentioned that `babel` converts import/export down to require() and
 module.exports. It's still useful for client-side code, since `webpack` can
