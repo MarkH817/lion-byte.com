@@ -3,8 +3,9 @@ import Header from '#components/Header.astro'
 import SITE from '#data/site.json'
 import type { Image } from '#models'
 import globalStyles from '#styles/global.css?inline'
-import 'modern-normalize/modern-normalize.css'
+import nunito400Url from 'typeface-nunito/files/nunito-latin-400.woff2?url'
 import 'typeface-nunito/index.css'
+import openSans400Url from 'typeface-open-sans/files/open-sans-latin-400.woff2?url'
 import 'typeface-open-sans/index.css'
 
 const canonicalUrl = new URL(Astro.url.pathname, Astro.site)
@@ -63,6 +64,21 @@ const pageTitle = title ? `${title} | ${SITE.name}` : SITE.name
       )
     }
     <link rel='alternate' type='application/rss+xml' href={rssUrl} />
+
+    <link
+      rel='preload'
+      as='font'
+      type='font/woff2'
+      href={nunito400Url}
+      crossorigin='anonymous'
+    />
+    <link
+      rel='prefetch'
+      as='font'
+      type='font/woff2'
+      href={openSans400Url}
+      crossorigin='anonymous'
+    />
     <style is:inline set:html={globalStyles}></style>
   </head>
   <body>
