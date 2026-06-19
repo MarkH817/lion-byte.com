@@ -1,0 +1,63 @@
+---
+interface Props {
+  reversed?: boolean
+}
+const { reversed = false } = Astro.props
+---
+
+<article class:list={['profile-card', { 'profile-card--reversed': reversed }]}>
+  {
+    !reversed && (
+      <div class='profile-card-image-container'>
+        <slot name='image' />
+      </div>
+    )
+  }
+  <div class='profile-card-content'>
+    <slot />
+  </div>
+  {
+    reversed && (
+      <div class='profile-card-image-container'>
+        <slot name='image' />
+      </div>
+    )
+  }
+</article>
+
+<style>
+  .profile-card {
+    align-items: center;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    gap: var(--space-size-6);
+    &.profile-card--reversed {
+      flex-wrap: wrap-reverse;
+    }
+  }
+
+  .profile-card-image-container {
+    align-items: center;
+    display: flex;
+    flex: 2 0 8em;
+    flex-wrap: wrap;
+    justify-content: center;
+
+    img {
+      border-radius: 10%;
+      height: 16rem;
+      width: 16rem;
+    }
+  }
+
+  .profile-card-content {
+    flex: 5 1 35em;
+
+    p {
+      margin: 0 auto var(--space-size-5);
+      max-width: 35em;
+      text-align: center;
+    }
+  }
+</style>
