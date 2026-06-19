@@ -1,7 +1,3 @@
-@import url('../../node_modules/modern-normalize/modern-normalize.css');
-@import url('../../node_modules/typeface-nunito/index.css');
-@import url('../../node_modules/typeface-open-sans/index.css');
-
 /* Focus */
 * {
   &:focus-visible {

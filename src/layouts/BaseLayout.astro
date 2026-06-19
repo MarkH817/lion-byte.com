@@ -2,7 +2,10 @@
 import Header from '#components/Header.astro'
 import SITE from '#data/site.json'
 import type { Image } from '#models'
-import '#styles/global.css'
+import globalStyles from '#styles/global.css?inline'
+import 'modern-normalize/modern-normalize.css'
+import 'typeface-nunito/index.css'
+import 'typeface-open-sans/index.css'
 
 const canonicalUrl = new URL(Astro.url.pathname, Astro.site)
 const rssUrl = new URL('rss.xml', Astro.site)
@@ -60,6 +63,7 @@ const pageTitle = title ? `${title} | ${SITE.name}` : SITE.name
       )
     }
     <link rel='alternate' type='application/rss+xml' href={rssUrl} />
+    <style is:inline set:html={globalStyles}></style>
   </head>
   <body>
     <a class='visually-hidden-focusable skip-link' href='#main-content'
@@ -75,7 +79,7 @@ const pageTitle = title ? `${title} | ${SITE.name}` : SITE.name
   </body>
 </html>
 
-<style>
+<style is:global>
   .skip-link {
     background-color: inherit;
     left: var(--space-size-3);
