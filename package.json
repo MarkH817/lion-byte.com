@@ -6,9 +6,8 @@
   "scripts": {
     "build": "astro build",
     "dev": "astro dev",
-    "format": "npm run prettier && npm run lint -- --fix",
-    "lint": "eslint",
-    "prettier": "prettier --ignore-path .gitignore --write \"**/*.+(json|yml|yaml|less|css|md)\"",
+    "format": "npm run prettier",
+    "prettier": "prettier --ignore-path .gitignore --write \"**/*.+(json|yml|yaml|astro|css|md)\"",
     "test": "npm run type && node --test",
     "type": "astro check"
   },

@@ -51,10 +51,10 @@ Thus, I decided to start updating my package.
 
 ## Prettier
 
-Although `prettier` doesn't necessarily affect the functionality, this
-basically helped save me from my past self. The last time I really worked on
-this project was around mid-December, so I should make everything easier to read
-and resume. I saw that `prettier` paired well with `standard`.
+Although `prettier` doesn't necessarily affect the functionality, this basically
+helped save me from my past self. The last time I really worked on this project
+was around mid-December, so I should make everything easier to read and resume.
+I saw that `prettier` paired well with `standard`.
 
 ## Removing babel-node Usage
 
