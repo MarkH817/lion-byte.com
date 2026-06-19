@@ -10,7 +10,7 @@
     "lint": "eslint",
     "prettier": "prettier --ignore-path .gitignore --write \"**/*.+(json|yml|yaml|less|css|md)\"",
     "test": "npm run type && node --test",
-    "type": "tsc --pretty"
+    "type": "astro check"
   },
   "repository": {
     "type": "git",
@@ -41,21 +41,20 @@
     "@types/markdown-it": "^14.1.2",
     "@types/node": "^24.13.1",
     "@types/sanitize-html": "^2.16.1",
-    "date-fns": "^4.1.0",
-    "npm-run-all2": "^9.0.1",
-    "prettier": "^3.8.1",
+    "date-fns": "^4.4.0",
+    "npm-run-all2": "^9.0.2",
+    "prettier": "^3.8.4",
     "prettier-plugin-astro": "^0.14.1",
-    "typescript": "^5.9.3"
+    "typescript": "^6.0.3"
   },
   "dependencies": {
-    "astro": "^6.4.6",
+    "@astrojs/check": "^0.9.9",
+    "astro": "^6.4.8",
     "astro-icon": "^1.1.5",
     "astrojs-atom": "^3.0.63",
     "markdown-it": "^14.2.0",
     "modern-normalize": "^3.0.1",
     "node-html-parser": "^7.1.0",
-    "prism-themes": "^1.9.0",
-    "prismjs": "^1.30.0",
     "sanitize-html": "^2.17.5",
     "typeface-nunito": "1.1.13",
     "typeface-open-sans": "1.1.13"
