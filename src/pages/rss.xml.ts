@@ -36,9 +36,12 @@ export const GET = (async context => {
       link: [{ href: postUrl }],
       id: postUrl,
       updated: post.data.date.toISOString(),
-      content: sanitizeHtml(html.toString(), {
-        allowedTags: sanitizeHtml.defaults.allowedTags.concat(['img'])
-      })
+      content: {
+        type: 'html',
+        value: sanitizeHtml(html.toString(), {
+          allowedTags: sanitizeHtml.defaults.allowedTags.concat(['img'])
+        })
+      }
     })
   }
 
