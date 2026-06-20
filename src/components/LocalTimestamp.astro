@@ -1,0 +1,59 @@
+---
+interface Props {
+  isoString?: string
+}
+const { isoString = new Date().toISOString() } = Astro.props
+const staticFallback = isoString.split('T')[0]
+---
+
+<time data-local-timestamp datetime={isoString} class='timestamp'
+  >{staticFallback} (UTC)</time
+>
+
+<script>
+  function localizeTimestamps() {
+    const timestamps = document.querySelectorAll<HTMLTimeElement>(
+      '[data-local-timestamp]'
+    )
+
+    const formatter = new Intl.DateTimeFormat(navigator.language, {
+      dateStyle: 'long',
+      timeStyle: 'short'
+    })
+
+    timestamps.forEach(t => {
+      const isoString = t.getAttribute('datetime')
+      if (!isoString) {
+        return
+      }
+      try {
+        const localDate = new Date(isoString)
+        t.textContent = `${formatter.format(localDate)}`
+      } catch (e) {
+        console.error('Failed to parse timestamp:', e)
+      } finally {
+        requestAnimationFrame(() => {
+          t.classList.add('is-localized')
+        })
+      }
+    })
+  }
+  localizeTimestamps()
+</script>
+
+<style>
+  .timestamp {
+  }
+
+  :global(.js) .timestamp {
+    &:not(.is-localized) {
+      opacity: 0;
+    }
+    &.is-localized {
+      opacity: 1;
+      @media (prefers-reduced-motion: no-preference) {
+        transition: opacity 350ms ease-in-out;
+      }
+    }
+  }
+</style>

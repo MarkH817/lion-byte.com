@@ -80,6 +80,9 @@ const pageTitle = title ? `${title} | ${SITE.name}` : SITE.name
       crossorigin='anonymous'
     />
     <style is:inline set:html={globalStyles}></style>
+    <script is:inline>
+      document.documentElement.classList.add('js')
+    </script>
   </head>
   <body>
     <a class='visually-hidden-focusable skip-link' href='#main-content'
