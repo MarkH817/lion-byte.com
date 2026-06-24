@@ -13,15 +13,15 @@ const staticFallback = isoString.split('T')[0]
 <script>
   function localizeTimestamps() {
     const timestamps = document.querySelectorAll<HTMLTimeElement>(
-      '[data-local-timestamp]'
+      '[data-local-timestamp]',
     )
 
     const formatter = new Intl.DateTimeFormat(navigator.language, {
       dateStyle: 'long',
-      timeStyle: 'short'
+      timeStyle: 'short',
     })
 
-    timestamps.forEach(t => {
+    timestamps.forEach((t) => {
       const isoString = t.getAttribute('datetime')
       if (!isoString) {
         return

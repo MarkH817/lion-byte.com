@@ -1,19 +1,20 @@
 ---
+import photo from '#assets/mark.jpg'
 import ProfileCard from '#components/ProfileCard.astro'
 import BaseLayout from '#layouts/BaseLayout.astro'
+import { Image } from 'astro:assets'
 ---
 
 <BaseLayout title='About'>
   <ProfileCard reversed>
-    <picture slot='image'>
-      <source srcset='/images/icons/mark-256x256.webp' type='image/webp' />
-      <source srcset='/images/icons/mark-256x256.jpg' type='image/jpeg' />
-      <img
-        class='profile-card__image'
-        src='/images/icons/mark.jpg'
-        alt='Mark Hernandez'
-      />
-    </picture>
+    <Image
+      src={photo}
+      height={256}
+      width={256}
+      densities={[1, 1.5]}
+      alt='Mark Hernandez'
+      slot='image'
+    />
 
     <p>Hello, my name is Mark Hernandez.</p>
 

@@ -28,7 +28,7 @@ let name = 'Tony'
 // This is a plain object.
 let allStar = {
   some: 'body',
-  once: 'told me'
+  once: 'told me',
 }
 
 // List of numbers
@@ -40,7 +40,7 @@ let mixedList = [
   'I am a string using single-quotes',
   `I'm a string using backticks`,
   12,
-  false
+  false,
 ]
 ```
 
@@ -70,7 +70,7 @@ multiplyNums(2, 12, function (answer) {
 })
 
 // Alternatively, we can write it like this:
-multiplyNums(15, 3, answer => {
+multiplyNums(15, 3, (answer) => {
   console.log(answer) // 45
 })
 ```
@@ -132,14 +132,14 @@ function multiplyNums(a, b) {
 // (1) Here's where we export the functions
 module.exports = {
   addNums: addNums,
-  multiplyNums: multiplyNums
+  multiplyNums: multiplyNums,
 }
 
 // (2) Note: if the property name and variable names are the same
 // like in the lines above, then it can be written as such:
 module.exports = {
   addNums,
-  multiplyNums
+  multiplyNums,
 }
 ```
 

@@ -8,7 +8,7 @@ import navigation from '#data/navigation.json' with { type: 'json' }
   <nav class='nav' aria-label='Main'>
     <ul class='nav-list list-unstyled'>
       {
-        navigation.main.map(item => (
+        navigation.main.map((item) => (
           <li>
             <a
               href={item.url}

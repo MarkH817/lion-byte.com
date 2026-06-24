@@ -7,6 +7,8 @@ import nunito400Url from 'typeface-nunito/files/nunito-latin-400.woff2?url'
 import 'typeface-nunito/index.css'
 import openSans400Url from 'typeface-open-sans/files/open-sans-latin-400.woff2?url'
 import 'typeface-open-sans/index.css'
+import profileImg from '#assets/profile.png'
+import { getImage } from 'astro:assets'
 
 const canonicalUrl = new URL(Astro.url.pathname, Astro.site)
 const rssUrl = new URL('rss.xml', Astro.site)
@@ -16,10 +18,25 @@ interface Props {
   displayTitle?: string
   description?: string
   image?: Image
+  ogType?: 'website' | 'article'
 }
 
-const { title, displayTitle = title, description, image } = Astro.props
+const {
+  title,
+  displayTitle = title,
+  description = 'A blog for NodeJS, web development, and stuff',
+  // TODO: Create Open Graph card graphic to use as default
+  image = { src: profileImg.src, alt: '' },
+  ogType = 'website',
+} = Astro.props
 const pageTitle = title ? `${title} | ${SITE.name}` : SITE.name
+const cardImage = new URL(image.src, Astro.url.origin)
+const favicon = await getImage({
+  src: profileImg,
+  width: 32,
+  height: 32,
+  format: 'png',
+})
 ---
 
 <!doctype html>
@@ -29,6 +46,7 @@ const pageTitle = title ? `${title} | ${SITE.name}` : SITE.name
     <meta name='viewport' content='width=device-width, initial-scale=1.0' />
     <meta http-equiv='X-UA-Compatible' content='ie=edge' />
 
+    <meta name='og:type' content={ogType} />
     <meta name='og:site_name' content={SITE.name} />
     <meta name='og:title' content={pageTitle} />
     <meta name='twitter:title' content={pageTitle} />
@@ -47,18 +65,22 @@ const pageTitle = title ? `${title} | ${SITE.name}` : SITE.name
       )
     }
 
-    <link rel='icon' href='/images/icons/profile-32x32.png' />
+    <link
+      rel='icon'
+      type={`image/${favicon.options.format}`}
+      href={favicon.src}
+    />
 
     <meta name='pinterest' content='nopin' />
     <meta name='og:type' content='website' />
-    <meta name='twitter:card' content='summary_large_image' />
+    <meta name='twitter:card' content='summary' />
     <meta name='twitter:creator' content={SITE.twitter} />
     {
       image && (
         <>
-          <meta property='og:image' content={image.src} />
+          <meta property='og:image' content={cardImage} />
           <meta property='og:image:alt' content={image.alt} />
-          <meta name='twitter:image' content={image.src} />
+          <meta name='twitter:image' content={cardImage} />
           <meta name='twitter:image:alt' content={image.alt} />
         </>
       )
