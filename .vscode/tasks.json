@@ -16,7 +16,10 @@
       "problemMatcher": [],
       "label": "npm run build",
       "detail": "Build site in production mode",
-      "group": { "isDefault": true, "kind": "build" }
+      "group": {
+        "isDefault": true,
+        "kind": "build"
+      }
     },
     {
       "type": "npm",
@@ -24,7 +27,17 @@
       "label": "npm test",
       "detail": "Run tests",
       "problemMatcher": [],
-      "group": { "isDefault": true, "kind": "test" }
+      "group": {
+        "isDefault": true,
+        "kind": "test"
+      }
+    },
+    {
+      "type": "npm",
+      "script": "preview",
+      "problemMatcher": [],
+      "label": "npm run preview",
+      "detail": "astro preview"
     }
   ]
 }
