@@ -1,6 +1,6 @@
 ---
+import LocalTimestamp from '#components/LocalTimestamp.astro'
 import type { PostFrontmatter } from '#models'
-import { format } from 'date-fns'
 import BaseLayout from './BaseLayout.astro'
 
 interface Props {
@@ -9,12 +9,10 @@ interface Props {
 const { frontmatter } = Astro.props
 ---
 
-<BaseLayout title={frontmatter.title} ogType="article">
+<BaseLayout title={frontmatter.title} ogType='article'>
   <article class='post'>
     <header>
-      <time datetime={frontmatter.date.toISOString()}>
-        {format(frontmatter.date, 'MMMM dd, yyyy')}
-      </time>
+      <LocalTimestamp date={frontmatter.date} showDate />
     </header>
 
     <div class='post-content'>

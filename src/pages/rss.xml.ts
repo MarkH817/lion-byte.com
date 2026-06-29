@@ -8,9 +8,9 @@ import sanitizeHtml from 'sanitize-html'
 
 const parser = new MarkdownIt()
 
-export const GET = (async context => {
-  const posts = await getCollection('blog').then(list =>
-    list.toSorted((a, b) => b.data.date.valueOf() - a.data.date.valueOf())
+export const GET = (async (context) => {
+  const posts = await getCollection('blog').then((list) =>
+    list.toSorted((a, b) => b.data.date.valueOf() - a.data.date.valueOf()),
   )
 
   const entries: AtomEntry[] = []
@@ -39,9 +39,9 @@ export const GET = (async context => {
       content: {
         type: 'html',
         value: sanitizeHtml(html.toString(), {
-          allowedTags: sanitizeHtml.defaults.allowedTags.concat(['img'])
-        })
-      }
+          allowedTags: sanitizeHtml.defaults.allowedTags.concat(['img']),
+        }),
+      },
     })
   }
 
@@ -50,12 +50,12 @@ export const GET = (async context => {
     subtitle: 'A feed of the latest blog posts',
     link: [
       { href: new URL('/rss.xml', context.site).href, rel: 'self' },
-      { href: context.site!.href }
+      { href: context.site!.href },
     ],
     generator: undefined,
     updated: posts[0].data.date.toISOString(),
     id: context.site?.href!,
     author: [{ name: SITE.authorName, email: SITE.authorEmail }],
-    entry: entries
+    entry: entries,
   })
 }) satisfies APIRoute

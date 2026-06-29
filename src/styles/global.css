@@ -190,3 +190,18 @@ p {
   white-space: nowrap;
   width: 1px;
 }
+
+.skip-link {
+  background-color: inherit;
+  left: var(--space-size-3);
+  padding: var(--space-size-3) var(--space-size-2);
+  position: absolute;
+  top: var(--space-size-3);
+}
+
+.site-main {
+  margin: var(--space-size-7) auto;
+  max-width: 60em;
+  outline: none;
+  padding: 0 var(--space-size-5);
+}

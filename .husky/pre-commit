@@ -1,0 +1,2 @@
+npx nano-staged
+npm test

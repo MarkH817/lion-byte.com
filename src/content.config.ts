@@ -4,11 +4,11 @@ import { defineCollection } from 'astro:content'
 
 const blog = defineCollection({
   loader: glob({ pattern: '**/[^_]*.md', base: './src/posts' }),
-  schema: postSchema
+  schema: postSchema,
 })
 const notes = defineCollection({
   loader: glob({ pattern: '**/[^_]*.md', base: './src/notes' }),
-  schema: postSchema
+  schema: postSchema,
 })
 
 export const collections = { blog, notes }
