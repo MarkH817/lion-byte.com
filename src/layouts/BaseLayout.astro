@@ -1,14 +1,12 @@
 ---
+import profileImg from '#assets/profile.png'
 import Header from '#components/Header.astro'
 import SITE from '#data/site.json'
 import type { Image } from '#models'
-import globalStyles from '#styles/global.css?inline'
-import nunito400Url from 'typeface-nunito/files/nunito-latin-400.woff2?url'
-import 'typeface-nunito/index.css'
-import openSans400Url from 'typeface-open-sans/files/open-sans-latin-400.woff2?url'
-import 'typeface-open-sans/index.css'
-import profileImg from '#assets/profile.png'
+import nunito400Url from '@fontsource/nunito/files/nunito-latin-400-normal.woff2?url'
+import openSans400Url from '@fontsource/open-sans/files/open-sans-latin-400-normal.woff2?url'
 import { getImage } from 'astro:assets'
+import '#styles/global.css'
 
 const canonicalUrl = new URL(Astro.url.pathname, Astro.site)
 const rssUrl = new URL('rss.xml', Astro.site)
@@ -101,7 +99,6 @@ const favicon = await getImage({
       href={openSans400Url}
       crossorigin='anonymous'
     />
-    <style is:inline set:html={globalStyles}></style>
     <script is:inline>
       document.documentElement.classList.add('js')
     </script>

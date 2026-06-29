@@ -1,4 +1,6 @@
 @import url('../../node_modules/modern-normalize/modern-normalize.css');
+@import url('../../node_modules/@fontsource/nunito/latin.css');
+@import url('../../node_modules/@fontsource/open-sans/latin.css');
 
 /* Focus */
 * {
