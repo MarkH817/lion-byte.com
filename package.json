@@ -52,10 +52,10 @@
   },
   "dependencies": {
     "@astrojs/check": "^0.9.9",
-    "astro": "^6.4.8",
+    "astro": "^7.0.3",
     "astro-icon": "^1.1.5",
     "astro-og": "^0.3.2",
-    "astrojs-atom": "^3.0.63",
+    "astrojs-atom": "^4.0.4",
     "markdown-it": "^14.2.0",
     "modern-normalize": "^3.0.1",
     "node-html-parser": "^7.1.0",
@@ -64,7 +64,7 @@
     "typeface-open-sans": "1.1.13"
   },
   "allowScripts": {
-    "esbuild@0.27.7": true,
-    "sharp@0.34.5": true
+    "sharp@0.34.5": true,
+    "esbuild@0.28.1": true
   }
 }
