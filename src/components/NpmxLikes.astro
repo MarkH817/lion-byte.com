@@ -1,0 +1,43 @@
+---
+import { Icon } from 'astro-icon/components'
+import { getCollection } from 'astro:content'
+
+const id = `npm-likes-${crypto.randomUUID()}`
+const likes = await getCollection('npmxLikes').then((l) =>
+  l.toSorted((a, b) => a.data.packageName.localeCompare(b.data.packageName)),
+)
+---
+
+<section class='npmx-likes' aria-labelledby={id}>
+  <h2 {id}>{likes.length} Liked Packages (via npmx)</h2>
+
+  <ul class='list-unstyled'>
+    {
+      likes.map((like) => (
+        <li>
+          <a
+            class='package'
+            href={like.data.subjectRef}
+            target='_blank'
+            rel='noopener noreferrer'
+          >
+            <Icon name='fa7-solid:box-open' aria-hidden />
+            {like.data.packageName}
+          </a>
+        </li>
+      ))
+    }
+  </ul>
+</section>
+
+<style>
+  .npmx-likes {
+    font-size: var(--font-size-4);
+    line-height: 1.5;
+  }
+
+  .package {
+    font-family: 'Courier New', Courier, monospace;
+    outline-offset: 0.25em;
+  }
+</style>

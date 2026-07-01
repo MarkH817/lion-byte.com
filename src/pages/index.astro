@@ -1,5 +1,6 @@
 ---
 import profileImg from '#assets/profile.png'
+import NpmxLikes from '#components/NpmxLikes.astro'
 import ProfileCard from '#components/ProfileCard.astro'
 import SocialLink from '#components/SocialLink.astro'
 import BaseLayout from '#layouts/BaseLayout.astro'
@@ -72,7 +73,7 @@ import { Image } from 'astro:assets'
             platform='LinkedIn'
             username='Mark Hernandez'
           >
-            <Icon name='fa7-brands:linkedin' slot='icon' aria-hidden />
+            <Icon name='fa7-brands:linkedin-in' slot='icon' aria-hidden />
           </SocialLink>
         </li>
 
@@ -88,6 +89,7 @@ import { Image } from 'astro:assets'
       </ul>
     </div>
   </ProfileCard>
+  <NpmxLikes />
 </BaseLayout>
 
 <style>
