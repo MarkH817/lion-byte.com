@@ -23,6 +23,13 @@ export async function fetchListRecords<Item>(
   predicate: (record: ComAtprotoRepoListRecords.Record) => Item,
   pageSize = DEFAULT_PAGE_SIZE,
 ): Promise<Item[]> {
+  const isCheckMode =
+    process.argv.includes('check') || process.argv.includes('sync')
+  if (isCheckMode) {
+    console.info(`Check mode! Skipping fetch for "${collection}"`)
+    return []
+  }
+
   const agent = getAgent()
   const { data: identity } = await agent.resolveHandle({ handle: AT.handle })
   let cursor: string | undefined
@@ -51,4 +58,8 @@ export async function fetchListRecords<Item>(
   } while (cursor)
 
   return records
+}
+
+export interface BaseRecord extends Record<string, unknown> {
+  id: string
 }

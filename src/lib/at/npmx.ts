@@ -1,7 +1,6 @@
-import { fetchListRecords } from './utils'
+import { fetchListRecords, type BaseRecord } from './utils'
 
-export interface NpmxFeedLike {
-  id: string
+export interface NpmxFeedLike extends BaseRecord {
   subjectRef: string
   packageName: string
   createdAt: Date

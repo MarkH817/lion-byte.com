@@ -13,9 +13,18 @@ const notes = defineCollection({
   schema: postSchema,
 })
 const npmxLikes = defineCollection({
-  loader: async () => {
-    const records = await getNpmxLikes()
-    return records
+  loader: {
+    name: 'npmx-likes-loader',
+    load: async ({ logger, parseData, store }) => {
+      logger.info('Fetching npmx likes...')
+      const npmxLikes = await getNpmxLikes()
+      store.clear()
+      for (const like of npmxLikes) {
+        const id = like.id
+        const data = await parseData({ id, data: like })
+        store.set({ id, data })
+      }
+    },
   },
   schema: z.object({
     subjectRef: z.url(),

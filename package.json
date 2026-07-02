@@ -10,8 +10,8 @@
     "format": "run-s -l format:*",
     "format:prettier": "prettier --ignore-path .gitignore --write \"**/*.+(js|mjs|ts|json|yml|yaml|astro|css|md)\"",
     "test": "run-p -l test:*",
-    "test:unit": "node --test",
     "test:type": "astro check",
+    "test:unit": "vitest run",
     "prepare": "husky"
   },
   "repository": {
@@ -50,7 +50,8 @@
     "npm-run-all2": "^9.0.2",
     "prettier": "^3.8.4",
     "prettier-plugin-astro": "^0.14.1",
-    "typescript": "^6.0.3"
+    "typescript": "^6.0.3",
+    "vitest": "^4.1.9"
   },
   "dependencies": {
     "@astrojs/check": "^0.9.9",

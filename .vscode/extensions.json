@@ -2,6 +2,7 @@
   "recommendations": [
     "esbenp.prettier-vscode",
     "streetsidesoftware.code-spell-checker",
-    "astro-build.astro-vscode"
+    "astro-build.astro-vscode",
+    "void-zero.vite-plus-extension-pack"
   ]
 }
