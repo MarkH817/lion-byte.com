@@ -62,4 +62,5 @@ export async function fetchListRecords<Item>(
 
 export interface BaseRecord extends Record<string, unknown> {
   id: string
+  createdAt: Date
 }

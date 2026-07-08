@@ -1,0 +1,49 @@
+---
+import { Icon } from 'astro-icon/components'
+import { getCollection } from 'astro:content'
+
+// TODO: Style this like notecards
+
+const id = `margin-at-notes-${crypto.randomUUID()}`
+const notes = await getCollection('marginAtNotes').then((l) =>
+  l.toSorted((a, b) => a.data.title.localeCompare(b.data.title)),
+)
+---
+
+<section class='margin-at-notes' aria-labelledby={id}>
+  <h2 {id}>{notes.length} Notes (via margin.at)</h2>
+
+  <ul class='list-unstyled'>
+    {
+      notes.map((note) => (
+        <li>
+          <a
+            class='package'
+            href={note.data.source}
+            target='_blank'
+            rel='noopener noreferrer'
+          >
+            <Icon name='fa7-solid:pencil' aria-hidden />
+            {note.data.title}
+          </a>
+
+          {note.data.highlightQuote ? (
+            <blockquote cite={note.data.source}>
+              {note.data.highlightQuote}
+            </blockquote>
+          ) : null}
+
+          {note.data.tags.length > 0 ? (
+            <ul>
+              {note.data.tags.map((tag) => (
+                <li>
+                  <Icon name='fa7-solid:tag' aria-hidden /> {tag}
+                </li>
+              ))}
+            </ul>
+          ) : null}
+        </li>
+      ))
+    }
+  </ul>
+</section>

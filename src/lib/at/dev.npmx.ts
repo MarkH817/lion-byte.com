@@ -3,7 +3,6 @@ import { fetchListRecords, type BaseRecord } from './utils'
 export interface NpmxFeedLike extends BaseRecord {
   subjectRef: string
   packageName: string
-  createdAt: Date
 }
 
 export async function getNpmxLikes(): Promise<NpmxFeedLike[]> {
@@ -18,9 +17,9 @@ export async function getNpmxLikes(): Promise<NpmxFeedLike[]> {
 
       return {
         id: record.uri.split('/').pop()!,
+        createdAt: new Date(record.value.createdAt as string),
         subjectRef: record.value.subjectRef as string,
         packageName: extractPackageName(record.value.subjectRef as string),
-        createdAt: new Date(record.value.createdAt as string),
       }
     },
   )

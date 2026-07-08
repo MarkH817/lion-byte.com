@@ -1,5 +1,6 @@
 ---
 import profileImg from '#assets/profile.png'
+import MarginAtNotes from '#components/MarginAtNotes.astro'
 import NpmxLikes from '#components/NpmxLikes.astro'
 import ProfileCard from '#components/ProfileCard.astro'
 import SocialLink from '#components/SocialLink.astro'
@@ -89,7 +90,10 @@ import { Image } from 'astro:assets'
       </ul>
     </div>
   </ProfileCard>
-  <NpmxLikes />
+  <div class='so-flexy'>
+    <MarginAtNotes />
+    <NpmxLikes />
+  </div>
 </BaseLayout>
 
 <style>
@@ -101,5 +105,14 @@ import { Image } from 'astro:assets'
     list-style: none;
     margin: 0;
     padding: 0 0.25rem;
+  }
+
+  .so-flexy {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-size-7) var(--space-size-10);
+    @media (max-width: 40rem) {
+      grid-template-columns: 1fr;
+    }
   }
 </style>

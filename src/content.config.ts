@@ -1,4 +1,4 @@
-import { getNpmxLikes } from '#lib'
+import { getMarginAtNotes, getNpmxLikes } from '#lib'
 import { postSchema } from '#models'
 import { glob } from 'astro/loaders'
 import { z } from 'astro/zod'
@@ -32,5 +32,27 @@ const npmxLikes = defineCollection({
     createdAt: z.date(),
   }),
 })
+const marginAtNotes = defineCollection({
+  loader: {
+    name: 'margin-at-notes-loader',
+    load: async ({ logger, parseData, store }) => {
+      logger.info('Fetching margin.at notes...')
+      const notes = await getMarginAtNotes()
+      store.clear()
+      for (const note of notes) {
+        const id = note.id
+        const data = await parseData({ id, data: note })
+        store.set({ id, data })
+      }
+    },
+  },
+  schema: z.object({
+    tags: z.string().array(),
+    title: z.string(),
+    source: z.string(),
+    highlightQuote: z.string().nullable(),
+    motivation: z.string(),
+  }),
+})
 
-export const collections = { blog, notes, npmxLikes }
+export const collections = { blog, notes, npmxLikes, marginAtNotes }
