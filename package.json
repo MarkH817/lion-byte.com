@@ -34,6 +34,7 @@
     "#layouts/*": "./src/layouts/*",
     "#lib": "./src/lib/index.ts",
     "#lib/*": "./src/lib/*",
+    "#loaders/*": "./src/loaders/*",
     "#models": "./src/models/index.ts",
     "#models/*": "./src/models/*",
     "#scripts/*": "./src/scripts/*",

@@ -1,12 +1,7 @@
-import {
-  getMarginAtNotes,
-  getNpmxLikes,
-  MarginNoteCollection,
-  NpmxLikesCollection,
-} from '#lib'
+import { getMarginAtNotes, MarginNoteCollection } from '#loaders/at.margin.ts'
+import { getNpmxLikes, NpmxLikesCollection } from '#loaders/dev.npmx.ts'
 import { postSchema } from '#models'
 import { glob } from 'astro/loaders'
-import { z } from 'astro/zod'
 import { defineCollection } from 'astro:content'
 
 const blog = defineCollection({
