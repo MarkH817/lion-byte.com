@@ -1,4 +1,9 @@
-import { getMarginAtNotes, getNpmxLikes } from '#lib'
+import {
+  getMarginAtNotes,
+  getNpmxLikes,
+  MarginNoteCollection,
+  NpmxLikesCollection,
+} from '#lib'
 import { postSchema } from '#models'
 import { glob } from 'astro/loaders'
 import { z } from 'astro/zod'
@@ -26,11 +31,7 @@ const npmxLikes = defineCollection({
       }
     },
   },
-  schema: z.object({
-    subjectRef: z.url(),
-    packageName: z.string(),
-    createdAt: z.date(),
-  }),
+  schema: NpmxLikesCollection,
 })
 const marginAtNotes = defineCollection({
   loader: {
@@ -46,13 +47,7 @@ const marginAtNotes = defineCollection({
       }
     },
   },
-  schema: z.object({
-    tags: z.string().array(),
-    title: z.string(),
-    source: z.string(),
-    highlightQuote: z.string().nullable(),
-    motivation: z.string(),
-  }),
+  schema: MarginNoteCollection,
 })
 
 export const collections = { blog, notes, npmxLikes, marginAtNotes }

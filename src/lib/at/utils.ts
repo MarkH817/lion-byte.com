@@ -1,13 +1,10 @@
 import AT from '#data/at.json' with { type: 'json' }
-import {
-  Agent,
-  CredentialSession,
-  ComAtprotoRepoListRecords,
-} from '@atproto/api'
+import { Agent, CredentialSession } from '@atproto/api'
+import { z } from 'astro/zod'
 
 let client: Agent | null = null
 
-export function getAgent(): Agent {
+function getAgent(): Agent {
   if (client) {
     return client
   }
@@ -16,13 +13,27 @@ export function getAgent(): Agent {
   return client
 }
 
-export const DEFAULT_PAGE_SIZE = 50
+const DEFAULT_PAGE_SIZE = 50
 
-export async function fetchListRecords<Item>(
-  collection: string,
-  predicate: (record: ComAtprotoRepoListRecords.Record) => Item,
+interface FetchListRecordsOptions<
+  RecordSchema extends z.ZodObject | z.ZodPipe,
+  Item,
+> {
+  collection: string
+  recordSchema: RecordSchema
+  transform(record: z.infer<RecordSchema>): Item
+  /** @default 50 */
+  pageSize?: number
+}
+export async function fetchListRecords<
+  RecordSchema extends z.ZodObject | z.ZodPipe,
+  Item,
+>({
+  collection,
+  recordSchema,
+  transform,
   pageSize = DEFAULT_PAGE_SIZE,
-): Promise<Item[]> {
+}: FetchListRecordsOptions<RecordSchema, Item>) {
   const isCheckMode =
     process.argv.includes('check') || process.argv.includes('sync')
   if (isCheckMode) {
@@ -46,7 +57,8 @@ export async function fetchListRecords<Item>(
 
     // Iterate over page
     for (const record of data.records) {
-      records.push(predicate(record))
+      const v = recordSchema.parse(record)
+      records.push(transform(v as z.infer<RecordSchema>))
     }
 
     // Move to next page
@@ -60,7 +72,19 @@ export async function fetchListRecords<Item>(
   return records
 }
 
-export interface BaseRecord extends Record<string, unknown> {
-  id: string
-  createdAt: Date
+export const DateTimeSchema = z.iso.datetime().transform((d) => new Date(d))
+const BaseATRecordSchema = z.object({
+  $type: z.string().optional(),
+  uri: z.string(),
+  cid: z.string(),
+  value: z.record(z.string(), z.unknown()),
+})
+
+export function defineRecordSchema<T extends z.ZodRecord | z.ZodObject>(
+  valueSchema: T,
+) {
+  return BaseATRecordSchema.extend({ value: valueSchema }).transform((v) => ({
+    ...v,
+    id: v.uri.split('/').pop()!,
+  }))
 }

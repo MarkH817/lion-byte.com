@@ -1,28 +1,31 @@
-import { fetchListRecords, type BaseRecord } from './utils'
+import { z } from 'astro/zod'
+import { DateTimeSchema, defineRecordSchema, fetchListRecords } from './utils'
 
-export interface NpmxFeedLike extends BaseRecord {
-  subjectRef: string
-  packageName: string
-}
+const NpmxFeedLikeRecord = defineRecordSchema(
+  z.object({
+    subjectRef: z.string(),
+    createdAt: DateTimeSchema,
+  }),
+)
+export const NpmxLikesCollection = z.object({
+  subjectRef: z.url(),
+  packageName: z.string(),
+  createdAt: z.date(),
+})
 
-export async function getNpmxLikes(): Promise<NpmxFeedLike[]> {
-  const records = await fetchListRecords<NpmxFeedLike>(
-    'dev.npmx.feed.like',
-    (record) => {
-      if (!('subjectRef' in record.value) || !('createdAt' in record.value)) {
-        throw new Error(`Invalid liked package record: ${record.uri}.`, {
-          cause: record,
-        })
-      }
-
+export async function getNpmxLikes() {
+  const records = await fetchListRecords({
+    collection: 'dev.npmx.feed.like',
+    recordSchema: NpmxFeedLikeRecord,
+    transform: (record) => {
       return {
-        id: record.uri.split('/').pop()!,
-        createdAt: new Date(record.value.createdAt as string),
-        subjectRef: record.value.subjectRef as string,
-        packageName: extractPackageName(record.value.subjectRef as string),
+        id: record.id,
+        createdAt: record.value.createdAt,
+        subjectRef: record.value.subjectRef,
+        packageName: extractPackageName(record.value.subjectRef),
       }
     },
-  )
+  })
   return records
 }
 

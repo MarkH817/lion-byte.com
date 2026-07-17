@@ -1,44 +1,45 @@
 import { z } from 'astro/zod'
-import { fetchListRecords, type BaseRecord } from './utils'
+import { DateTimeSchema, defineRecordSchema, fetchListRecords } from './utils'
 
-export interface MarginAtNote extends BaseRecord {
-  tags: string[]
-  /** `target.title` */
-  title: string
-  /** `target.source` */
-  source: string
-  /** `target.selector?.exact` */
-  highlightQuote: string | null
-  motivation: 'bookmarking' | 'highlighting' | ({} & string)
-}
+const MotivationEnum = z.enum(['bookmarking', 'highlighting'])
 
-const internalSchema = z.object({
-  createdAt: z.iso.datetime(),
-  tags: z.string().array().default([]),
-  target: z.object({
-    title: z.string(),
-    source: z.string(),
-    selector: z.object({ exact: z.string().optional() }).optional(),
+const MarginNoteRecord = defineRecordSchema(
+  z.object({
+    createdAt: z.iso.datetime(),
+    tags: z.string().array().default([]),
+    target: z.object({
+      title: z.string().default(''),
+      source: z.string(),
+      selector: z.object({ exact: z.string().optional() }).optional(),
+    }),
+    motivation: MotivationEnum,
   }),
-  motivation: z.string(),
+)
+
+export const MarginNoteCollection = z.object({
+  createdAt: DateTimeSchema,
+  tags: z.string().array(),
+  title: z.string(),
+  source: z.string(),
+  highlightQuote: z.string().nullable(),
+  motivation: MotivationEnum,
 })
 
-export async function getMarginAtNotes(): Promise<MarginAtNote[]> {
-  const records = await fetchListRecords<MarginAtNote>(
-    'at.margin.note',
-    (record) => {
-      const data = internalSchema.parse(record.value)
-
+export async function getMarginAtNotes() {
+  const records = await fetchListRecords({
+    collection: 'at.margin.note',
+    recordSchema: MarginNoteRecord,
+    transform: (record) => {
       return {
-        id: record.uri.split('/').pop()!,
-        createdAt: new Date(data.createdAt),
-        tags: data.tags,
-        title: data.target.title,
-        source: data.target.source,
-        highlightQuote: data.target.selector?.exact ?? null,
-        motivation: data.motivation,
+        id: record.id,
+        createdAt: record.value.createdAt,
+        tags: record.value.tags,
+        title: record.value.target.title,
+        source: record.value.target.source,
+        highlightQuote: record.value.target.selector?.exact ?? null,
+        motivation: record.value.motivation,
       }
     },
-  )
+  })
   return records
 }
