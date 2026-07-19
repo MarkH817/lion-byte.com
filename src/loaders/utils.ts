@@ -1,32 +1,20 @@
-import AT from '#data/at.json' with { type: 'json' }
-import { Agent, CredentialSession } from '@atproto/api'
-import { z } from 'astro/zod'
-
-let client: Agent | null = null
-
-function getAgent(): Agent {
-  if (client) {
-    return client
-  }
-
-  client = new Agent(new CredentialSession(new URL(AT.pdsUrl)))
-  return client
-}
+import { z } from 'zod/mini'
+import { getClient, getDid } from './utils/atproto-client'
+import { isCheckMode } from './utils/is-check-mode'
 
 const DEFAULT_PAGE_SIZE = 50
 
 interface FetchListRecordsOptions<
-  RecordSchema extends z.ZodObject | z.ZodPipe,
+  RecordSchema extends z.core.$ZodObject | z.core.$ZodPipe,
   Item,
 > {
   collection: string
   recordSchema: RecordSchema
   transform(record: z.infer<RecordSchema>): Item
-  /** @default 50 */
   pageSize?: number
 }
 export async function fetchListRecords<
-  RecordSchema extends z.ZodObject | z.ZodPipe,
+  RecordSchema extends z.core.$ZodObject | z.core.$ZodPipe,
   Item,
 >({
   collection,
@@ -34,22 +22,20 @@ export async function fetchListRecords<
   transform,
   pageSize = DEFAULT_PAGE_SIZE,
 }: FetchListRecordsOptions<RecordSchema, Item>) {
-  const isCheckMode =
-    process.argv.includes('check') || process.argv.includes('sync')
-  if (isCheckMode) {
+  if (isCheckMode()) {
     console.info(`Check mode! Skipping fetch for "${collection}"`)
     return []
   }
 
-  const agent = getAgent()
-  const { data: identity } = await agent.resolveHandle({ handle: AT.handle })
+  const client = getClient()
+  const did = await getDid()
   let cursor: string | undefined
   const records: Item[] = []
 
   // Paginate records
   do {
-    const { data } = await agent.com.atproto.repo.listRecords({
-      repo: identity.did,
+    const { data } = await client.com.atproto.repo.listRecords({
+      repo: did,
       collection,
       limit: pageSize,
       cursor,
@@ -57,7 +43,7 @@ export async function fetchListRecords<
 
     // Iterate over page
     for (const record of data.records) {
-      const v = recordSchema.parse(record)
+      const v = z.parse(recordSchema, record)
       records.push(transform(v as z.infer<RecordSchema>))
     }
 
@@ -70,21 +56,4 @@ export async function fetchListRecords<
   } while (cursor)
 
   return records
-}
-
-export const DateTimeSchema = z.iso.datetime().transform((d) => new Date(d))
-const BaseATRecordSchema = z.object({
-  $type: z.string().optional(),
-  uri: z.string(),
-  cid: z.string(),
-  value: z.record(z.string(), z.unknown()),
-})
-
-export function defineRecordSchema<T extends z.ZodRecord | z.ZodObject>(
-  valueSchema: T,
-) {
-  return BaseATRecordSchema.extend({ value: valueSchema }).transform((v) => ({
-    ...v,
-    id: v.uri.split('/').pop()!,
-  }))
 }

@@ -1,16 +1,17 @@
-import { z } from 'astro/zod'
-import { DateTimeSchema, defineRecordSchema, fetchListRecords } from './utils'
+import { z } from 'zod/mini'
+import { fetchListRecords } from './utils'
+import { DateTimeSchema, defineRecordSchema } from './utils/schema'
 
 const MotivationEnum = z.enum(['bookmarking', 'highlighting'])
 
 const MarginNoteRecord = defineRecordSchema(
   z.object({
     createdAt: z.iso.datetime(),
-    tags: z.string().array().default([]),
+    tags: z._default(z.array(z.string()), []),
     target: z.object({
-      title: z.string().default(''),
+      title: z._default(z.string(), ''),
       source: z.string(),
-      selector: z.object({ exact: z.string().optional() }).optional(),
+      selector: z.optional(z.object({ exact: z.optional(z.string()) })),
     }),
     motivation: MotivationEnum,
   }),
@@ -18,10 +19,10 @@ const MarginNoteRecord = defineRecordSchema(
 
 export const MarginNoteCollection = z.object({
   createdAt: DateTimeSchema,
-  tags: z.string().array(),
+  tags: z.array(z.string()),
   title: z.string(),
   source: z.string(),
-  highlightQuote: z.string().nullable(),
+  highlightQuote: z.nullable(z.string()),
   motivation: MotivationEnum,
 })
 

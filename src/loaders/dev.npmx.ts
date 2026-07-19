@@ -1,5 +1,6 @@
-import { z } from 'astro/zod'
-import { DateTimeSchema, defineRecordSchema, fetchListRecords } from './utils'
+import { z } from 'zod/mini'
+import { fetchListRecords } from './utils'
+import { DateTimeSchema, defineRecordSchema } from './utils/schema'
 
 const NpmxFeedLikeRecord = defineRecordSchema(
   z.object({
@@ -8,9 +9,9 @@ const NpmxFeedLikeRecord = defineRecordSchema(
   }),
 )
 export const NpmxLikesCollection = z.object({
+  createdAt: z.date(),
   subjectRef: z.url(),
   packageName: z.string(),
-  createdAt: z.date(),
 })
 
 export async function getNpmxLikes() {
