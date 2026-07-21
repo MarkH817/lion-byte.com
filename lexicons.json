@@ -1,0 +1,18 @@
+{
+  "version": 1,
+  "lexicons": ["at.margin.note"],
+  "resolutions": {
+    "app.bsky.richtext.facet": {
+      "uri": "at://did:plc:4v4y5r3lwsbtmsxhile2ljac/com.atproto.lexicon.schema/app.bsky.richtext.facet",
+      "cid": "bafyreidg56eo7zynf6ihz4xb627vwoqf5idnevkmwp7sxc4tijg6xngbu4"
+    },
+    "at.margin.note": {
+      "uri": "at://did:plc:rjqn3agdb74cszhqcpii4sne/com.atproto.lexicon.schema/at.margin.note",
+      "cid": "bafyreibn4bcuhiwm7l6gb5l6shrrxkst2luftnphmqrnp77pflypmprxku"
+    },
+    "com.atproto.label.defs": {
+      "uri": "at://did:plc:6msi3pj7krzih5qxqtryxlzw/com.atproto.lexicon.schema/com.atproto.label.defs",
+      "cid": "bafyreidp2wpcbzl2qiob2uwoc7lhntojx3tjcr553mmahw2f5cumtm3wpm"
+    }
+  }
+}
