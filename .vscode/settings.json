@@ -22,6 +22,8 @@
     "notecards",
     "npmx",
     "nunito",
+    "taze",
     "vitest"
-  ]
+  ],
+  "js/ts.tsdk.path": "node_modules/typescript/lib"
 }
