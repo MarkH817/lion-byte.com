@@ -9,6 +9,7 @@
     "preview": "astro preview",
     "format": "run-s -l format:*",
     "format:prettier": "prettier --ignore-path .gitignore --write \"**/*.+(js|mjs|ts|json|yml|yaml|astro|css|md)\"",
+    "lex:build": "lex build",
     "test": "run-p -l test:*",
     "test:type": "astro check",
     "test:unit": "vitest run",

@@ -4,6 +4,7 @@
 .astro/
 /.cache/
 /dist/
+src/lexicons/
 
 # Logs
 logs
