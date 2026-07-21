@@ -1,33 +1,31 @@
+import like from '#lexicons/dev/npmx/feed/like.ts'
 import { z } from 'zod/mini'
-import { fetchListRecords } from './utils'
-import { DateTimeSchema, defineRecordSchema } from './utils/schema'
+import { listAll } from './utils/lex-client'
+import { parseRKey } from './utils/parse-rkey'
 
-const NpmxFeedLikeRecord = defineRecordSchema(
-  z.object({
-    subjectRef: z.url(),
-    createdAt: DateTimeSchema,
-  }),
-)
 export const NpmxLikesCollection = z.object({
+  id: z.string(),
   createdAt: z.date(),
   subjectRef: z.url(),
   packageName: z.string(),
 })
 
 export async function getNpmxLikes() {
-  const records = await fetchListRecords({
-    collection: 'dev.npmx.feed.like',
-    recordSchema: NpmxFeedLikeRecord,
-    transform: (record) => {
-      return {
-        id: record.id,
-        createdAt: record.value.createdAt,
-        subjectRef: record.value.subjectRef,
-        packageName: extractPackageName(record.value.subjectRef),
+  const records = await listAll(like)
+  return records.reduce<z.infer<typeof NpmxLikesCollection>[]>(
+    (acc, record) => {
+      if (like.matches(record.value)) {
+        acc.push({
+          id: parseRKey(record.uri),
+          createdAt: new Date(record.value.createdAt),
+          subjectRef: record.value.subjectRef,
+          packageName: extractPackageName(record.value.subjectRef),
+        })
       }
+      return acc
     },
-  })
-  return records
+    [],
+  )
 }
 
 /**
