@@ -1,5 +1,6 @@
 import { getMarginAtNotes, MarginNoteCollection } from '#loaders/at.margin.ts'
 import { getNpmxLikes, NpmxLikesCollection } from '#loaders/dev.npmx.ts'
+import { isCheckMode } from '#loaders/utils/is-check-mode.ts'
 import { postSchema } from '#models'
 import { glob } from 'astro/loaders'
 import { defineCollection } from 'astro:content'
@@ -16,6 +17,10 @@ const npmxLikes = defineCollection({
   loader: {
     name: 'npmx-likes-loader',
     load: async ({ logger, parseData, store }) => {
+      if (isCheckMode()) {
+        return
+      }
+
       logger.info('Fetching npmx likes...')
       const npmxLikes = await getNpmxLikes()
       store.clear()
@@ -32,6 +37,10 @@ const marginAtNotes = defineCollection({
   loader: {
     name: 'margin-at-notes-loader',
     load: async ({ logger, parseData, store }) => {
+      if (isCheckMode()) {
+        return
+      }
+
       logger.info('Fetching margin.at notes...')
       const notes = await getMarginAtNotes()
       store.clear()
