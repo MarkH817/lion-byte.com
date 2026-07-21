@@ -4,7 +4,7 @@ import { DateTimeSchema, defineRecordSchema } from './utils/schema'
 
 const NpmxFeedLikeRecord = defineRecordSchema(
   z.object({
-    subjectRef: z.string(),
+    subjectRef: z.url(),
     createdAt: DateTimeSchema,
   }),
 )

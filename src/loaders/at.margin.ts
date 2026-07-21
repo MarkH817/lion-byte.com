@@ -2,28 +2,27 @@ import { z } from 'zod/mini'
 import { fetchListRecords } from './utils'
 import { DateTimeSchema, defineRecordSchema } from './utils/schema'
 
-const MotivationEnum = z.enum(['bookmarking', 'highlighting'])
-
 const MarginNoteRecord = defineRecordSchema(
   z.object({
-    createdAt: z.iso.datetime(),
+    createdAt: DateTimeSchema,
     tags: z._default(z.array(z.string()), []),
     target: z.object({
       title: z._default(z.string(), ''),
-      source: z.string(),
+      source: z.url(),
       selector: z.optional(z.object({ exact: z.optional(z.string()) })),
     }),
-    motivation: MotivationEnum,
+    motivation: z.string(),
   }),
 )
 
 export const MarginNoteCollection = z.object({
-  createdAt: DateTimeSchema,
+  id: z.string(),
+  createdAt: z.date(),
   tags: z.array(z.string()),
   title: z.string(),
-  source: z.string(),
+  source: z.url(),
   highlightQuote: z.nullable(z.string()),
-  motivation: MotivationEnum,
+  motivation: z.string(),
 })
 
 export async function getMarginAtNotes() {
