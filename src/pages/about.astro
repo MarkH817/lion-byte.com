@@ -3,6 +3,13 @@ import photo from '#assets/mark.jpg'
 import ProfileCard from '#components/ProfileCard.astro'
 import BaseLayout from '#layouts/BaseLayout.astro'
 import { Image } from 'astro:assets'
+import { getCollection } from 'astro:content'
+import sanitizeHtml from 'sanitize-html'
+import { markdownToHtml } from 'satteri'
+
+const positions = await getCollection('careerPositions').then((p) =>
+  p.toSorted((a, b) => b.data.startedAt.localeCompare(a.data.startedAt)),
+)
 ---
 
 <BaseLayout title='About'>
@@ -25,4 +32,22 @@ import { Image } from 'astro:assets'
       skill-sets to provide a smooth experience for users.
     </p>
   </ProfileCard>
+
+  <h2>Positions</h2>
+  <ul class='positions'>
+    {
+      positions.map((position) => (
+        <li class='position'>
+          {position.data.title} ({position.data.company ?? 'n/a'})
+          {position.data.description && (
+            <Fragment
+              set:html={sanitizeHtml(
+                markdownToHtml(position.data.description).html,
+              )}
+            />
+          )}
+        </li>
+      ))
+    }
+  </ul>
 </BaseLayout>
