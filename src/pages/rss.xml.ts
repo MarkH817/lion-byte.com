@@ -2,11 +2,9 @@ import SITE from '#data/site.json'
 import type { APIRoute } from 'astro'
 import { getCollection } from 'astro:content'
 import rss, { type AtomEntry } from 'astrojs-atom'
-import MarkdownIt from 'markdown-it'
 import { parse as htmlParser } from 'node-html-parser'
 import sanitizeHtml from 'sanitize-html'
-
-const parser = new MarkdownIt()
+import { markdownToHtml } from 'satteri'
 
 export const GET = (async (context) => {
   const posts = await getCollection('blog').then((list) =>
@@ -16,8 +14,8 @@ export const GET = (async (context) => {
   const entries: AtomEntry[] = []
   for (const post of posts) {
     // Referencing https://billyle.dev/posts/adding-rss-feed-content-and-fixing-markdown-image-paths-in-astro#the-image-relative-path-fix
-    const body = parser.render(post.body!)
-    const html = htmlParser.parse(body)
+    const body = markdownToHtml(post.body!)
+    const html = htmlParser.parse(body.html)
     const images = html.querySelectorAll('img')
 
     for (const img of images) {
