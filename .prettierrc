@@ -1,8 +1,13 @@
 {
   "semi": false,
   "singleQuote": true,
-  "jsxSingleQuote": true,
   "overrides": [
+    {
+      "files": "*.css",
+      "options": {
+        "singleQuote": false
+      }
+    },
     {
       "files": "*.md",
       "options": {

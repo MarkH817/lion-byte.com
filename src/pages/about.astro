@@ -1,5 +1,6 @@
 ---
 import photo from '#assets/mark.jpg'
+import Conditional from '#components/Conditional.astro'
 import ProfileCard from '#components/ProfileCard.astro'
 import BaseLayout from '#layouts/BaseLayout.astro'
 import { Image } from 'astro:assets'
@@ -12,16 +13,16 @@ const positions = await getCollection('careerPositions').then((p) =>
 )
 ---
 
-<BaseLayout title='About'>
+<BaseLayout title="About">
   <ProfileCard reversed>
     <Image
       src={photo}
       height={256}
       width={256}
       densities={[1, 1.5]}
-      alt='Mark Hernandez'
+      alt="Mark Hernandez"
       priority
-      slot='image'
+      slot="image"
     />
 
     <p>Hello, my name is Mark Hernandez.</p>
@@ -33,21 +34,87 @@ const positions = await getCollection('careerPositions').then((p) =>
     </p>
   </ProfileCard>
 
-  <h2>Positions</h2>
-  <ul class='positions'>
-    {
-      positions.map((position) => (
-        <li class='position'>
-          {position.data.title} ({position.data.company ?? 'n/a'})
-          {position.data.description && (
-            <Fragment
-              set:html={sanitizeHtml(
-                markdownToHtml(position.data.description).html,
-              )}
-            />
-          )}
-        </li>
-      ))
-    }
-  </ul>
+  <h2>Work History</h2>
+  {
+    positions.map((position) => (
+      <article id={position.id} class="position">
+        <header>
+          <div class="position-main-info">
+            <h3 class="position-title">{position.data.title}</h3>
+
+            <Conditional if={Boolean(position.data.company)}>
+              <span class="position-company">{position.data.company}</span>
+            </Conditional>
+          </div>
+          <div class="position-dates">
+            <time>{position.data.startedAt}</time> &mdash;{' '}
+            <time>{position.data.endedAt ?? 'Current'}</time>
+          </div>
+        </header>
+
+        {position.data.description && (
+          <div
+            class="position-description"
+            set:html={sanitizeHtml(
+              markdownToHtml(position.data.description).html,
+            )}
+          />
+        )}
+      </article>
+    ))
+  }
 </BaseLayout>
+
+<style>
+  .position {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-size-4);
+    padding: var(--space-size-4);
+    &:not(:last-of-type) {
+      margin-bottom: var(--space-size-6);
+    }
+  }
+
+  .position-main-info {
+    line-height: 1;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: baseline;
+    @media (max-width: 40rem) {
+      flex-direction: column;
+    }
+  }
+
+  .position-title {
+    margin: 0;
+  }
+
+  .position-company {
+    font-weight: lighter;
+  }
+
+  .position-dates {
+    font-size: var(--font-size-2);
+    font-weight: bold;
+  }
+
+  .position-description {
+    max-width: 70ch;
+    font-size: var(--font-size-4);
+  }
+
+  :global(.position-description) {
+    p {
+      margin: 0 0 var(--space-size-1) 0;
+    }
+    ul {
+      margin: 0 0 var(--space-size-5) 0;
+    }
+
+    :last-child {
+      margin-bottom: 0;
+    }
+  }
+</style>
