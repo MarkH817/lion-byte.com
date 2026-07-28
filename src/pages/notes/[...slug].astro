@@ -5,9 +5,9 @@ import { getCollection, render } from 'astro:content'
 
 export const getStaticPaths = (async () => {
   const posts = await getCollection('notes')
-  return posts.map(post => ({
+  return posts.map((post) => ({
     params: { slug: post.id },
-    props: { post }
+    props: { post },
   }))
 }) satisfies GetStaticPaths
 

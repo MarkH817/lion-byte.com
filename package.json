@@ -6,10 +6,14 @@
   "scripts": {
     "build": "astro build",
     "dev": "astro dev",
-    "format": "npm run prettier",
-    "prettier": "prettier --ignore-path .gitignore --write \"**/*.+(json|yml|yaml|astro|css|md)\"",
-    "test": "npm run type && node --test",
-    "type": "astro check"
+    "preview": "astro preview",
+    "format": "run-s -l format:*",
+    "format:prettier": "prettier --ignore-path .gitignore --write \"**/*.+(js|mjs|ts|json|yml|yaml|astro|css|md)\"",
+    "lex:build": "lex build",
+    "test": "run-p -l test:*",
+    "test:type": "astro check",
+    "test:unit": "vitest run",
+    "prepare": "husky"
   },
   "repository": {
     "type": "git",
@@ -20,7 +24,8 @@
     "personal site"
   ],
   "engines": {
-    "node": ">=24"
+    "node": ">=24",
+    "npm": ">=11.16.0"
   },
   "type": "module",
   "license": "MIT",
@@ -29,33 +34,45 @@
     "#components/*": "./src/components/*",
     "#data/*": "./src/_data/*",
     "#layouts/*": "./src/layouts/*",
+    "#lexicons/*": "./src/lexicons/*",
+    "#lib": "./src/lib/index.ts",
+    "#lib/*": "./src/lib/*",
+    "#loaders/*": "./src/loaders/*",
     "#models": "./src/models/index.ts",
     "#models/*": "./src/models/*",
     "#scripts/*": "./src/scripts/*",
     "#styles/*": "./src/styles/*"
   },
   "devDependencies": {
-    "@iconify-json/fa7-brands": "^1.2.2",
-    "@iconify-json/fa7-solid": "^1.2.4",
-    "@types/markdown-it": "^14.1.2",
-    "@types/node": "^24.13.1",
+    "@iconify-json/fa7-brands": "^1.2.3",
+    "@iconify-json/fa7-solid": "^1.2.5",
+    "@types/node": "^24.13.3",
     "@types/sanitize-html": "^2.16.1",
-    "date-fns": "^4.4.0",
+    "husky": "^9.1.7",
+    "nano-staged": "^1.0.2",
     "npm-run-all2": "^9.0.2",
-    "prettier": "^3.8.4",
+    "prettier": "^3.9.5",
     "prettier-plugin-astro": "^0.14.1",
-    "typescript": "^6.0.3"
+    "typescript": "^6.0.3",
+    "vitest": "^4.1.10"
   },
   "dependencies": {
     "@astrojs/check": "^0.9.9",
-    "astro": "^6.4.8",
+    "@atproto/lex": "^0.2.3",
+    "@fontsource/nunito": "^5.2.7",
+    "@fontsource/open-sans": "^5.2.7",
+    "astro": "^7.1.0",
     "astro-icon": "^1.1.5",
-    "astrojs-atom": "^3.0.63",
-    "markdown-it": "^14.2.0",
+    "astro-og": "^0.3.2",
+    "astrojs-atom": "^4.0.16",
     "modern-normalize": "^3.0.1",
     "node-html-parser": "^7.1.0",
-    "sanitize-html": "^2.17.5",
-    "typeface-nunito": "1.1.13",
-    "typeface-open-sans": "1.1.13"
+    "sanitize-html": "^2.17.6",
+    "zod": "^4.4.3"
+  },
+  "allowScripts": {
+    "sharp@0.34.5": true,
+    "esbuild@0.28.1": true,
+    "core-js": false
   }
 }

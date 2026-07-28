@@ -1,0 +1,32 @@
+{
+  "id": "dev.npmx.feed.like",
+  "defs": {
+    "main": {
+      "key": "tid",
+      "type": "record",
+      "record": {
+        "type": "object",
+        "required": ["createdAt", "subjectRef"],
+        "properties": {
+          "subject": {
+            "ref": "com.atproto.repo.strongRef",
+            "type": "ref",
+            "description": "A strong reference to the dev.npmx.package record. If the package does not have a record in an atproto repo, this is not included."
+          },
+          "createdAt": {
+            "type": "string",
+            "format": "datetime"
+          },
+          "subjectRef": {
+            "type": "string",
+            "format": "uri",
+            "description": "The npmx URL to the package to allow for counting of packages that do not have a record in an atproto repo."
+          }
+        }
+      },
+      "description": "A like of a package on npmx"
+    }
+  },
+  "$type": "com.atproto.lexicon.schema",
+  "lexicon": 1
+}

@@ -1,20 +1,25 @@
 ---
+import profileImg from '#assets/profile.png'
+import MarginAtNotes from '#components/MarginAtNotes.astro'
+import NpmxLikes from '#components/NpmxLikes.astro'
 import ProfileCard from '#components/ProfileCard.astro'
 import SocialLink from '#components/SocialLink.astro'
 import BaseLayout from '#layouts/BaseLayout.astro'
 import { Icon } from 'astro-icon/components'
+import { Image } from 'astro:assets'
 ---
 
-<BaseLayout
-  displayTitle='Welcome'
-  description='A blog for NodeJS, web development, and stuff'
->
+<BaseLayout displayTitle='Welcome'>
   <ProfileCard>
-    <picture slot='image'>
-      <source srcset='/images/icons/profile-256x256.webp' type='image/webp' />
-      <source srcset='/images/icons/profile-256x256.jpg' type='image/jpeg' />
-      <img src='/images/icons/profile.png' alt='Mark Hernandez' />
-    </picture>
+    <Image
+      src={profileImg}
+      height={256}
+      width={256}
+      densities={[1, 1.5]}
+      alt='Mark Hernandez'
+      priority
+      slot='image'
+    />
 
     <p>
       Personal site and blog of Mark Hernandez. I'm a friend, a gaymer, a
@@ -69,7 +74,7 @@ import { Icon } from 'astro-icon/components'
             platform='LinkedIn'
             username='Mark Hernandez'
           >
-            <Icon name='fa7-brands:linkedin' slot='icon' aria-hidden />
+            <Icon name='fa7-brands:linkedin-in' slot='icon' aria-hidden />
           </SocialLink>
         </li>
 
@@ -85,6 +90,10 @@ import { Icon } from 'astro-icon/components'
       </ul>
     </div>
   </ProfileCard>
+  <div class='so-flexy'>
+    <MarginAtNotes />
+    <NpmxLikes />
+  </div>
 </BaseLayout>
 
 <style>
@@ -96,5 +105,14 @@ import { Icon } from 'astro-icon/components'
     list-style: none;
     margin: 0;
     padding: 0 0.25rem;
+  }
+
+  .so-flexy {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-size-7) var(--space-size-10);
+    @media (max-width: 40rem) {
+      grid-template-columns: 1fr;
+    }
   }
 </style>

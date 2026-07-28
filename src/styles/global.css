@@ -1,4 +1,6 @@
 @import url("../../node_modules/modern-normalize/modern-normalize.css");
+@import url("../../node_modules/@fontsource/nunito/latin.css");
+@import url("../../node_modules/@fontsource/open-sans/latin.css");
 
 /* Focus */
 * {
@@ -21,9 +23,9 @@
 /* Typography */
 :root {
   font-size: 1rem;
-  --font-nunito: 'Nunito', Arial, Helvetica, sans-serif;
-  --font-open-sans: 'Open Sans', Arial, Helvetica, sans-serif;
-  --font-hey-gorgeous: 'Hey Gorgeous', Arial, Helvetica, sans-serif;
+  --font-nunito: "Nunito", Arial, Helvetica, sans-serif;
+  --font-open-sans: "Open Sans", Arial, Helvetica, sans-serif;
+  --font-hey-gorgeous: "Hey Gorgeous", Arial, Helvetica, sans-serif;
 
   --font-size-1: 0.75rem;
   --font-size-2: 0.875rem;
@@ -189,4 +191,19 @@ p {
   position: absolute;
   white-space: nowrap;
   width: 1px;
+}
+
+.skip-link {
+  background-color: var(--background-color);
+  left: var(--space-size-3);
+  padding: var(--space-size-3) var(--space-size-2);
+  position: absolute;
+  top: var(--space-size-3);
+}
+
+.site-main {
+  margin: var(--space-size-7) auto;
+  max-width: 60em;
+  outline: none;
+  padding: 0 var(--space-size-5);
 }

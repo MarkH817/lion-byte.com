@@ -1,7 +1,7 @@
 {
   "main": [
     { "text": "Home", "url": "/" },
-    { "text": "About", "url": "/about/" },
-    { "text": "Blog", "url": "/blog/" }
+    { "text": "About", "url": "/about" },
+    { "text": "Blog", "url": "/blog" }
   ]
 }

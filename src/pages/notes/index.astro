@@ -2,15 +2,15 @@
 import BaseLayout from '#layouts/BaseLayout.astro'
 import { getCollection } from 'astro:content'
 
-const blogPosts = await getCollection('notes').then(list =>
-  list.toSorted((a, b) => b.data.date.valueOf() - a.data.date.valueOf())
+const blogPosts = await getCollection('notes').then((list) =>
+  list.toSorted((a, b) => b.data.date.valueOf() - a.data.date.valueOf()),
 )
 ---
 
 <BaseLayout title='Notes'>
   <ol class='feed-list list-unstyled'>
     {
-      blogPosts.map(post => (
+      blogPosts.map((post) => (
         <li>
           <a href={`/notes/${post.id}`}>{post.data.title}</a>
         </li>

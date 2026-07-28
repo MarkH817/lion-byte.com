@@ -1,0 +1,144 @@
+{
+  "id": "id.sifa.profile.self",
+  "defs": {
+    "main": {
+      "key": "literal:self",
+      "type": "record",
+      "record": {
+        "type": "object",
+        "required": ["createdAt"],
+        "properties": {
+          "about": {
+            "type": "string",
+            "maxLength": 50000,
+            "description": "Professional summary or about section. Longer-form than Bluesky's description field.",
+            "maxGraphemes": 5000
+          },
+          "langs": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "format": "language"
+            },
+            "maxLength": 3,
+            "description": "BCP 47 language tags indicating the user's primary professional languages."
+          },
+          "avatar": {
+            "type": "blob",
+            "accept": ["image/png", "image/jpeg"],
+            "maxSize": 1000000,
+            "description": "Professional-context avatar image. Overrides app.bsky.actor.profile.avatar when present."
+          },
+          "labels": {
+            "refs": ["com.atproto.label.defs#selfLabels"],
+            "type": "union",
+            "description": "Self-label values for the professional profile."
+          },
+          "openTo": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "knownValues": [
+                "id.sifa.defs#fullTimeRoles",
+                "id.sifa.defs#partTimeRoles",
+                "id.sifa.defs#contractRoles",
+                "id.sifa.defs#commissions",
+                "id.sifa.defs#boardPositions",
+                "id.sifa.defs#mentoringOthers",
+                "id.sifa.defs#beingMentored",
+                "id.sifa.defs#collaborations"
+              ]
+            },
+            "maxLength": 10,
+            "description": "Types of opportunities the user is open to. Empty array or omitted means not actively seeking."
+          },
+          "headline": {
+            "type": "string",
+            "maxLength": 1200,
+            "description": "Professional headline (e.g., 'Senior Engineer at Acme Corp'). Distinct from Bluesky's displayName.",
+            "maxGraphemes": 120
+          },
+          "location": {
+            "ref": "community.lexicon.location.address",
+            "type": "ref",
+            "description": "Professional location. Sifa enforces ISO 3166-1 alpha-2 country codes at the app layer."
+          },
+          "pronouns": {
+            "type": "string",
+            "maxLength": 200,
+            "description": "Free-form pronouns text. Professional-context override for app.bsky.actor.profile.pronouns.",
+            "maxGraphemes": 20
+          },
+          "createdAt": {
+            "type": "string",
+            "format": "datetime",
+            "description": "Client-declared timestamp when this profile was originally created."
+          },
+          "givenName": {
+            "type": "string",
+            "maxLength": 640,
+            "description": "Given (first) name. Maps to Schema.org Person.givenName. Optional; if absent, displayName is used for rendering.",
+            "maxGraphemes": 64
+          },
+          "familyName": {
+            "type": "string",
+            "maxLength": 640,
+            "description": "Family (last) name. Maps to Schema.org Person.familyName. Optional.",
+            "maxGraphemes": 64
+          },
+          "industries": {
+            "type": "array",
+            "items": {
+              "ref": "id.sifa.defs#industryDomain",
+              "type": "ref"
+            },
+            "maxLength": 10,
+            "description": "Professional industry/domain pairs. Each entry has a required industry and optional domain refinement. Replaces the former singular industry/domain fields."
+          },
+          "displayName": {
+            "type": "string",
+            "maxLength": 640,
+            "description": "Professional-context display name. Overrides app.bsky.actor.profile.displayName when present.",
+            "maxGraphemes": 64
+          },
+          "discoverable": {
+            "type": "boolean",
+            "description": "Whether the rendered profile page may be indexed by search engines and AI tools. Default true when absent. When false, the rendering app emits noindex directives and excludes the page from any sitemap or push-indexing protocol. Does not affect the public visibility of the underlying ATproto records, which remain readable by any client."
+          },
+          "availableToUtc": {
+            "type": "integer",
+            "maximum": 23,
+            "minimum": 0,
+            "description": "End of typical working hours in UTC (0-23). May wrap around midnight (e.g., from 22 to 06 for someone in Asia working US hours)."
+          },
+          "availableFromUtc": {
+            "type": "integer",
+            "maximum": 23,
+            "minimum": 0,
+            "description": "Start of typical working hours in UTC (0-23). Used with availableToUtc for search filtering by work-hours overlap. Set via local-time UI, converted to UTC by the client."
+          },
+          "preferredWorkplace": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "knownValues": [
+                "id.sifa.defs#onSite",
+                "id.sifa.defs#remote",
+                "id.sifa.defs#hybrid",
+                "id.sifa.defs#remoteLocal",
+                "id.sifa.defs#remoteRegion",
+                "id.sifa.defs#remoteGlobal"
+              ]
+            },
+            "maxLength": 5,
+            "description": "Preferred workplace arrangements. Orthogonal to openTo. Empty array or omitted means no preference. Prefer the scoped remote variants (remoteLocal, remoteRegion, remoteGlobal) over the generic 'remote' token."
+          }
+        }
+      },
+      "description": "The user's professional profile summary."
+    }
+  },
+  "$type": "com.atproto.lexicon.schema",
+  "lexicon": 1,
+  "description": "Professional profile summary. Singleton record providing professional identity beyond the base ATproto profile. Fields overlapping app.bsky.actor.profile (displayName, avatar, pronouns) act as optional professional-context overrides; absence means fall back to the bsky record. Structured name fields (givenName, familyName) extend rather than override displayName, since app.bsky.actor.profile has no structured-name primitive."
+}

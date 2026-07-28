@@ -1,12 +1,12 @@
 ---
+import profileImg from '#assets/profile.png'
 import Header from '#components/Header.astro'
 import SITE from '#data/site.json'
 import type { Image } from '#models'
-import globalStyles from '#styles/global.css?inline'
-import nunito400Url from 'typeface-nunito/files/nunito-latin-400.woff2?url'
-import 'typeface-nunito/index.css'
-import openSans400Url from 'typeface-open-sans/files/open-sans-latin-400.woff2?url'
-import 'typeface-open-sans/index.css'
+import nunito400Url from '@fontsource/nunito/files/nunito-latin-400-normal.woff2?url'
+import openSans400Url from '@fontsource/open-sans/files/open-sans-latin-400-normal.woff2?url'
+import { getImage } from 'astro:assets'
+import '#styles/global.css'
 
 const canonicalUrl = new URL(Astro.url.pathname, Astro.site)
 const rssUrl = new URL('rss.xml', Astro.site)
@@ -16,98 +16,103 @@ interface Props {
   displayTitle?: string
   description?: string
   image?: Image
+  ogType?: 'website' | 'article'
 }
 
-const { title, displayTitle = title, description, image } = Astro.props
+const {
+  title,
+  displayTitle = title,
+  description = 'Mark is a friend and software engineer with a focus on modern front-end development, accessibility, and performant web apps.',
+  // TODO: Create Open Graph card graphic to use as default
+  image = { src: profileImg.src, alt: '' },
+  ogType = 'website',
+} = Astro.props
 const pageTitle = title ? `${title} | ${SITE.name}` : SITE.name
+const cardImage = new URL(image.src, Astro.url.origin)
+const favicon = await getImage({
+  src: profileImg,
+  width: 32,
+  height: 32,
+  format: 'png',
+})
 ---
 
 <!doctype html>
-<html lang='en'>
+<html lang="en-US">
   <head>
-    <meta charset='UTF-8' />
-    <meta name='viewport' content='width=device-width, initial-scale=1.0' />
-    <meta http-equiv='X-UA-Compatible' content='ie=edge' />
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
 
-    <meta name='og:site_name' content={SITE.name} />
-    <meta name='og:title' content={pageTitle} />
-    <meta name='twitter:title' content={pageTitle} />
+    <meta name="og:type" content={ogType} />
+    <meta name="og:site_name" content={SITE.name} />
+    <meta name="og:title" content={pageTitle} />
+    <meta name="twitter:title" content={pageTitle} />
     <title>{pageTitle}</title>
 
-    <link rel='canonical' href={canonicalUrl} />
-    <meta name='og:url' content={canonicalUrl} />
+    <link rel="canonical" href={canonicalUrl} />
+    <meta name="og:url" content={canonicalUrl} />
 
     {
       description && (
         <>
-          <meta name='description' content={description} />
-          <meta name='og:description' content={description} />
-          <meta name='twitter:description' content={description} />
+          <meta name="description" content={description} />
+          <meta name="og:description" content={description} />
+          <meta name="twitter:description" content={description} />
         </>
       )
     }
 
-    <link rel='icon' href='/images/icons/profile-32x32.png' />
+    <link
+      rel="icon"
+      type={`image/${favicon.options.format}`}
+      href={favicon.src}
+    />
 
-    <meta name='pinterest' content='nopin' />
-    <meta name='og:type' content='website' />
-    <meta name='twitter:card' content='summary_large_image' />
-    <meta name='twitter:creator' content={SITE.twitter} />
+    <meta name="pinterest" content="nopin" />
+    <meta name="og:type" content="website" />
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:creator" content={SITE.twitter} />
     {
       image && (
         <>
-          <meta property='og:image' content={image.src} />
-          <meta property='og:image:alt' content={image.alt} />
-          <meta name='twitter:image' content={image.src} />
-          <meta name='twitter:image:alt' content={image.alt} />
+          <meta property="og:image" content={cardImage} />
+          <meta property="og:image:alt" content={image.alt} />
+          <meta name="twitter:image" content={cardImage} />
+          <meta name="twitter:image:alt" content={image.alt} />
         </>
       )
     }
-    <link rel='alternate' type='application/rss+xml' href={rssUrl} />
+    <link rel="alternate" type="application/rss+xml" href={rssUrl} />
 
     <link
-      rel='preload'
-      as='font'
-      type='font/woff2'
+      rel="preload"
+      as="font"
+      type="font/woff2"
       href={nunito400Url}
-      crossorigin='anonymous'
+      crossorigin="anonymous"
     />
     <link
-      rel='prefetch'
-      as='font'
-      type='font/woff2'
+      rel="prefetch"
+      as="font"
+      type="font/woff2"
       href={openSans400Url}
-      crossorigin='anonymous'
+      crossorigin="anonymous"
     />
-    <style is:inline set:html={globalStyles}></style>
+    <script is:inline>
+      document.documentElement.classList.add('js')
+    </script>
   </head>
   <body>
-    <a class='visually-hidden-focusable skip-link' href='#main-content'
+    <a class="visually-hidden-focusable skip-link" href="#main-content"
       >Skip to main content</a
     >
 
     <Header />
 
-    <main id='main-content' class='site-main' tabindex='-1'>
+    <main id="main-content" class="site-main" tabindex="-1">
       <h1>{displayTitle}</h1>
       <slot />
     </main>
   </body>
 </html>
-
-<style is:global>
-  .skip-link {
-    background-color: inherit;
-    left: var(--space-size-3);
-    padding: var(--space-size-3) var(--space-size-2);
-    position: absolute;
-    top: var(--space-size-3);
-  }
-
-  .site-main {
-    margin: var(--space-size-7) auto;
-    max-width: 60em;
-    outline: none;
-    padding: 0 var(--space-size-5);
-  }
-</style>

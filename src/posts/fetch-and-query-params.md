@@ -18,10 +18,10 @@ implementations of this.
 // Below will not work
 fetch('/api/item', {
   method: 'get',
-  body: JSON.stringify({ q: 'test' })
+  body: JSON.stringify({ q: 'test' }),
 })
-  .then(res => res.json())
-  .then(data => {
+  .then((res) => res.json())
+  .then((data) => {
     // ...
   })
 ```
@@ -35,10 +35,10 @@ optional.
 ```javascript
 // Desired: GET `/api/item?q=test`
 fetch(`/api/item?q=${encodeURIComponent('test')}`, {
-  method: 'get'
+  method: 'get',
 })
-  .then(res => res.json())
-  .then(data => {
+  .then((res) => res.json())
+  .then((data) => {
     // ...
   })
 ```
@@ -54,10 +54,10 @@ const url = new URL('/api/item', location.href)
 url.searchParams.append('q', 'test')
 
 fetch(url.toString(), {
-  method: 'get'
+  method: 'get',
 })
-  .then(res => res.json())
-  .then(data => {
+  .then((res) => res.json())
+  .then((data) => {
     // ...
   })
 ```

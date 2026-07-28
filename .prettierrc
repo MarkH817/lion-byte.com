@@ -1,10 +1,13 @@
 {
-  "arrowParens": "avoid",
   "semi": false,
   "singleQuote": true,
-  "jsxSingleQuote": true,
-  "trailingComma": "none",
   "overrides": [
+    {
+      "files": "*.css",
+      "options": {
+        "singleQuote": false
+      }
+    },
     {
       "files": "*.md",
       "options": {

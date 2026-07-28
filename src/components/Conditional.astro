@@ -1,0 +1,7 @@
+---
+interface Props {
+  if: boolean
+}
+---
+
+{Astro.props.if ? <slot /> : <slot name="else" />}
