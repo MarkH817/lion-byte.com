@@ -1,0 +1,84 @@
+---
+import { getCollection } from 'astro:content'
+import { groupBy, unique } from '#utils/list.ts'
+
+const bookmarks = await getCollection('marginAtNotes')
+const groupedBookmarks = groupBy(bookmarks, (b) => b.data.source)
+
+function getGroupInfo(group: typeof bookmarks) {
+  const item = group[0].data
+  return { title: item.title, source: item.source }
+}
+function getGroupTags(group: typeof bookmarks) {
+  return unique(group.flatMap((item) => item.data.tags))
+}
+---
+
+<h2>Bookmarks (via margin.at)</h2>
+
+{
+  groupedBookmarks.map((group) => {
+    const common = getGroupInfo(group.items)
+    const tags = getGroupTags(group.items)
+    return (
+      <article class="bookmark">
+        <h3 class="title">
+          <a href={common.source} target="_blank" rel="noopener noreferrer">
+            {common.title}{' '}
+            <span style="font-size: smaller;" aria-hidden>
+              &nearrow;
+            </span>
+          </a>
+        </h3>
+        <div class="hostname">{new URL(common.source).hostname}</div>
+        {tags.length > 0 ? (
+          <ul>
+            {tags.map((tag) => (
+              <li>{tag}</li>
+            ))}
+          </ul>
+        ) : null}
+        {group.items.map((item) =>
+          item.data.highlightQuote ? (
+            <blockquote cite={item.data.source}>
+              {item.data.highlightQuote}
+            </blockquote>
+          ) : null,
+        )}
+      </article>
+    )
+  })
+}
+
+<style>
+  .bookmark {
+    line-height: 1;
+    margin-block-end: var(--space-size-5);
+  }
+
+  .title {
+    margin: 0;
+  }
+
+  .hostname {
+    font-size: var(--font-size-2);
+    font-weight: bold;
+  }
+
+  blockquote {
+    font-style: italic;
+    line-height: 1.25;
+    max-width: 60ch;
+    font-size: var(--font-size-3);
+    border-radius: var(--space-size-3);
+    border-inline-start: 2px solid var(--color-main);
+    margin: 0;
+    margin-block-start: var(--space-size-3);
+    padding-inline: var(--space-size-5);
+    padding-block: var(--space-size-3);
+    white-space: pre-wrap;
+    & + & {
+      margin-block-start: var(--space-size-2);
+    }
+  }
+</style>
