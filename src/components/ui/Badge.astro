@@ -1,0 +1,26 @@
+---
+import { Icon } from 'astro-icon/components'
+
+interface Props {
+  icon?: string
+  label: string
+}
+const { icon, label } = Astro.props
+---
+
+<div class="badge">
+  {icon ? <Icon class="icon" name={icon} aria-hidden /> : null}
+  <div class="label">{label}</div>
+</div>
+
+<style>
+  .badge {
+    border-radius: var(--space-size-1);
+    display: inline-flex;
+    flex-direction: row;
+    font-size: var(--font-size-1);
+    gap: var(--space-size-1);
+    font-weight: bold;
+    line-height: 1;
+  }
+</style>
