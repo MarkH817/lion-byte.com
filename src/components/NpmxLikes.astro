@@ -8,21 +8,21 @@ const likes = await getCollection('npmxLikes').then((l) =>
 )
 ---
 
-<section class='npmx-likes' aria-labelledby={id}>
-  <h2 {id}>{likes.length} Liked Packages (via npmx)</h2>
+<section class="npmx-likes" aria-labelledby={id}>
+  <h2 {id}>{likes.length} Liked Packages (via npmx.dev)</h2>
 
-  <ul class='list-unstyled'>
+  <ul class="list-unstyled package-list">
     {
       likes.map((like) => (
         <li>
           <a
-            class='package'
+            class="package"
             href={like.data.subjectRef}
-            target='_blank'
-            rel='noopener noreferrer'
+            target="_blank"
+            rel="noopener noreferrer"
           >
-            <Icon name='fa7-solid:box-open' aria-hidden />
-            {like.data.packageName}
+            <Icon name="fa7-solid:box-open" aria-hidden />
+            <span>{like.data.packageName}</span>
           </a>
         </li>
       ))
@@ -31,13 +31,21 @@ const likes = await getCollection('npmxLikes').then((l) =>
 </section>
 
 <style>
-  .npmx-likes {
-    font-size: var(--font-size-4);
-    line-height: 1.5;
+  .package-list {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-size-1) var(--space-size-3);
+    @media (max-width: 40rem) {
+      grid-template-columns: 1fr;
+    }
   }
 
   .package {
-    font-family: 'Courier New', Courier, monospace;
+    display: inline-flex;
+    gap: var(--space-size-2);
+    font-size: var(--font-size-4);
+    align-items: center;
+    line-height: 1;
     outline-offset: 0.25em;
   }
 </style>
