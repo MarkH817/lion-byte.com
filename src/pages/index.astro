@@ -90,10 +90,8 @@ import { Image } from 'astro:assets'
       </ul>
     </div>
   </ProfileCard>
-  <div>
-    <NpmxLikes />
-    <Bookmarks />
-  </div>
+  <NpmxLikes />
+  <Bookmarks />
 </BaseLayout>
 
 <style>
@@ -105,14 +103,5 @@ import { Image } from 'astro:assets'
     list-style: none;
     margin: 0;
     padding: 0 0.25rem;
-  }
-
-  .so-flexy {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: var(--space-size-7) var(--space-size-10);
-    @media (max-width: 40rem) {
-      grid-template-columns: 1fr;
-    }
   }
 </style>

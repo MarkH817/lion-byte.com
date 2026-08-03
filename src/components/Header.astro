@@ -2,11 +2,11 @@
 import navigation from '#data/navigation.json' with { type: 'json' }
 ---
 
-<header class='header'>
-  <a class='header-name' href='/'>Mark Hernandez</a>
+<header class="header">
+  <a class="header-name" href="/">Mark Hernandez</a>
 
-  <nav class='nav' aria-label='Main'>
-    <ul class='nav-list list-unstyled'>
+  <nav class="nav" aria-label="Main">
+    <ul class="nav-list list-unstyled">
       {
         navigation.main.map((item) => (
           <li>
@@ -39,9 +39,12 @@ import navigation from '#data/navigation.json' with { type: 'json' }
     justify-content: space-between;
     padding: var(--space-size-3) 0;
     gap: var(--space-size-3);
-    @media screen and (max-width: 60rem) {
+    @media (max-width: 60rem) {
       flex-direction: column;
       justify-content: center;
+    }
+    @media print {
+      display: none;
     }
   }
 

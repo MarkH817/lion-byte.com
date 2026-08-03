@@ -9,13 +9,13 @@ interface Props {
 const { frontmatter } = Astro.props
 ---
 
-<BaseLayout title={frontmatter.title} ogType='article'>
-  <article class='post'>
+<BaseLayout title={frontmatter.title} ogType="article">
+  <article class="post">
     <header>
       <LocalTimestamp date={frontmatter.date} showDate />
     </header>
 
-    <div class='post-content'>
+    <div class="post-content">
       <slot />
     </div>
   </article>
@@ -24,13 +24,13 @@ const { frontmatter } = Astro.props
 <style>
   .post {
     font-size: var(--font-size-5);
-    /* screen-lg */
-    @media screen and (min-width: 60rem) {
-      max-width: 45ch;
-    }
 
     header {
       margin-bottom: var(--space-size-6);
+    }
+
+    p {
+      max-width: 70ch;
     }
   }
 

@@ -8,7 +8,7 @@ const likes = await getCollection('npmxLikes').then((l) =>
 )
 ---
 
-<section class="npmx-likes" aria-labelledby={id}>
+<section aria-labelledby={id}>
   <h2 {id}>{likes.length} Liked Packages (via npmx.dev)</h2>
 
   <ul class="list-unstyled package-list">
@@ -21,7 +21,11 @@ const likes = await getCollection('npmxLikes').then((l) =>
             target="_blank"
             rel="noopener noreferrer"
           >
-            <Icon name="fa7-solid:box-open" aria-hidden />
+            <Icon
+              name="fa7-solid:box-open"
+              class:list="package-icon"
+              aria-hidden
+            />
             <span>{like.data.packageName}</span>
           </a>
         </li>
@@ -33,11 +37,8 @@ const likes = await getCollection('npmxLikes').then((l) =>
 <style>
   .package-list {
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: repeat(auto-fill, minmax(min-content, 25rem));
     gap: var(--space-size-1) var(--space-size-3);
-    @media (max-width: 40rem) {
-      grid-template-columns: 1fr;
-    }
   }
 
   .package {
@@ -47,5 +48,9 @@ const likes = await getCollection('npmxLikes').then((l) =>
     align-items: center;
     line-height: 1;
     outline-offset: 0.25em;
+  }
+
+  .package-icon {
+    flex-shrink: 0;
   }
 </style>
