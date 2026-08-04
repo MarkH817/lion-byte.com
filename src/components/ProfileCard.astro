@@ -8,18 +8,18 @@ const { reversed = false } = Astro.props
 <article class:list={['profile-card', { 'profile-card--reversed': reversed }]}>
   {
     !reversed && (
-      <div class='profile-card-image-container'>
-        <slot name='image' />
+      <div class="profile-card-image-container">
+        <slot name="image" />
       </div>
     )
   }
-  <div class='profile-card-content'>
+  <div class="profile-card-content">
     <slot />
   </div>
   {
     reversed && (
-      <div class='profile-card-image-container'>
-        <slot name='image' />
+      <div class="profile-card-image-container">
+        <slot name="image" />
       </div>
     )
   }

@@ -1,33 +1,37 @@
 ---
+import { Icon } from 'astro-icon/components'
+
 interface Props {
   href: string
   platform: string
+  icon: string
   username: string
 }
 
-const { href, platform, username } = Astro.props
+const { icon, href, platform, username } = Astro.props
 ---
 
 <a
-  class='social-link'
+  class="social-link"
   href={href}
-  target='_blank'
-  rel='me noopener noreferrer'
+  target="_blank"
+  rel="me noopener noreferrer"
   aria-label={`${platform}: ${username}`}
 >
-  <div class='container'>
-    <slot name='icon' />
-    <span>
-      {username}
-    </span>
-  </div>
+  <Icon name={icon} class:list="icon" aria-hidden />
+  <span>
+    {username}
+  </span>
 </a>
 
 <style>
   .social-link {
-    display: block;
-    padding: 0.75rem 1rem;
-    text-decoration: none;
+    display: inline-flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    align-items: center;
+    gap: var(--space-size-1);
+    padding: var(--space-size-3) var(--space-size-4);
     @media (prefers-reduced-motion: no-preference) {
       transition: transform 50ms ease-in-out;
     }
@@ -40,17 +44,9 @@ const { href, platform, username } = Astro.props
     &:active {
       transform: rotate(1deg) scale(1.05);
     }
+  }
 
-    .container {
-      display: flex;
-      flex-direction: row;
-      flex-wrap: nowrap;
-      align-items: center;
-      gap: var(--space-size-1);
-    }
-
-    svg {
-      font-size: 1em;
-    }
+  .icon {
+    flex-shrink: 0;
   }
 </style>

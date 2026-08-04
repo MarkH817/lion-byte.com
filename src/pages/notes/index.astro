@@ -7,8 +7,8 @@ const blogPosts = await getCollection('notes').then((list) =>
 )
 ---
 
-<BaseLayout title='Notes'>
-  <ol class='feed-list list-unstyled'>
+<BaseLayout title="Notes">
+  <ol class="feed-list list-unstyled">
     {
       blogPosts.map((post) => (
         <li>
@@ -23,6 +23,7 @@ const blogPosts = await getCollection('notes').then((list) =>
   .feed-list {
     li {
       margin: var(--space-size-6) 0;
+      text-wrap: balance;
     }
 
     a {

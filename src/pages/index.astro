@@ -5,7 +5,6 @@ import NpmxLikes from '#components/atmosphere/NpmxLikes.astro'
 import ProfileCard from '#components/ProfileCard.astro'
 import SocialLink from '#components/SocialLink.astro'
 import BaseLayout from '#layouts/BaseLayout.astro'
-import { Icon } from 'astro-icon/components'
 import { Image } from 'astro:assets'
 ---
 
@@ -27,65 +26,54 @@ import { Image } from 'astro:assets'
     </p>
 
     <div class="social-links">
-      <ul aria-label="Social media links">
+      <ul aria-label="Social media">
         <li>
           <SocialLink
             href="https://kind.social/@lionbyte"
             platform="Mastodon"
             username="lionbyte@kind.social"
-          >
-            <Icon name="fa7-brands:mastodon" slot="icon" aria-hidden />
-          </SocialLink>
+            icon="fa7-brands:mastodon"
+          />
         </li>
-
         <li>
           <SocialLink
             href="https://bsky.app/profile/lion-byte.com"
             platform="Bluesky"
             username="@lion-byte.com"
-          >
-            <Icon name="fa7-brands:bluesky" slot="icon" aria-hidden />
-          </SocialLink>
+            icon="fa7-brands:bluesky"
+          />
         </li>
-
         <li>
           <SocialLink
             href="https://twitch.com/lion_byte"
             platform="Twitch"
             username="lion_byte"
-          >
-            <Icon name="fa7-brands:twitch" slot="icon" aria-hidden />
-          </SocialLink>
+            icon="fa7-brands:twitch"
+          />
         </li>
-
         <li>
           <SocialLink
             href="https://github.com/MarkH817/"
             platform="GitHub"
             username="MarkH817"
-          >
-            <Icon name="fa7-brands:github" slot="icon" aria-hidden />
-          </SocialLink>
+            icon="fa7-brands:github"
+          />
         </li>
-
         <li>
           <SocialLink
             href="https://www.linkedin.com/in/markhernandez1"
             platform="LinkedIn"
             username="Mark Hernandez"
-          >
-            <Icon name="fa7-brands:linkedin-in" slot="icon" aria-hidden />
-          </SocialLink>
+            icon="fa7-brands:linkedin-in"
+          />
         </li>
-
         <li>
           <SocialLink
             href="mailto:mark+do.not.spam.me@lion-byte.com"
             platform="Email"
             username="mark@lion-byte.com"
-          >
-            <Icon name="fa7-solid:envelope" slot="icon" aria-hidden />
-          </SocialLink>
+            icon="fa7-solid:envelope"
+          />
         </li>
       </ul>
     </div>
