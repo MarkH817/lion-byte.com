@@ -16,6 +16,7 @@ jobs:
       - uses: actions/setup-node@v7
         with:
           node-version: '24'
-      - run: npm ci --strict-allow-scripts
+      - run: npm i -g npm@12
+      - run: npm ci
       - run: npm run lex:build
       - run: npm test
