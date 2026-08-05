@@ -1,5 +1,6 @@
 {
   "name": "lion-byte.com",
+  "private": true,
   "version": "2.0.0",
   "description": "Mark Hernandez's portfolio site",
   "author": "Mark Hernandez <mark@lion-byte.com> (https://www.lion-byte.com)",
@@ -75,6 +76,7 @@
   "allowScripts": {
     "sharp@0.34.5": true,
     "esbuild@0.28.1": true,
-    "core-js": false
+    "core-js": false,
+    "fsevents": false
   }
 }
