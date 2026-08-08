@@ -37,14 +37,6 @@ import { Image } from 'astro:assets'
         </li>
         <li>
           <SocialLink
-            href="https://bsky.app/profile/lion-byte.com"
-            platform="Bluesky"
-            username="@lion-byte.com"
-            icon="fa7-brands:bluesky"
-          />
-        </li>
-        <li>
-          <SocialLink
             href="https://twitch.com/lion_byte"
             platform="Twitch"
             username="lion_byte"
@@ -64,7 +56,7 @@ import { Image } from 'astro:assets'
             href="https://www.linkedin.com/in/markhernandez1"
             platform="LinkedIn"
             username="Mark Hernandez"
-            icon="fa7-brands:linkedin-in"
+            icon="fa7-brands:linkedin"
           />
         </li>
         <li>
@@ -78,6 +70,48 @@ import { Image } from 'astro:assets'
       </ul>
     </div>
   </ProfileCard>
+
+  <div class="social-links">
+    <h2>Around the Atmosphere (@lion-byte.com)</h2>
+    <ul aria-label="Atmosphere">
+      <li>
+        <SocialLink
+          href="https://bsky.app/profile/lion-byte.com"
+          platform="Bluesky"
+          icon="fa7-brands:bluesky"
+        />
+      </li>
+      <li>
+        <SocialLink
+          href="https://tangled.org/lion-byte.com"
+          platform="Tangled"
+          icon="fa7-solid:code"
+        />
+      </li>
+      <li>
+        <SocialLink
+          href="https://sifa.id/p/lion-byte.com"
+          platform="Sifa"
+          icon="fa7-solid:id-card"
+        />
+      </li>
+      <li>
+        <SocialLink
+          href="https://margin.at/profile/lion-byte.com"
+          platform="Margin"
+          icon="fa7-solid:bookmark"
+        />
+      </li>
+      <li>
+        <SocialLink
+          href="https://semble.so/profile/lion-byte.com"
+          platform="Semble"
+          icon="fa7-solid:plug"
+        />
+      </li>
+    </ul>
+  </div>
+
   <NpmxLikes />
   <Bookmarks />
 </BaseLayout>
@@ -87,7 +121,6 @@ import { Image } from 'astro:assets'
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
-    justify-content: center;
     list-style: none;
     margin: 0;
     padding: 0 0.25rem;

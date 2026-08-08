@@ -47,7 +47,9 @@ const likes = await getCollection('npmxLikes').then((l) =>
     font-size: var(--font-size-4);
     align-items: center;
     line-height: 1;
-    outline-offset: 0.25em;
+    padding: var(--space-size-2) var(--space-size-4);
+    border-radius: var(--space-size-2);
+    border: 1px dotted currentColor;
   }
 
   .package-icon {

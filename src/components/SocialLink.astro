@@ -5,7 +5,7 @@ interface Props {
   href: string
   platform: string
   icon: string
-  username: string
+  username?: string
 }
 
 const { icon, href, platform, username } = Astro.props
@@ -16,11 +16,11 @@ const { icon, href, platform, username } = Astro.props
   href={href}
   target="_blank"
   rel="me noopener noreferrer"
-  aria-label={`${platform}: ${username}`}
+  aria-label={username ? `${platform}: ${username}` : platform}
 >
   <Icon name={icon} class:list="icon" aria-hidden />
   <span>
-    {username}
+    {username ?? platform}
   </span>
 </a>
 
