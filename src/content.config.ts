@@ -2,7 +2,7 @@ import { getMarginAtNotes, MarginNoteCollection } from '#loaders/at.margin.ts'
 import { getNpmxLikes, NpmxLikesCollection } from '#loaders/dev.npmx.ts'
 import { getPositions, PositionCollection } from '#loaders/id.sifa.ts'
 import { isCheckMode } from '#loaders/utils/is-check-mode.ts'
-import { postSchema } from '#models'
+import { postSchema } from '#models/post.model.ts'
 import { glob } from 'astro/loaders'
 import { defineCollection } from 'astro:content'
 
