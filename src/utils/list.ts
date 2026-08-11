@@ -1,7 +1,7 @@
 import type { NonEmptyList } from '#types/list.ts'
 
 export function groupBy<T, V extends string | number>(
-  list: T[],
+  list: Iterable<T>,
   keyFn: (item: T) => V,
 ) {
   const map = new Map<V, NonEmptyList<T>>()
@@ -16,6 +16,6 @@ export function groupBy<T, V extends string | number>(
   return Array.from(map).map(([key, items]) => ({ key, items }))
 }
 
-export function unique<T>(list: T[]): T[] {
+export function unique<T>(list: Iterable<T>): T[] {
   return Array.from(new Set(list))
 }
