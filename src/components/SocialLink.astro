@@ -34,15 +34,14 @@ const { icon, href, platform, username } = Astro.props
     padding: var(--space-size-3) var(--space-size-4);
     @media (prefers-reduced-motion: no-preference) {
       transition: transform 50ms ease-in-out;
-    }
+      &:hover,
+      &:focus {
+        transform: rotate(3deg) scale(1.15);
+      }
 
-    &:hover,
-    &:focus {
-      transform: rotate(3deg) scale(1.15);
-    }
-
-    &:active {
-      transform: rotate(1deg) scale(1.05);
+      &:active {
+        transform: rotate(1deg) scale(1.05);
+      }
     }
   }
 
