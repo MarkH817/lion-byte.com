@@ -1,7 +1,11 @@
 ---
 import profileImg from '#assets/profile.png'
 import Header from '#components/Header.astro'
-import SITE from '#data/site.json'
+import LD from '#components/LD.astro'
+import AT from '#data/at.json' with { type: 'json' }
+import LION from '#data/lion.json' with { type: 'json' }
+import SOCIALS from '#data/socials.json' with { type: 'json' }
+import SITE from '#data/site.json' with { type: 'json' }
 import type { ImageData } from '#types/image.ts'
 import nunito400Url from '@fontsource/nunito/files/nunito-latin-400-normal.woff2?url'
 import openSans400Url from '@fontsource/open-sans/files/open-sans-latin-400-normal.woff2?url'
@@ -22,7 +26,7 @@ interface Props {
 const {
   title,
   displayTitle = title,
-  description = 'Mark is a friend and software engineer with a focus on modern front-end development, accessibility, and performant web apps.',
+  description = SITE.description,
   // TODO: Create Open Graph card graphic to use as default
   image = { src: profileImg.src, alt: '' },
   ogType = 'website',
@@ -44,24 +48,10 @@ const favicon = await getImage({
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
 
-    <meta name="og:type" content={ogType} />
-    <meta name="og:site_name" content={SITE.name} />
-    <meta name="og:title" content={pageTitle} />
-    <meta name="twitter:title" content={pageTitle} />
     <title>{pageTitle}</title>
 
     <link rel="canonical" href={canonicalUrl} />
-    <meta name="og:url" content={canonicalUrl} />
-
-    {
-      description && (
-        <>
-          <meta name="description" content={description} />
-          <meta name="og:description" content={description} />
-          <meta name="twitter:description" content={description} />
-        </>
-      )
-    }
+    <meta name="description" content={description} />
 
     <link
       rel="icon"
@@ -69,20 +59,42 @@ const favicon = await getImage({
       href={favicon.src}
     />
 
-    <meta name="pinterest" content="nopin" />
-    <meta name="og:type" content="website" />
+    <meta property="og:type" content={ogType} />
+    <meta property="og:site_name" content={SITE.name} />
+    <meta property="og:title" content={pageTitle} />
+    <meta property="og:url" content={canonicalUrl} />
+    <meta property="og:description" content={description} />
+    <meta property="og:image" content={cardImage} />
+    <meta property="og:image:alt" content={image.alt} />
+
+    <meta name="twitter:title" content={pageTitle} />
+    <meta name="twitter:description" content={description} />
     <meta name="twitter:card" content="summary" />
     <meta name="twitter:creator" content={SITE.twitter} />
-    {
-      image && (
-        <>
-          <meta property="og:image" content={cardImage} />
-          <meta property="og:image:alt" content={image.alt} />
-          <meta name="twitter:image" content={cardImage} />
-          <meta name="twitter:image:alt" content={image.alt} />
-        </>
-      )
-    }
+    <meta name="twitter:image" content={cardImage} />
+    <meta name="twitter:image:alt" content={image.alt} />
+
+    <meta name="pinterest" content="nopin" />
+
+    <LD
+      schema={{
+        '@type': 'WebSite',
+        name: SITE.name,
+        url: SITE.url,
+        description: SITE.description,
+      }}
+    />
+
+    <LD
+      schema={{
+        '@type': 'Person',
+        givenName: LION.firstName,
+        familyName: LION.lastName,
+        pronouns: LION.pronouns,
+        sameAs: AT.places.map((s) => s.url).concat(SOCIALS.map((s) => s.url)),
+      }}
+    />
+
     <link rel="alternate" type="application/rss+xml" href={rssUrl} />
 
     <link

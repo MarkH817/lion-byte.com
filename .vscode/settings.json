@@ -20,14 +20,18 @@
     "fontsource",
     "frontmatter",
     "iconify",
+    "lionbyte",
+    "nopin",
     "notecards",
     "npmx",
     "nunito",
     "rkey",
     "satteri",
+    "Semble",
     "sifa",
     "taze",
     "vitest"
   ],
+  "editor.formatOnSave": true,
   "js/ts.tsdk.path": "node_modules/typescript/lib"
 }

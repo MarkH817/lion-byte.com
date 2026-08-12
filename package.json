@@ -53,6 +53,7 @@
     "npm-run-all2": "^9.0.3",
     "prettier": "^3.9.6",
     "prettier-plugin-astro": "^0.14.1",
+    "schema-dts": "^2.0.0",
     "typescript": "^6.0.3",
     "vitest": "^4.1.10"
   },

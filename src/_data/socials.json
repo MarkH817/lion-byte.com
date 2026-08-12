@@ -1,0 +1,26 @@
+[
+  {
+    "platform": "Mastodon",
+    "url": "https://kind.social/@lionbyte",
+    "handle": "lionbyte@kind.social",
+    "icon": "fa7-brands:mastodon"
+  },
+  {
+    "platform": "Twitch",
+    "url": "https://twitch.com/lion_byte",
+    "handle": "lion_byte",
+    "icon": "fa7-brands:twitch"
+  },
+  {
+    "platform": "GitHub",
+    "url": "https://github.com/MarkH817/",
+    "handle": "MarkH817",
+    "icon": "fa7-brands:github"
+  },
+  {
+    "platform": "LinkedIn",
+    "url": "https://www.linkedin.com/in/markhernandez1",
+    "handle": "Mark Hernandez",
+    "icon": "fa7-brands:linkedin"
+  }
+]

@@ -1,0 +1,14 @@
+---
+import type { Person, WebSite, Graph } from 'schema-dts'
+
+interface Props {
+  schema: Person | WebSite | Graph
+}
+const { schema } = Astro.props
+---
+
+<script
+  is:inline
+  type="application/ld+json"
+  set:html={JSON.stringify(schema)}
+/>

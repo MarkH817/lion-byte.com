@@ -1,4 +1,31 @@
 {
   "handle": "lion-byte.com",
-  "pdsUrl": "https://bsky.social"
+  "pdsUrl": "https://bsky.social",
+  "places": [
+    {
+      "platform": "Bluesky",
+      "url": "https://bsky.app/profile/lion-byte.com",
+      "icon": "fa7-brands:bluesky"
+    },
+    {
+      "platform": "Tangled",
+      "url": "https://tangled.org/lion-byte.com",
+      "icon": "fa7-solid:code"
+    },
+    {
+      "platform": "Sifa",
+      "url": "https://sifa.id/p/lion-byte.com",
+      "icon": "fa7-solid:id-card"
+    },
+    {
+      "platform": "Margin",
+      "url": "https://margin.at/profile/lion-byte.com",
+      "icon": "fa7-solid:bookmark"
+    },
+    {
+      "platform": "Semble",
+      "url": "https://semble.so/profile/lion-byte.com",
+      "icon": "fa7-solid:plug"
+    }
+  ]
 }

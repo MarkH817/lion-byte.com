@@ -4,6 +4,8 @@ import Bookmarks from '#components/atmosphere/Bookmarks.astro'
 import NpmxLikes from '#components/atmosphere/NpmxLikes.astro'
 import ProfileCard from '#components/ProfileCard.astro'
 import SocialLink from '#components/SocialLink.astro'
+import AT from '#data/at.json' with { type: 'json' }
+import SOCIALS from '#data/socials.json' with { type: 'json' }
 import BaseLayout from '#layouts/BaseLayout.astro'
 import { Image } from 'astro:assets'
 ---
@@ -27,38 +29,18 @@ import { Image } from 'astro:assets'
 
     <div class="social-links">
       <ul aria-label="Social media">
-        <li>
-          <SocialLink
-            href="https://kind.social/@lionbyte"
-            platform="Mastodon"
-            username="lionbyte@kind.social"
-            icon="fa7-brands:mastodon"
-          />
-        </li>
-        <li>
-          <SocialLink
-            href="https://twitch.com/lion_byte"
-            platform="Twitch"
-            username="lion_byte"
-            icon="fa7-brands:twitch"
-          />
-        </li>
-        <li>
-          <SocialLink
-            href="https://github.com/MarkH817/"
-            platform="GitHub"
-            username="MarkH817"
-            icon="fa7-brands:github"
-          />
-        </li>
-        <li>
-          <SocialLink
-            href="https://www.linkedin.com/in/markhernandez1"
-            platform="LinkedIn"
-            username="Mark Hernandez"
-            icon="fa7-brands:linkedin"
-          />
-        </li>
+        {
+          SOCIALS.map((s) => (
+            <li>
+              <SocialLink
+                href={s.url}
+                platform={s.platform}
+                username={s.handle}
+                icon={s.icon}
+              />
+            </li>
+          ))
+        }
         <li>
           <SocialLink
             href="mailto:mark+do.not.spam.me@lion-byte.com"
@@ -74,41 +56,13 @@ import { Image } from 'astro:assets'
   <div class="social-links">
     <h2>Around the Atmosphere (@lion-byte.com)</h2>
     <ul aria-label="Atmosphere">
-      <li>
-        <SocialLink
-          href="https://bsky.app/profile/lion-byte.com"
-          platform="Bluesky"
-          icon="fa7-brands:bluesky"
-        />
-      </li>
-      <li>
-        <SocialLink
-          href="https://tangled.org/lion-byte.com"
-          platform="Tangled"
-          icon="fa7-solid:code"
-        />
-      </li>
-      <li>
-        <SocialLink
-          href="https://sifa.id/p/lion-byte.com"
-          platform="Sifa"
-          icon="fa7-solid:id-card"
-        />
-      </li>
-      <li>
-        <SocialLink
-          href="https://margin.at/profile/lion-byte.com"
-          platform="Margin"
-          icon="fa7-solid:bookmark"
-        />
-      </li>
-      <li>
-        <SocialLink
-          href="https://semble.so/profile/lion-byte.com"
-          platform="Semble"
-          icon="fa7-solid:plug"
-        />
-      </li>
+      {
+        AT.places.map((s) => (
+          <li>
+            <SocialLink href={s.url} platform={s.platform} icon={s.icon} />
+          </li>
+        ))
+      }
     </ul>
   </div>
 
