@@ -159,6 +159,10 @@ h6,
 a {
   color: var(--link-color);
 
+  &:hover,
+  &:focus {
+    text-decoration: dashed underline;
+  }
   &:active {
     color: var(--link-color--active);
   }
