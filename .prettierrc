@@ -7,13 +7,6 @@
       "options": {
         "singleQuote": false
       }
-    },
-    {
-      "files": "*.md",
-      "options": {
-        "printWidth": 80,
-        "proseWrap": "always"
-      }
     }
   ],
   "plugins": ["prettier-plugin-astro"]
