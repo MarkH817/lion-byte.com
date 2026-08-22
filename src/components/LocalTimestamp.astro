@@ -3,11 +3,13 @@ interface Props {
   date?: Date
   showDate?: boolean
   showTime?: boolean
+  class?: string | string[]
 }
 const {
-  date: date = new Date(),
+  date = new Date(),
   showDate = true,
   showTime = false,
+  class: className,
 } = Astro.props
 const staticFallback = new Intl.DateTimeFormat('en-US', {
   dateStyle: showDate ? 'long' : undefined,
@@ -20,7 +22,8 @@ const staticFallback = new Intl.DateTimeFormat('en-US', {
   data-local-ts-date={showDate ? true : undefined}
   data-local-ts-time={showTime ? true : undefined}
   datetime={date.toISOString()}
-  class="timestamp">{staticFallback}</time
+  class="timestamp"
+  class:list={className}>{staticFallback}</time
 >
 
 <script>
