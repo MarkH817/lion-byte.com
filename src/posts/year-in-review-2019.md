@@ -1,5 +1,5 @@
 ---
-date: 2020-01-18
+date: 2020-01-18T18:00:00Z
 title: Year in Review - 2019
 description: Retrospective of my 2019
 ---

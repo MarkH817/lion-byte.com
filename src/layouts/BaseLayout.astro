@@ -64,6 +64,7 @@ const favicon = await getImage({
     <meta property="og:title" content={pageTitle} />
     <meta property="og:url" content={canonicalUrl} />
     <meta property="og:description" content={description} />
+    <meta property="og:locale" content="en-US" />
     <meta property="og:image" content={cardImage} />
     <meta property="og:image:alt" content={image.alt} />
 
@@ -75,6 +76,8 @@ const favicon = await getImage({
     <meta name="twitter:image:alt" content={image.alt} />
 
     <meta name="pinterest" content="nopin" />
+
+    <slot name="additional-meta" />
 
     <LD
       schema={{

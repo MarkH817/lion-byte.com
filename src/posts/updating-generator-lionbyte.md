@@ -1,5 +1,5 @@
 ---
-date: 2018-03-11
+date: 2018-03-11T17:00:00Z
 title: Updating generator-lionbyte
 description: Removing the transpile step from my "generator-lionbyte" package.
 ---

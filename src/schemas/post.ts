@@ -5,5 +5,3 @@ export const postSchema = z.object({
   title: z.string(),
   description: z.string(),
 })
-
-export type PostFrontmatter = z.infer<typeof postSchema>

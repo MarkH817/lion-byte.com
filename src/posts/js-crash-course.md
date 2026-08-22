@@ -1,5 +1,5 @@
 ---
-date: 2018-07-10
+date: 2018-07-10T17:00:00Z
 title: JavaScript Crash Course
 description: Quick guide to JavaScript that I wrote for my team in my senior capstone course project.
 ---
@@ -144,7 +144,9 @@ For JavaScript that is transpiled with `webpack`, `parcel`, or any other bundler
 ```javascript
 // (3) Exporting as it is defined
 
-export const addNums = (a, b) => a + b
+export const addNums = (a, b) => {
+  return a + b
+}
 export function multiplyNums(a, b) {
   return a * b
 }
