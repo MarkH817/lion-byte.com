@@ -1,6 +1,7 @@
 ---
 date: 2018-12-15
 title: Commuting and Podcasts
+description: Podcasts I listened to during my long commutes.
 ---
 
 Ha, well it's been a while since I last wrote a post here. Working on summer projects, finishing my last classes, and moving to Omaha filled up my past 6 months. During that time, I've been commuting to Lincoln, which was lengthy compared to having everything within 15 minutes.

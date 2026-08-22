@@ -9,7 +9,11 @@ interface Props {
 const { frontmatter } = Astro.props
 ---
 
-<BaseLayout title={frontmatter.title} ogType="article">
+<BaseLayout
+  title={frontmatter.title}
+  description={frontmatter.description}
+  ogType="article"
+>
   <article class="post">
     <header>
       <LocalTimestamp date={frontmatter.date} showDate />

@@ -1,6 +1,7 @@
 ---
 date: 2018-02-16
 title: Hello
+description: Hello! Welcome to the 3rd (but never final) version of this site.
 ---
 
 Hello! My name is Mark Hernandez, and I am a web developer.

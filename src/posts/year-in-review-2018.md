@@ -1,6 +1,7 @@
 ---
 date: 2018-12-29
 title: Year in Review - 2018
+description: Retrospective of my 2018
 ---
 
 ## 2018

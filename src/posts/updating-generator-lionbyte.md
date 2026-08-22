@@ -1,6 +1,7 @@
 ---
 date: 2018-03-11
 title: Updating generator-lionbyte
+description: Removing the transpile step from my "generator-lionbyte" package.
 ---
 
 On March 9, 2018, I updated my package [`generator-lionbyte`](https://www.npmjs.com/package/generator-lionbyte) to v1.0.1!
@@ -18,7 +19,7 @@ You can check the diffs on this page:
 
 ## Why I Decided to Update
 
-I was using VS Code's debugger for Java for homework in my network communications class, and I thought it was a pretty great tool. I wanted to do a better job of debugging my JavaScript projects and rely less on console.log().
+I was using VS Code's debugger for Java for homework in my network communications class, and I thought it was a pretty great tool. I wanted to do a better job of debugging my JavaScript projects and rely less on `console.log()`.
 
 I did a quick search for any how-to articles and found [one by Matt Rozema](https://spin.atomicobject.com/2016/10/29/debug-es6-code-in-node-js/). Essentially, there were 3 options: debug the transpiled version, installing another package for debugging, or setting the IDE's configuration to use `babel-node`. All of these options seemed tedious to me, and I wanted to avoid it if I could.
 

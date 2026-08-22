@@ -1,6 +1,7 @@
 ---
 date: 2020-01-18
 title: Year in Review - 2019
+description: Retrospective of my 2019
 ---
 
 Last year was wild all around.

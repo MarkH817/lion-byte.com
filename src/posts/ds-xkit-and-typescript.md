@@ -1,6 +1,7 @@
 ---
 date: 2018-06-17
 title: Design Studio, XKit, and TypeScript
+description: Receiving an award for my work in the senior capstone course group project. Appreciating and adopting TypeScript into my workflow.
 ---
 
 It's been over six weeks since my spring semester ended and a quite a bit has happened since my last post.

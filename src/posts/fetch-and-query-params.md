@@ -1,6 +1,7 @@
 ---
 date: 2020-04-05
 title: Fetch and Query Parameters
+description: Replacing older HTTP request libraries with the browser's Fetch API.
 ---
 
 Lately at work, I've been updating some front-end code to be more modern. Among the changes, I was swapping a lot of API calls to use [Fetch](https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API) instead of [Dojo's xhr](https://dojotoolkit.org/reference-guide/1.9/dojo/request/xhr.html) or [jQuery's ajax](https://api.jquery.com/jQuery.ajax/). Fetch calls return a promise, so that meant that we could use it with async/await syntax. Although it's been easy to make this change, the Fetch API doesn't technically support adding query parameters to the URL for HTTP GET, unlike most other library implementations of this.

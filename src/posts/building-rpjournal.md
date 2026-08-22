@@ -1,6 +1,7 @@
 ---
 date: 2019-02-19
 title: Building RPJournal
+description: Making a journal app for TTRPG notes.
 ---
 
 ## Past Situations

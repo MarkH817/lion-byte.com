@@ -4,6 +4,7 @@
       "---",
       "date: ${1:$CURRENT_YEAR-$CURRENT_MONTH-$CURRENT_DATE}",
       "title: ${2:${TM_FILENAME_BASE/[-]/ /g}}",
+      "description: \"\"",
       "---",
       "",
       "$0",

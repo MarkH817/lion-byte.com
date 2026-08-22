@@ -1,0 +1,71 @@
+---
+import Conditional from '#components/ui/Conditional.astro'
+import type { CollectionEntry } from 'astro:content'
+
+interface Props {
+  basePath: '/blog' | '/notes'
+  posts: CollectionEntry<'blog' | 'notes'>[]
+}
+
+const { basePath, posts } = Astro.props
+---
+
+<ol class="feed-list list-unstyled">
+  {
+    posts.map((post) => (
+      <li>
+        <a href={`${basePath}/${post.id}`}>{post.data.title}</a>
+        <Conditional if={post.data.description.length > 0}>
+          <p>{post.data.description}</p>
+        </Conditional>
+      </li>
+    ))
+  }
+</ol>
+
+<style>
+  .feed-list {
+    li {
+      margin: var(--space-size-6) 0;
+      text-wrap: balance;
+    }
+
+    a {
+      font-size: var(--font-size-6);
+      position: relative;
+      &::before,
+      &::after {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: -1.5ch;
+      }
+
+      &:focus,
+      &:hover {
+        outline: none;
+        &::before {
+          content: '▷';
+        }
+        &::after {
+          content: '▶';
+          overflow: hidden;
+          @media (prefers-reduced-motion: no-preference) {
+            width: 0.001ch;
+            transition: width 100ms ease-in;
+          }
+        }
+      }
+
+      &:active {
+        &::after {
+          @media (prefers-reduced-motion: no-preference) {
+            width: 2ch;
+            transition-timing-function: ease-out;
+            transition-duration: 250ms;
+          }
+        }
+      }
+    }
+  }
+</style>

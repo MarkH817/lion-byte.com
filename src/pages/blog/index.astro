@@ -1,4 +1,5 @@
 ---
+import PostFeed from '#components/post/PostFeed.astro'
 import BaseLayout from '#layouts/BaseLayout.astro'
 import { getCollection } from 'astro:content'
 
@@ -7,61 +8,9 @@ const blogPosts = await getCollection('blog').then((list) =>
 )
 ---
 
-<BaseLayout title="Blog">
-  <ol class="feed-list list-unstyled">
-    {
-      blogPosts.map((post) => (
-        <li>
-          <a href={`/blog/${post.id}`}>{post.data.title}</a>
-        </li>
-      ))
-    }
-  </ol>
+<BaseLayout
+  title="Blog"
+  description="Posts on life events, software development, and anything else I feel like writing about."
+>
+  <PostFeed basePath="/blog" posts={blogPosts} />
 </BaseLayout>
-
-<style>
-  .feed-list {
-    li {
-      margin: var(--space-size-6) 0;
-      text-wrap: balance;
-    }
-
-    a {
-      font-size: var(--font-size-6);
-      position: relative;
-      &::before,
-      &::after {
-        content: '';
-        position: absolute;
-        top: 0;
-        left: -1.5ch;
-      }
-
-      &:focus,
-      &:hover {
-        outline: none;
-        &::before {
-          content: '▷';
-        }
-        &::after {
-          content: '▶';
-          overflow: hidden;
-          @media (prefers-reduced-motion: no-preference) {
-            width: 0.001ch;
-            transition: width 100ms ease-in;
-          }
-        }
-      }
-
-      &:active {
-        &::after {
-          @media (prefers-reduced-motion: no-preference) {
-            width: 2ch;
-            transition-timing-function: ease-out;
-            transition-duration: 250ms;
-          }
-        }
-      }
-    }
-  }
-</style>

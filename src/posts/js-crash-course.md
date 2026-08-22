@@ -1,6 +1,7 @@
 ---
 date: 2018-07-10
 title: JavaScript Crash Course
+description: Quick guide to JavaScript that I wrote for my team in my senior capstone course project.
 ---
 
 I wrote most of this post roughly a year ago for my Design Studio team, since some of our team members have not used JavaScript before. This is only meant to be a starting point in learning JavaScript.
@@ -143,8 +144,10 @@ For JavaScript that is transpiled with `webpack`, `parcel`, or any other bundler
 ```javascript
 // (3) Exporting as it is defined
 
-export const addNums = (a, b) => {...}
-export function multiplyNums(a, b) {...}
+export const addNums = (a, b) => a + b
+export function multiplyNums(a, b) {
+  return a * b
+}
 ```
 
 ### Requiring / Importing
