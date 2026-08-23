@@ -8,7 +8,9 @@ import { markdownToHtml } from 'satteri'
 
 export const GET = (async (context) => {
   const posts = await getCollection('blog').then((list) =>
-    list.toSorted((a, b) => b.data.date.valueOf() - a.data.date.valueOf()),
+    list.toSorted(
+      (a, b) => b.data.publishedDate.valueOf() - a.data.publishedDate.valueOf(),
+    ),
   )
 
   const entries: AtomEntry[] = []
@@ -33,7 +35,10 @@ export const GET = (async (context) => {
       title: post.data.title,
       link: [{ href: postUrl }],
       id: postUrl,
-      updated: post.data.date.toISOString(),
+      published: post.data.publishedDate.toISOString(),
+      updated:
+        post.data.modifiedDate?.toISOString() ??
+        post.data.publishedDate.toISOString(),
       content: {
         type: 'html',
         value: sanitizeHtml(html.toString(), {
@@ -51,7 +56,7 @@ export const GET = (async (context) => {
       { href: context.site!.href },
     ],
     generator: undefined,
-    updated: posts[0].data.date.toISOString(),
+    updated: posts[0].data.publishedDate.toISOString(),
     id: context.site?.href!,
     author: [{ name: SITE.authorName, email: SITE.authorEmail }],
     entry: entries,

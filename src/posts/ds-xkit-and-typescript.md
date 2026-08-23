@@ -1,5 +1,5 @@
 ---
-date: 2018-06-17T17:00:00Z
+publishedDate: 2018-06-17T17:00:00Z
 title: Design Studio, XKit, and TypeScript
 description: Receiving an award for my work in the senior capstone course group project. Appreciating and adopting TypeScript into my workflow.
 ---

@@ -1,5 +1,5 @@
 ---
-date: 2018-02-16T18:00:00Z
+publishedDate: 2018-02-16T18:00:00Z
 title: Hello
 description: Hello! Welcome to the 3rd (but never final) version of this site.
 ---

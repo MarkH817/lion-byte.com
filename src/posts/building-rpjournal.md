@@ -1,5 +1,5 @@
 ---
-date: 2019-02-19T18:00:00Z
+publishedDate: 2019-02-19T18:00:00Z
 title: Building RPJournal
 description: Making a journal app for TTRPG notes.
 ---

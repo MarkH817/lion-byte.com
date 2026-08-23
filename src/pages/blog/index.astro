@@ -4,7 +4,9 @@ import BaseLayout from '#layouts/BaseLayout.astro'
 import { getCollection } from 'astro:content'
 
 const blogPosts = await getCollection('blog').then((list) =>
-  list.toSorted((a, b) => b.data.date.valueOf() - a.data.date.valueOf()),
+  list.toSorted(
+    (a, b) => b.data.publishedDate.valueOf() - a.data.publishedDate.valueOf(),
+  ),
 )
 ---
 

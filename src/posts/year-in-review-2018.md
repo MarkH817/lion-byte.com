@@ -1,5 +1,5 @@
 ---
-date: 2018-12-29T18:00:00Z
+publishedDate: 2018-12-29T18:00:00Z
 title: Year in Review - 2018
 description: Retrospective of my 2018
 ---

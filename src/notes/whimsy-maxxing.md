@@ -1,5 +1,5 @@
 ---
-date: 2026-08-22T20:30:00Z
+publishedDate: 2026-08-22T20:30:00Z
 title: Whimsy-Maxxing
 description: Choose to feel joy and experience whimsy where you can.
 ---

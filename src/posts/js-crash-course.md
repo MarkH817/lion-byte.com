@@ -1,5 +1,5 @@
 ---
-date: 2018-07-10T17:00:00Z
+publishedDate: 2018-07-10T17:00:00Z
 title: JavaScript Crash Course
 description: Quick guide to JavaScript that I wrote for my team in my senior capstone course project.
 ---

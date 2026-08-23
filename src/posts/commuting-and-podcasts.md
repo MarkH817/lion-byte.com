@@ -1,5 +1,5 @@
 ---
-date: 2018-12-15T18:00:00Z
+publishedDate: 2018-12-15T18:00:00Z
 title: Commuting and Podcasts
 description: Podcasts I listened to during my long commutes.
 ---

@@ -1,5 +1,5 @@
 ---
-date: 2020-04-05T17:00:00Z
+publishedDate: 2020-04-05T17:00:00Z
 title: Fetch and Query Parameters
 description: Replacing older HTTP request libraries with the browser's Fetch API.
 ---

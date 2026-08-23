@@ -1,6 +1,7 @@
 ---
 import LD from '#components/LD.astro'
 import LocalTimestamp from '#components/LocalTimestamp.astro'
+import Conditional from '#components/ui/Conditional.astro'
 import type { CollectionEntry } from 'astro:content'
 import BaseLayout from './BaseLayout.astro'
 
@@ -18,25 +19,40 @@ const { frontmatter } = Astro.props
   <Fragment slot="additional-meta">
     <meta
       name="article:published_time"
-      content={frontmatter.date.toISOString()}
+      content={frontmatter.publishedDate.toISOString()}
     />
+
+    <Conditional if={Boolean(frontmatter.modifiedDate)}>
+      <meta
+        name="article:modified_time"
+        content={frontmatter.modifiedDate?.toISOString()}
+      />
+    </Conditional>
 
     <LD
       schema={{
         '@type': 'BlogPosting',
         headline: frontmatter.title,
-        datePublished: frontmatter.date.toISOString(),
+        datePublished: frontmatter.publishedDate.toISOString(),
+        dateModified: frontmatter.modifiedDate?.toISOString(),
       }}
     />
   </Fragment>
 
   <article class="post">
-    <header>
+    <header class="post-dates">
       <LocalTimestamp
-        class:list={'post-date'}
-        date={frontmatter.date}
+        class:list="post-date-published"
+        date={frontmatter.publishedDate}
         showDate
       />
+      <Conditional if={Boolean(frontmatter.modifiedDate)}>
+        <LocalTimestamp
+          class:list="post-date-modified"
+          date={frontmatter.modifiedDate}
+          showDate
+        />
+      </Conditional>
     </header>
 
     <div class="post-content">
@@ -56,6 +72,13 @@ const { frontmatter } = Astro.props
     p {
       max-width: 70ch;
     }
+  }
+
+  .post-dates {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 0 var(--space-size-6);
   }
 
   .post-content {

@@ -1,4 +1,6 @@
 ---
+import { formatDate } from '#utils/date.ts'
+
 interface Props {
   date?: Date
   showDate?: boolean
@@ -11,10 +13,11 @@ const {
   showTime = false,
   class: className,
 } = Astro.props
-const staticFallback = new Intl.DateTimeFormat('en-US', {
-  dateStyle: showDate ? 'long' : undefined,
-  timeStyle: showTime ? 'short' : undefined,
-}).format(date)
+const staticFallback = formatDate(date, {
+  language: 'en-US',
+  showDate,
+  showTime,
+})
 ---
 
 <time
@@ -27,22 +30,23 @@ const staticFallback = new Intl.DateTimeFormat('en-US', {
 >
 
 <script>
+  import { formatDate } from '#utils/date.ts'
+
   function localizeTimestamps() {
     const timestamps =
       document.querySelectorAll<HTMLTimeElement>('[data-local-ts]')
-
     timestamps.forEach((t) => {
-      const formatter = new Intl.DateTimeFormat(navigator.language, {
-        dateStyle: t.hasAttribute('data-local-ts-date') ? 'long' : undefined,
-        timeStyle: t.hasAttribute('data-local-ts-time') ? 'short' : undefined,
-      })
       const isoString = t.getAttribute('datetime')
       if (!isoString) {
         return
       }
       try {
         const localDate = new Date(isoString)
-        t.textContent = `${formatter.format(localDate)}`
+        t.textContent = `${formatDate(localDate, {
+          language: navigator.language,
+          showDate: t.hasAttribute('data-local-ts-date'),
+          showTime: t.hasAttribute('data-local-ts-time'),
+        })}`
       } catch (e) {
         console.error('Failed to parse timestamp:', e)
       }
