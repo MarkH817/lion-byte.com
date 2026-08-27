@@ -32,4 +32,5 @@ export default defineConfig({
     }),
   ],
   markdown: { shikiConfig: { wrap: true, theme: 'dark-plus' } },
+  trailingSlash: 'always',
 })

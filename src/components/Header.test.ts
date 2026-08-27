@@ -16,7 +16,7 @@ describe('Header', () => {
   test('add aria-current=page and data-state=active for /blog', async () => {
     const container = await AstroContainer.create()
     const result = await container.renderToString(Header, {
-      request: new Request(new URL('/blog', SITE.url)),
+      request: new Request(new URL('/blog/', SITE.url)),
     })
     expect(result).toContain('aria-current="page"')
     expect(result).toContain('data-state="active"')
@@ -25,7 +25,7 @@ describe('Header', () => {
   test('only add data-state=active for /blog/*', async () => {
     const container = await AstroContainer.create()
     const result = await container.renderToString(Header, {
-      request: new Request(new URL('/blog/hello', SITE.url)),
+      request: new Request(new URL('/blog/hello/', SITE.url)),
     })
     expect(result).not.toContain('aria-current="page"')
     expect(result).toContain('data-state="active"')

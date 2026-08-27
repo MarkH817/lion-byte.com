@@ -14,7 +14,7 @@ const { basePath, posts } = Astro.props
   {
     posts.map((post) => (
       <li>
-        <a href={`${basePath}/${post.id}`}>{post.data.title}</a>
+        <a href={`${basePath}/${post.id}/`}>{post.data.title}</a>
         <Conditional if={post.data.description.length > 0}>
           <p>{post.data.description}</p>
         </Conditional>

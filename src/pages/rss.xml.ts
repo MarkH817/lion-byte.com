@@ -30,7 +30,7 @@ export const GET = (async (context) => {
       }
     }
 
-    const postUrl = new URL(`/blog/${post.id}`, context.site).href
+    const postUrl = new URL(`/blog/${post.id}/`, context.site).href
     entries.push({
       title: post.data.title,
       link: [{ href: postUrl }],
@@ -55,7 +55,6 @@ export const GET = (async (context) => {
       { href: new URL('/rss.xml', context.site).href, rel: 'self' },
       { href: context.site!.href },
     ],
-    generator: undefined,
     updated: posts[0].data.publishedDate.toISOString(),
     id: context.site?.href!,
     author: [{ name: SITE.authorName, email: SITE.authorEmail }],
