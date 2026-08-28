@@ -5,6 +5,7 @@ import { parseRKey } from './utils/parse-rkey'
 
 export const MarginNoteCollection = z.object({
   id: z.string(),
+  uri: z.string(),
   createdAt: z.date(),
   tags: z.array(z.string()),
   title: z.string(),
@@ -20,6 +21,7 @@ export async function getMarginAtNotes() {
       if (note.matches(record.value)) {
         acc.push({
           id: parseRKey(record.uri),
+          uri: record.uri,
           createdAt: new Date(record.value.createdAt),
           tags: record.value.tags ?? [],
           title: record.value.target.title ?? '',

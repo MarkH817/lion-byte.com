@@ -5,6 +5,7 @@ import { parseRKey } from './utils/parse-rkey'
 
 export const NpmxLikesCollection = z.object({
   id: z.string(),
+  uri: z.string(),
   createdAt: z.date(),
   subjectRef: z.url(),
   packageName: z.string(),
@@ -17,6 +18,7 @@ export async function getNpmxLikes() {
       if (like.matches(record.value)) {
         acc.push({
           id: parseRKey(record.uri),
+          uri: record.uri,
           createdAt: new Date(record.value.createdAt),
           subjectRef: record.value.subjectRef,
           packageName: extractPackageName(record.value.subjectRef),

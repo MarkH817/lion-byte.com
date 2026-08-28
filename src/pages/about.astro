@@ -82,6 +82,14 @@ function parsePositionDate(yearMonth: string): string {
 
   <h2>Work History</h2>
 
+  <Fragment slot="additional-meta">
+    {
+      positions.map((position) => (
+        <meta property="at:alternate" content={position.data.uri} />
+      ))
+    }
+  </Fragment>
+
   <ul class="list-unstyled position-list">
     {
       positions.map((position) => (

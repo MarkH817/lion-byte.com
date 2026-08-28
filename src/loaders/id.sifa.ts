@@ -5,6 +5,7 @@ import { parseRKey } from './utils/parse-rkey'
 
 export const PositionCollection = z.object({
   id: z.string(),
+  uri: z.string(),
   title: z.string(),
   company: z.optional(z.string()),
   startedAt: z.string(),
@@ -21,6 +22,7 @@ export async function getPositions() {
     ) {
       acc.push({
         id: parseRKey(record.uri),
+        uri: record.uri,
         title: record.value.title,
         company: record.value.company,
         startedAt: record.value.startedAt,
