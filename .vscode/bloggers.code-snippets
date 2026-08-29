@@ -2,7 +2,7 @@
   "Write new post": {
     "body": [
       "---",
-      "date: ${1:$CURRENT_YEAR-$CURRENT_MONTH-$CURRENT_DATE}",
+      "publishedDate: ${1:$CURRENT_YEAR-$CURRENT_MONTH-$CURRENT_DATE}",
       "title: ${2:${TM_FILENAME_BASE/[-]/ /g}}",
       "description: \"\"",
       "---",

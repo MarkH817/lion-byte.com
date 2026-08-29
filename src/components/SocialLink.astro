@@ -15,7 +15,7 @@ const { icon, href, platform, username } = Astro.props
   class="social-link"
   href={href}
   target="_blank"
-  rel="me noopener noreferrer"
+  rel="me noopener"
   aria-label={username ? `${platform}: ${username}` : platform}
 >
   <Icon name={icon} class:list="icon" aria-hidden />
