@@ -12,6 +12,7 @@ import navigation from '#data/navigation.json' with { type: 'json' }
           <li>
             <a
               href={item.url}
+              data-astro-prefetch
               aria-current={item.url === Astro.url.pathname ? 'page' : null}
               data-state={
                 item.url.length > 1 && Astro.url.pathname.startsWith(item.url)
