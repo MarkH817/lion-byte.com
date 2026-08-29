@@ -2,15 +2,15 @@
 import profileImg from '#assets/profile.png'
 import Header from '#components/Header.astro'
 import LD from '#components/LD.astro'
+import PreloadFont from '#components/head/PreloadFont.astro'
 import AT from '#data/at.json' with { type: 'json' }
 import LION from '#data/lion.json' with { type: 'json' }
-import SOCIALS from '#data/socials.json' with { type: 'json' }
 import SITE from '#data/site.json' with { type: 'json' }
+import SOCIALS from '#data/socials.json' with { type: 'json' }
+import '#styles/global.css'
 import type { ImageData } from '#types/image.ts'
 import nunito400Url from '@fontsource/nunito/files/nunito-latin-400-normal.woff2?url'
-import openSans400Url from '@fontsource/open-sans/files/open-sans-latin-400-normal.woff2?url'
 import { getImage } from 'astro:assets'
-import '#styles/global.css'
 
 const canonicalUrl = new URL(Astro.url.pathname, Astro.site)
 const rssUrl = new URL('rss.xml', Astro.site)
@@ -103,20 +103,8 @@ const favicon = await getImage({
     <link rel="alternate" type="application/rss+xml" href={rssUrl} />
     <link rel="sitemap" href="/sitemap-index.xml" />
 
-    <link
-      rel="preload"
-      as="font"
-      type="font/woff2"
-      href={nunito400Url}
-      crossorigin="anonymous"
-    />
-    <link
-      rel="prefetch"
-      as="font"
-      type="font/woff2"
-      href={openSans400Url}
-      crossorigin="anonymous"
-    />
+    <PreloadFont type="font/woff2" href={nunito400Url} />
+    <slot name="additional-preload" />
     <script is:inline>
       document.documentElement.classList.add('js')
     </script>

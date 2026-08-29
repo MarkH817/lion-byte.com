@@ -2,15 +2,22 @@
 import profileImg from '#assets/profile.png'
 import Bookmarks from '#components/atmosphere/Bookmarks.astro'
 import NpmxLikes from '#components/atmosphere/NpmxLikes.astro'
+import PreloadFont from '#components/head/PreloadFont.astro'
 import ProfileCard from '#components/ProfileCard.astro'
 import SocialLink from '#components/SocialLink.astro'
 import AT from '#data/at.json' with { type: 'json' }
 import SOCIALS from '#data/socials.json' with { type: 'json' }
 import BaseLayout from '#layouts/BaseLayout.astro'
+import nunito700Url from '@fontsource/nunito/files/nunito-latin-700-normal.woff2?url'
 import { Image } from 'astro:assets'
 ---
 
 <BaseLayout displayTitle="Welcome">
+  <PreloadFont
+    type="font/woff2"
+    href={nunito700Url}
+    slot="additional-preload"
+  />
   <ProfileCard>
     <Image
       src={profileImg}

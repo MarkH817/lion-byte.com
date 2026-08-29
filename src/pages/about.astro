@@ -1,8 +1,11 @@
 ---
 import photo from '#assets/mark.jpg'
+import PreloadFont from '#components/head/PreloadFont.astro'
 import ProfileCard from '#components/ProfileCard.astro'
 import Conditional from '#components/ui/Conditional.astro'
 import BaseLayout from '#layouts/BaseLayout.astro'
+import nunito200Url from '@fontsource/nunito/files/nunito-latin-200-normal.woff2?url'
+import nunito700Url from '@fontsource/nunito/files/nunito-latin-700-normal.woff2?url'
 import { Image } from 'astro:assets'
 import { getCollection } from 'astro:content'
 import sanitizeHtml from 'sanitize-html'
@@ -58,6 +61,16 @@ function parsePositionDate(yearMonth: string): string {
   title="About"
   description="About and work history of Mark Hernandez (they/them), AKA lion-byte. A software developer with a focus on the front-end, accessibility, and progressive enhancement."
 >
+  <PreloadFont
+    type="font/woff2"
+    href={nunito200Url}
+    slot="additional-preload"
+  />
+  <PreloadFont
+    type="font/woff2"
+    href={nunito700Url}
+    slot="additional-preload"
+  />
   <ProfileCard>
     <Image
       src={photo}
@@ -155,7 +168,7 @@ function parsePositionDate(yearMonth: string): string {
   }
 
   .position-company {
-    font-weight: lighter;
+    font-weight: 200;
     font-size: var(--font-size-4);
   }
 

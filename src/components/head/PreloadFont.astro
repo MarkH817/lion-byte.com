@@ -1,0 +1,9 @@
+---
+interface Props {
+  type: `font/${string}`
+  href: string
+}
+const { type, href } = Astro.props
+---
+
+<link rel="preload" as="font" {type} {href} crossorigin />
