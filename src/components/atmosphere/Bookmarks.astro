@@ -1,23 +1,13 @@
 ---
-import Badge from '#components/ui/Badge.astro'
-import Conditional from '#components/ui/Conditional.astro'
-import { groupBy, unique } from '#utils/list.ts'
-import { Icon } from 'astro-icon/components'
+import { groupBy } from '#utils/list.ts'
 import { getCollection } from 'astro:content'
+import Bookmark from './Bookmark.astro'
 
 const id = `bookmarks-${crypto.randomUUID()}`
 const bookmarks = await getCollection('marginAtNotes').then((l) =>
   l.toReversed(),
 )
 const groupedBookmarks = groupBy(bookmarks, (b) => b.data.source)
-
-function getGroupInfo(group: typeof bookmarks) {
-  const item = group[0].data
-  return { title: item.title, source: item.source }
-}
-function getGroupTags(group: typeof bookmarks) {
-  return unique(group.flatMap((item) => item.data.tags))
-}
 ---
 
 <section aria-labelledby={id}>
@@ -25,54 +15,11 @@ function getGroupTags(group: typeof bookmarks) {
 
   <ul class="list-unstyled bookmark-list">
     {
-      groupedBookmarks.map((group) => {
-        const common = getGroupInfo(group.items)
-        const tags = getGroupTags(group.items)
-        return (
-          <li>
-            <article class="bookmark">
-              <header>
-                <h3 class="title">
-                  <a href={common.source} target="_blank" rel="noopener">
-                    {common.title}{' '}
-                    <span style="font-size: smaller;" aria-hidden="true">
-                      &nearrow;
-                    </span>
-                  </a>
-                </h3>
-                <div class="info">
-                  <div class="hostname">{new URL(common.source).hostname}</div>
-                  <div
-                    class="tags"
-                    class:list={{ 'tags--empty': tags.length === 0 }}
-                  >
-                    {tags.length > 0 ? (
-                      tags.map((tag) => (
-                        <Badge label={tag} icon="fa7-solid:tag" />
-                      ))
-                    ) : (
-                      <Badge label="untagged" />
-                    )}
-                  </div>
-                </div>
-              </header>
-
-              <Conditional if={group.items.some((i) => i.data.highlightQuote)}>
-                <div class="annotations-and-highlights">
-                  {group.items.map((item) =>
-                    item.data.highlightQuote ? (
-                      <blockquote cite={item.data.source}>
-                        <Icon name="fa7-solid:highlighter" aria-hidden />
-                        {item.data.highlightQuote}
-                      </blockquote>
-                    ) : null,
-                  )}
-                </div>
-              </Conditional>
-            </article>
-          </li>
-        )
-      })
+      groupedBookmarks.map((group) => (
+        <li>
+          <Bookmark entry={group} />
+        </li>
+      ))
     }
   </ul>
 </section>
@@ -82,58 +29,5 @@ function getGroupTags(group: typeof bookmarks) {
     display: flex;
     flex-direction: column;
     gap: var(--space-size-6) var(--space-size-8);
-  }
-
-  .bookmark {
-    display: flex;
-    flex-direction: column;
-    gap: var(--space-size-3);
-  }
-
-  .title {
-    margin: 0;
-    margin-block-end: var(--space-size-1);
-    text-wrap: balance;
-  }
-
-  .info {
-    line-height: 1;
-    display: flex;
-    flex-direction: column;
-    gap: var(--space-size-1) var(--space-size-6);
-    justify-content: space-between;
-  }
-
-  .hostname {
-    font-size: var(--font-size-2);
-    font-weight: bold;
-  }
-
-  .tags {
-    display: flex;
-    flex-wrap: wrap;
-    gap: var(--space-size-5);
-    &.tags--empty {
-      font-style: italic;
-    }
-  }
-
-  .annotations-and-highlights {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(min-content, 50ch));
-    gap: var(--space-size-2);
-    align-items: start;
-  }
-
-  blockquote {
-    font-style: italic;
-    line-height: 1.25;
-    font-size: var(--font-size-3);
-    border-radius: var(--space-size-3);
-    border-inline-start: 2px solid var(--color-main);
-    margin: 0;
-    padding-inline: var(--space-size-5);
-    padding-block: var(--space-size-3);
-    white-space: pre-wrap;
   }
 </style>

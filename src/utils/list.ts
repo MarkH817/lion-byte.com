@@ -1,10 +1,15 @@
 import type { NonEmptyList } from '#types/list.ts'
 
-export function groupBy<T, V extends string | number>(
-  list: Iterable<T>,
-  keyFn: (item: T) => V,
-) {
-  const map = new Map<V, NonEmptyList<T>>()
+export type GroupByResult<Key, Item> = {
+  key: Key
+  items: NonEmptyList<Item>
+}
+
+export function groupBy<Item, Key extends string | number>(
+  list: Iterable<Item>,
+  keyFn: (item: Item) => Key,
+): Array<GroupByResult<Key, Item>> {
+  const map = new Map<Key, NonEmptyList<Item>>()
   for (const item of list) {
     const key = keyFn(item)
     if (!map.has(key)) {
