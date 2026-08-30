@@ -173,7 +173,7 @@ code:not([class]) {
 }
 
 main {
-  font-size: var(--font-size-5);
+  font-size: var(--font-size-3);
 }
 
 p {

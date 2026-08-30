@@ -1,0 +1,32 @@
+---
+interface Props {
+  id?: string
+  label: string
+}
+const { id = `region-${crypto.randomUUID()}`, label } = Astro.props
+---
+
+<section aria-labelledby={id}>
+  <header>
+    <h2 {id}>{label}</h2>
+    <div class="actions"><slot name="actions" /></div>
+  </header>
+  <slot />
+</section>
+
+<style>
+  header {
+    display: flex;
+    flex-direction: row;
+    gap: 0 var(--space-size-4);
+    flex-wrap: wrap;
+    align-items: baseline;
+  }
+
+  .actions {
+    font-size: var(--font-size-4);
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+</style>

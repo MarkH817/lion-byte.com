@@ -1,0 +1,18 @@
+---
+import Bookmarks from '#components/atmosphere/Bookmarks.astro'
+import PreloadFont from '#components/head/PreloadFont.astro'
+import BaseLayout from '#layouts/BaseLayout.astro'
+import nunito700Url from '@fontsource/nunito/files/nunito-latin-700-normal.woff2?url'
+---
+
+<BaseLayout
+  title="Bookmarks"
+  description="Links to places of interest across the web!"
+>
+  <PreloadFont
+    type="font/woff2"
+    href={nunito700Url}
+    slot="additional-preload"
+  />
+  <Bookmarks />
+</BaseLayout>

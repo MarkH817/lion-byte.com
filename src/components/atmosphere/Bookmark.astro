@@ -9,37 +9,49 @@ import type { CollectionEntry } from 'astro:content'
 interface Props {
   entry: GroupByResult<string, CollectionEntry<'marginAtNotes'>>
 }
-const { entry: group } = Astro.props
-const common = pick(group.items[0].data, ['title', 'source'])
-const tags = unique(group.items.flatMap((item) => item.data.tags))
+const { entry } = Astro.props
+const common = pick(entry.items[0].data, ['title', 'source'])
+const tags = unique(entry.items.flatMap((item) => item.data.tags))
 ---
 
 <article class="bookmark">
   <header>
-    <h3 class="title">
-      <a href={common.source} target="_blank" rel="noopener">
-        {common.title}{' '}
-        <span style="font-size: smaller;" aria-hidden="true"> &nearrow; </span>
-      </a>
-    </h3>
+    <a class="h3 title" href={common.source} target="_blank" rel="noopener">
+      {common.title}{' '}
+      <span style="font-size: smaller;" aria-hidden="true">&nearrow;</span>
+    </a>
+
     <div class="info">
-      <div class="hostname">{new URL(common.source).hostname}</div>
-      <div class="tags" class:list={{ 'tags--empty': tags.length === 0 }}>
+      <div class="hostname">
+        <span class="visually-hidden">Hostname:</span>
+        {new URL(common.source).hostname}
+      </div>
+      <ul
+        class="list-unstyled tags"
+        class:list={{ 'tags--empty': tags.length === 0 }}
+        aria-label="Tags"
+      >
         {
           tags.length > 0 ? (
-            tags.map((tag) => <Badge label={tag} icon="fa7-solid:tag" />)
+            tags.map((tag) => (
+              <li>
+                <Badge label={tag} icon="fa7-solid:tag" />
+              </li>
+            ))
           ) : (
-            <Badge label="untagged" />
+            <li>
+              <Badge label="untagged" />
+            </li>
           )
         }
-      </div>
+      </ul>
     </div>
   </header>
 
-  <Conditional if={group.items.some((i) => i.data.highlightQuote)}>
+  <Conditional if={entry.items.some((i) => i.data.highlightQuote)}>
     <div class="annotations-and-highlights">
       {
-        group.items.map((item) =>
+        entry.items.map((item) =>
           item.data.highlightQuote ? (
             <blockquote cite={item.data.source}>
               <Icon name="fa7-solid:highlighter" aria-hidden />

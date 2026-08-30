@@ -2,37 +2,30 @@
 import { Icon } from 'astro-icon/components'
 import { getCollection } from 'astro:content'
 
-const id = `npm-likes-${crypto.randomUUID()}`
-const likes = await getCollection('npmxLikes').then((l) =>
-  l.toSorted((a, b) => a.data.packageName.localeCompare(b.data.packageName)),
-)
+const likes = await getCollection('npmxLikes').then((l) => l.toReversed())
 ---
 
-<section aria-labelledby={id}>
-  <h2 {id}>{likes.length} Liked Packages (via npmx.dev)</h2>
-
-  <ul class="list-unstyled package-list">
-    {
-      likes.map((like) => (
-        <li>
-          <a
-            class="package"
-            href={like.data.subjectRef}
-            target="_blank"
-            rel="noopener"
-          >
-            <Icon
-              name="fa7-solid:box-open"
-              class:list="package-icon"
-              aria-hidden
-            />
-            <span>{like.data.packageName}</span>
-          </a>
-        </li>
-      ))
-    }
-  </ul>
-</section>
+<ul class="list-unstyled package-list">
+  {
+    likes.map((like) => (
+      <li>
+        <a
+          class="package"
+          href={like.data.subjectRef}
+          target="_blank"
+          rel="noopener"
+        >
+          <Icon
+            name="fa7-solid:box-open"
+            class:list="package-icon"
+            aria-hidden
+          />
+          <span>{like.data.packageName}</span>
+        </a>
+      </li>
+    ))
+  }
+</ul>
 
 <style>
   .package-list {

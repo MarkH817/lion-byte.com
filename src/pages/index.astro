@@ -5,6 +5,7 @@ import NpmxLikes from '#components/atmosphere/NpmxLikes.astro'
 import PreloadFont from '#components/head/PreloadFont.astro'
 import ProfileCard from '#components/ProfileCard.astro'
 import SocialLink from '#components/SocialLink.astro'
+import Region from '#components/ui/Region.astro'
 import AT from '#data/at.json' with { type: 'json' }
 import SOCIALS from '#data/socials.json' with { type: 'json' }
 import BaseLayout from '#layouts/BaseLayout.astro'
@@ -74,8 +75,16 @@ import { Image } from 'astro:assets'
     </ul>
   </div>
 
-  <NpmxLikes />
-  <Bookmarks />
+  <Region id="recent-bookmarks" label="Recent Bookmarks">
+    <a href="/bookmarks/" slot="actions"
+      >View More <span class="visually-hidden">Bookmarks</span></a
+    >
+    <Bookmarks limit={3} />
+  </Region>
+
+  <Region id="liked-packages" label="Liked Packages (via npmx.dev)">
+    <NpmxLikes />
+  </Region>
 </BaseLayout>
 
 <style>

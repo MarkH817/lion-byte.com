@@ -3,26 +3,25 @@ import { groupBy } from '#utils/list.ts'
 import { getCollection } from 'astro:content'
 import Bookmark from './Bookmark.astro'
 
-const id = `bookmarks-${crypto.randomUUID()}`
+interface Props {
+  limit?: number
+}
+const { limit } = Astro.props
 const bookmarks = await getCollection('marginAtNotes').then((l) =>
   l.toReversed(),
 )
 const groupedBookmarks = groupBy(bookmarks, (b) => b.data.source)
 ---
 
-<section aria-labelledby={id}>
-  <h2 {id}>Bookmarks (via margin.at)</h2>
-
-  <ul class="list-unstyled bookmark-list">
-    {
-      groupedBookmarks.map((group) => (
-        <li>
-          <Bookmark entry={group} />
-        </li>
-      ))
-    }
-  </ul>
-</section>
+<ul class="list-unstyled bookmark-list">
+  {
+    groupedBookmarks.slice(0, limit).map((group) => (
+      <li>
+        <Bookmark entry={group} />
+      </li>
+    ))
+  }
+</ul>
 
 <style>
   .bookmark-list {
