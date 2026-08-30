@@ -44,6 +44,9 @@ const likes = await getCollection('npmxLikes').then((l) => l.toReversed())
     padding: var(--space-size-2) var(--space-size-4);
     border-radius: var(--space-size-2);
     border: 1px dotted currentColor;
+    &:focus-visible {
+      border-color: transparent;
+    }
   }
 
   .package-icon {

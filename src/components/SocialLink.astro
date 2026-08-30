@@ -33,17 +33,6 @@ const { icon, href, platform, username } = Astro.props
     font-size: var(--font-size-5);
     gap: var(--space-size-1);
     padding: var(--space-size-3) var(--space-size-4);
-    @media (prefers-reduced-motion: no-preference) {
-      transition: transform 50ms ease-in-out;
-      &:hover,
-      &:focus {
-        transform: rotate(3deg) scale(1.15);
-      }
-
-      &:active {
-        transform: rotate(1deg) scale(1.05);
-      }
-    }
   }
 
   .icon {

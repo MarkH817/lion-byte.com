@@ -1,4 +1,5 @@
 ---
+import LocalTimestamp from '#components/LocalTimestamp.astro'
 import Conditional from '#components/ui/Conditional.astro'
 import type { CollectionEntry } from 'astro:content'
 
@@ -14,9 +15,14 @@ const { basePath, posts } = Astro.props
   {
     posts.map((post) => (
       <li>
-        <a href={`${basePath}/${post.id}/`}>{post.data.title}</a>
+        <a class="h3 title" href={`${basePath}/${post.id}/`}>
+          {post.data.title}
+        </a>
+        <div>
+          <LocalTimestamp date={post.data.publishedDate} showDate />
+        </div>
         <Conditional if={post.data.description.length > 0}>
-          <p>{post.data.description}</p>
+          <p class="description">{post.data.description}</p>
         </Conditional>
       </li>
     ))
@@ -27,45 +33,15 @@ const { basePath, posts } = Astro.props
   .feed-list {
     li {
       margin: var(--space-size-6) 0;
-      text-wrap: balance;
     }
+  }
 
-    a {
-      font-size: var(--font-size-6);
-      position: relative;
-      &::before,
-      &::after {
-        content: '';
-        position: absolute;
-        top: 0;
-        left: -1.5ch;
-      }
+  .title {
+    text-wrap: balance;
+    display: inline-block;
+  }
 
-      &:focus,
-      &:hover {
-        outline: none;
-        &::before {
-          content: '▷';
-        }
-        &::after {
-          content: '▶';
-          overflow: hidden;
-          @media (prefers-reduced-motion: no-preference) {
-            width: 0.001ch;
-            transition: width 100ms ease-in;
-          }
-        }
-      }
-
-      &:active {
-        &::after {
-          @media (prefers-reduced-motion: no-preference) {
-            width: 2ch;
-            transition-timing-function: ease-out;
-            transition-duration: 250ms;
-          }
-        }
-      }
-    }
+  .description {
+    max-width: 70ch;
   }
 </style>

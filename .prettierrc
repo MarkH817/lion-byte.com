@@ -3,7 +3,7 @@
   "singleQuote": true,
   "overrides": [
     {
-      "files": "*.css",
+      "files": "*.{less,css}",
       "options": {
         "singleQuote": false
       }

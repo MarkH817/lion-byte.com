@@ -2,22 +2,6 @@
 @import url("../../node_modules/@fontsource/nunito/latin.css");
 @import url("../../node_modules/@fontsource/open-sans/latin.css");
 
-/* Focus */
-* {
-  &:focus-visible {
-    outline: 0.15rem dashed currentColor;
-  }
-
-  &:focus:not(:focus-visible) {
-    outline-width: 0;
-  }
-
-  &::selection {
-    background-color: var(--text-color);
-    color: var(--background-color);
-  }
-}
-
 /* sm 40rem // md 48rem // lg 60rem // xl 75rem // xxl 100rem */
 
 /* Typography */
@@ -72,34 +56,52 @@
   --space-size-16: 48rem;
 }
 
+/* Focus */
+* {
+  &:focus-visible {
+    outline: 0.15rem dashed currentColor;
+  }
+
+  &:focus:not(:focus-visible) {
+    outline-width: 0;
+  }
+
+  &::selection {
+    background-color: var(--text-color);
+    color: var(--background-color);
+  }
+}
+
+.light-mode() {
+  --background-color: var(--color-white);
+  --text-color: var(--color-black);
+  --link-color: var(--color-main-dark);
+  --link-color--hover: var(--color-main);
+  --link-color--active: var(--color-main-darker);
+}
+.dark-mode() {
+  --background-color: var(--color-black);
+  --text-color: var(--color-white);
+  --link-color: var(--color-main-light);
+  --link-color--hover: var(--color-main);
+  --link-color--active: var(--color-main-lighter);
+}
+
 body {
   background-color: var(--background-color);
   color: var(--text-color);
   font-family: var(--font-nunito);
-
   @media (prefers-color-scheme: light) {
-    --background-color: var(--color-white);
-    --text-color: var(--color-black);
-    --link-color: var(--color-main-dark);
-    --link-color--active: var(--color-main-darker);
+    .light-mode();
   }
   @media (prefers-color-scheme: dark) {
-    --background-color: var(--color-black);
-    --text-color: var(--color-white);
-    --link-color: var(--color-main-light);
-    --link-color--active: var(--color-main-lighter);
+    .dark-mode();
   }
   &.light {
-    --background-color: var(--color-white);
-    --text-color: var(--color-black);
-    --link-color: var(--color-main-dark);
-    --link-color--active: var(--color-main-darker);
+    .light-mode();
   }
   &.dark {
-    --background-color: var(--color-black);
-    --text-color: var(--color-white);
-    --link-color: var(--color-main-light);
-    --link-color--active: var(--color-main-lighter);
+    .dark-mode();
   }
 }
 
@@ -158,10 +160,15 @@ h6,
 
 a {
   color: var(--link-color);
+  text-decoration: underline;
 
   &:hover,
   &:focus {
+    color: var(--link-color--hover);
     text-decoration: dashed underline;
+    &:focus-visible {
+      text-decoration: none;
+    }
   }
   &:active {
     color: var(--link-color--active);
