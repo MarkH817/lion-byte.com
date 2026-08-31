@@ -69,6 +69,8 @@ const tags = unique(entry.items.flatMap((item) => item.data.tags))
     display: flex;
     flex-direction: column;
     gap: var(--space-size-3);
+    content-visibility: auto;
+    contain-intrinsic-size: auto 4rem;
   }
 
   .title {

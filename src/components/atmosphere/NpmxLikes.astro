@@ -33,6 +33,10 @@ const likes = await getCollection('npmxLikes').then((l) => l.toReversed())
     flex-direction: row;
     flex-wrap: wrap;
     gap: var(--space-size-3) var(--space-size-5);
+    li {
+      content-visibility: auto;
+      contain-intrinsic-size: auto 10rem auto 3rem;
+    }
   }
 
   .package {
