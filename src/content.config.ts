@@ -7,7 +7,7 @@ import { glob } from 'astro/loaders'
 import { defineCollection } from 'astro:content'
 
 const blog = defineCollection({
-  loader: glob({ pattern: '**/[^_]*.md', base: './src/posts' }),
+  loader: glob({ pattern: '**/[^_]*.md', base: './src/blog' }),
   schema: postSchema,
 })
 const notes = defineCollection({
