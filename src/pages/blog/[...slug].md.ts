@@ -14,6 +14,8 @@ export const GET = (async ({ props }) => {
   const post = props.post as CollectionEntry<'blog'>
   const body = `${postFrontmatter(post)}
 
+# ${post.data.title}
+
 ${post.body ?? ''}
 `
 
