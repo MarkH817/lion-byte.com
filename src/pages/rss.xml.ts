@@ -1,8 +1,8 @@
 import SITE from '#data/site.json'
+import { absolutePathsPlugin } from '#utils/plugins/satteri.ts'
 import type { APIRoute } from 'astro'
 import { getCollection } from 'astro:content'
 import rss, { type AtomEntry } from 'astrojs-atom'
-import { parse as htmlParser } from 'node-html-parser'
 import sanitizeHtml from 'sanitize-html'
 import { markdownToHtml } from 'satteri'
 
@@ -16,23 +16,13 @@ export const GET = (async (context) => {
   const entries: AtomEntry[] = []
   for (const post of posts) {
     // Referencing https://billyle.dev/posts/adding-rss-feed-content-and-fixing-markdown-image-paths-in-astro#the-image-relative-path-fix
-    const body = markdownToHtml(post.body!)
-    const html = htmlParser.parse(body.html)
-    const images = html.querySelectorAll('img')
-
-    for (const img of images) {
-      const src = img.getAttribute('src')
-      if (!src) {
-        continue
-      }
-      if (src.startsWith('/')) {
-        img.setAttribute('src', new URL(src, SITE.url).href)
-      }
-    }
-
+    const body = markdownToHtml(post.body!, {
+      hastPlugins: [absolutePathsPlugin],
+    })
     const postUrl = new URL(`/blog/${post.id}/`, context.site).href
     entries.push({
       title: post.data.title,
+      summary: post.data.description,
       link: [{ href: postUrl }],
       id: postUrl,
       published: post.data.publishedDate.toISOString(),
@@ -41,7 +31,7 @@ export const GET = (async (context) => {
         post.data.publishedDate.toISOString(),
       content: {
         type: 'html',
-        value: sanitizeHtml(html.toString(), {
+        value: sanitizeHtml(body.html, {
           allowedTags: sanitizeHtml.defaults.allowedTags.concat(['img']),
         }),
       },
