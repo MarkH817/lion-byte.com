@@ -8,7 +8,10 @@ interface Props {
   posts: CollectionEntry<'blog' | 'notes'>[]
 }
 
-const { basePath, posts } = Astro.props
+const { basePath, posts: list } = Astro.props
+const posts = list.toSorted(
+  (a, b) => b.data.publishedDate.valueOf() - a.data.publishedDate.valueOf(),
+)
 ---
 
 <ol class="feed-list list-unstyled">
