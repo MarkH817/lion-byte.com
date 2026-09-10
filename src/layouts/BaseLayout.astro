@@ -69,6 +69,7 @@ const favicon = await getImage({
     <meta property="og:image:alt" content={image.alt} />
 
     <meta property="at:me" content={`at://${AT.did}`} />
+    <slot name="at-meta" />
 
     <meta name="twitter:title" content={pageTitle} />
     <meta name="twitter:description" content={description} />
@@ -99,6 +100,7 @@ const favicon = await getImage({
         sameAs: AT.places.map((s) => s.url).concat(SOCIALS.map((s) => s.url)),
       }}
     />
+    <slot name="additional-ld" />
 
     <link rel="alternate" type="application/rss+xml" href={rssUrl} />
     <link rel="sitemap" href="/sitemap-index.xml" />

@@ -1,5 +1,6 @@
 ---
 import PostFeed from '#components/post/PostFeed.astro'
+import AT from '#data/at.json' with { type: 'json' }
 import BaseLayout from '#layouts/BaseLayout.astro'
 import { getCollection } from 'astro:content'
 
@@ -10,5 +11,10 @@ const blogPosts = await getCollection('blog')
   title="Blog"
   description="Posts on life events, software development, and anything else I feel like writing about."
 >
+  <link
+    rel="site.standard.publication"
+    href={`at://${AT.did}/site.standard.publication/3mv6qcrmrp5m2`}
+    slot="at-meta"
+  />
   <PostFeed basePath="/blog" posts={blogPosts} />
 </BaseLayout>

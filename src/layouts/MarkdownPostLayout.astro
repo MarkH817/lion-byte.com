@@ -2,13 +2,16 @@
 import LD from '#components/head/LD.astro'
 import LocalTimestamp from '#components/LocalTimestamp.astro'
 import Conditional from '#components/ui/Conditional.astro'
+import AT from '#data/at.json' with { type: 'json' }
 import type { CollectionEntry } from 'astro:content'
 import BaseLayout from './BaseLayout.astro'
+import { dateToTID } from '#utils/tid.ts'
 
 interface Props {
-  frontmatter: CollectionEntry<'blog' | 'notes'>['data']
+  post: CollectionEntry<'blog' | 'notes'>
 }
-const { frontmatter } = Astro.props
+const { post } = Astro.props
+const frontmatter = post.data
 ---
 
 <BaseLayout
@@ -16,28 +19,35 @@ const { frontmatter } = Astro.props
   description={frontmatter.description}
   ogType="article"
 >
-  <Fragment slot="additional-meta">
+  <meta
+    name="article:published_time"
+    content={frontmatter.publishedDate.toISOString()}
+    slot="additional-meta"
+  />
+  <Conditional if={Boolean(frontmatter.modifiedDate)} slot="additional-meta">
     <meta
-      name="article:published_time"
-      content={frontmatter.publishedDate.toISOString()}
+      name="article:modified_time"
+      content={frontmatter.modifiedDate?.toISOString()}
     />
-
-    <Conditional if={Boolean(frontmatter.modifiedDate)}>
-      <meta
-        name="article:modified_time"
-        content={frontmatter.modifiedDate?.toISOString()}
-      />
-    </Conditional>
-
-    <LD
-      schema={{
-        '@type': 'BlogPosting',
-        headline: frontmatter.title,
-        datePublished: frontmatter.publishedDate.toISOString(),
-        dateModified: frontmatter.modifiedDate?.toISOString(),
-      }}
+  </Conditional>
+  <slot name="at-meta" slot="at-meta" />
+  <Conditional if={post.collection === 'blog'} slot="at-meta">
+    <!-- Limiting to `/blog/*` posts for now -->
+    <link
+      rel="site.standard.document"
+      href={`at://${AT.did}/site.standard.document/${dateToTID(post.collection, frontmatter.publishedDate)}`}
     />
-  </Fragment>
+  </Conditional>
+  <LD
+    schema={{
+      '@type': 'BlogPosting',
+      headline: frontmatter.title,
+      description: frontmatter.description,
+      datePublished: frontmatter.publishedDate.toISOString(),
+      dateModified: frontmatter.modifiedDate?.toISOString(),
+    }}
+    slot="additional-ld"
+  />
 
   <article class="post">
     <header class="post-dates">

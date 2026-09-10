@@ -1,4 +1,5 @@
 ---
+import AT from '#data/at.json' with { type: 'json' }
 import MarkdownPostLayout from '#layouts/MarkdownPostLayout.astro'
 import type { GetStaticPaths } from 'astro'
 import { getCollection, render } from 'astro:content'
@@ -15,6 +16,11 @@ const { post } = Astro.props
 const { Content } = await render(post)
 ---
 
-<MarkdownPostLayout frontmatter={post.data}>
+<MarkdownPostLayout {post}>
+  <link
+    rel="site.standard.publication"
+    href={`at://${AT.did}/site.standard.publication/3mv6qcrmrp5m2`}
+    slot="at-meta"
+  />
   <Content />
 </MarkdownPostLayout>

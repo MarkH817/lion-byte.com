@@ -54,7 +54,7 @@ const sifaProfile = AT.places.find((p) => p.platform === 'Sifa')
     </p>
   </ProfileCard>
 
-  <Fragment slot="additional-meta">
+  <Fragment slot="at-meta">
     {
       positions.map((position) => (
         <meta property="at:alternate" content={position.data.uri} />
