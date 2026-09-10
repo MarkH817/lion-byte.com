@@ -1,5 +1,9 @@
 ---
 interface Props {
+  /**
+   * Special note: The slotted content / expression is still evaluated,
+   * so this isn't quite the same as a template control flow (like `@if`/`@else` in Angular).
+   */
   if: boolean
 }
 ---

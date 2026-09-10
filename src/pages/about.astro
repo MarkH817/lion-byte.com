@@ -1,60 +1,18 @@
 ---
 import photo from '#assets/mark.jpg'
+import CareerPosition from '#components/atmosphere/CareerPosition.astro'
 import PreloadFont from '#components/head/PreloadFont.astro'
 import ProfileCard from '#components/ProfileCard.astro'
-import Conditional from '#components/ui/Conditional.astro'
+import Region from '#components/ui/Region.astro'
 import BaseLayout from '#layouts/BaseLayout.astro'
 import nunito200Url from '@fontsource/nunito/files/nunito-latin-200-normal.woff2?url'
 import nunito700Url from '@fontsource/nunito/files/nunito-latin-700-normal.woff2?url'
 import { Image } from 'astro:assets'
 import { getCollection } from 'astro:content'
-import sanitizeHtml from 'sanitize-html'
-import { markdownToHtml } from 'satteri'
 
 const positions = await getCollection('careerPositions').then((p) =>
   p.toSorted((a, b) => b.data.startedAt.localeCompare(a.data.startedAt)),
 )
-
-function monthToText(month: string): string {
-  switch (month) {
-    case '01':
-      return 'Jan'
-    case '02':
-      return 'Feb'
-    case '03':
-      return 'Mar'
-    case '04':
-      return 'Apr'
-    case '05':
-      return 'May'
-    case '06':
-      return 'Jun'
-    case '07':
-      return 'Jul'
-    case '08':
-      return 'Aug'
-    case '09':
-      return 'Sep'
-    case '10':
-      return 'Oct'
-    case '11':
-      return 'Nov'
-    case '12':
-      return 'Dec'
-
-    default:
-      return month
-  }
-}
-
-function parsePositionDate(yearMonth: string): string {
-  try {
-    const [year, month] = yearMonth.split('-')
-    return `${monthToText(month)} ${year}`
-  } catch (e) {
-    return yearMonth
-  }
-}
 ---
 
 <BaseLayout
@@ -93,8 +51,6 @@ function parsePositionDate(yearMonth: string): string {
     </p>
   </ProfileCard>
 
-  <h2>Work History</h2>
-
   <Fragment slot="additional-meta">
     {
       positions.map((position) => (
@@ -103,41 +59,17 @@ function parsePositionDate(yearMonth: string): string {
     }
   </Fragment>
 
-  <ul class="list-unstyled position-list">
-    {
-      positions.map((position) => (
-        <li>
-          <article id={position.id} class="position">
-            <header class="position-main-info">
-              <h3 class="position-title">{position.data.title}</h3>
-
-              <Conditional if={Boolean(position.data.company)}>
-                <span class="position-company">{position.data.company}</span>
-              </Conditional>
-
-              <div class="position-dates">
-                <time>{parsePositionDate(position.data.startedAt)}</time>{' '}
-                &mdash;{' '}
-                <Conditional if={!!position.data.endedAt}>
-                  <time>{parsePositionDate(position.data.endedAt!)}</time>
-                  <span slot="else">Current</span>
-                </Conditional>
-              </div>
-            </header>
-
-            {position.data.description && (
-              <div
-                class="position-description"
-                set:html={sanitizeHtml(
-                  markdownToHtml(position.data.description).html,
-                )}
-              />
-            )}
-          </article>
-        </li>
-      ))
-    }
-  </ul>
+  <Region id="work-history" label="Work History">
+    <ul class="list-unstyled position-list">
+      {
+        positions.map((position) => (
+          <li>
+            <CareerPosition {position} />
+          </li>
+        ))
+      }
+    </ul>
+  </Region>
 </BaseLayout>
 
 <style>
@@ -145,52 +77,5 @@ function parsePositionDate(yearMonth: string): string {
     display: flex;
     flex-direction: column;
     gap: var(--space-size-8);
-  }
-
-  .position {
-    display: grid;
-    gap: var(--space-size-4);
-    grid-template-columns: 20rem 70ch;
-    @media (max-width: 75rem) {
-      grid-template-columns: minmax(min-content, 70ch);
-    }
-  }
-
-  .position-main-info {
-    display: flex;
-    flex-direction: column;
-  }
-
-  .position-title {
-    line-height: 1;
-    margin: 0;
-    font-weight: bold;
-  }
-
-  .position-company {
-    font-weight: 200;
-    font-size: var(--font-size-4);
-  }
-
-  .position-dates {
-    font-size: var(--font-size-2);
-    font-weight: bold;
-  }
-
-  .position-description {
-    font-size: var(--font-size-4);
-  }
-
-  :global(.position-description) {
-    p {
-      margin: 0 0 var(--space-size-1) 0;
-    }
-    ul {
-      margin: 0 0 var(--space-size-5) 0;
-    }
-
-    :last-child {
-      margin-bottom: 0;
-    }
   }
 </style>
