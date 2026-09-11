@@ -2,10 +2,10 @@
 import LD from '#components/head/LD.astro'
 import LocalTimestamp from '#components/LocalTimestamp.astro'
 import Conditional from '#components/ui/Conditional.astro'
-import AT from '#data/at.json' with { type: 'json' }
+import { getATUri } from '#utils/at.ts'
+import { dateToTID } from '#utils/tid.ts'
 import type { CollectionEntry } from 'astro:content'
 import BaseLayout from './BaseLayout.astro'
-import { dateToTID } from '#utils/tid.ts'
 
 interface Props {
   post: CollectionEntry<'blog' | 'notes'>
@@ -35,7 +35,10 @@ const frontmatter = post.data
     <!-- Limiting to `/blog/*` posts for now -->
     <link
       rel="site.standard.document"
-      href={`at://${AT.did}/site.standard.document/${dateToTID(post.collection, frontmatter.publishedDate)}`}
+      href={getATUri(
+        'site.standard.document',
+        dateToTID(post.collection, frontmatter.publishedDate).str,
+      )}
     />
   </Conditional>
   <LD

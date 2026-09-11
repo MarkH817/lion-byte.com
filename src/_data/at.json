@@ -28,5 +28,8 @@
       "url": "https://semble.so/profile/lion-byte.com",
       "icon": "fa7-solid:plug"
     }
-  ]
+  ],
+  "standard.site.publication": {
+    "blog": "at://did:plc:fgtasruwazisgfbzj3duasis/site.standard.publication/3mv6qcrmrp5m2"
+  }
 }
