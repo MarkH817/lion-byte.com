@@ -1,11 +1,15 @@
 ---
 import PostFeed from '#components/post/PostFeed.astro'
+import PAGES from '#data/pages.json' with { type: 'json' }
 import BaseLayout from '#layouts/BaseLayout.astro'
 import { getCollection } from 'astro:content'
 
 const notes = await getCollection('notes')
 ---
 
-<BaseLayout title="Notes" description="Short notes.">
+<BaseLayout
+  title={PAGES['/notes/'].title}
+  description={PAGES['/notes/'].description}
+>
   <PostFeed basePath="/notes" posts={notes} />
 </BaseLayout>

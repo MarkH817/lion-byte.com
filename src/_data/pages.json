@@ -1,0 +1,18 @@
+{
+  "/about/": {
+    "title": "About",
+    "description": "About and work history of Mark Hernandez (they/them), AKA lion-byte. A software developer with a focus on the front-end, accessibility, and progressive enhancement."
+  },
+  "/blog/": {
+    "title": "Blog",
+    "description": "Posts on life events, software development, and anything else I feel like writing about."
+  },
+  "/notes/": {
+    "title": "Notes",
+    "description": "Short notes."
+  },
+  "/bookmarks/": {
+    "title": "Bookmarks",
+    "description": "Links to places of interest across the web!"
+  }
+}

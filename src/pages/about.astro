@@ -6,6 +6,7 @@ import ProfileCard from '#components/ProfileCard.astro'
 import Conditional from '#components/ui/Conditional.astro'
 import Region from '#components/ui/Region.astro'
 import AT from '#data/at.json' with { type: 'json' }
+import PAGES from '#data/pages.json' with { type: 'json' }
 import BaseLayout from '#layouts/BaseLayout.astro'
 import nunito200Url from '@fontsource/nunito/files/nunito-latin-200-normal.woff2?url'
 import nunito700Url from '@fontsource/nunito/files/nunito-latin-700-normal.woff2?url'
@@ -19,8 +20,8 @@ const sifaProfile = AT.places.find((p) => p.platform === 'Sifa')
 ---
 
 <BaseLayout
-  title="About"
-  description="About and work history of Mark Hernandez (they/them), AKA lion-byte. A software developer with a focus on the front-end, accessibility, and progressive enhancement."
+  title={PAGES['/about/'].title}
+  description={PAGES['/about/'].description}
 >
   <PreloadFont
     type="font/woff2"
