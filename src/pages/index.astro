@@ -38,18 +38,16 @@ import { Image } from 'astro:assets'
 
     <div class="social-links">
       <ul aria-label="Social media">
-        {
-          SOCIALS.map((s) => (
-            <li>
-              <SocialLink
-                href={s.url}
-                platform={s.platform}
-                username={s.handle}
-                icon={s.icon}
-              />
-            </li>
-          ))
-        }
+        {SOCIALS.map((s) => (
+          <li>
+            <SocialLink
+              href={s.url}
+              platform={s.platform}
+              username={s.handle}
+              icon={s.icon}
+            />
+          </li>
+        ))}
         <li>
           <SocialLink
             href="mailto:mark+do.not.spam.me@lion-byte.com"
@@ -65,20 +63,18 @@ import { Image } from 'astro:assets'
   <div class="social-links">
     <h2>Around the Atmosphere (@lion-byte.com)</h2>
     <ul aria-label="Atmosphere">
-      {
-        AT.places.map((s) => (
-          <li>
-            <SocialLink href={s.url} platform={s.platform} icon={s.icon} />
-          </li>
-        ))
-      }
+      {AT.places.map((s) => (
+        <li>
+          <SocialLink href={s.url} platform={s.platform} icon={s.icon} />
+        </li>
+      ))}
     </ul>
   </div>
 
   <Region id="recent-bookmarks" label="Recent Bookmarks">
-    <a href="/bookmarks/" slot="actions"
-      >View More <span class="visually-hidden">Bookmarks</span></a
-    >
+    <a href="/bookmarks/" slot="actions">
+      View More <span class="visually-hidden">Bookmarks</span>
+    </a>
     <Bookmarks limit={3} />
   </Region>
 

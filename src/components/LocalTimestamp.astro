@@ -26,8 +26,10 @@ const staticFallback = formatDate(date, {
   data-local-ts-time={showTime ? true : undefined}
   datetime={date.toISOString()}
   class="timestamp"
-  class:list={className}>{staticFallback}</time
+  class:list={className}
 >
+  {staticFallback}
+</time>
 
 <script>
   import { formatDate } from '#utils/date.ts'

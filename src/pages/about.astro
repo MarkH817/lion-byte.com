@@ -56,28 +56,24 @@ const sifaProfile = AT.places.find((p) => p.platform === 'Sifa')
   </ProfileCard>
 
   <Fragment slot="at-meta">
-    {
-      positions.map((position) => (
-        <meta property="at:alternate" content={position.data.uri} />
-      ))
-    }
+    {positions.map((position) => (
+      <meta property="at:alternate" content={position.data.uri} />
+    ))}
   </Fragment>
 
   <Region id="work-history" label="Work History">
     <Conditional if={Boolean(sifaProfile)} slot="actions">
-      <a href={sifaProfile?.url} target="_blank" rel="me noopener"
-        >View Sifa Profile</a
-      >
+      <a href={sifaProfile?.url} target="_blank" rel="me noopener">
+        View Sifa Profile
+      </a>
     </Conditional>
 
     <ul class="list-unstyled position-list">
-      {
-        positions.map((position) => (
-          <li>
-            <CareerPosition {position} />
-          </li>
-        ))
-      }
+      {positions.map((position) => (
+        <li>
+          <CareerPosition {position} />
+        </li>
+      ))}
     </ul>
   </Region>
 </BaseLayout>

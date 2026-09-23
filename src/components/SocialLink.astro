@@ -19,9 +19,7 @@ const { icon, href, platform, username } = Astro.props
   aria-label={username ? `${platform}: ${username}` : platform}
 >
   <Icon name={icon} class:list="icon" aria-hidden />
-  <span>
-    {username ?? platform}
-  </span>
+  <span>{username ?? platform}</span>
 </a>
 
 <style>

@@ -15,21 +15,19 @@ const posts = list.toSorted(
 ---
 
 <ol class="feed-list list-unstyled">
-  {
-    posts.map((post) => (
-      <li>
-        <a class="h3 title" href={`${basePath}/${post.id}/`}>
-          {post.data.title}
-        </a>
-        <div>
-          <LocalTimestamp date={post.data.publishedDate} showDate />
-        </div>
-        <Conditional if={post.data.description.length > 0}>
-          <p class="description">{post.data.description}</p>
-        </Conditional>
-      </li>
-    ))
-  }
+  {posts.map((post) => (
+    <li>
+      <a class="h3 title" href={`${basePath}/${post.id}/`}>
+        {post.data.title}
+      </a>
+      <div>
+        <LocalTimestamp date={post.data.publishedDate} showDate />
+      </div>
+      <Conditional if={post.data.description.length > 0}>
+        <p class="description">{post.data.description}</p>
+      </Conditional>
+    </li>
+  ))}
 </ol>
 
 <style>

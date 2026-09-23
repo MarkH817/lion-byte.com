@@ -6,25 +6,19 @@ const likes = await getCollection('npmxLikes').then((l) => l.toReversed())
 ---
 
 <ul class="list-unstyled package-list">
-  {
-    likes.map((like) => (
-      <li>
-        <a
-          class="package"
-          href={like.data.subjectRef}
-          target="_blank"
-          rel="noopener"
-        >
-          <Icon
-            name="fa7-solid:box-open"
-            class:list="package-icon"
-            aria-hidden
-          />
-          <span>{like.data.packageName}</span>
-        </a>
-      </li>
-    ))
-  }
+  {likes.map((like) => (
+    <li>
+      <a
+        class="package"
+        href={like.data.subjectRef}
+        target="_blank"
+        rel="noopener"
+      >
+        <Icon name="fa7-solid:box-open" class:list="package-icon" aria-hidden />
+        <span>{like.data.packageName}</span>
+      </a>
+    </li>
+  ))}
 </ul>
 
 <style>

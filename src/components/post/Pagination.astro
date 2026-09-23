@@ -17,26 +17,22 @@ const {
 
 <footer class="pagination">
   <nav aria-label="Pagination links">
-    {
-      prevLink ? (
-        <a
-          href={paginationAnchor ? `${prevLink}#${paginationAnchor}` : prevLink}
-          class="pagination-link pagination-link--backwards"
-        >
-          {prevText}
-        </a>
-      ) : null
-    }
-    {
-      nextLink ? (
-        <a
-          href={paginationAnchor ? `${nextLink}#${paginationAnchor}` : nextLink}
-          class="pagination-link pagination-link--forwards"
-        >
-          {nextText}
-        </a>
-      ) : null
-    }
+    {prevLink ? (
+      <a
+        href={paginationAnchor ? `${prevLink}#${paginationAnchor}` : prevLink}
+        class="pagination-link pagination-link--backwards"
+      >
+        {prevText}
+      </a>
+    ) : null}
+    {nextLink ? (
+      <a
+        href={paginationAnchor ? `${nextLink}#${paginationAnchor}` : nextLink}
+        class="pagination-link pagination-link--forwards"
+      >
+        {nextText}
+      </a>
+    ) : null}
   </nav>
 </footer>
 

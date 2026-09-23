@@ -18,7 +18,9 @@ const tags = unique(entry.items.flatMap((item) => item.data.tags))
   <header>
     <a class="h3 title" href={common.source} target="_blank" rel="noopener">
       {common.title}{' '}
-      <span style="font-size: smaller;" aria-hidden="true">&nearrow;</span>
+      <span style="font-size: smaller;" aria-hidden="true">
+        &nearrow;
+      </span>
     </a>
 
     <div class="info">
@@ -31,35 +33,31 @@ const tags = unique(entry.items.flatMap((item) => item.data.tags))
         class:list={{ 'tags--empty': tags.length === 0 }}
         aria-label="Tags"
       >
-        {
-          tags.length > 0 ? (
-            tags.map((tag) => (
-              <li>
-                <Badge label={tag} icon="fa7-solid:tag" />
-              </li>
-            ))
-          ) : (
+        {tags.length > 0 ? (
+          tags.map((tag) => (
             <li>
-              <Badge label="untagged" />
+              <Badge label={tag} icon="fa7-solid:tag" />
             </li>
-          )
-        }
+          ))
+        ) : (
+          <li>
+            <Badge label="untagged" />
+          </li>
+        )}
       </ul>
     </div>
   </header>
 
   <Conditional if={entry.items.some((i) => i.data.highlightQuote)}>
     <div class="annotations-and-highlights">
-      {
-        entry.items.map((item) =>
-          item.data.highlightQuote ? (
-            <blockquote cite={item.data.source}>
-              <Icon name="fa7-solid:highlighter" aria-hidden />
-              {item.data.highlightQuote}
-            </blockquote>
-          ) : null,
-        )
-      }
+      {entry.items.map((item) =>
+        item.data.highlightQuote ? (
+          <blockquote cite={item.data.source}>
+            <Icon name="fa7-solid:highlighter" aria-hidden />
+            {item.data.highlightQuote}
+          </blockquote>
+        ) : null,
+      )}
     </div>
   </Conditional>
 </article>

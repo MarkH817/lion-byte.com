@@ -68,8 +68,7 @@ function formatPositionDate(yearMonth?: string): string {
     </Conditional>
 
     <div class="position-dates">
-      <time>{formatPositionDate(position.data.startedAt)}</time>{' '}
-      &mdash;{' '}
+      <time>{formatPositionDate(position.data.startedAt)}</time> &mdash;{' '}
       <Conditional if={Boolean(position.data.endedAt)}>
         <time>{formatPositionDate(position.data.endedAt)}</time>
         <span slot="else">Current</span>
@@ -77,14 +76,12 @@ function formatPositionDate(yearMonth?: string): string {
     </div>
   </header>
 
-  {
-    position.data.description && (
-      <div
-        class="position-description"
-        set:html={sanitizeHtml(markdownToHtml(position.data.description).html)}
-      />
-    )
-  }
+  {position.data.description && (
+    <div
+      class="position-description"
+      set:html={sanitizeHtml(markdownToHtml(position.data.description).html)}
+    />
+  )}
 </article>
 
 <style>

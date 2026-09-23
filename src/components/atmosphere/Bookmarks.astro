@@ -14,13 +14,11 @@ const groupedBookmarks = groupBy(bookmarks, (b) => b.data.source)
 ---
 
 <ul class="list-unstyled bookmark-list">
-  {
-    groupedBookmarks.slice(0, limit).map((group) => (
-      <li>
-        <Bookmark entry={group} />
-      </li>
-    ))
-  }
+  {groupedBookmarks.slice(0, limit).map((group) => (
+    <li>
+      <Bookmark entry={group} />
+    </li>
+  ))}
 </ul>
 
 <style>

@@ -3,27 +3,27 @@ import navigation from '#data/navigation.json' with { type: 'json' }
 ---
 
 <header class="header">
-  <a class="header-name" href="/">Mark Hernandez</a>
+  <a class="header-name" href="/">
+    Mark Hernandez
+  </a>
 
   <nav class="nav" aria-label="Main">
     <ul class="nav-list list-unstyled">
-      {
-        navigation.main.map((item) => (
-          <li>
-            <a
-              href={item.url}
-              aria-current={item.url === Astro.url.pathname ? 'page' : null}
-              data-state={
-                item.url.length > 1 && Astro.url.pathname.startsWith(item.url)
-                  ? 'active'
-                  : null
-              }
-            >
-              {item.text}
-            </a>
-          </li>
-        ))
-      }
+      {navigation.main.map((item) => (
+        <li>
+          <a
+            href={item.url}
+            aria-current={item.url === Astro.url.pathname ? 'page' : null}
+            data-state={
+              item.url.length > 1 && Astro.url.pathname.startsWith(item.url)
+                ? 'active'
+                : null
+            }
+          >
+            {item.text}
+          </a>
+        </li>
+      ))}
     </ul>
   </nav>
 </header>
