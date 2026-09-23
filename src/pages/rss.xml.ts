@@ -46,7 +46,7 @@ export const GET = (async (context) => {
       { href: context.site!.href },
     ],
     updated: posts[0].data.publishedDate.toISOString(),
-    id: context.site?.href!,
+    id: context.site?.href ?? new URL(SITE.url).href,
     author: [{ name: SITE.authorName, email: SITE.authorEmail }],
     entry: entries,
   })

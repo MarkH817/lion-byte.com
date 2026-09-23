@@ -22,7 +22,7 @@ export const GET = (async (ctx) => {
 ## Pages
 
 ${Object.entries(PAGES)
-  .filter(([_, page]) => page.description && page.description.length > 0)
+  .filter(([, page]) => page.description && page.description.length > 0)
   .map(
     ([path, page]) =>
       `- [${page.title}](${new URL(path, ctx.url.origin)}): ${page.description}`,

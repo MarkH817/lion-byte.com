@@ -8,9 +8,9 @@
       "---",
       "",
       "$0",
-      ""
+      "",
     ],
     "prefix": "post",
-    "scope": "markdown"
-  }
+    "scope": "markdown",
+  },
 }

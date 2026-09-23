@@ -1,3 +1,6 @@
 {
-  "*.{mjs,js,ts,astro,css,json,md,yaml,yml}": ["prettier --write"]
+  "*.{mjs,ts}": ["oxlint", "oxfmt"],
+  "*.{css,json,md,yaml,yml,toml}": ["oxfmt"],
+  "*.{astro}": ["oxlint", "prettier --write"],
+  "*.{mjs,ts,astro}": ["vitest related --run"]
 }

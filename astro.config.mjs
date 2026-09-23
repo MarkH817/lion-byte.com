@@ -1,4 +1,5 @@
 // @ts-check
+import SITE from '#data/site.json' with { type: 'json' }
 import { externalLinksPlugin } from '#utils/plugins/satteri.ts'
 import { satteri } from '@astrojs/markdown-satteri'
 import sitemap, { ChangeFreqEnum } from '@astrojs/sitemap'
@@ -7,7 +8,7 @@ import og from 'astro-og'
 import { defineConfig } from 'astro/config'
 
 export default defineConfig({
-  site: 'https://www.lion-byte.com',
+  site: SITE.url,
   integrations: [
     icon(),
     og(),
@@ -23,7 +24,7 @@ export default defineConfig({
         },
       },
       serialize: (item) => {
-        if (/\.com\/$/.test(item.url)) {
+        if (item.url.endsWith('.com/')) {
           item.changefreq = ChangeFreqEnum.DAILY
           item.priority = 1
         } else if (/\/about\//.test(item.url)) {

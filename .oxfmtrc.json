@@ -1,0 +1,10 @@
+{
+  "$schema": "./node_modules/oxfmt/configuration_schema.json",
+  "ignorePatterns": [],
+  "singleQuote": true,
+  "semi": false,
+  "printWidth": 80,
+  "overrides": [
+    { "files": ["*.{css,less}"], "options": { "singleQuote": false } }
+  ]
+}
