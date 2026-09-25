@@ -6,7 +6,7 @@ import PreloadFont from '#components/head/PreloadFont.astro'
 import AT from '#data/at.json' with { type: 'json' }
 import LION from '#data/lion.json' with { type: 'json' }
 import SITE from '#data/site.json' with { type: 'json' }
-import SOCIALS from '#data/socials.json' with { type: 'json' }
+import { AP_SOCIALS, AT_SOCIALS, OTHER_SOCIALS } from '#data/socials.ts'
 import '#styles/global.less'
 import type { ImageData } from '#types/image.ts'
 import nunito400Url from '@fontsource/nunito/files/nunito-latin-400-normal.woff2?url'
@@ -97,7 +97,7 @@ const favicon = await getImage({
         familyName: LION.lastName,
         pronouns: LION.pronouns,
         gender: LION.gender,
-        sameAs: AT.places.map((s) => s.url).concat(SOCIALS.map((s) => s.url)),
+        sameAs: AT_SOCIALS.concat(AP_SOCIALS, OTHER_SOCIALS).map((s) => s.url),
       }}
     />
     <slot name="additional-ld" />

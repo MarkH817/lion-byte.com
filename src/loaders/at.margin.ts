@@ -1,5 +1,5 @@
-import note from '#lexicons/at/margin/note.ts'
 import { z } from 'zod/mini'
+import note from '#lexicons/at/margin/note.ts'
 import { listAll } from './utils/lex-client'
 import { parseRKey } from './utils/parse-rkey'
 

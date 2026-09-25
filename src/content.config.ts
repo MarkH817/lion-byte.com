@@ -1,10 +1,10 @@
+import { glob } from 'astro/loaders'
+import { defineCollection } from 'astro:content'
 import { getMarginAtNotes, MarginNoteCollection } from '#loaders/at.margin.ts'
 import { getNpmxLikes, NpmxLikesCollection } from '#loaders/dev.npmx.ts'
 import { getPositions, PositionCollection } from '#loaders/id.sifa.ts'
 import { isCheckMode } from '#loaders/utils/is-check-mode.ts'
 import { postSchema } from '#schemas/post.ts'
-import { glob } from 'astro/loaders'
-import { defineCollection } from 'astro:content'
 
 const blog = defineCollection({
   loader: glob({ pattern: '**/[^_]*.md', base: './src/blog' }),

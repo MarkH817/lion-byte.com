@@ -3,9 +3,8 @@ import photo from '#assets/mark.jpg'
 import CareerPosition from '#components/atmosphere/CareerPosition.astro'
 import PreloadFont from '#components/head/PreloadFont.astro'
 import ProfileCard from '#components/ProfileCard.astro'
-import Conditional from '#components/ui/Conditional.astro'
 import Region from '#components/ui/Region.astro'
-import AT from '#data/at.json' with { type: 'json' }
+import SOCIALS from '#data/socials.json' with { type: 'json' }
 import PAGES from '#data/pages.json' with { type: 'json' }
 import BaseLayout from '#layouts/BaseLayout.astro'
 import nunito200Url from '@fontsource/nunito/files/nunito-latin-200-normal.woff2?url'
@@ -16,7 +15,6 @@ import { getCollection } from 'astro:content'
 const positions = await getCollection('careerPositions').then((p) =>
   p.toSorted((a, b) => b.data.startedAt.localeCompare(a.data.startedAt)),
 )
-const sifaProfile = AT.places.find((p) => p.platform === 'Sifa')
 ---
 
 <BaseLayout
@@ -62,11 +60,9 @@ const sifaProfile = AT.places.find((p) => p.platform === 'Sifa')
   </Fragment>
 
   <Region id="work-history" label="Work History">
-    <Conditional if={Boolean(sifaProfile)} slot="actions">
-      <a href={sifaProfile?.url} target="_blank" rel="me noopener">
-        View Sifa Profile
-      </a>
-    </Conditional>
+    <a href={SOCIALS.sifa.url} target="_blank" rel="me noopener" slot="actions">
+      View Sifa Profile
+    </a>
 
     <ul class="list-unstyled position-list">
       {positions.map((position) => (

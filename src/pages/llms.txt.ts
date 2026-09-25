@@ -1,7 +1,7 @@
-import PAGES from '#data/pages.json' with { type: 'json' }
-import SITE from '#data/site.json' with { type: 'json' }
 import type { APIRoute } from 'astro'
 import { getCollection } from 'astro:content'
+import PAGES from '#data/pages.json' with { type: 'json' }
+import SITE from '#data/site.json' with { type: 'json' }
 
 export const GET = (async (ctx) => {
   const blogPosts = await getCollection('blog').then((l) =>

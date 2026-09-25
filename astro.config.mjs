@@ -1,11 +1,12 @@
 // @ts-check
-import SITE from '#data/site.json' with { type: 'json' }
-import { externalLinksPlugin } from '#utils/plugins/satteri.ts'
+
 import { satteri } from '@astrojs/markdown-satteri'
 import sitemap, { ChangeFreqEnum } from '@astrojs/sitemap'
 import icon from 'astro-icon'
 import og from 'astro-og'
 import { defineConfig } from 'astro/config'
+import SITE from '#data/site.json' with { type: 'json' }
+import { externalLinksPlugin } from '#utils/plugins/satteri.ts'
 
 export default defineConfig({
   site: SITE.url,

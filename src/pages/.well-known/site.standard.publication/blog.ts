@@ -1,5 +1,5 @@
-import AT from '#data/at.json' with { type: 'json' }
 import type { APIRoute } from 'astro'
+import AT from '#data/at.json' with { type: 'json' }
 
 export const GET = (() => {
   return new Response(AT['standard.site.publication'].blog, {

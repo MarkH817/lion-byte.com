@@ -1,7 +1,7 @@
-import NAVIGATION from '#data/navigation.json' with { type: 'json' }
-import SITE from '#data/site.json' with { type: 'json' }
 import { experimental_AstroContainer as AstroContainer } from 'astro/container'
 import { describe, expect, test } from 'vitest'
+import NAVIGATION from '#data/navigation.json' with { type: 'json' }
+import SITE from '#data/site.json' with { type: 'json' }
 import Header from './Header.astro'
 
 describe('Header', () => {

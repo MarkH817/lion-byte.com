@@ -1,5 +1,5 @@
-import position from '#lexicons/id/sifa/profile/position.ts'
 import { z } from 'zod/mini'
+import position from '#lexicons/id/sifa/profile/position.ts'
 import { listAll } from './utils/lex-client'
 import { parseRKey } from './utils/parse-rkey'
 

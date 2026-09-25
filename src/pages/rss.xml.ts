@@ -1,10 +1,10 @@
-import SITE from '#data/site.json'
-import { absolutePathsPlugin } from '#utils/plugins/satteri.ts'
 import type { APIRoute } from 'astro'
 import { getCollection } from 'astro:content'
 import rss, { type AtomEntry } from 'astrojs-atom'
 import sanitizeHtml from 'sanitize-html'
 import { markdownToHtml } from 'satteri'
+import SITE from '#data/site.json'
+import { absolutePathsPlugin } from '#utils/plugins/satteri.ts'
 
 export const GET = (async (context) => {
   const posts = await getCollection('blog').then((list) =>

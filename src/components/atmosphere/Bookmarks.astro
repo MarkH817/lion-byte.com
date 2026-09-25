@@ -27,4 +27,9 @@ const groupedBookmarks = groupBy(bookmarks, (b) => b.data.source)
     flex-direction: column;
     gap: var(--space-size-6) var(--space-size-8);
   }
+
+  .bookmark-list li:nth-child(n + 11) {
+    content-visibility: auto;
+    contain-intrinsic-size: auto 4rem;
+  }
 </style>

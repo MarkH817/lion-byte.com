@@ -1,5 +1,5 @@
-import SITE from '#data/site.json' with { type: 'json' }
 import type { CollectionEntry } from 'astro:content'
+import SITE from '#data/site.json' with { type: 'json' }
 
 export function postFrontmatter(post: CollectionEntry<'blog' | 'notes'>) {
   return `---

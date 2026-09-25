@@ -1,5 +1,5 @@
-import { TID } from '@atproto/common-web'
 import { hash } from 'node:crypto'
+import { TID } from '@atproto/common-web'
 
 /**
  * Get clock ID for a given `namespace` input.

@@ -1,5 +1,5 @@
-import SITE from '#data/site.json' with { type: 'json' }
 import { defineHastPlugin } from 'satteri'
+import SITE from '#data/site.json' with { type: 'json' }
 
 /**
  * Reference: https://satteri.bruits.org/docs/plugins/#hast-plugins

@@ -6,11 +6,13 @@ import PreloadFont from '#components/head/PreloadFont.astro'
 import ProfileCard from '#components/ProfileCard.astro'
 import SocialLink from '#components/SocialLink.astro'
 import Region from '#components/ui/Region.astro'
-import AT from '#data/at.json' with { type: 'json' }
-import SOCIALS from '#data/socials.json' with { type: 'json' }
+import { AP_SOCIALS, AT_SOCIALS, OTHER_SOCIALS } from '#data/socials.ts'
 import BaseLayout from '#layouts/BaseLayout.astro'
 import nunito700Url from '@fontsource/nunito/files/nunito-latin-700-normal.woff2?url'
 import { Image } from 'astro:assets'
+
+const emailUrl = new URL('mailto:mark@lion-byte.com')
+emailUrl.searchParams.append('subject', '👋 Hey Mark!')
 ---
 
 <BaseLayout displayTitle="Welcome">
@@ -38,7 +40,15 @@ import { Image } from 'astro:assets'
 
     <div class="social-links">
       <ul aria-label="Social media">
-        {SOCIALS.map((s) => (
+        <li>
+          <SocialLink
+            href={emailUrl.toString()}
+            platform="Email"
+            username="mark@lion-byte.com"
+            icon="fa7-solid:envelope"
+          />
+        </li>
+        {AP_SOCIALS.concat(OTHER_SOCIALS).map((s) => (
           <li>
             <SocialLink
               href={s.url}
@@ -48,14 +58,6 @@ import { Image } from 'astro:assets'
             />
           </li>
         ))}
-        <li>
-          <SocialLink
-            href="mailto:mark+do.not.spam.me@lion-byte.com"
-            platform="Email"
-            username="mark@lion-byte.com"
-            icon="fa7-solid:envelope"
-          />
-        </li>
       </ul>
     </div>
   </ProfileCard>
@@ -63,7 +65,7 @@ import { Image } from 'astro:assets'
   <div class="social-links">
     <h2>Around the Atmosphere (@lion-byte.com)</h2>
     <ul aria-label="Atmosphere">
-      {AT.places.map((s) => (
+      {AT_SOCIALS.map((s) => (
         <li>
           <SocialLink href={s.url} platform={s.platform} icon={s.icon} />
         </li>
