@@ -1,6 +1,6 @@
 {
   "*.{mjs,ts}": ["oxlint", "oxfmt"],
-  "*.{css,json,md,yaml,yml,toml}": ["oxfmt"],
+  "*.{css,json,md,yaml,yml,toml}": ["oxfmt --no-error-on-unmatched-pattern"],
   "*.{astro}": ["oxlint", "prettier --write"],
   "*.{mjs,ts,astro}": ["vitest related --run"]
 }
