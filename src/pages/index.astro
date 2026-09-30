@@ -74,8 +74,8 @@ emailUrl.searchParams.append('subject', '👋 Hey Mark!')
   </div>
 
   <Region id="recent-bookmarks" label="Recent Bookmarks">
-    <a href="/bookmarks/" slot="actions">
-      View More <span class="visually-hidden">Bookmarks</span>
+    <a href="/bookmarks/" aria-label="View More Bookmarks" slot="actions">
+      View More
     </a>
     <Bookmarks limit={3} />
   </Region>

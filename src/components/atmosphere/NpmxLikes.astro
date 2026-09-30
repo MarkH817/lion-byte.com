@@ -43,6 +43,7 @@ const likes = await getCollection('npmxLikes').then((l) => l.toReversed())
     border-radius: var(--space-size-2);
     border: 1px dotted currentColor;
     &:focus-visible {
+      outline-offset: -0.15rem;
       border-color: transparent;
     }
   }
