@@ -12,6 +12,10 @@ interface Props {
 }
 const { post } = Astro.props
 const frontmatter = post.data
+const atPostUri = getATUri(
+  'site.standard.document',
+  dateToTID(post.collection, frontmatter.publishedDate).str,
+)
 ---
 
 <BaseLayout
@@ -33,16 +37,12 @@ const frontmatter = post.data
   <slot name="at-meta" slot="at-meta" />
   <Conditional if={post.collection === 'blog'} slot="at-meta">
     <!-- Limiting to `/blog/*` posts for now -->
-    <link
-      rel="site.standard.document"
-      href={getATUri(
-        'site.standard.document',
-        dateToTID(post.collection, frontmatter.publishedDate).str,
-      )}
-    />
+    <meta property="at:alternate" content={atPostUri} />
+    <link rel="site.standard.document" href={atPostUri} />
   </Conditional>
   <LD
     schema={{
+      '@context': 'https://schema.org',
       '@type': 'BlogPosting',
       headline: frontmatter.title,
       description: frontmatter.description,

@@ -1,8 +1,14 @@
 ---
-import type { Person, WebSite, Graph, BlogPosting } from 'schema-dts'
+import type {
+  BlogPosting,
+  Graph,
+  Person,
+  WebSite,
+  WithContext,
+} from 'schema-dts'
 
 interface Props {
-  schema: Person | WebSite | BlogPosting | Graph
+  schema: WithContext<BlogPosting | Person | WebSite> | Graph
 }
 const { schema } = Astro.props
 ---

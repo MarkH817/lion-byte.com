@@ -12,6 +12,11 @@ const blogPosts = await getCollection('blog')
   title={PAGES['/blog/'].title}
   description={PAGES['/blog/'].description}
 >
+  <meta
+    property="at:alternate"
+    content={AT['standard.site.publication'].blog}
+    slot="at-meta"
+  />
   <link
     rel="site.standard.publication"
     href={AT['standard.site.publication'].blog}

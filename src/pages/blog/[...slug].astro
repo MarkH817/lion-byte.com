@@ -17,6 +17,11 @@ const { Content } = await render(post)
 ---
 
 <MarkdownPostLayout {post}>
+  <meta
+    property="at:alternate"
+    content={AT['standard.site.publication'].blog}
+    slot="at-meta"
+  />
   <link
     rel="site.standard.publication"
     href={AT['standard.site.publication'].blog}
