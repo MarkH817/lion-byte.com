@@ -10,7 +10,7 @@ export const getStaticPaths = (async () => {
   }))
 }) satisfies GetStaticPaths
 
-export const GET = (async ({ props }) => {
+export const GET = (({ props }) => {
   const post = props.post as CollectionEntry<'blog'>
   const body = `${postFrontmatter(post)}
 

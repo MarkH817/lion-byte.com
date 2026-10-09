@@ -38,6 +38,6 @@ export async function getNpmxLikes() {
  * - 'https://npmx.dev/package/@angular/core' --> '@angular/core'
  */
 export function extractPackageName(subjectRef: string): string {
-  const match = subjectRef.match(/\/package\/(.+)$/)
+  const match = subjectRef.match(/\/package\/(.+)$/u)
   return match ? decodeURIComponent(match[1]) : subjectRef
 }

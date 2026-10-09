@@ -1,4 +1,4 @@
-export function pick<Item extends {}, Key extends keyof Item>(
+export function pick<Item, Key extends keyof Item>(
   item: Item,
   keys: Key[],
 ): Pick<Item, Key> {

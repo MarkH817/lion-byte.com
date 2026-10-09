@@ -12,10 +12,10 @@ export function groupBy<Item, Key extends string | number>(
   const map = new Map<Key, NonEmptyList<Item>>()
   for (const item of list) {
     const key = keyFn(item)
-    if (!map.has(key)) {
-      map.set(key, [item])
-    } else {
+    if (map.has(key)) {
       map.get(key)!.push(item)
+    } else {
+      map.set(key, [item])
     }
   }
   return Array.from(map).map(([key, items]) => ({ key, items }))

@@ -18,7 +18,7 @@ export default defineConfig({
       changefreq: ChangeFreqEnum.WEEKLY,
       chunks: {
         posts: (item) => {
-          if (/\/(blog|notes)\//.test(item.url)) {
+          if (/\/(blog|notes)\//u.test(item.url)) {
             item.priority = 0.7
             return item
           }
@@ -28,7 +28,7 @@ export default defineConfig({
         if (item.url.endsWith('.com/')) {
           item.changefreq = ChangeFreqEnum.DAILY
           item.priority = 1
-        } else if (/\/about\//.test(item.url)) {
+        } else if (/\/about\//u.test(item.url)) {
           item.priority = 0.7
         }
         return item

@@ -46,8 +46,8 @@ const staticFallback = formatDate(date, {
         const localDate = new Date(isoString)
         t.textContent = `${formatDate(localDate, {
           language: navigator.language,
-          showDate: t.hasAttribute('data-local-ts-date'),
-          showTime: t.hasAttribute('data-local-ts-time'),
+          showDate: 'localTsDate' in t.dataset,
+          showTime: 'localTsTime' in t.dataset,
         })}`
       } catch (e) {
         console.error('Failed to parse timestamp:', e)
