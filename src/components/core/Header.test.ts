@@ -13,21 +13,30 @@ describe('Header', () => {
     }
   })
 
-  test('add aria-current=page and data-state=active for /blog', async () => {
+  test('add aria-current=page and data-active-subpath=true for /blog', async () => {
     const container = await AstroContainer.create()
     const result = await container.renderToString(Header, {
       request: new Request(new URL('/blog/', SITE.url)),
     })
     expect(result).toContain('aria-current="page"')
-    expect(result).toContain('data-state="active"')
+    expect(result).toContain('data-active-subpath="true"')
   })
 
-  test('only add data-state=active for /blog/*', async () => {
+  test('only add data-active-subpath=true for /blog/*', async () => {
     const container = await AstroContainer.create()
     const result = await container.renderToString(Header, {
       request: new Request(new URL('/blog/hello/', SITE.url)),
     })
     expect(result).not.toContain('aria-current="page"')
-    expect(result).toContain('data-state="active"')
+    expect(result).toContain('data-active-subpath="true"')
+  })
+
+  test('have no aria-current nor data-active-subpath for unmatched paths', async () => {
+    const container = await AstroContainer.create()
+    const result = await container.renderToString(Header, {
+      request: new Request(new URL('/not-real/', SITE.url)),
+    })
+    expect(result).not.toContain('aria-current="page"')
+    expect(result).not.toContain('data-active-subpath="true"')
   })
 })

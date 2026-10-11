@@ -1,5 +1,5 @@
 ---
-import navigation from '#data/navigation.json' with { type: 'json' }
+import NAVIGATION from '#data/navigation.json' with { type: 'json' }
 ---
 
 <header class="header">
@@ -9,14 +9,14 @@ import navigation from '#data/navigation.json' with { type: 'json' }
 
   <nav class="nav" aria-label="Main">
     <ul class="nav-list list-unstyled">
-      {navigation.main.map((item) => (
+      {NAVIGATION.main.map((item) => (
         <li>
           <a
             href={item.url}
             aria-current={item.url === Astro.url.pathname ? 'page' : null}
-            data-state={
+            data-active-subpath={
               item.url.length > 1 && Astro.url.pathname.startsWith(item.url)
-                ? 'active'
+                ? true
                 : null
             }
           >
@@ -77,7 +77,7 @@ import navigation from '#data/navigation.json' with { type: 'json' }
     }
 
     &[aria-current],
-    &[data-state='active'] {
+    &[data-active-subpath='true'] {
       border-color: currentColor;
       text-decoration: none;
     }

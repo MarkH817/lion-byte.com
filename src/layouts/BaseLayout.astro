@@ -118,11 +118,42 @@ const favicon = await getImage({
       Skip to main content
     </a>
 
-    <Header />
-
-    <main id="main-content" class="site-main" tabindex="-1">
-      <h1>{displayTitle}</h1>
-      <slot />
-    </main>
+    <div class="site-container">
+      <Header />
+      <main id="main-content" class="site-main" tabindex="-1">
+        <h1 class="site-page-title">{displayTitle}</h1>
+        <slot />
+      </main>
+    </div>
   </body>
 </html>
+
+<style is:global>
+  .skip-link {
+    background-color: var(--background-color);
+    left: var(--space-size-3);
+    padding: var(--space-size-3) var(--space-size-2);
+    position: absolute;
+    top: var(--space-size-3);
+  }
+
+  .site-container {
+    min-height: 100dvh;
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-size-7) 0;
+  }
+
+  .site-main {
+    flex-grow: 1;
+    margin: 0 auto;
+    max-width: 125rem;
+    width: 100%;
+    outline: none;
+    padding: 0 var(--space-size-5);
+  }
+
+  .site-page-title {
+    margin-top: 0;
+  }
+</style>
