@@ -7,6 +7,7 @@
 /* Typography */
 :root {
   font-size: 1rem;
+  color-scheme: light dark;
   --font-nunito: "Nunito", Arial, Helvetica, sans-serif;
   --font-open-sans: "Open Sans", Arial, Helvetica, sans-serif;
   --font-hey-gorgeous: "Hey Gorgeous", Arial, Helvetica, sans-serif;
@@ -58,7 +59,8 @@
 
 /* Focus */
 * {
-  &:focus-visible {
+  &:focus-visible,
+  &.focus-visible-within:has(:focus-visible) {
     outline: 0.15rem dashed currentColor;
   }
 
@@ -187,6 +189,13 @@ p {
   margin: 0 0 1.5em;
 }
 
+input,
+button {
+  font: inherit;
+  color: inherit;
+  background-color: var(--background-color);
+}
+
 /* Utils */
 .list-unstyled {
   padding-left: 0;
@@ -202,4 +211,8 @@ p {
   position: absolute;
   white-space: nowrap;
   width: 1px;
+}
+
+html:not(.js) .js-only {
+  display: none;
 }

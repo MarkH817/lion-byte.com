@@ -4,21 +4,36 @@ import Conditional from '#components/ui/Conditional.astro'
 import { unique, type GroupByResult } from '#utils/list.ts'
 import { pick } from '#utils/object.ts'
 import { Icon } from 'astro-icon/components'
+import type { HTMLAttributes } from 'astro/types'
 import type { CollectionEntry } from 'astro:content'
 
-interface Props {
+interface Props extends HTMLAttributes<'article'> {
   entry: GroupByResult<string, CollectionEntry<'marginAtNotes'>>
 }
-const { entry } = Astro.props
+const { entry, ...attrs } = Astro.props
 const common = pick(entry.items[0].data, ['title', 'source'])
+const hostname = new URL(common.source).hostname
 const tags = unique(entry.items.flatMap((item) => item.data.tags))
+const id = `bookmark-${crypto.randomUUID()}`
 ---
 
-<article class="bookmark">
+<article
+  class="bookmark"
+  data-bookmark-title={common.title}
+  data-bookmark-hostname={hostname}
+  aria-labelledby={id}
+  {...attrs}
+>
   <header>
-    <a class="h3 title" href={common.source} target="_blank" rel="noopener">
+    <a
+      {id}
+      class="h3 title"
+      href={common.source}
+      target="_blank"
+      rel="noopener"
+    >
       {common.title}{' '}
-      <span style="font-size: smaller;" aria-hidden="true">
+      <span class="arrow" aria-hidden="true">
         &nearrow;
       </span>
     </a>
@@ -26,7 +41,7 @@ const tags = unique(entry.items.flatMap((item) => item.data.tags))
     <div class="info">
       <div class="hostname">
         <span class="visually-hidden">Hostname:</span>
-        {new URL(common.source).hostname}
+        {hostname}
       </div>
       <ul
         class="list-unstyled tags"
@@ -74,6 +89,10 @@ const tags = unique(entry.items.flatMap((item) => item.data.tags))
     margin-block-end: var(--space-size-1);
     text-wrap: balance;
     display: inline-block;
+  }
+
+  .arrow {
+    font-size: var(--font-size-2);
   }
 
   .info {

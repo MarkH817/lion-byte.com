@@ -2,18 +2,19 @@
 import { groupBy } from '#utils/list.ts'
 import { getCollection } from 'astro:content'
 import Bookmark from './Bookmark.astro'
+import type { HTMLAttributes } from 'astro/types'
 
-interface Props {
+interface Props extends HTMLAttributes<'ul'> {
   limit?: number
 }
-const { limit } = Astro.props
+const { limit, ...attrs } = Astro.props
 const bookmarks = await getCollection('marginAtNotes').then((l) =>
   l.toReversed(),
 )
 const groupedBookmarks = groupBy(bookmarks, (b) => b.data.source)
 ---
 
-<ul class="list-unstyled bookmark-list">
+<ul class="list-unstyled bookmark-list" {...attrs}>
   {groupedBookmarks.slice(0, limit).map((group) => (
     <li>
       <Bookmark entry={group} />
@@ -28,8 +29,13 @@ const groupedBookmarks = groupBy(bookmarks, (b) => b.data.source)
     gap: var(--space-size-6) var(--space-size-8);
   }
 
-  .bookmark-list li:nth-child(n + 11) {
-    content-visibility: auto;
-    contain-intrinsic-size: auto 4rem;
+  .bookmark-list li {
+    &:nth-child(n + 11) {
+      content-visibility: auto;
+      contain-intrinsic-size: auto 4rem;
+    }
+    &:has(:global(.bookmark[hidden])) {
+      display: none;
+    }
   }
 </style>
