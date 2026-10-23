@@ -22,6 +22,7 @@ const id = `bookmark-${crypto.randomUUID()}`
   class:list={[className]}
   data-bookmark-title={common.title}
   data-bookmark-hostname={hostname}
+  data-bookmark-tags={tags.join(',')}
   aria-labelledby={id}
   {...attrs}
 >

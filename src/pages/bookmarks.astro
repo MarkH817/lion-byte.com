@@ -5,8 +5,6 @@ import PAGES from '#data/pages.json' with { type: 'json' }
 import SOCIALS from '#data/socials.json' with { type: 'json' }
 import BaseLayout from '#layouts/BaseLayout.astro'
 import nunito700Url from '@fontsource/nunito/files/nunito-latin-700-normal.woff2?url'
-
-const searchInputId = `bookmark-search-text`
 ---
 
 <BaseLayout
@@ -21,81 +19,31 @@ const searchInputId = `bookmark-search-text`
   <a href={SOCIALS.margin.url} target="_blank" rel="me noopener" slot="actions">
     View All on Margin
   </a>
-  <div class="js-only focus-visible-within bookmark-filters">
-    <label class="filter-label" for={searchInputId}>
-      Search
-    </label>
-    <input
-      id={searchInputId}
-      class="filter-input"
-      type="search"
-      autocomplete="off"
-      class="bookmark-filters-text"
-    />
-  </div>
   <BookmarkList />
 </BaseLayout>
 
 <script>
-  const input = document.querySelector<HTMLInputElement>(
-    '#bookmark-search-text',
-  )
-  const bookmarks = Array.from(
+  const domBookmarks = Array.from(
     document.querySelectorAll<HTMLElement>('.bookmark'),
   )
+  const untaggedBookmarks = new Set<HTMLElement>()
+  const tagsMap = new Map<string, Set<HTMLElement>>()
+  for (const bm of domBookmarks) {
+    const tags = bm.dataset.bookmarkTags
+      ?.split(',')
+      .map((t) => t.trim())
+      .filter((t) => t.length > 0)
+    if (!tags || tags.length === 0) {
+      untaggedBookmarks.add(bm)
+      continue
+    }
 
-  if (input) {
-    input.addEventListener('input', (event: InputEvent) => {
-      const text = input.value.trim().toLocaleLowerCase()
-
-      if (text.length === 0) {
-        bookmarks.forEach((b) => {
-          b.hidden = false
-        })
-        return
+    for (const tag of tags) {
+      if (tagsMap.has(tag)) {
+        tagsMap.get(tag)?.add(bm)
+      } else {
+        tagsMap.set(tag, new Set([bm]))
       }
-
-      for (const bookmark of bookmarks) {
-        bookmark.hidden = !bookmark.textContent
-          .toLocaleLowerCase()
-          .includes(text)
-      }
-    })
-  }
-</script>
-
-<style is:global>
-  .bookmark-filters {
-    font-size: var(--font-size-4);
-    border-radius: var(--space-size-2);
-    display: flex;
-    width: fit-content;
-    max-width: 100%;
-    flex-direction: row;
-    border: 1px solid currentColor;
-  }
-
-  .filter-label,
-  .filter-input {
-    border-radius: calc(var(--space-size-2) - 1px);
-  }
-
-  .filter-label {
-    border-start-end-radius: 0;
-    border-end-end-radius: 0;
-    padding: var(--space-size-2);
-    border-right: inherit;
-  }
-
-  .filter-input {
-    border-start-start-radius: 0;
-    border-end-start-radius: 0;
-    border: 0;
-    flex: 1 1 auto;
-    min-width: 10ch;
-    padding-inline: var(--space-size-2);
-    &:focus {
-      outline: none;
     }
   }
-</style>
+</script>
