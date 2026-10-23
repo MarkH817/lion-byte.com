@@ -52,6 +52,7 @@
     "astro-og": "^0.3.2",
     "astrojs-atom": "^4.0.123",
     "modern-normalize": "^3.0.1",
+    "nanostores": "^1.5.5",
     "sanitize-html": "^2.18.1",
     "satteri": "^0.10.5",
     "zod": "^4.6.7"
