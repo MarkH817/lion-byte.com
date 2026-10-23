@@ -1,5 +1,5 @@
 ---
-import Bookmarks from '#components/atmosphere/Bookmarks.astro'
+import BookmarkList from '#components/atmosphere/BookmarkList.astro'
 import PreloadFont from '#components/head/PreloadFont.astro'
 import PAGES from '#data/pages.json' with { type: 'json' }
 import SOCIALS from '#data/socials.json' with { type: 'json' }
@@ -35,7 +35,7 @@ const searchInputId = `bookmark-search-text`
       class="bookmark-filters-text"
     />
   </div>
-  <Bookmarks />
+  <BookmarkList />
 </BaseLayout>
 
 <script>

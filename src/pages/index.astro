@@ -1,6 +1,6 @@
 ---
 import profileImg from '#assets/profile.png'
-import Bookmarks from '#components/atmosphere/Bookmarks.astro'
+import BookmarkList from '#components/atmosphere/BookmarkList.astro'
 import NpmxLikes from '#components/atmosphere/NpmxLikes.astro'
 import PreloadFont from '#components/head/PreloadFont.astro'
 import ProfileCard from '#components/ProfileCard.astro'
@@ -77,7 +77,7 @@ emailUrl.searchParams.append('subject', '👋 Hey Mark!')
     <a href="/bookmarks/" aria-label="View More Bookmarks" slot="actions">
       View More
     </a>
-    <Bookmarks limit={3} />
+    <BookmarkList limit={3} />
   </Region>
 
   <Region id="liked-packages" label="Liked Packages (via npmx.dev)">
