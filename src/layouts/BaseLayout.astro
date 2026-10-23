@@ -117,11 +117,15 @@ const favicon = await getImage({
     <a class="visually-hidden-focusable skip-link" href="#main-content">
       Skip to main content
     </a>
-
     <div class="site-container">
       <Header />
       <main id="main-content" class="site-main" tabindex="-1">
-        <h1 class="site-page-title">{displayTitle}</h1>
+        <div class="site-main-header">
+          <h1 class="site-main-title">{displayTitle}</h1>
+          <div class="site-main-actions">
+            <slot name="actions" />
+          </div>
+        </div>
         <slot />
       </main>
     </div>
@@ -153,7 +157,27 @@ const favicon = await getImage({
     padding: 0 var(--space-size-5);
   }
 
-  .site-page-title {
-    margin-top: 0;
+  .site-main-header {
+    display: flex;
+    flex-direction: row;
+    gap: 0 var(--space-size-4);
+    flex-wrap: wrap;
+    align-items: baseline;
+    margin-block-end: var(--space-size-2);
+  }
+
+  .site-main-title {
+    margin-block: 0;
+  }
+
+  .site-main-actions {
+    font-size: var(--font-size-4);
+    display: flex;
+    flex-direction: row;
+    flex-direction: wrap;
+    gap: 0 var(--space-size-3);
+    &:empty {
+      display: none;
+    }
   }
 </style>

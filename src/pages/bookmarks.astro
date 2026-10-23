@@ -18,11 +18,9 @@ const searchInputId = `bookmark-search-text`
     href={nunito700Url}
     slot="additional-preload"
   />
-  <p style="font-size: var(--font-size-4);">
-    <a href={SOCIALS.margin.url} target="_blank" rel="me noopener">
-      View All on Margin
-    </a>
-  </p>
+  <a href={SOCIALS.margin.url} target="_blank" rel="me noopener" slot="actions">
+    View All on Margin
+  </a>
   <div class="js-only focus-visible-within bookmark-filters">
     <label class="filter-label" for={searchInputId}>
       Search

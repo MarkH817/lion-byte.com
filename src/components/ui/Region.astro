@@ -1,15 +1,18 @@
 ---
-interface Props {
-  id?: string
+import type { HTMLAttributes } from 'astro/types'
+
+interface Props extends HTMLAttributes<'section'> {
   label: string
 }
 const { id = `region-${crypto.randomUUID()}`, label } = Astro.props
 ---
 
-<section aria-labelledby={id}>
-  <header>
-    <h2 {id}>{label}</h2>
-    <div class="actions">
+<section class="region" aria-labelledby={id}>
+  <header class="region-header">
+    <h2 {id} class="region-heading">
+      {label}
+    </h2>
+    <div class="region-actions">
       <slot name="actions" />
     </div>
   </header>
@@ -17,7 +20,7 @@ const { id = `region-${crypto.randomUUID()}`, label } = Astro.props
 </section>
 
 <style>
-  header {
+  .region-header {
     display: flex;
     flex-direction: row;
     gap: 0 var(--space-size-4);
@@ -25,11 +28,14 @@ const { id = `region-${crypto.randomUUID()}`, label } = Astro.props
     align-items: baseline;
   }
 
-  .actions {
+  .region-actions {
     font-size: var(--font-size-4);
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
     gap: 0 var(--font-size-3);
+    &:empty {
+      display: none;
+    }
   }
 </style>

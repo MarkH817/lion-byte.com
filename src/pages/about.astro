@@ -31,6 +31,11 @@ const positions = await getCollection('careerPositions').then((p) =>
     href={nunito700Url}
     slot="additional-preload"
   />
+
+  <a href={SOCIALS.sifa.url} target="_blank" rel="me noopener" slot="actions">
+    View Sifa Profile
+  </a>
+
   <ProfileCard>
     <Image
       src={photo}
@@ -60,10 +65,6 @@ const positions = await getCollection('careerPositions').then((p) =>
   </Fragment>
 
   <Region id="work-history" label="Work History">
-    <a href={SOCIALS.sifa.url} target="_blank" rel="me noopener" slot="actions">
-      View Sifa Profile
-    </a>
-
     <ul class="list-unstyled position-list">
       {positions.map((position) => (
         <li>
