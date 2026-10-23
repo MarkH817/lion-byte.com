@@ -10,7 +10,7 @@ import type { CollectionEntry } from 'astro:content'
 interface Props extends HTMLAttributes<'article'> {
   entry: GroupByResult<string, CollectionEntry<'marginAtNotes'>>
 }
-const { entry, ...attrs } = Astro.props
+const { class: className, entry, ...attrs } = Astro.props
 const common = pick(entry.items[0].data, ['title', 'source'])
 const hostname = new URL(common.source).hostname
 const tags = unique(entry.items.flatMap((item) => item.data.tags))
@@ -19,6 +19,7 @@ const id = `bookmark-${crypto.randomUUID()}`
 
 <article
   class="bookmark"
+  class:list={[className]}
   data-bookmark-title={common.title}
   data-bookmark-hostname={hostname}
   aria-labelledby={id}
@@ -51,13 +52,11 @@ const id = `bookmark-${crypto.randomUUID()}`
         {tags.length > 0 ? (
           tags.map((tag) => (
             <li>
-              <Badge label={tag} icon="fa7-solid:tag" />
+              <Badge icon="fa7-solid:tag">{tag}</Badge>
             </li>
           ))
         ) : (
-          <li>
-            <Badge label="untagged" />
-          </li>
+          <li>untagged</li>
         )}
       </ul>
     </div>
@@ -101,17 +100,18 @@ const id = `bookmark-${crypto.randomUUID()}`
     flex-direction: column;
     gap: var(--space-size-1) var(--space-size-6);
     justify-content: space-between;
+    font-weight: bold;
   }
 
   .hostname {
     font-size: var(--font-size-2);
-    font-weight: bold;
   }
 
   .tags {
     display: flex;
     flex-wrap: wrap;
     gap: var(--space-size-5);
+    font-size: var(--font-size-1);
     &.tags--empty {
       font-style: italic;
     }

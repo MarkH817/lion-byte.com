@@ -1,5 +1,5 @@
 ---
-import { Icon } from 'astro-icon/components'
+import Badge from '#components/ui/Badge.astro'
 import { getCollection } from 'astro:content'
 
 const likes = await getCollection('npmxLikes').then((l) => l.toReversed())
@@ -8,15 +8,16 @@ const likes = await getCollection('npmxLikes').then((l) => l.toReversed())
 <ul class="list-unstyled package-list">
   {likes.map((like) => (
     <li>
-      <a
+      <Badge
+        as="a"
         class="package"
         href={like.data.subjectRef}
         target="_blank"
         rel="noopener"
+        icon="fa7-solid:box-open"
       >
-        <Icon name="fa7-solid:box-open" class:list="package-icon" aria-hidden />
-        <span>{like.data.packageName}</span>
-      </a>
+        {like.data.packageName}
+      </Badge>
     </li>
   ))}
 </ul>
@@ -34,21 +35,15 @@ const likes = await getCollection('npmxLikes').then((l) => l.toReversed())
   }
 
   .package {
-    display: inline-flex;
-    gap: var(--space-size-2);
     font-size: var(--font-size-4);
-    align-items: center;
     line-height: 1;
-    padding: var(--space-size-2) var(--space-size-4);
+    gap: var(--space-size-2);
     border-radius: var(--space-size-2);
+    padding: var(--space-size-2) var(--space-size-4);
     border: 1px dotted currentColor;
     &:focus-visible {
       outline-offset: -0.15rem;
       border-color: transparent;
     }
-  }
-
-  .package-icon {
-    flex-shrink: 0;
   }
 </style>
