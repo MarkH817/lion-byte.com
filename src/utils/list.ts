@@ -1,26 +1,19 @@
-import type { NonEmptyList } from '#types/list.ts'
-
-export type GroupByResult<Key, Item> = {
-  key: Key
-  items: NonEmptyList<Item>
-}
-
 export function groupBy<Item, Key extends string | number>(
   list: Iterable<Item>,
   keyFn: (item: Item) => Key,
-): Array<GroupByResult<Key, Item>> {
-  const map = new Map<Key, NonEmptyList<Item>>()
+): Map<Key, Set<Item>> {
+  const map = new Map<Key, Set<Item>>()
   for (const item of list) {
     const key = keyFn(item)
     if (map.has(key)) {
-      map.get(key)!.push(item)
+      map.get(key)!.add(item)
     } else {
-      map.set(key, [item])
+      map.set(key, new Set([item]))
     }
   }
-  return Array.from(map).map(([key, items]) => ({ key, items }))
+  return map
 }
 
-export function unique<T>(list: Iterable<T>): T[] {
+export function unique<Item>(list: Iterable<Item>): Item[] {
   return Array.from(new Set(list))
 }

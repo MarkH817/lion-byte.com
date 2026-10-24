@@ -1,40 +1,31 @@
 ---
 import Badge from '#components/ui/Badge.astro'
 import Conditional from '#components/ui/Conditional.astro'
-import { unique, type GroupByResult } from '#utils/list.ts'
-import { pick } from '#utils/object.ts'
 import { Icon } from 'astro-icon/components'
 import type { HTMLAttributes } from 'astro/types'
 import type { CollectionEntry } from 'astro:content'
 
 interface Props extends HTMLAttributes<'article'> {
-  entry: GroupByResult<string, CollectionEntry<'marginAtNotes'>>
+  bookmark: CollectionEntry<'marginAtNotes'>
 }
-const { class: className, entry, ...attrs } = Astro.props
-const common = pick(entry.items[0].data, ['title', 'source'])
-const hostname = new URL(common.source).hostname
-const tags = unique(entry.items.flatMap((item) => item.data.tags))
-const id = `bookmark-${crypto.randomUUID()}`
+const { class: className, bookmark, ...attrs } = Astro.props
+const { title, source, tags, quotes, annotations } = bookmark.data
+const hostname = new URL(source).hostname
+const id = `bookmark-${bookmark.id}`
 ---
 
 <article
   class="bookmark"
   class:list={[className]}
-  data-bookmark-title={common.title}
+  data-bookmark-title={title}
   data-bookmark-hostname={hostname}
   data-bookmark-tags={tags.join(',')}
   aria-labelledby={id}
   {...attrs}
 >
   <header>
-    <a
-      {id}
-      class="h3 title"
-      href={common.source}
-      target="_blank"
-      rel="noopener"
-    >
-      {common.title}{' '}
+    <a {id} class="h3 title" href={source} target="_blank" rel="noopener">
+      {title}{' '}
       <span class="arrow" aria-hidden="true">
         &nearrow;
       </span>
@@ -63,16 +54,25 @@ const id = `bookmark-${crypto.randomUUID()}`
     </div>
   </header>
 
-  <Conditional if={entry.items.some((i) => i.data.highlightQuote)}>
-    <div class="annotations-and-highlights">
-      {entry.items.map((item) =>
-        item.data.highlightQuote ? (
-          <blockquote cite={item.data.source}>
-            <Icon name="fa7-solid:highlighter" aria-hidden />
-            {item.data.highlightQuote}
-          </blockquote>
-        ) : null,
-      )}
+  <Conditional if={annotations.length > 0}>
+    <div class="annotation-list">
+      {annotations.map((annotation) => (
+        <p class="annotation">
+          <Icon name="fa7-solid:paw" aria-hidden="true" />
+          {annotation}
+        </p>
+      ))}
+    </div>
+  </Conditional>
+
+  <Conditional if={quotes.length > 0}>
+    <div class="highlight-list">
+      {quotes.map((quote) => (
+        <blockquote class="highlight" cite={source}>
+          <Icon name="fa7-solid:highlighter" aria-hidden="true" />
+          {quote}
+        </blockquote>
+      ))}
     </div>
   </Conditional>
 </article>
@@ -118,14 +118,15 @@ const id = `bookmark-${crypto.randomUUID()}`
     }
   }
 
-  .annotations-and-highlights {
+  .highlight-list,
+  .annotation-list {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(min-content, 50ch));
     gap: var(--space-size-2);
     align-items: start;
   }
 
-  blockquote {
+  .highlight {
     font-style: italic;
     line-height: 1.25;
     font-size: var(--font-size-3);
@@ -135,5 +136,9 @@ const id = `bookmark-${crypto.randomUUID()}`
     padding-inline: var(--space-size-5);
     padding-block: var(--space-size-3);
     white-space: pre-wrap;
+  }
+
+  .annotation {
+    margin: 0;
   }
 </style>

@@ -1,5 +1,4 @@
 ---
-import { groupBy } from '#utils/list.ts'
 import { getCollection } from 'astro:content'
 import Bookmark from './Bookmark.astro'
 import type { HTMLAttributes } from 'astro/types'
@@ -11,13 +10,12 @@ const { limit, ...attrs } = Astro.props
 const bookmarks = await getCollection('marginAtNotes').then((l) =>
   l.toReversed(),
 )
-const groupedBookmarks = groupBy(bookmarks, (b) => b.data.source)
 ---
 
 <ul class="list-unstyled bookmark-list" {...attrs}>
-  {groupedBookmarks.slice(0, limit).map((group) => (
+  {bookmarks.map((bookmark) => (
     <li>
-      <Bookmark entry={group} />
+      <Bookmark {bookmark} />
     </li>
   ))}
 </ul>
