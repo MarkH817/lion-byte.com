@@ -1,7 +1,6 @@
-import { z } from 'zod/mini'
+import { z } from 'astro/zod'
 import like from '#lexicons/dev/npmx/feed/like.ts'
 import { listAll } from './utils/lex-client'
-import { parseRKey } from './utils/parse-rkey'
 
 export const NpmxLikesCollection = z.object({
   id: z.string(),
@@ -15,15 +14,13 @@ export async function getNpmxLikes() {
   const records = await listAll(like)
   return records.reduce<z.infer<typeof NpmxLikesCollection>[]>(
     (acc, record) => {
-      if (like.matches(record.value)) {
-        acc.push({
-          id: parseRKey(record.uri),
-          uri: record.uri,
-          createdAt: new Date(record.value.createdAt),
-          subjectRef: record.value.subjectRef,
-          packageName: extractPackageName(record.value.subjectRef),
-        })
-      }
+      acc.push({
+        id: record.rkey,
+        uri: record.uri,
+        createdAt: new Date(record.value.createdAt),
+        subjectRef: record.value.subjectRef,
+        packageName: extractPackageName(record.value.subjectRef),
+      })
       return acc
     },
     [],

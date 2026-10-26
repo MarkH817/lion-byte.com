@@ -1,10 +1,7 @@
-import type { InferInput } from '@atproto/lex'
 import { z } from 'astro/zod'
 import note from '#lexicons/at/margin/note.ts'
-import type { NonEmptyList } from '#types/list.ts'
 import { unique } from '#utils/list.ts'
 import { listAll } from './utils/lex-client'
-import { parseRKey } from './utils/parse-rkey'
 
 export const MarginNoteCollection = z.object({
   id: z.string(),
@@ -18,49 +15,43 @@ export const MarginNoteCollection = z.object({
 })
 
 export async function getMarginAtNotes() {
-  const records = await listAll(note)
-  const notesBySource = new Map<
-    string,
-    NonEmptyList<{ uri: string; value: InferInput<typeof note> }>
-  >()
+  const records = await listAll(note).then((list) =>
+    list.toSorted(
+      (a, b) =>
+        new Date(a.value.createdAt).getTime() -
+        new Date(b.value.createdAt).getTime(),
+    ),
+  )
+  const notesBySource = new Map<string, typeof records>()
 
   // Group entries by the source (uri)
   for (const record of records) {
-    if (!note.matches(record.value)) {
-      continue
-    }
     const source = record.value.target.source
-    const noteRecord = { uri: record.uri, value: record.value }
     if (notesBySource.has(source)) {
-      notesBySource.get(source)!.push(noteRecord)
+      notesBySource.get(source)!.push(record)
     } else {
-      notesBySource.set(source, [noteRecord])
+      notesBySource.set(source, [record])
     }
   }
 
   // Combine entries into single record
-  const result: Array<z.infer<typeof MarginNoteCollection>> = []
-  for (const noteRecords of notesBySource.values()) {
-    const sortedRecords = noteRecords.toSorted(
-      (a, b) =>
-        new Date(a.value.createdAt).getTime() -
-        new Date(b.value.createdAt).getTime(),
-    )
-    const first = sortedRecords[0]
-    result.push({
-      id: parseRKey(first.uri),
+  return Array.from(notesBySource.values()).map<
+    z.infer<typeof MarginNoteCollection>
+  >((noteRecords) => {
+    const first = noteRecords[0]
+    return {
+      id: first.rkey,
       createdAt: new Date(first.value.createdAt),
       title: first.value.target.title ?? '',
       source: first.value.target.source,
-      uris: sortedRecords.map((r) => r.uri),
-      tags: unique(sortedRecords.flatMap((r) => r.value.tags ?? [])),
-      annotations: sortedRecords
+      uris: noteRecords.map((r) => r.uri),
+      tags: unique(noteRecords.flatMap((r) => r.value.tags ?? [])),
+      annotations: noteRecords
         .filter((r) => r.value.motivation === 'tagging')
         .map((r) => r.value.body?.value ?? ''),
-      quotes: sortedRecords
+      quotes: noteRecords
         .filter((r) => r.value.motivation === 'highlighting')
         .map((r) => r.value.target.selector?.exact ?? ''),
-    })
-  }
-  return result
+    }
+  })
 }

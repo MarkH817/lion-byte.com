@@ -1,7 +1,6 @@
-import { z } from 'zod/mini'
+import { z } from 'astro/zod'
 import position from '#lexicons/id/sifa/profile/position.ts'
 import { listAll } from './utils/lex-client'
-import { parseRKey } from './utils/parse-rkey'
 
 export const PositionCollection = z.object({
   id: z.string(),
@@ -16,12 +15,9 @@ export const PositionCollection = z.object({
 export async function getPositions() {
   const records = await listAll(position)
   return records.reduce<z.infer<typeof PositionCollection>[]>((acc, record) => {
-    if (
-      position.matches(record.value) &&
-      typeof record.value.isPrimary === 'boolean'
-    ) {
+    if (typeof record.value.isPrimary === 'boolean') {
       acc.push({
-        id: parseRKey(record.uri),
+        id: record.rkey,
         uri: record.uri,
         title: record.value.title,
         company: record.value.company,
