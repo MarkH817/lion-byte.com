@@ -196,6 +196,13 @@ button {
   background-color: var(--background-color);
 }
 
+button {
+  cursor: pointer;
+  &:disabled {
+    cursor: not-allowed;
+  }
+}
+
 /* Utils */
 .list-unstyled {
   padding-left: 0;

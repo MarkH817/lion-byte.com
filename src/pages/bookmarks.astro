@@ -1,10 +1,34 @@
 ---
 import BookmarkList from '#components/atmosphere/BookmarkList.astro'
 import PreloadFont from '#components/head/PreloadFont.astro'
+import Badge from '#components/ui/Badge.astro'
 import PAGES from '#data/pages.json' with { type: 'json' }
 import SOCIALS from '#data/socials.json' with { type: 'json' }
 import BaseLayout from '#layouts/BaseLayout.astro'
+import type { Suggestible } from '#types/text.ts'
 import nunito700Url from '@fontsource/nunito/files/nunito-latin-700-normal.woff2?url'
+import { getCollection } from 'astro:content'
+
+const tagList = await getCollection('marginAtNotes').then((list) => {
+  const tagCountMap = new Map<Suggestible<'untagged'>, number>()
+  function countTag(tag: Suggestible<'untagged'>): void {
+    tagCountMap.set(tag, (tagCountMap.get(tag) ?? 0) + 1)
+  }
+
+  // Gather tag count
+  for (const bookmark of list) {
+    if (bookmark.data.tags.length === 0) {
+      countTag('untagged')
+    } else {
+      bookmark.data.tags.forEach(countTag)
+    }
+  }
+
+  // Return tag list sorted by most to least common tags
+  return Array.from(tagCountMap.entries())
+    .toSorted(([, a], [, b]) => b - a)
+    .map(([tag, count]) => ({ value: tag, count }))
+})
 ---
 
 <BaseLayout
@@ -19,31 +43,144 @@ import nunito700Url from '@fontsource/nunito/files/nunito-latin-700-normal.woff2
   <a href={SOCIALS.margin.url} target="_blank" rel="me noopener" slot="actions">
     View All on Margin
   </a>
+
+  <div class="js-only filters">
+    {tagList.map((tag) => (
+      <button
+        class="filter-tag"
+        type="button"
+        data-filter-tag={tag.value}
+        aria-pressed="false"
+      >
+        {tag.value === 'untagged' ? (
+          <>
+            {tag.value} ({tag.count})
+          </>
+        ) : (
+          <Badge icon="fa7-solid:tag">
+            {tag.value} ({tag.count})
+          </Badge>
+        )}
+      </button>
+    ))}
+  </div>
+
   <BookmarkList />
 </BaseLayout>
 
 <script>
+  import type { Suggestible } from '#types/text.ts'
+  import { atom, effect } from 'nanostores'
+
+  const $activeTag = atom<string | null>(null)
+  function toggleActiveTag(tag: string) {
+    if ($activeTag.value === tag) {
+      $activeTag.set(null)
+    } else {
+      $activeTag.set(tag)
+    }
+  }
+
   const domBookmarks = Array.from(
     document.querySelectorAll<HTMLElement>('.bookmark'),
   )
-  const untaggedBookmarks = new Set<HTMLElement>()
-  const tagsMap = new Map<string, Set<HTMLElement>>()
+
+  const tagsMap = new Map<Suggestible<'untagged'>, Set<HTMLElement>>([
+    ['untagged', new Set()],
+  ])
+  function addBookmarkTag(
+    tag: Suggestible<'untagged'>,
+    element: HTMLElement,
+  ): void {
+    if (tagsMap.has(tag)) {
+      tagsMap.get(tag)?.add(element)
+    } else {
+      tagsMap.set(tag, new Set([element]))
+    }
+  }
+
   for (const bm of domBookmarks) {
     const tags = bm.dataset.bookmarkTags
       ?.split(',')
       .map((t) => t.trim())
       .filter((t) => t.length > 0)
-    if (!tags || tags.length === 0) {
-      untaggedBookmarks.add(bm)
-      continue
-    }
 
-    for (const tag of tags) {
-      if (tagsMap.has(tag)) {
-        tagsMap.get(tag)?.add(bm)
-      } else {
-        tagsMap.set(tag, new Set([bm]))
-      }
+    if (!tags || tags.length === 0) {
+      addBookmarkTag('untagged', bm)
+    } else {
+      tags.forEach((tag) => {
+        addBookmarkTag(tag, bm)
+      })
     }
   }
+
+  effect($activeTag, (activeTag) => {
+    if (activeTag) {
+      const matchedBookmarks = tagsMap.get(activeTag)
+      domBookmarks.forEach((bm) => {
+        bm.hidden = !(matchedBookmarks?.has(bm) ?? false)
+      })
+    } else {
+      domBookmarks.forEach((bm) => {
+        bm.hidden = false
+      })
+    }
+  })
+
+  const filterTags = document.querySelectorAll<HTMLButtonElement>(
+    '.filter-tag[data-filter-tag]',
+  )
+
+  effect($activeTag, (activeTag) => {
+    filterTags.forEach((filterTag) => {
+      filterTag.ariaPressed =
+        filterTag.dataset.filterTag === activeTag ? 'true' : 'false'
+    })
+  })
+
+  filterTags.forEach((filterTag) => {
+    filterTag.addEventListener('click', () => {
+      toggleActiveTag(filterTag.dataset.filterTag!)
+    })
+  })
 </script>
+
+<style is:global>
+  .filters {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: var(--space-size-2) var(--space-size-4);
+  }
+
+  .filter-tag {
+    border: 1px solid currentColor;
+    padding: var(--space-size-1) var(--space-size-2);
+    border-radius: var(--space-size-5);
+    line-height: 1;
+    box-shadow: inset 0 0 0 0 currentColor;
+    @media (prefers-reduced-motion: no-preference) {
+      transition-duration: 60ms;
+      transition-timing-function: ease-in-out;
+      transition-property: box-shadow;
+    }
+    &:hover,
+    &:focus:not(:focus-visible) {
+      border-style: dashed;
+    }
+    &:focus-visible {
+      border-color: transparent;
+    }
+    &[aria-pressed='true'] {
+      box-shadow: inset 0 0.125rem 0 0.125rem currentColor;
+
+      &,
+      & .badge {
+        text-decoration: underline;
+      }
+    }
+    &:active {
+      box-shadow: inset 0 0.25rem 0 0.25rem currentColor;
+    }
+  }
+</style>

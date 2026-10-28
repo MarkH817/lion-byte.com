@@ -10,8 +10,12 @@ const { as: Tag = 'div', icon, class: className, ...attrs } = Astro.props
 ---
 
 <Tag class="badge" class:list={[className]} {...attrs}>
-  <Icon class="badge-icon" name={icon} aria-hidden="true" />
-  <slot />
+  <div class="badge-icon">
+    <Icon name={icon} aria-hidden="true" />
+  </div>
+  <div class="badge-content">
+    <slot />
+  </div>
 </Tag>
 
 <style>
@@ -19,10 +23,22 @@ const { as: Tag = 'div', icon, class: className, ...attrs } = Astro.props
     display: inline-flex;
     flex-direction: row;
     align-items: center;
+    line-height: 1;
     gap: var(--space-size-1);
+    text-box-edge: cap alphabetic;
+  }
+
+  .badge-icon,
+  .badge-content {
+    flex-shrink: 0;
   }
 
   .badge-icon {
-    flex-shrink: 0;
+    height: 1em;
+  }
+
+  .badge-content {
+    flex-grow: 1;
+    text-box-trim: trim-both;
   }
 </style>

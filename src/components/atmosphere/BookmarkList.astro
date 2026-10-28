@@ -12,7 +12,12 @@ const bookmarks = await getCollection('marginAtNotes').then((l) =>
 )
 ---
 
-<ul class="list-unstyled bookmark-list" class:list={[className]} {...attrs}>
+<ul
+  class="list-unstyled bookmark-list"
+  class:list={[className]}
+  role="list"
+  {...attrs}
+>
   {bookmarks.slice(0, limit).map((bookmark) => (
     <li>
       <Bookmark {bookmark} />
